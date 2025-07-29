@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISENTURE - VERSIÓN EXPLOSIVA</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fef2f2, #fed7aa, #fef3c7);
+            font-family: 'Arial Black', 'Impact', sans-serif;
+        }
+        * {
+            transition: all 0.3s ease;
+        }
+        @keyframes fireGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.8); }
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            animation: fireGlow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div id="header-placeholder"></div>
+    <div id="content-placeholder"></div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('../app/header3.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+        
+        fetch('home3.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-placeholder').innerHTML = data;
+            });
+        
+        fetch('../app/footer3.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+/* Estilos para la página de pago exitoso */
+
+/* Animación para el ícono de éxito */
+.success-icon {
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Estilos adicionales */
+.success-icon .material-icons {
+    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+}

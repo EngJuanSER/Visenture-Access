@@ -1,0 +1,420 @@
+<div class="min-h-screen bg-slate-900">
+    <div class="bg-emerald-800 text-white p-6">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold">Gestión de perfil</h1>
+            <p class="text-emerald-100">Administra tus preferencias y configuración personal</p>
+        </div>
+    </div>
+    <div class="container mx-auto p-4 lg:p-6 flex flex-col lg:flex-row gap-6">
+        <!-- Menú de navegación lateral -->
+        <div class="lg:w-1/4 bg-gray-800 rounded-lg shadow-md p-4 lg:self-start lg:sticky lg:top-4">
+            <h2 class="font-medium text-lg text-white mb-4">Bienvenido, User</h2>
+            
+            <nav class="space-y-1">
+                <button id="informationBtn" data-tab="information"
+                    class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer bg-emerald-900 text-emerald-300 font-medium">
+                    <i class="fa-solid fa-user mr-3"></i>
+                    <span>Información personal</span>
+                </button>
+                
+                <button id="preferencesBtn" data-tab="preferences"
+                    class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-sliders mr-3"></i>
+                    <span>Preferencias</span>
+                </button>
+                
+                <button id="securityBtn" data-tab="security"
+                    class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-shield-halved mr-3"></i>
+                    <span>Seguridad</span>
+                </button>
+                
+                <button id="suscriptionBtn" data-tab="suscription"
+                    class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-credit-card mr-3"></i>
+                    <span>Suscripción</span>
+                </button>
+                
+                <button id="middlemanBtn" data-tab="middleman"
+                    class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-headset mr-3"></i>
+                    <span>Comisionista</span>
+                </button>
+                
+                <button id="historicalBtn" data-tab="historical"
+                    class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-clock-rotate-left mr-3"></i>
+                    <span>Historial</span>
+                </button>
+            </nav>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Seleccionar todos los botones de pestañas
+                    const tabButtons = document.querySelectorAll('[data-tab]');
+                    
+                    // Seleccionar todos los contenidos de pestañas
+                    const tabContents = document.querySelectorAll('[data-tab-content]');
+                    
+                    // Función para ocultar todos los contenidos
+                    function hideAllContents() {
+                        tabContents.forEach(content => {
+                            content.classList.add('hidden');
+                        });
+                    }
+                    
+                    // Función para desactivar todos los botones
+                    function deactivateAllButtons() {
+                        tabButtons.forEach(button => {
+                            button.classList.remove('bg-emerald-900', 'text-emerald-300', 'font-medium');
+                        });
+                    }
+                    
+                    // Función para mostrar una sección específica
+                    function showTab(tabId) {
+                        hideAllContents();
+                        deactivateAllButtons();
+                        
+                        // Activar el botón correspondiente
+                        const button = document.querySelector(`[data-tab="${tabId}"]`);
+                        button.classList.add('bg-emerald-900', 'text-emerald-300', 'font-medium');
+                        
+                        // Mostrar el contenido correspondiente
+                        const content = document.querySelector(`[data-tab-content="${tabId}"]`);
+                        content.classList.remove('hidden');
+                    }
+                    
+                    // Asignar event listeners a los botones
+                    tabButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            const tabId = this.getAttribute('data-tab');
+                            showTab(tabId);
+                        });
+                    });
+                    
+                    // Mostrar la sección de información por defecto
+                    showTab('information');
+                });
+            </script>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="lg:w-3/4 bg-gray-800 rounded-lg shadow-md p-4">
+            <!-- Contenido dinámico según la pestaña activa -->
+            
+            <!-- Sección de Información Personal -->
+            <div id="informationContent" class="tab-content" data-tab-content="information">
+                <h2 class="text-xl font-bold text-white mb-6">Información Personal</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Nombre</label>
+                            <input type="text" value="Juan" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Apellidos</label>
+                            <input type="text" value="Pérez" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Correo Electrónico</label>
+                            <input type="email" value="juan.perez@ejemplo.com" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Teléfono</label>
+                            <input type="tel" value="+34 123 456 789" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-300 mb-2">Dirección</label>
+                        <input type="text" value="Calle Ejemplo 123" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500 mb-2">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <input type="text" placeholder="Ciudad" value="Madrid" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                            <input type="text" placeholder="Provincia" value="Madrid" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                            <input type="text" placeholder="Código Postal" value="28001" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Sección de Preferencias -->
+            <div id="preferencesContent" class="tab-content hidden" data-tab-content="preferences">
+                <h2 class="text-xl font-bold text-white mb-6">Preferencias</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h3 class="text-lg font-medium text-white mb-4">Configuración de Notificaciones</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-gray-300">Notificaciones por correo</h4>
+                                    <p class="text-gray-400 text-sm">Recibir alertas y actualizaciones en tu email</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-gray-300">Notificaciones push</h4>
+                                    <p class="text-gray-400 text-sm">Alertas en tu dispositivo</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h3 class="text-lg font-medium text-white mb-4">Tema de la Aplicación</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gray-800 border-2 border-emerald-500 rounded-lg p-4 text-center">
+                                <div class="h-20 bg-gradient-to-r from-gray-900 to-gray-800 rounded mb-3"></div>
+                                <p class="text-white">Oscuro</p>
+                            </div>
+                            <div class="bg-gray-800 border border-gray-600 rounded-lg p-4 text-center">
+                                <div class="h-20 bg-gradient-to-r from-gray-200 to-white rounded mb-3"></div>
+                                <p class="text-gray-300">Claro</p>
+                            </div>
+                            <div class="bg-gray-800 border border-gray-600 rounded-lg p-4 text-center">
+                                <div class="h-20 bg-gradient-to-r from-indigo-900 to-purple-900 rounded mb-3"></div>
+                                <p class="text-gray-300">Contraste</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Guardar Preferencias
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de Seguridad -->
+            <div id="securityContent" class="tab-content hidden" data-tab-content="security">
+                <h2 class="text-xl font-bold text-white mb-6">Seguridad</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h3 class="text-lg font-medium text-white mb-4">Cambio de Contraseña</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-gray-300 mb-2">Contraseña Actual</label>
+                                <input type="password" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Nueva Contraseña</label>
+                                <input type="password" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Confirmar Contraseña</label>
+                                <input type="password" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                            </div>
+                            <div class="flex justify-end">
+                                <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                    Actualizar Contraseña
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h3 class="text-lg font-medium text-white mb-4">Autenticación en Dos Pasos</h3>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h4 class="text-gray-300">Activar verificación en dos pasos</h4>
+                                <p class="text-gray-400 text-sm">Añade una capa adicional de seguridad a tu cuenta</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-gray-400 text-sm">
+                            La verificación en dos pasos añade una capa adicional de seguridad. Además de tu contraseña, necesitarás un código de verificación para iniciar sesión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de Suscripción -->
+            <div id="suscriptionContent" class="tab-content hidden" data-tab-content="suscription">
+                <h2 class="text-xl font-bold text-white mb-6">Suscripción</h2>
+                
+                <div class="bg-gray-700 rounded-lg p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-white">Plan Actual</h3>
+                        <span class="px-3 py-1 bg-emerald-900/50 text-emerald-400 rounded-full text-sm">Activo</span>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-emerald-400">Plan Pro</h4>
+                        <p class="text-gray-400">$24.99/mes · Renovación automática el 15/08/2025</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Cambiar Plan
+                        </button>
+                        <button class="bg-transparent border border-gray-600 hover:border-red-500 text-gray-300 hover:text-red-400 px-6 py-2 rounded-lg transition-colors">
+                            Cancelar Suscripción
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-white mb-4">Historial de Facturación</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left text-gray-400 border-b border-gray-600">
+                                    <th class="pb-2">Fecha</th>
+                                    <th class="pb-2">Importe</th>
+                                    <th class="pb-2">Estado</th>
+                                    <th class="pb-2">Factura</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3">15/07/2025</td>
+                                    <td>$24.99</td>
+                                    <td><span class="px-2 py-1 bg-emerald-900/30 text-emerald-400 rounded text-xs">Pagado</span></td>
+                                    <td><a href="#" class="text-emerald-400 hover:text-emerald-300">Ver PDF</a></td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3">15/06/2025</td>
+                                    <td>$24.99</td>
+                                    <td><span class="px-2 py-1 bg-emerald-900/30 text-emerald-400 rounded text-xs">Pagado</span></td>
+                                    <td><a href="#" class="text-emerald-400 hover:text-emerald-300">Ver PDF</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3">15/05/2025</td>
+                                    <td>$24.99</td>
+                                    <td><span class="px-2 py-1 bg-emerald-900/30 text-emerald-400 rounded text-xs">Pagado</span></td>
+                                    <td><a href="#" class="text-emerald-400 hover:text-emerald-300">Ver PDF</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de Comisionista -->
+            <div id="middlemanContent" class="tab-content hidden" data-tab-content="middleman">
+                <h2 class="text-xl font-bold text-white mb-6">Tu Comisionista</h2>
+                
+                <div class="bg-gray-700 rounded-lg p-6 mb-6">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                        <div class="bg-emerald-900/30 p-6 rounded-full">
+                            <span class="material-icons text-5xl text-emerald-400">support_agent</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-1">Carlos Rodríguez</h3>
+                            <p class="text-emerald-400 mb-2">Comisionista Senior</p>
+                            <div class="flex flex-wrap gap-4 text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-envelope text-sm mr-1"></i>
+                                    <span>carlos.rodriguez@visenture.com</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-phone text-sm mr-1"></i>
+                                    <span>+34 987 654 321</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-white mb-4">Contactar con mi Comisionista</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Asunto</label>
+                            <input type="text" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500"></textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Sección de Historial -->
+            <div id="historicalContent" class="tab-content hidden" data-tab-content="historical">
+                <h2 class="text-xl font-bold text-white mb-6">Historial de Actividad</h2>
+                
+                <div class="bg-gray-700 rounded-lg p-6 mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-white">Actividad Reciente</h3>
+                        <div class="relative">
+                            <select class="bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-emerald-500 appearance-none pr-8">
+                                <option>Últimos 7 días</option>
+                                <option>Últimos 30 días</option>
+                                <option>Últimos 3 meses</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down absolute right-3 top-3 text-gray-400 pointer-events-none"></i>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4">
+                        <li class="border-l-2 border-emerald-500 pl-4 py-1">
+                            <p class="text-white">Inicio de sesión exitoso</p>
+                            <p class="text-sm text-gray-400">24 Jul 2025, 10:45 AM · 192.168.1.1</p>
+                        </li>
+                        <li class="border-l-2 border-emerald-500 pl-4 py-1">
+                            <p class="text-white">Compra de acción AAPL</p>
+                            <p class="text-sm text-gray-400">23 Jul 2025, 3:22 PM · 10 acciones a $150.25</p>
+                        </li>
+                        <li class="border-l-2 border-yellow-500 pl-4 py-1">
+                            <p class="text-white">Configuración de alerta de precio</p>
+                            <p class="text-sm text-gray-400">22 Jul 2025, 11:15 AM · TSLA > $800.00</p>
+                        </li>
+                        <li class="border-l-2 border-emerald-500 pl-4 py-1">
+                            <p class="text-white">Depósito de fondos</p>
+                            <p class="text-sm text-gray-400">20 Jul 2025, 9:30 AM · $1,000.00</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-white mb-4">Descargar Informes</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between bg-gray-800 p-4 rounded-lg">
+                            <div>
+                                <h4 class="text-white">Reporte de transacciones</h4>
+                                <p class="text-sm text-gray-400">Todas las transacciones de los últimos 30 días</p>
+                            </div>
+                            <button class="text-emerald-400 hover:text-emerald-300 flex items-center">
+                                <i class="fa-solid fa-download mr-1"></i>
+                                PDF
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center justify-between bg-gray-800 p-4 rounded-lg">
+                            <div>
+                                <h4 class="text-white">Historial de rendimiento</h4>
+                                <p class="text-sm text-gray-400">Rendimiento de tu cartera en el último mes</p>
+                            </div>
+                            <button class="text-emerald-400 hover:text-emerald-300 flex items-center">
+                                <i class="fa-solid fa-download mr-1"></i>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

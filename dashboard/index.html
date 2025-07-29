@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visenture - Dashboard</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- ApexCharts para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="content-placeholder"></div>
+    <div id="footer-placeholder"></div>
+
+    <!-- Script del sidebar -->
+    <script src="../app/sidebar.js" defer></script>
+    
+    <script>
+        // Cargar el header primero
+        fetch('../app/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Cuando el header se ha cargado, inicializar el sidebar
+                if (typeof initSidebar === 'function') {
+                    setTimeout(initSidebar, 100);
+                }
+            });
+            
+        // Cargar el contenido principal y luego inicializar los gráficos
+        fetch('dashboard.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-placeholder').innerHTML = data;
+                
+                // Cargar e inicializar los gráficos después de que el contenido esté disponible
+                setTimeout(() => {
+                    // Inicialización directa de la gráfica para asegurar que el DOM esté cargado
+                    if (document.getElementById('stock-price-chart')) {
+                        const options = {
+                            chart: {
+                                type: 'candlestick',
+                                height: 320,
+                                foreColor: '#ccc',
+                                toolbar: {
+                                    show: true
+                                },
+                                background: '#1e293b',
+                                animations: {
+                                    enabled: true
+                                }
+                            },
+                            series: [{
+                                data: [
+                                    {x: new Date(2022, 0, 1), y: [150, 155, 148, 153]},
+                                    {x: new Date(2022, 0, 2), y: [153, 159, 151, 156]},
+                                    {x: new Date(2022, 0, 3), y: [156, 160, 154, 158]},
+                                    {x: new Date(2022, 0, 4), y: [158, 162, 155, 160]},
+                                    {x: new Date(2022, 0, 5), y: [160, 165, 158, 163]},
+                                    {x: new Date(2022, 0, 6), y: [163, 168, 160, 165]},
+                                    {x: new Date(2022, 0, 7), y: [165, 170, 162, 167]},
+                                    {x: new Date(2022, 0, 8), y: [167, 172, 164, 169]},
+                                    {x: new Date(2022, 0, 9), y: [169, 174, 166, 171]},
+                                    {x: new Date(2022, 0, 10), y: [171, 176, 168, 173]},
+                                    {x: new Date(2022, 0, 11), y: [173, 178, 170, 175]},
+                                    {x: new Date(2022, 0, 12), y: [175, 180, 172, 177]},
+                                    {x: new Date(2022, 0, 13), y: [177, 182, 174, 179]},
+                                    {x: new Date(2022, 0, 14), y: [179, 184, 176, 181]}
+                                ]
+                            }],
+                            title: {
+                                text: 'AAPL - Evolución de Precios',
+                                align: 'left',
+                                style: {
+                                    color: '#10b981'
+                                }
+                            },
+                            xaxis: {
+                                type: 'datetime',
+                                labels: {
+                                    style: {
+                                        colors: '#ccc'
+                                    }
+                                }
+                            },
+                            yaxis: {
+                                tooltip: {
+                                    enabled: true
+                                },
+                                labels: {
+                                    style: {
+                                        colors: '#ccc'
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                theme: 'dark'
+                            }
+                        };
+                        
+                        const chart = new ApexCharts(document.getElementById('stock-price-chart'), options);
+                        chart.render();
+                    }
+                }, 500);
+            });
+            
+        fetch('../app/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

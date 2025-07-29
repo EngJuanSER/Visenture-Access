@@ -1,0 +1,328 @@
+<!-- Reporte de Cliente -->
+    <div class="min-h-screen bg-gradient-to-r from-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
+        <!-- Card Principal -->
+        <div class="flex justify-center pb-6">
+            <div class="bg-slate-900 p-6 rounded-xl shadow-2xl w-full max-w-7xl transition-all duration-300">
+                <!-- Cabecera con botón de regreso -->
+                <div class="flex items-center mb-6">
+                    <button 
+                        class="mr-3 p-2 bg-slate-800 rounded-full shadow-sm hover:bg-slate-700 transition-colors">
+                        <i class="fa-solid fa-arrow-left text-emerald-400"></i>
+                    </button>
+                    <div>
+                        <h1 class="text-2xl font-bold text-emerald-400">
+                            Reporte de Cliente: Nombre del Cliente
+                        </h1>
+                        <p class="text-gray-400 mt-1">Vista detallada de actividad y rendimiento</p>
+                    </div>
+                </div>
+
+                <!-- Contenido principal -->
+                <div class="space-y-6">
+                    <!-- Tarjeta de información del cliente -->
+                    <div class="bg-slate-800 rounded-xl shadow-md overflow-hidden border border-slate-700 animate-fade-in-up">
+                        <div class="md:flex">
+                            <div class="p-6">
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 rounded-full bg-emerald-900 flex items-center justify-center text-emerald-300">
+                                        <i class="fa-solid fa-user" style="transform: scale(1.5);"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h2 class="text-xl font-bold text-gray-100">Nombre del Cliente</h2>
+                                        <p class="text-sm text-gray-400">Cliente desde 01/01/2023</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-400">Email</p>
+                                        <p class="text-gray-100">cliente@ejemplo.com</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-400">Teléfono</p>
+                                        <p class="text-gray-100">+1234567890</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-400">Estado</p>
+                                        <span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-green-900 text-green-200">
+                                            Activo
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjetas de KPIs del cliente -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in-up delay-100">
+                        <!-- Inversión total -->
+                        <div class="bg-slate-800 rounded-xl shadow-sm overflow-hidden border border-slate-700 p-5 kpi-card neutral">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-400">Inversión Total</p>
+                                    <h3 class="text-xl font-bold text-white mt-2">
+                                        $10,000.00
+                                    </h3>
+                                </div>
+                                <div class="p-2 bg-blue-900 rounded-lg">
+                                    <i class="fa-solid fa-building-columns text-blue-300"></i>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-400">Valor actual: $12,000.00</p>
+                            </div>
+                        </div>
+
+                        <!-- ROI -->
+                        <div class="bg-slate-800 rounded-xl shadow-sm overflow-hidden border border-slate-700 p-5 kpi-card positive">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-400">ROI</p>
+                                    <h3 class="text-xl font-bold mt-2 text-green-400">
+                                        20.00%
+                                    </h3>
+                                </div>
+                                <div class="p-2 rounded-lg bg-green-900">
+                                    <i class="fa-solid fa-chart-line text-green-300"></i>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-400">Ganancia: $2,000.00</p>
+                            </div>
+                        </div>
+
+                        <!-- Operaciones -->
+                        <div class="bg-slate-800 rounded-xl shadow-sm overflow-hidden border border-slate-700 p-5 kpi-card neutral">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-400">Operaciones</p>
+                                    <h3 class="text-xl font-bold text-white mt-2">50</h3>
+                                </div>
+                                <div class="p-2 bg-purple-900 rounded-lg">
+                                    <i class="fa-solid fa-arrow-right-arrow-left text-purple-300"></i>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-400">
+                                    Última operación: 15/07/2024
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Activos principales -->
+                        <div class="bg-slate-800 rounded-xl shadow-sm overflow-hidden border border-slate-700 p-5 kpi-card neutral">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-400">Activos Principales</p>
+                                    <div class="flex flex-wrap gap-1 mt-2">
+                                        <span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-emerald-900 text-emerald-300">
+                                            AAPL
+                                        </span>
+                                        <span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-emerald-900 text-emerald-300">
+                                            GOOGL
+                                        </span>
+                                        <span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-emerald-900 text-emerald-300">
+                                            MSFT
+                                        </span>
+                                        <span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-gray-300">
+                                            +2
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="p-2 bg-amber-900 rounded-lg">
+                                    <i class="fa-solid fa-chart-pie text-amber-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filtros -->
+                    <form class="mb-6 p-4 bg-slate-800 rounded-lg border border-gray-700 animate-fade-in-up delay-200">
+                        <h3 class="text-md font-medium text-gray-200 mb-3 flex items-center">
+                            <span class="material-icons mr-2 text-indigo-400">filter_list</span>
+                            <span>Filtros</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Filtro por período -->
+                            <div class="relative">
+                                <label for="period-filter" class="block text-sm font-medium text-gray-300 mb-2">Período</label>
+                                <div class="relative">
+                                    <select 
+                                        id="period-filter"
+                                        class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-colors duration-200">
+                                        <option value="all">Todo el tiempo</option>
+                                        <option value="last_month">Último mes</option>
+                                        <option value="last_3_months">Últimos 3 meses</option>
+                                        <option value="last_6_months">Últimos 6 meses</option>
+                                        <option value="last_year">Último año</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <span class="material-icons text-blue-400">date_range</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Filtro por mercado -->
+                            <div class="relative">
+                                <label for="market-filter" class="block text-sm font-medium text-gray-300 mb-2">Mercado</label>
+                                <div class="relative">
+                                    <select 
+                                        id="market-filter"
+                                        class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-colors duration-200">
+                                        <option value="">Todos</option>
+                                        <option value="NYSE">NYSE</option>
+                                        <option value="NASDAQ">NASDAQ</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <span class="material-icons text-indigo-400">public</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Filtro por estado -->
+                            <div class="relative">
+                                <label for="status-filter" class="block text-sm font-medium text-gray-300 mb-2">Estado</label>
+                                <div class="relative">
+                                    <select 
+                                        id="status-filter"
+                                        class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-colors duration-200">
+                                        <option value="">Todos</option>
+                                        <option value="active">Activo</option>
+                                        <option value="inactive">Inactivo</option>
+                                        <option value="pending">Pendiente</option>
+                                        <option value="paid">Pagado</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <span class="material-icons text-purple-400">verified_user</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de acción para los filtros -->
+                        <div class="flex justify-end mt-4 space-x-2">
+                            <button 
+                                type="button" 
+                                class="px-4 py-2 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-300 bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <span class="material-icons mr-1">clear</span>
+                                <span>Limpiar</span>
+                            </button>
+                            <button 
+                                type="submit" 
+                                class="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <span class="material-icons mr-1">search</span>
+                                <span>Aplicar</span>
+                            </button>
+                            <div class="py-2 px-3 bg-emerald-900/30 border border-emerald-800 text-emerald-400 rounded-md flex items-center text-sm">
+                                <span class="material-icons mr-1 text-sm">filter_list</span>
+                                <span>Filtros activos</span>
+                            </div>
+                        </div>
+
+                        <!-- Botones de exportación -->
+                        <div class="flex items-center justify-start mt-4 space-x-3">
+                            <button 
+                                type="button"
+                                class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
+                                <span class="material-icons mr-1 text-sm">picture_as_pdf</span>
+                                <span>Exportar PDF</span>
+                            </button>
+                            <button 
+                                type="button"
+                                class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
+                                <span class="material-icons mr-1 text-sm">table_chart</span>
+                                <span>Exportar Excel</span>
+                            </button>
+                        </div>
+                    </form>
+
+                        <!-- Gráficos -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <!-- Gráfico de tendencia de comisiones -->
+                        <div class="bg-slate-800 rounded-lg p-4 shadow-md border border-slate-700 chart-container">
+                            <h3 class="text-lg font-medium text-gray-200 mb-3">Tendencia de Comisiones</h3>
+                            <div id="commissionsTrendChart" class="h-[350px] w-full"></div>
+                        </div>
+                        
+                        <!-- Gráfico de distribución de activos -->
+                        <div class="bg-slate-800 rounded-lg p-4 shadow-md border border-slate-700 chart-container">
+                            <h3 class="text-lg font-medium text-gray-200 mb-3">Distribución de Activos</h3>
+                            <div id="assetDistributionChart" class="h-[350px] w-full"></div>
+                        </div>
+                        
+                        <!-- Gráfico de ROI vs Benchmark -->
+                        <div class="bg-slate-800 rounded-lg p-4 shadow-md border border-slate-700 chart-container lg:col-span-2">
+                            <h3 class="text-lg font-medium text-gray-200 mb-3">ROI vs Benchmark</h3>
+                            <div id="roiTrendChart" class="h-[350px] w-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de comisiones -->
+                    <div class="bg-slate-800 rounded-xl shadow-md overflow-hidden border border-slate-700 animate-fade-in-up delay-400">
+                        <div class="p-5 border-b border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-100">Historial de Comisiones</h2>
+                            <p class="text-sm text-gray-400">Detalle de comisiones generadas por este cliente</p>
+                        </div>
+                        
+                        <div class="p-5">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-slate-800">
+                                    <thead>
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"> Mes </th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"> Año </th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"> Comisiones </th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"> Operaciones </th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"> Mercado </th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"> Estado </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> Julio </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> 2024 </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-emerald-400"> $150.00 </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> 5 </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> NASDAQ </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-900 text-green-200">
+                                                    Pagada
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> Junio </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> 2024 </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-emerald-400"> $120.00 </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> 4 </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"> NYSE </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-900 text-yellow-200">
+                                                    Aprobada
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Paginador -->
+                            <div class="sticky-paginator bg-slate-800 border-t border-gray-700 p-4 flex justify-between items-center">
+                                <span class="text-sm text-gray-400">Mostrando 1-10 de 25 resultados</span>
+                                <div class="flex space-x-2">
+                                    <button class="px-3 py-1 rounded-md bg-gray-700 text-gray-200">Anterior</button>
+                                    <button class="px-3 py-1 rounded-md bg-emerald-600 text-white">1</button>
+                                    <button class="px-3 py-1 rounded-md bg-gray-700 text-gray-200">2</button>
+                                    <button class="px-3 py-1 rounded-md bg-gray-700 text-gray-200">3</button>
+                                    <button class="px-3 py-1 rounded-md bg-gray-700 text-gray-200">Siguiente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archivo JavaScript para gráficos -->
+    <script src="client-report-charts.js"></script>
+

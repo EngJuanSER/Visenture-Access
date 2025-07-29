@@ -1,0 +1,247 @@
+<!-- Panel del Comisionista -->
+    <div class="min-h-screen bg-gradient-to-r from-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
+
+        <!-- Card Principal -->
+        <div class="flex justify-center pb-6">
+            <div class="bg-slate-900 p-6 rounded-xl shadow-2xl w-full max-w-7xl transition-all duration-300">
+                <!-- Cabecera y título -->
+                <div class="flex flex-wrap justify-between items-center mb-6">
+                    <div class="flex items-center">
+                        <h1 class="text-2xl font-bold text-emerald-400">Panel del Comisionista</h1>
+                        <span class="ml-3 px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded-full">Próximamente (Simulación)</span>
+                    </div>
+                    <p class="text-gray-400 mt-1 w-full">Gestiona tus clientes y comisiones</p>
+                    
+                    <!-- Acciones -->
+                    <div class="flex space-x-2 mt-2 sm:mt-0">
+                        <button 
+                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
+                            <i class="fa-solid fa-file-pdf mr-1"></i>
+                            <span>Exportar PDF</span>
+                        </button>
+                        <button 
+                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
+                            <i class="fa-solid fa-table mr-1"></i>
+                            <span>Exportar Excel</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <form class="mb-6 p-4 bg-slate-800 rounded-lg border border-gray-700">
+                    <h3 class="text-md font-medium text-gray-200 mb-3 flex items-center">
+                        <i class="fa-solid fa-filter mr-2 text-indigo-400"></i>
+                        <span>Filtros</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Campo de búsqueda -->
+                        <div class="relative">
+                            <label for="client-search-filter" class="block text-sm font-medium text-gray-300 mb-2">Buscar cliente</label>
+                            <div class="relative">
+                                <input 
+                                    id="client-search-filter"
+                                    placeholder="Nombre, email..." 
+                                    class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-colors duration-200"
+                                >
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <i class="fa-solid fa-search text-blue-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filtro por mercado -->
+                        <div class="relative">
+                            <label for="market-filter" class="block text-sm font-medium text-gray-300 mb-2">Mercado</label>
+                            <div class="relative">
+                                <select 
+                                    id="market-filter"
+                                    class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-colors duration-200">
+                                    <option value="">Todos</option>
+                                    <option value="NYSE">NYSE</option>
+                                    <option value="NASDAQ">NASDAQ</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <i class="fa-solid fa-globe text-indigo-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filtro por estado -->
+                        <div class="relative">
+                            <label for="status-filter" class="block text-sm font-medium text-gray-300 mb-2">Estado</label>
+                            <div class="relative">
+                                <select 
+                                    id="status-filter"
+                                    class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-colors duration-200">
+                                    <option value="">Todos</option>
+                                    <option value="active">Activo</option>
+                                    <option value="inactive">Inactivo</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <i class="fa-solid fa-user-check text-purple-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de acción para los filtros -->
+                    <div class="flex justify-end mt-4 space-x-2">
+                        <button 
+                            type="button" 
+                            class="px-4 py-2 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-300 bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <i class="fa-solid fa-xmark mr-1"></i>
+                            <span>Limpiar</span>
+                        </button>
+                        <button 
+                            type="submit" 
+                            class="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <i class="fa-solid fa-search mr-1"></i>
+                            <span>Aplicar</span>
+                        </button>
+                        <div class="py-2 px-3 bg-emerald-900/30 border border-emerald-800 text-emerald-400 rounded-md flex items-center text-sm">
+                            <i class="fa-solid fa-filter mr-1 text-sm"></i>
+                            <span>Filtros activos</span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Panel principal con tabs -->
+                <div>
+                    <div class="py-6">
+                        <!-- Cards de estadísticas -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                            <!-- Total de clientes -->
+                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div>
+                                        <h3 class="text-gray-400 text-sm font-medium mb-1">Clientes Totales</h3>
+                                        <div class="text-2xl font-semibold text-white">150</div>
+                                        <div class="text-xs text-gray-400 mt-1">
+                                            <span class="font-medium text-green-400">120</span>
+                                            <span>activos</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 rounded-full bg-emerald-900/40 text-emerald-400">
+                                        <i class="fa-solid fa-users"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comisiones del mes -->
+                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div>
+                                        <h3 class="text-gray-400 text-sm font-medium mb-1">Comisiones (Mes)</h3>
+                                        <div class="text-2xl font-semibold text-white">$5,000.00</div>
+                                        <div class="text-xs text-gray-400 mt-1">
+                                            <span class="text-green-400">+10%</span> 
+                                            <span>vs. último mes</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 rounded-full bg-blue-900/40 text-blue-400">
+                                        <i class="fa-solid fa-money-bill-wave"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROI promedio -->
+                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div>
+                                        <h3 class="text-gray-400 text-sm font-medium mb-1">ROI Promedio</h3>
+                                        <div class="text-2xl font-semibold text-white">15.25%</div>
+                                        <div class="text-xs text-gray-400 mt-1">
+                                            <span class="font-medium text-red-400">5</span>
+                                            <span>clientes con ROI negativo</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 rounded-full bg-purple-900/40 text-purple-400">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Total de operaciones -->
+                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div>
+                                        <h3 class="text-gray-400 text-sm font-medium mb-1">Total Operaciones</h3>
+                                        <div class="text-2xl font-semibold text-white">2500</div>
+                                        <div class="text-xs text-gray-400 mt-1">
+                                            Este mes
+                                        </div>
+                                    </div>
+                                    <div class="p-3 rounded-full bg-amber-900/40 text-amber-400">
+                                        <i class="fa-solid fa-right-left"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gráficos -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                            <!-- Distribución de clientes -->
+                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card">
+                                <h3 class="text-gray-300 font-medium mb-4">Distribución de Clientes</h3>
+                                <div id="clientDistributionChart" class="h-[300px] w-full chart-container"></div>
+                            </div>
+
+                            <!-- Comisiones por mercado -->
+                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card">
+                                <h3 class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h3>
+                                <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container"></div>
+                            </div>
+                        </div>
+
+                        <!-- Top clientes -->
+                        <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 mb-6">
+                            <h3 class="text-gray-300 font-medium mb-4">Mejores Clientes por ROI</h3>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-700">
+                                    <thead class="bg-gray-900/50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Cliente</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ROI</th>
+                                            <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-transparent divide-y divide-gray-700">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="font-medium text-white">Cliente A</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-emerald-400">25.50%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                                                <button 
+                                                    class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+                                                    Ver detalles
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="font-medium text-white">Cliente B</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-emerald-400">20.10%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                                                <button 
+                                                    class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+                                                    Ver detalles
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Fin del Panel del Comisionista -->

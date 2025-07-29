@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visenture - Versión Contemplativa</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+        * {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div id="header-placeholder"></div>
+    <div id="content-placeholder"></div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('../app/header2.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+        
+        fetch('home2.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-placeholder').innerHTML = data;
+            });
+        
+        fetch('../app/footer2.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

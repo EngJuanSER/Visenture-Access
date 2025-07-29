@@ -1,0 +1,49 @@
+<nav class="bg-gradient-to-r from-red-100 via-orange-100 to-yellow-100 shadow-2xl py-4 relative z-200 border-b-4 border-red-500 overflow-hidden">
+  <div class="container mx-auto px-4 flex justify-between items-center relative z-10">
+    <div class="flex items-center">
+      <div class="flex items-center transform hover:scale-110 transition duration-300">
+        <a href="../home/index.html" class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-yellow-600 transition duration-300 uppercase tracking-wider">
+          VISENTURE
+        </a>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center space-x-4">
+      <a href="../auth/login/index.html" 
+         class="py-4 px-8 mr-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 text-white hover:from-red-700 hover:to-orange-700 transition duration-300 transform hover:scale-110 font-black text-lg shadow-2xl uppercase tracking-wider">
+        ENTRAR
+      </a>
+      <a href="../auth/register/index.html" 
+         class="py-4 px-8 mr-2 rounded-xl border-3 border-red-500 text-red-600 hover:bg-red-50 transition duration-300 transform hover:scale-110 font-black text-lg uppercase tracking-wider">
+        UNIRSE
+      </a>
+      <div class="relative">
+        <button class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white transition duration-300 cursor-pointer transform hover:scale-125 animate-pulse shadow-xl"
+                aria-label="Cambiar idioma">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="m9 9c0-3 3-3 3-3s3 0 3 3c0 3-3 3-3 3s-3 0-3-3"></path>
+            <path d="m9 15c0 3 3 3 3 3s3 0 3 3c0-3-3-3-3-3s-3 0-3-3"></path>
+          </svg>
+        </button>
+      </div>
+      <button class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white transition duration-300 cursor-pointer transform hover:scale-125 animate-bounce shadow-xl" 
+              aria-label="Cambiar tema">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+    </div>
+    <button class="md:hidden text-red-600 hover:text-orange-600 focus:outline-none transform hover:scale-125 transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <!-- Elementos agresivos y dinámicos -->
+  <div class="absolute top-0 left-0 w-20 h-20 bg-red-500/20 transform rotate-45 animate-pulse"></div>
+  <div class="absolute bottom-0 right-0 w-16 h-16 bg-orange-500/25 transform -rotate-12 animate-bounce"></div>
+  <div class="absolute top-2 right-1/4 w-4 h-4 bg-yellow-500 rounded-full animate-ping"></div>
+  <div class="absolute bottom-2 left-1/4 w-3 h-3 bg-red-600 transform rotate-45 animate-spin" style="animation-duration: 2s;"></div>
+  <div class="absolute top-1/2 right-10 w-2 h-2 bg-orange-500 rounded-full animate-bounce"></div>
+</nav>

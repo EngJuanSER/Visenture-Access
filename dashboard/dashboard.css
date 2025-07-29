@@ -1,0 +1,38 @@
+/* CSS specific to dashboard page */
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos específicos para formularios en modo oscuro */
+input, 
+textarea {
+  color: #94a3b8; /* slate-400 */
+}
+
+input::placeholder, 
+textarea::placeholder {
+  color: #94a3b8; /* slate-400 */
+}
+
+/* Restaurar estilo de autofill de navegadores (Chrome, Edge) */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #e2e8f0 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1e293b inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Forzar estilo consistente para campos autofill */
+input:-webkit-autofill::first-line,
+textarea:-webkit-autofill::first-line,
+select:-webkit-autofill::first-line {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}

@@ -1,0 +1,184 @@
+<!-- Overlay para cuando el sidebar está abierto -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+
+<!-- Sidebar (Menú lateral) -->
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-slate-900 shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
+  <!-- Logo y botón cerrar -->
+  <div class="flex items-center justify-between p-4 border-b border-slate-800">
+    <a href="../home/index.html" class="text-2xl font-bold text-emerald-500">Visenture</a>
+    <button id="close-sidebar" class="text-gray-400 hover:text-white">
+      <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
+  </div>
+  
+  <!-- Usuario (visible cuando está logueado) -->
+  <div class="user-profile hidden border-b border-slate-800 p-4">
+    <div class="flex items-center space-x-3">
+      <div class="h-10 w-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">JS</div>
+      <div>
+        <div class="text-white font-medium">Juan Serrano</div>
+        <div class="text-xs text-gray-400">usuario@visenture.com</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Menú principal -->
+  <nav class="flex-grow overflow-y-auto py-4">
+    <div class="px-4 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Menú principal</div>
+    
+    <a href="../dashboard/index.html" class="flex items-center text-gray-300 hover:bg-slate-800 px-4 py-3 transition-colors">
+      <i class="fa-solid fa-chart-line w-6 text-center mr-3 text-emerald-400"></i>
+      <span>Dashboard</span>
+    </a>
+    
+    <a href="../investment-panel/index.html" class="flex items-center text-gray-300 hover:bg-slate-800 px-4 py-3 transition-colors">
+      <i class="fa-solid fa-briefcase w-6 text-center mr-3 text-emerald-400"></i>
+      <span>Inversiones</span>
+    </a>
+    
+    <a href="../funds/index.html" class="flex items-center text-gray-300 hover:bg-slate-800 px-4 py-3 transition-colors">
+      <i class="fa-solid fa-wallet w-6 text-center mr-3 text-emerald-400"></i>
+      <span>Fondos</span>
+    </a>
+    
+    <!-- Comisionistas (menú desplegable) -->
+    <div class="sidebar-dropdown">
+      <button type="button" class="sidebar-dropdown-toggle flex items-center justify-between text-gray-300 hover:bg-slate-800 px-4 py-3 w-full transition-colors cursor-pointer">
+        <div class="flex items-center">
+          <i class="fa-solid fa-users w-6 text-center mr-3 text-emerald-400"></i>
+          <span>Comisionistas</span>
+        </div>
+        <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+      </button>
+      
+      <div class="sidebar-dropdown-content hidden bg-slate-800 py-1 pl-12 overflow-hidden">
+        <a href="../commissioner-panel/index.html" class="block py-2 px-3 text-sm text-gray-300 hover:text-emerald-400 transition-colors">
+          Panel de Comisionista
+        </a>
+        <a href="../commissioner-panel/client-report/index.html" class="block py-2 px-3 text-sm text-gray-300 hover:text-emerald-400 transition-colors">
+          Reportes de Clientes
+        </a>
+      </div>
+    </div>
+    
+    <!-- Administración (menú desplegable) -->
+    <div class="sidebar-dropdown">
+      <button type="button" class="sidebar-dropdown-toggle flex items-center justify-between text-gray-300 hover:bg-slate-800 px-4 py-3 w-full transition-colors cursor-pointer">
+        <div class="flex items-center">
+          <i class="fa-solid fa-gear w-6 text-center mr-3 text-emerald-400"></i>
+          <span>Administración</span>
+        </div>
+        <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+      </button>
+      
+      <div class="sidebar-dropdown-content hidden bg-slate-800 py-1 pl-12 overflow-hidden">
+        <a href="../admin-analytics/index.html" class="block py-2 px-3 text-sm text-gray-300 hover:text-emerald-400 transition-colors">
+          Analíticas
+        </a>
+      </div>
+    </div>
+    
+    <div class="px-4 my-3 border-t border-slate-800"></div>
+    
+    <!-- Configuración y ayuda -->
+    <div class="px-4 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Ayuda & Configuración</div>
+    
+    <a href="#" class="flex items-center text-gray-300 hover:bg-slate-800 px-4 py-3 transition-colors">
+      <i class="fa-solid fa-circle-info w-6 text-center mr-3 text-emerald-400"></i>
+      <span>Ayuda</span>
+    </a>
+    
+    <a href="#" class="flex items-center text-gray-300 hover:bg-slate-800 px-4 py-3 transition-colors">
+      <i class="fa-solid fa-gear w-6 text-center mr-3 text-emerald-400"></i>
+      <span>Configuración</span>
+    </a>
+  </nav>
+  
+  <!-- Botones de autenticación en el sidebar (visibles cuando NO está logueado) -->
+  <div class="auth-buttons p-4 border-t border-slate-800">
+    <a href="../auth/login/index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center justify-center py-2 px-4 mb-2 transition-colors">
+      <i class="fa-solid fa-right-to-bracket mr-2"></i> Iniciar Sesión
+    </a>
+    <a href="../auth/register/index.html" class="border border-emerald-700 text-emerald-400 hover:bg-slate-800 rounded flex items-center justify-center py-2 px-4 transition-colors">
+      <i class="fa-solid fa-user-plus mr-2"></i> Registrarse
+    </a>
+  </div>
+  
+  <!-- Botón cerrar sesión (visible cuando está logueado) -->
+  <div class="user-logout hidden p-4 border-t border-slate-800">
+    <a href="../auth/login/index.html" class="text-red-400 hover:bg-slate-800 rounded flex items-center justify-center py-2 px-4 transition-colors">
+      <i class="fa-solid fa-right-from-bracket mr-2"></i> Cerrar Sesión
+    </a>
+  </div>
+</div>
+
+<!-- Navbar superior -->
+<nav class="bg-slate-900 shadow-lg py-4 relative z-20">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <!-- Izquierda: Botón de menú y logo -->
+    <div class="flex items-center">
+      <button id="toggle-sidebar" class="text-gray-400 hover:text-emerald-400 focus:outline-none mr-4">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+      <a href="../home/index.html" class="text-2xl font-bold text-emerald-500">Visenture</a>
+    </div>
+    
+    <!-- Derecha: Controles adicionales -->
+    <div class="flex items-center space-x-4">
+      <!-- Botón de notificaciones -->
+      <button class="relative text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center">
+        <i class="fa-solid fa-bell"></i>
+        <span class="absolute top-1 right-1 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
+      </button>
+      
+      <!-- Botón de idioma -->
+      <div class="relative group">
+        <button class="text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+        <div class="absolute right-0 mt-2 w-32 bg-slate-800 border border-slate-700 rounded-md shadow-lg py-1 hidden group-hover:block">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">Español</a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">English</a>
+        </div>
+      </div>
+      
+      <!-- Botón de tema -->
+      <button class="text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      
+      <!-- Perfil de usuario (visible cuando está logueado) -->
+      <div class="user-profile relative hidden group">
+        <button class="flex items-center">
+          <div class="h-9 w-9 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">JS</div>
+        </button>
+        <div class="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-md shadow-lg py-1 hidden group-hover:block">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">
+            <i class="fa-solid fa-user mr-2"></i>Mi Perfil
+          </a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">
+            <i class="fa-solid fa-gear mr-2"></i>Configuración
+          </a>
+          <div class="border-t border-slate-700 my-1"></div>
+          <a href="../auth/login/index.html" class="block px-4 py-2 text-sm text-red-400 hover:bg-slate-700">
+            <i class="fa-solid fa-right-from-bracket mr-2"></i>Cerrar Sesión
+          </a>
+        </div>
+      </div>
+      
+      <!-- Botones de autenticación (visibles cuando NO está logueado) -->
+      <div class="auth-buttons hidden md:flex items-center space-x-2">
+        <a href="../auth/login/index.html" 
+           class="py-2 px-3 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition duration-200 text-sm">
+          Iniciar Sesión
+        </a>
+        <a href="../auth/register/index.html" 
+           class="py-2 px-3 rounded border border-emerald-600 text-emerald-500 hover:bg-slate-800 transition duration-200 text-sm">
+          Registrarse
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- El script del sidebar se ha movido a un archivo separado y se carga desde el index.html principal -->

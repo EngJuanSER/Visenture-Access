@@ -1,0 +1,258 @@
+/* Estilos para las tablas */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: #cbd5e1;
+  border-bottom: 1px solid #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+tr:hover {
+  background-color: rgba(51, 65, 85, 0.3);
+  transition: background-color 0.2s ease-in-out;
+}
+
+td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* Estilos para los estados de las transacciones */
+.bg-emerald-900\/30 {
+  background-color: rgba(6, 78, 59, 0.3);
+}
+
+.bg-amber-900\/30 {
+  background-color: rgba(120, 53, 15, 0.3);
+}
+
+.border-emerald-800\/50 {
+  border-color: rgba(6, 95, 70, 0.5);
+}
+
+.border-amber-800\/50 {
+  border-color: rgba(146, 64, 14, 0.5);
+}
+
+.text-emerald-300 {
+  color: #6ee7b7;
+}
+
+.text-amber-300 {
+  color: #fcd34d;
+}
+
+/* Estilos para los botones de paginación */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Estilos para los filtros y formularios */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23cbd5e1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* Efectos y animaciones */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-lg:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Estilos para iconos en la tabla */
+.material-icons.text-sm {
+  font-size: 1rem;
+}
+
+.material-icons.text-base {
+  font-size: 1.25rem;
+}
+
+.material-icons.text-xs {
+  font-size: 0.875rem;
+}
+
+/* Estilos para backgrounds con opacidad */
+.bg-slate-700\/30 {
+  background-color: rgba(51, 65, 85, 0.3);
+}
+
+.bg-slate-800\/70 {
+  background-color: rgba(30, 41, 59, 0.7);
+}
+
+.bg-slate-700\/50 {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+/* Estilos para la tabla responsive */
+.overflow-x-auto {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .whitespace-nowrap {
+    white-space: normal;
+  }
+  
+  td, th {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* Transiciones suaves para los elementos interactivos */
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.filter-input {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  padding-right: 2.5rem; /* Espacio para el icono */
+  background-color: #374151; /* gray-700 */
+  border: 1px solid #4b5563; /* gray-600 */
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #f3f4f6; /* gray-100 */
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #10b981; /* emerald-500 */
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.filter-icon-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 0.75rem;
+  pointer-events: none;
+}
+
+.filter-icon {
+  color: #9ca3af; /* gray-400 */
+}
+
+/* Estilos para el paginador */
+.mat-mdc-paginator {
+  background: transparent !important;
+  font-family: inherit;
+}
+
+.mat-mdc-paginator-container {
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  border-top: 1px solid #374151;
+  transition: border-color 0.3s ease;
+}
+
+.mat-mdc-paginator-range-label,
+.mat-mdc-paginator-page-size-label {
+  color: #e2e8f0;
+  opacity: 1;
+}
+
+.mat-mdc-icon-button .mat-mdc-button-persistent-ripple {
+  opacity: 0.2;
+}
+
+.mdc-icon-button {
+  fill: #e2e8f0;
+}
+
+.mat-mdc-icon-button {
+  color: #e2e8f0;
+}
+
+.mat-mdc-icon-button:hover {
+  background-color: rgba(226, 232, 240, 0.1);
+}
+
+.mat-mdc-icon-button[disabled] {
+  color: rgba(226, 232, 240, 0.5) !important;
+}
+
+.mat-mdc-select-value-text {
+  color: #e2e8f0 !important;
+}
+
+.mat-mdc-select-arrow {
+  color: #e2e8f0 !important;
+}
+
+.mat-mdc-paginator-icon {
+  fill: #e2e8f0 !important; 
+}
+
+.sticky-paginator {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.mat-mdc-paginator-page-size {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.mat-mdc-paginator-page-size-select {
+  margin: 0 0.5rem;
+  width: 56px;
+}
+
+.mat-mdc-form-field-flex {
+  height: 36px;
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+.mat-mdc-select-trigger {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

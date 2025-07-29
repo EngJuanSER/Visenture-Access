@@ -1,0 +1,83 @@
+<div class="min-h-screen bg-slate-900 p-6">
+  <div class="container mx-auto max-w-4xl">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">Notificaciones</h1>
+      <p class="text-slate-400">Gestiona tus alertas y mensajes importantes</p>
+    </div>
+
+    <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
+      <div class="border-b border-slate-700 p-4 flex justify-between items-center">
+        <h2 class="text-xl font-semibold text-emerald-400 flex items-center">
+          <span class="material-icons mr-2">notifications</span>
+          Tus Notificaciones
+        </h2>
+        <button class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors flex items-center">
+          <span class="material-icons mr-1 text-sm">delete</span>
+          Borrar Todas
+        </button>
+      </div>
+
+      <div class="p-4">
+        <!-- Estado vacío -->
+        <div id="emptyState" class="py-8 text-center">
+          <div class="bg-slate-700/30 rounded-lg p-8 inline-block mb-4">
+            <span class="material-icons text-5xl text-slate-500">notifications_off</span>
+          </div>
+          <h3 class="text-lg font-medium text-white mb-2">No tienes notificaciones</h3>
+          <p class="text-slate-400">Aquí aparecerán tus alertas y mensajes importantes</p>
+        </div>
+        
+        <!-- Lista de notificaciones -->
+        <ul class="divide-y divide-slate-700">
+          <!-- Notificación no leída -->
+          <li class="p-4 bg-emerald-900/10 hover:bg-slate-700/30 transition-colors">
+            <div class="flex items-start">
+              <div class="bg-emerald-600/20 p-3 rounded-full mr-4">
+                <span class="material-icons text-emerald-500">trending_up</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between items-center mb-1">
+                  <h4 class="font-medium text-emerald-400">Alerta de precio</h4>
+                  <span class="text-xs text-slate-400">Hace 2 horas</span>
+                </div>
+                <p class="text-white text-sm mb-2">AAPL ha alcanzado tu precio objetivo de $150.00</p>
+                <div class="flex items-center justify-end">
+                  <button class="text-sm text-slate-400 hover:text-white mr-4 flex items-center">
+                    <span class="material-icons text-sm mr-1">delete_outline</span>
+                    Eliminar
+                  </button>
+                  <button class="text-sm text-emerald-400 hover:text-emerald-300 flex items-center">
+                    <span class="material-icons text-sm mr-1">check_circle_outline</span>
+                    Marcar como leída
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+          <!-- Notificación leída -->
+          <li class="p-4 hover:bg-slate-700/30 transition-colors">
+            <div class="flex items-start">
+              <div class="bg-blue-600/20 p-3 rounded-full mr-4">
+                <span class="material-icons text-blue-500">account_balance</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between items-center mb-1">
+                  <h4 class="font-medium text-white">Depósito confirmado</h4>
+                  <span class="text-xs text-slate-400">25 Jul 2025</span>
+                </div>
+                <p class="text-slate-300 text-sm mb-2">Tu depósito de $1,000.00 ha sido acreditado a tu cuenta</p>
+                <div class="flex items-center justify-end">
+                  <button class="text-sm text-slate-400 hover:text-white flex items-center">
+                    <span class="material-icons text-sm mr-1">delete_outline</span>
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

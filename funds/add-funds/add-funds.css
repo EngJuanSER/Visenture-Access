@@ -1,0 +1,238 @@
+/* Efectos y animaciones */
+.shadow-inner-light {
+  box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.05);
+}
+
+.pulse-subtle {
+  animation: pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.card-glow {
+  box-shadow: 
+    0 0 5px rgba(16, 185, 129, 0.1),
+    0 0 20px rgba(16, 185, 129, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 
+    0 0 8px rgba(16, 185, 129, 0.2),
+    0 0 30px rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Estilos para los inputs */
+input:focus {
+  outline: none;
+}
+
+input.focus\:border-emerald-600:focus {
+  border-color: #059669;
+}
+
+input.focus\:ring:focus {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* Estilos para botones */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Gradientes y fondos */
+.bg-gradient-to-br {
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+}
+
+.bg-gradient-to-r {
+  background-size: 200% 200%;
+  animation: gradientSlide 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes gradientSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Transiciones para elementos */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Efectos hover específicos */
+.hover\:bg-emerald-700\/20:hover {
+  background-color: rgba(4, 120, 87, 0.2);
+}
+
+.hover\:bg-slate-700\/50:hover {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  color: #f1f5f9;
+}
+
+.amount-field {
+  font-size: 1.25rem;
+}
+
+.add-funds-button {
+  min-width: 180px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: #10b981;
+}
+
+.add-funds-button:hover {
+  background-color: #059669;
+}
+
+.add-funds-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.add-funds-button.success-animation {
+  background-color: #059669 !important;
+  transform: scale(1.05);
+}
+
+.add-funds-button.error-animation {
+  background-color: #dc2626 !important;
+}
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon, .error-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceIn 0.5s;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.payment-method-option {
+  display: flex;
+  align-items: center;
+}
+
+.payment-icon {
+  margin-right: 0.5rem;
+}
+
+.payment-method-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Estilos para las etiquetas y campos de formulario */
+.mat-mdc-form-field-subscript-wrapper {
+  height: auto;
+}
+
+.mat-mdc-form-field-hint-wrapper, 
+.mat-mdc-form-field-error-wrapper {
+  padding-top: 4px;
+}
+
+.mat-mdc-form-field-hint,
+.mat-mdc-error {
+  font-size: 0.75rem;
+}
+
+/* Estilos para los campos con enfoque */
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay {
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  border-color: #10b981;
+}
+
+.mat-mdc-form-field-appearance-outline.mat-focused .mat-mdc-form-field-outline-thick {
+  color: #10b981;
+}
+
+.mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {
+  color: rgba(226, 232, 240, 0.3);
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: transparent;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .balance-value {
+    font-size: 1.75rem;
+  }
+  
+  .card-header-icon {
+    font-size: 1.5rem;
+  }
+  
+  .form-container {
+    padding: 1rem;
+  }
+}
