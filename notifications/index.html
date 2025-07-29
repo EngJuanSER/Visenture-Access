@@ -3,34 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visenture - Notifications</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Visenture - Notificaciones</title>
     <link rel="stylesheet" href="notifications.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
     <div id="content-placeholder"></div>
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts del sidebar -->
+    <script src="../app/sidebar.js" defer></script>
+    <script src="../app/dropdown-handler.js" defer></script>
+
     <script>
-        fetch('../app/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-        fetch('notifications.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('content-placeholder').innerHTML = data;
-            });
-        fetch('../app/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+        // Función para cargar componentes de la interfaz
+        function loadInterface() {
+            // Cargar el encabezado
+            fetch('../app/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Inicializar sidebar después de cargar el header
+                    if (typeof initSidebar === 'function') {
+                        setTimeout(initSidebar, 100);
+                        setTimeout(initSidebar, 500);
+                    }
+                    if (typeof initSidebarDropdowns === 'function') {
+                        setTimeout(initSidebarDropdowns, 200);
+                        setTimeout(initSidebarDropdowns, 600);
+                    }
+                })
+                .catch(error => console.error('Error cargando el header:', error));
+
+            // Cargar el contenido principal (con parámetro para prevenir caché)
+            fetch('notifications.html' + '?nocache=' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                    console.log("Contenido de notificaciones cargado");
+                    
+                    // Ejecutamos un evento personalizado para notificar que el contenido está listo
+                    document.dispatchEvent(new Event('notificationsContentLoaded'));
+                })
+                .catch(error => console.error('Error cargando el contenido de notificaciones:', error));
+            
+            // Cargar el pie de página
+            fetch('../app/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error cargando el footer:', error));
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', loadInterface);
     </script>
 </body>
 </html>
