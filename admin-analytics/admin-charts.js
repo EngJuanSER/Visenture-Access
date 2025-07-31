@@ -1,3 +1,15 @@
+/**
+ * admin-charts.js
+ * Script para inicializar y manejar los gráficos del dashboard administrativo
+ */
+
+document.addEventListener('analyticsContentLoaded', function() {
+    console.log('Inicializando gráficos del dashboard administrativo...');
+    initializeOrderDistributionChart();
+    initializeOrderStatusChart();
+    initializeRechargeCommissionChart();
+});
+
 // Función para inicializar el gráfico de distribución de órdenes
 function initializeOrderDistributionChart() {
     if (!document.querySelector("#orderDistributionChart")) {
@@ -7,10 +19,30 @@ function initializeOrderDistributionChart() {
     
     const options = {
         chart: {
-            height: 350,
+            height: 320,
             type: 'pie',
             foreColor: '#ccc',
-            background: 'transparent'
+            background: '#1e293b', // slate-800 para coincidir con dashboard
+            animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
+            },
+            dropShadow: {
+                enabled: true,
+                top: 3,
+                left: 2,
+                blur: 4,
+                opacity: 0.15
+            }
         },
         colors: ['#10b981', '#ef4444'], // Emerald y rojo
         series: [60, 40], // 60% compra, 40% venta
@@ -23,7 +55,8 @@ function initializeOrderDistributionChart() {
             }
         },
         stroke: {
-            width: 0
+            width: 1, // Ligero borde para coincidir con el estilo dashboard
+            colors: ['#1e293b']
         },
         dataLabels: {
             enabled: true,
@@ -36,6 +69,14 @@ function initializeOrderDistributionChart() {
             },
             dropShadow: {
                 enabled: true
+            }
+        },
+        tooltip: {
+            theme: 'dark',
+            y: {
+                formatter: function (val) {
+                    return val + '%';
+                }
             }
         }
     };
@@ -58,19 +99,50 @@ function initializeOrderStatusChart() {
     
     const options = {
         chart: {
-            height: 350,
+            height: 320,
             type: 'bar',
             foreColor: '#ccc',
-            background: 'transparent',
+            background: '#1e293b', // slate-800 para coincidir con dashboard
             toolbar: {
-                show: false
+                show: true,
+                tools: {
+                    download: true,
+                    selection: false,
+                    zoom: false,
+                    zoomin: false,
+                    zoomout: false,
+                    pan: false,
+                    reset: false
+                }
+            },
+            animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
+            },
+            dropShadow: {
+                enabled: true,
+                top: 2,
+                left: 1,
+                blur: 3,
+                opacity: 0.2,
+                color: '#34d399'
             }
         },
         plotOptions: {
             bar: {
                 horizontal: false,
                 columnWidth: '55%',
-                borderRadius: 4
+                borderRadius: 4,
+                distributed: false
             }
         },
         dataLabels: {
@@ -96,12 +168,25 @@ function initializeOrderStatusChart() {
                 data: [35, 41, 36, 26, 45, 48, 52]
             }
         ],
+        title: {
+            text: 'Estado de Órdenes por Día',
+            align: 'left',
+            style: {
+                color: '#34d399' // emerald-400
+            }
+        },
         xaxis: {
             categories: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
             labels: {
                 style: {
                     colors: '#ccc'
                 }
+            },
+            axisTicks: {
+                color: '#334155'
+            },
+            axisBorder: {
+                color: '#334155'
             }
         },
         yaxis: {
@@ -121,9 +206,9 @@ function initializeOrderStatusChart() {
             opacity: 1
         },
         grid: {
-            borderColor: '#334155',
+            borderColor: '#334155', // slate-700
             row: {
-                colors: ['transparent', 'transparent']
+                colors: ['#1e293b', '#1e293b']
             }
         },
         legend: {
@@ -132,6 +217,7 @@ function initializeOrderStatusChart() {
             }
         },
         tooltip: {
+            theme: 'dark',
             y: {
                 formatter: function (val) {
                     return val + " órdenes";
@@ -158,12 +244,42 @@ function initializeRechargeCommissionChart() {
     
     const options = {
         chart: {
-            height: 350,
+            height: 320,
             type: 'area',
             foreColor: '#ccc',
-            background: 'transparent',
+            background: '#1e293b', // slate-800 para coincidir con dashboard
             toolbar: {
-                show: false
+                show: true,
+                tools: {
+                    download: true,
+                    selection: true,
+                    zoom: true,
+                    zoomin: true,
+                    zoomout: true,
+                    pan: false,
+                    reset: true
+                }
+            },
+            animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
+            },
+            dropShadow: {
+                enabled: true,
+                top: 2,
+                left: 2,
+                blur: 4,
+                opacity: 0.2,
+                color: '#3b82f6'
             }
         },
         dataLabels: {
@@ -171,7 +287,7 @@ function initializeRechargeCommissionChart() {
         },
         stroke: {
             curve: 'smooth',
-            width: 2
+            width: 3
         },
         colors: ['#10b981', '#3b82f6'], // Emerald y azul
         series: [
@@ -184,6 +300,13 @@ function initializeRechargeCommissionChart() {
                 data: [3100, 4000, 2800, 5100, 4200, 8200, 5600]
             }
         ],
+        title: {
+            text: 'Recargas y Comisiones a lo largo del tiempo',
+            align: 'left',
+            style: {
+                color: '#34d399' // emerald-400
+            }
+        },
         xaxis: {
             type: 'datetime',
             categories: [
@@ -225,12 +348,24 @@ function initializeRechargeCommissionChart() {
         grid: {
             borderColor: '#334155',
             row: {
-                colors: ['transparent', 'transparent']
+                colors: ['transparent', 'rgba(59, 130, 246, 0.02)'] // Ligero fondo en filas alternadas
+            }
+        },
+        states: {
+            hover: {
+                filter: {
+                    type: 'lighten',
+                    value: 0.05
+                }
             }
         },
         legend: {
             labels: {
                 colors: '#ccc'
+            },
+            itemMargin: {
+                horizontal: 12,
+                vertical: 5
             }
         },
         tooltip: {
@@ -266,6 +401,14 @@ function initializeActiveUsersChart() {
             background: 'transparent',
             toolbar: {
                 show: false
+            },
+            dropShadow: {
+                enabled: true,
+                top: 1,
+                left: 1,
+                blur: 3,
+                opacity: 0.2,
+                color: '#10b981'
             }
         },
         colors: ['#10b981'], // Emerald
@@ -277,7 +420,8 @@ function initializeActiveUsersChart() {
         ],
         stroke: {
             curve: 'smooth',
-            width: 3
+            width: 3,
+            lineCap: 'round'
         },
         xaxis: {
             categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
@@ -303,7 +447,10 @@ function initializeActiveUsersChart() {
         grid: {
             borderColor: '#334155',
             row: {
-                colors: ['transparent', 'transparent']
+                colors: ['transparent', 'rgba(16, 185, 129, 0.02)'] // Ligero fondo alternado
+            },
+            padding: {
+                top: 10
             }
         },
         legend: {
@@ -312,7 +459,13 @@ function initializeActiveUsersChart() {
             }
         },
         markers: {
-            size: 5
+            size: 5,
+            colors: ['#10b981'],
+            strokeColors: '#ffffff',
+            strokeWidth: 2,
+            hover: {
+                size: 7
+            }
         },
         tooltip: {
             y: {

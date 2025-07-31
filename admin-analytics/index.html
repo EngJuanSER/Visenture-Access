@@ -1,43 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visenture - Dashboard Administrativo</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Font Awesome para iconos (reemplaza Material Icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="admin-analytics.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- ApexCharts CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script>
-    // Theme toggle functionality
-    function applyTheme(theme) {
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    }
-
-    function toggleTheme() {
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      applyTheme(currentTheme === 'light' ? 'dark' : 'light');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visenture - Dashboard Administrativo</title>
+    <link rel="stylesheet" href="admin-analytics.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- ApexCharts para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
-<body class="mat-typography">
-  <div class="flex flex-col min-h-screen">
+<body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
-    
-    <main class="flex-grow">
-      <!-- Dashboard Administrativo -->
-      <div class="min-h-screen bg-slate-950 p-6">
-        <div class="container mx-auto">
+    <div id="content-placeholder"></div>
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts del sidebar -->
+    <script src="../app/sidebar.js" defer></script>
+    <script src="../app/dropdown-handler.js" defer></script>
+    <!-- Script específico para los gráficos -->
+    <script src="admin-charts.js" defer></script>
+
+    <script>
+        // Función para cargar componentes de la interfaz
+        function loadInterface() {
+            // Cargar el encabezado
+            fetch('../app/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Inicializar sidebar después de cargar el header
+                    if (typeof initSidebar === 'function') {
+                        setTimeout(initSidebar, 100);
+                        setTimeout(initSidebar, 500);
+                    }
+                    if (typeof initSidebarDropdowns === 'function') {
+                        setTimeout(initSidebarDropdowns, 200);
+                        setTimeout(initSidebarDropdowns, 600);
+                    }
+                })
+                .catch(error => console.error('Error cargando el header:', error));
+
+            // Cargar el contenido principal (con parámetro para prevenir caché)
+            fetch('admin-analytics.html' + '?nocache=' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                    console.log("Contenido de analytics cargado");
+                    
+                    // Ejecutamos un evento personalizado para notificar que el contenido está listo
+                    document.dispatchEvent(new Event('analyticsContentLoaded'));
+                })
+                .catch(error => console.error('Error cargando el contenido de analytics:', error));
+            
+            // Cargar el pie de página
+            fetch('../app/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error cargando el footer:', error));
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', loadInterface);
+    </script>
+</body>
+</html>
             <h1 class="text-2xl font-bold text-emerald-400">Dashboard Administrativo</h1>
 
             <!-- Estadísticas de Usuarios -->

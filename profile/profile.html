@@ -25,7 +25,7 @@
                 
                 <button id="securityBtn" data-tab="security"
                     class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
-                    <i class="fa-solid fa-shield-halved mr-3"></i>
+                    <i class="fa-solid fa-lock mr-3"></i>
                     <span>Seguridad</span>
                 </button>
                 
@@ -37,7 +37,7 @@
                 
                 <button id="middlemanBtn" data-tab="middleman"
                     class="w-full text-left px-3 py-2 rounded-md flex items-center text-white hover:bg-emerald-900/50 hover:text-emerald-300 transition-colors cursor-pointer">
-                    <i class="fa-solid fa-headset mr-3"></i>
+                    <i class="fa-solid fa-user-tie mr-3"></i>
                     <span>Comisionista</span>
                 </button>
                 
@@ -48,54 +48,7 @@
                 </button>
             </nav>
             
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Seleccionar todos los botones de pestañas
-                    const tabButtons = document.querySelectorAll('[data-tab]');
-                    
-                    // Seleccionar todos los contenidos de pestañas
-                    const tabContents = document.querySelectorAll('[data-tab-content]');
-                    
-                    // Función para ocultar todos los contenidos
-                    function hideAllContents() {
-                        tabContents.forEach(content => {
-                            content.classList.add('hidden');
-                        });
-                    }
-                    
-                    // Función para desactivar todos los botones
-                    function deactivateAllButtons() {
-                        tabButtons.forEach(button => {
-                            button.classList.remove('bg-emerald-900', 'text-emerald-300', 'font-medium');
-                        });
-                    }
-                    
-                    // Función para mostrar una sección específica
-                    function showTab(tabId) {
-                        hideAllContents();
-                        deactivateAllButtons();
-                        
-                        // Activar el botón correspondiente
-                        const button = document.querySelector(`[data-tab="${tabId}"]`);
-                        button.classList.add('bg-emerald-900', 'text-emerald-300', 'font-medium');
-                        
-                        // Mostrar el contenido correspondiente
-                        const content = document.querySelector(`[data-tab-content="${tabId}"]`);
-                        content.classList.remove('hidden');
-                    }
-                    
-                    // Asignar event listeners a los botones
-                    tabButtons.forEach(button => {
-                        button.addEventListener('click', function() {
-                            const tabId = this.getAttribute('data-tab');
-                            showTab(tabId);
-                        });
-                    });
-                    
-                    // Mostrar la sección de información por defecto
-                    showTab('information');
-                });
-            </script>
+            <!-- El script de gestión de pestañas se ha movido al index.html -->
         </div>
         
         <!-- Contenido principal -->
@@ -103,7 +56,7 @@
             <!-- Contenido dinámico según la pestaña activa -->
             
             <!-- Sección de Información Personal -->
-            <div id="informationContent" class="tab-content" data-tab-content="information">
+            <div id="informationContent" class="tab-content">
                 <h2 class="text-xl font-bold text-white mb-6">Información Personal</h2>
                 <form class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -144,7 +97,7 @@
             </div>
             
             <!-- Sección de Preferencias -->
-            <div id="preferencesContent" class="tab-content hidden" data-tab-content="preferences">
+            <div id="preferencesContent" class="tab-content" style="display: none;">
                 <h2 class="text-xl font-bold text-white mb-6">Preferencias</h2>
                 <div class="space-y-6">
                     <div class="bg-gray-700 rounded-lg p-4">
@@ -200,7 +153,7 @@
             </div>
             
             <!-- Sección de Seguridad -->
-            <div id="securityContent" class="tab-content hidden" data-tab-content="security">
+            <div id="securityContent" class="tab-content" style="display: none;">
                 <h2 class="text-xl font-bold text-white mb-6">Seguridad</h2>
                 <div class="space-y-6">
                     <div class="bg-gray-700 rounded-lg p-4">
@@ -246,7 +199,7 @@
             </div>
             
             <!-- Sección de Suscripción -->
-            <div id="suscriptionContent" class="tab-content hidden" data-tab-content="suscription">
+            <div id="suscriptionContent" class="tab-content" style="display: none;">
                 <h2 class="text-xl font-bold text-white mb-6">Suscripción</h2>
                 
                 <div class="bg-gray-700 rounded-lg p-6 mb-6">
@@ -306,7 +259,7 @@
             </div>
             
             <!-- Sección de Comisionista -->
-            <div id="middlemanContent" class="tab-content hidden" data-tab-content="middleman">
+            <div id="middlemanContent" class="tab-content" style="display: none;">
                 <h2 class="text-xl font-bold text-white mb-6">Tu Comisionista</h2>
                 
                 <div class="bg-gray-700 rounded-lg p-6 mb-6">
@@ -352,7 +305,7 @@
             </div>
             
             <!-- Sección de Historial -->
-            <div id="historicalContent" class="tab-content hidden" data-tab-content="historical">
+            <div id="historicalContent" class="tab-content" style="display: none;">
                 <h2 class="text-xl font-bold text-white mb-6">Historial de Actividad</h2>
                 
                 <div class="bg-gray-700 rounded-lg p-6 mb-6">

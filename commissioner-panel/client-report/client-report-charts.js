@@ -5,7 +5,26 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Inicializando gráficos de reporte de cliente...");
-    initClientReportCharts();
+    
+    // Dar un pequeño tiempo para que el DOM se cargue completamente
+    setTimeout(function() {
+        initClientReportCharts();
+    }, 100);
+
+    // Por seguridad, intentar de nuevo en caso de que haya algún problema
+    setTimeout(function() {
+        // Verificar si alguna gráfica no se ha inicializado correctamente
+        const chartContainers = ["commissionsTrendChart", "assetDistributionChart", "roiTrendChart"];
+        const needsReinitialization = chartContainers.some(id => {
+            const container = document.getElementById(id);
+            return container && container.children.length === 0;
+        });
+        
+        if (needsReinitialization) {
+            console.log("Reintentando inicialización de gráficos...");
+            initClientReportCharts();
+        }
+    }, 1000);
 });
 
 /**
@@ -21,7 +40,21 @@ function initClientReportCharts() {
     let missingContainers = chartIds.filter(id => !document.querySelector("#" + id));
     if (missingContainers.length > 0) {
         console.warn("Contenedores de gráficos no encontrados:", missingContainers.join(", "));
+        return; // No continuamos si faltan contenedores
     }
+    
+    // Asegurarse de que cada contenedor tenga el tamaño adecuado antes de inicializar las gráficas
+    chartIds.forEach(id => {
+        const container = document.getElementById(id);
+        if (container) {
+            const parent = container.parentElement;
+            if (parent) {
+                // Asegurarse de que el contenedor sea visible
+                parent.style.opacity = "1";
+                parent.style.display = "flex";
+            }
+        }
+    });
     
     // Gráfico de tendencia de comisiones
     if(document.querySelector("#commissionsTrendChart")) {
@@ -37,6 +70,19 @@ function initClientReportCharts() {
                 foreColor: '#9ca3af',
                 toolbar: {
                     show: false
+                },
+                offsetX: 0,
+                offsetY: 0,
+                events: {
+                    mounted: function(chartContext, config) {
+                        setTimeout(function() {
+                            chartContext.updateOptions({
+                                chart: {
+                                    offsetX: 0
+                                }
+                            });
+                        }, 300);
+                    }
                 },
             },
             colors: ['#10B981'],
@@ -121,29 +167,43 @@ function initClientReportCharts() {
             series: [25, 20, 18, 15, 12, 10],
             chart: {
                 type: 'donut',
-                height: 300,
+                height: 320,
+                width: '100%',
                 background: 'transparent',
                 foreColor: '#9ca3af',
+                offsetX: 0,
+                offsetY: 0,
+                sparkline: {
+                    enabled: false
+                },
+                events: {
+                    mounted: function(chartContext, config) {
+                        setTimeout(function() {
+                            chartContext.updateOptions({
+                                chart: {
+                                    offsetX: 0
+                                }
+                            });
+                        }, 300);
+                    }
+                },
             },
             labels: ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'Otros'],
             colors: ['#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#F97316', '#6B7280'],
             plotOptions: {
                 pie: {
                     donut: {
-                        size: '55%',
+                        size: '65%', // Aumentamos un poco el tamaño del agujero
                         labels: {
                             show: true,
                             name: {
-                                show: true,
-                                fontSize: '16px',
-                                color: '#d1d5db',
-                                offsetY: -10
+                                show: false, // Ocultamos nombres
                             },
                             value: {
                                 show: true,
-                                fontSize: '20px',
+                                fontSize: '22px',
                                 color: '#fff',
-                                offsetY: 10,
+                                offsetY: 5,
                                 formatter: function(val) {
                                     return val + '%';
                                 }
@@ -152,25 +212,20 @@ function initClientReportCharts() {
                                 show: true,
                                 label: 'Total',
                                 color: '#d1d5db',
+                                fontSize: '16px',
                                 formatter: function() {
                                     return '100%';
                                 }
                             }
                         }
+                    },
+                    dataLabels: {
+                        enabled: false // Desactivamos las etiquetas de datos
                     }
                 }
             },
             legend: {
-                position: 'bottom',
-                horizontalAlign: 'center',
-                labels: {
-                    colors: '#d1d5db'
-                },
-                itemMargin: {
-                    horizontal: 8,
-                    vertical: 5
-                },
-                fontSize: '14px',
+                show: false, // Ocultamos las leyendas como solicita el usuario
             },
             tooltip: {
                 theme: 'dark',
@@ -178,6 +233,12 @@ function initClientReportCharts() {
                     formatter: function(val) {
                         return val + '%';
                     }
+                },
+                style: {
+                    fontSize: '14px'
+                },
+                marker: {
+                    show: true,
                 }
             },
             responsive: [{
@@ -216,6 +277,19 @@ function initClientReportCharts() {
                 foreColor: '#9ca3af',
                 toolbar: {
                     show: false
+                },
+                offsetX: 0,
+                offsetY: 0,
+                events: {
+                    mounted: function(chartContext, config) {
+                        setTimeout(function() {
+                            chartContext.updateOptions({
+                                chart: {
+                                    offsetX: 0
+                                }
+                            });
+                        }, 300);
+                    }
                 }
             },
             plotOptions: {

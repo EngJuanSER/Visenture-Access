@@ -1,10 +1,48 @@
-<div class="min-h-screen bg-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
+<div class="min-h-screen bg-slate-950 p-6">
+  <div class="container mx-auto max-w-7xl">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">Mi Portafolio</h1>
+      <p class="text-slate-400">Administra y supervisa tus inversiones</p>
+    </div>
 
-  <!-- Sección Acciones Compradas -->
-  <div class="flex justify-center pb-10">
-    <div class="bg-slate-900 p-8 rounded-xl shadow-2xl w-full max-w-6xl transition-all duration-300">
-      <h3 class="text-2xl font-bold text-center bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 bg-clip-text text-transparent mb-6">Mi portafolio</h3>
-        <!-- Estado de carga -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
+        <p class="text-sm text-gray-400">Valor Total</p>
+        <h2 class="text-2xl font-bold text-emerald-400">$24,850.75</h2>
+        <p class="text-xs text-emerald-500 flex items-center"><i class="fas fa-caret-up mr-1"></i>+2.4% hoy</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
+        <p class="text-sm text-gray-400">Rendimiento</p>
+        <h2 class="text-2xl font-bold text-emerald-400">+$1,230.45</h2>
+        <p class="text-xs text-emerald-500 flex items-center"><i class="fas fa-caret-up mr-1"></i>+5.2% total</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
+        <p class="text-sm text-gray-400">Acciones</p>
+        <h2 class="text-2xl font-bold text-white">12</h2>
+        <p class="text-xs text-gray-400">En 5 mercados</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
+        <p class="text-sm text-gray-400">Crecimiento Anual</p>
+        <h2 class="text-2xl font-bold text-emerald-400">+12.8%</h2>
+        <p class="text-xs text-gray-400">vs. 8.5% S&P 500</p>
+      </div>
+    </div>
+
+    <!-- Sección Acciones Compradas -->
+    <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
+      <div class="border-b border-slate-700 p-4 flex justify-between items-center">
+        <h2 class="text-xl font-semibold text-white flex items-center">
+          <i class="fas fa-chart-line mr-2 text-emerald-400"></i>
+          Mis Inversiones
+        </h2>
+        <div class="flex items-center space-x-2">
+          <a href="#" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm">
+            <i class="fas fa-plus mr-1"></i> Nueva inversión
+          </a>
+        </div>
+      </div>
+
+      <!-- Estado de carga -->
       <div style="display: none;" class="flex justify-center items-center py-12">
         <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
         <div class="ml-4">
@@ -14,21 +52,21 @@
       </div>
 
       <!-- Estado de error -->
-      <div style="display: none;" class="bg-red-900/30 border border-red-800 rounded-lg p-6 my-6 flex flex-col md:flex-row items-center justify-between shadow-md">
+      <div style="display: none;" class="bg-red-900/30 border border-red-800 rounded-lg m-4 p-6 flex flex-col md:flex-row items-center justify-between shadow-md">
         <div class="flex items-center mb-4 md:mb-0">
-          <span class="material-icons text-red-400 mr-3">error_outline</span>
+          <i class="fas fa-exclamation-circle text-red-400 mr-3"></i>
           <div>
-            <p class="text-red-300 font-medium">Error</p>
+            <p class="text-red-300 font-medium">Error al cargar el portafolio</p>
             <p class="text-xs text-red-400 mt-1">Por favor, intenta nuevamente o contacta con soporte si el error persiste.</p>
           </div>
         </div>
-        <button class="px-4 py-2 bg-red-800 text-red-200 rounded-lg hover:bg-red-700 transition-colors">
+        <button class="px-4 py-2 bg-red-800 text-red-200 rounded hover:bg-red-700 transition-colors">
           Reintentar
         </button>
       </div>
 
       <!-- Filtros y ordenamiento -->
-      <div class="mb-6 bg-slate-800 p-4 rounded-lg">
+      <div class="p-4 bg-slate-850 border-b border-slate-700">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div class="flex items-center">
             <span class="text-gray-300 mr-2">Ordenar por:</span>
@@ -47,268 +85,226 @@
       </div>
       
       <!-- Lista de acciones en el portfolio -->
-      <div class="grid grid-cols-1 gap-4">
-        <!-- Acción 1: Apple -->
-        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
-          <div class="p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div class="flex items-center">
-              <div class="bg-slate-700 rounded-full p-2 mr-3">
-                <i class="fa-brands fa-apple text-white text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white">Apple Inc.</h4>
-                <p class="text-gray-400 text-sm">AAPL</p>
-              </div>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-white text-lg font-medium">$183.79</span>
-              <span class="text-emerald-400">+2.45%</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Cantidad</span>
-              <span class="text-white">15 acciones</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Valor</span>
-              <span class="text-white">$2,756.85</span>
-            </div>
-            <div class="flex space-x-2">
-              <button class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-plus mr-1"></i>
-                <span>Comprar</span>
-              </button>
-              <button class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-arrow-down mr-1"></i>
-                <span>Vender</span>
-              </button>
-            </div>
-          </div>
+      <div class="p-4">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-slate-700">
+            <thead>
+              <tr>
+                <th scope="col" class="p-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Activo</th>
+                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Precio</th>
+                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Cambio</th>
+                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Cantidad</th>
+                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Valor</th>
+                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Acciones</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-700">
+              <!-- Acción 1: Apple -->
+              <tr class="hover:bg-slate-750 transition-colors">
+                <td class="p-3 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
+                      <i class="fa-brands fa-apple text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <div class="font-medium text-white">Apple Inc.</div>
+                      <div class="text-sm text-gray-400">AAPL</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white text-base font-medium">$183.79</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-emerald-400 font-medium">+2.45%</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white">15</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white font-medium">$2,756.85</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="flex justify-end space-x-2">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" title="Comprar más">
+                      <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" title="Vender">
+                      <i class="fa-solid fa-cart-arrow-down"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Acción 2: Tesla -->
+              <tr class="hover:bg-slate-750 transition-colors">
+                <td class="p-3 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
+                      <i class="fa-solid fa-bolt text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <div class="font-medium text-white">Tesla Inc.</div>
+                      <div class="text-sm text-gray-400">TSLA</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white text-base font-medium">$228.82</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-red-400 font-medium">-0.84%</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white">8</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white font-medium">$1,830.56</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="flex justify-end space-x-2">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" title="Comprar más">
+                      <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" title="Vender">
+                      <i class="fa-solid fa-cart-arrow-down"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Acción 3: Microsoft -->
+              <tr class="hover:bg-slate-750 transition-colors">
+                <td class="p-3 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
+                      <i class="fa-brands fa-microsoft text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <div class="font-medium text-white">Microsoft Corp.</div>
+                      <div class="text-sm text-gray-400">MSFT</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white text-base font-medium">$315.75</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-emerald-400 font-medium">+1.31%</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white">10</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white font-medium">$3,157.50</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="flex justify-end space-x-2">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" title="Comprar más">
+                      <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" title="Vender">
+                      <i class="fa-solid fa-cart-arrow-down"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Acción 4: Amazon -->
+              <tr class="hover:bg-slate-750 transition-colors">
+                <td class="p-3 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
+                      <i class="fa-brands fa-amazon text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <div class="font-medium text-white">Amazon.com Inc.</div>
+                      <div class="text-sm text-gray-400">AMZN</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white text-base font-medium">$146.32</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-emerald-400 font-medium">+0.95%</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white">12</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="text-white font-medium">$1,755.84</div>
+                </td>
+                <td class="p-3 whitespace-nowrap text-right">
+                  <div class="flex justify-end space-x-2">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" title="Comprar más">
+                      <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" title="Vender">
+                      <i class="fa-solid fa-cart-arrow-down"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         
-        <!-- Acción 2: Tesla -->
-        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
-          <div class="p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div class="flex items-center">
-              <div class="bg-slate-700 rounded-full p-2 mr-3">
-                <i class="fa-brands fa-tesla text-white text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white">Tesla, Inc.</h4>
-                <p class="text-gray-400 text-sm">TSLA</p>
-              </div>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-white text-lg font-medium">$243.67</span>
-              <span class="text-red-400">-1.32%</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Cantidad</span>
-              <span class="text-white">8 acciones</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Valor</span>
-              <span class="text-white">$1,949.36</span>
-            </div>
-            <div class="flex space-x-2">
-              <button class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-plus mr-1"></i>
-                <span>Comprar</span>
-              </button>
-              <button class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-arrow-down mr-1"></i>
-                <span>Vender</span>
-              </button>
-            </div>
+        <!-- Paginación -->
+        <div class="flex justify-between items-center pt-4">
+          <div class="text-sm text-gray-400">Mostrando 4 de 12 activos</div>
+          <div class="flex space-x-1">
+            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600 disabled:opacity-50" disabled>
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="px-3 py-1 bg-emerald-600 text-white rounded-md">1</button>
+            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">2</button>
+            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">3</button>
+            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
-        
-        <!-- Acción 3: Microsoft -->
-        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
-          <div class="p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div class="flex items-center">
-              <div class="bg-slate-700 rounded-full p-2 mr-3">
-                <i class="fa-brands fa-microsoft text-white text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white">Microsoft Corporation</h4>
-                <p class="text-gray-400 text-sm">MSFT</p>
-              </div>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-white text-lg font-medium">$420.55</span>
-              <span class="text-emerald-400">+0.89%</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Cantidad</span>
-              <span class="text-white">5 acciones</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Valor</span>
-              <span class="text-white">$2,102.75</span>
-            </div>
-            <div class="flex space-x-2">
-              <button class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-plus mr-1"></i>
-                <span>Comprar</span>
-              </button>
-              <button class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-arrow-down mr-1"></i>
-                <span>Vender</span>
-              </button>
-            </div>
-          </div>
+      </div>
+    </div>
+    
+    <!-- Resumen del portafolio y gráficos -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <!-- Distribución del portafolio -->
+      <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
+        <div class="border-b border-slate-700 p-4">
+          <h2 class="text-lg font-semibold text-white">Distribución del Portafolio</h2>
         </div>
-        
-        <!-- Acción 4: Amazon -->
-        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
-          <div class="p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div class="flex items-center">
-              <div class="bg-slate-700 rounded-full p-2 mr-3">
-                <i class="fa-brands fa-amazon text-white text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white">Amazon.com, Inc.</h4>
-                <p class="text-gray-400 text-sm">AMZN</p>
-              </div>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-white text-lg font-medium">$178.22</span>
-              <span class="text-emerald-400">+1.67%</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Cantidad</span>
-              <span class="text-white">10 acciones</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="text-gray-300 text-sm">Valor</span>
-              <span class="text-white">$1,782.20</span>
-            </div>
-            <div class="flex space-x-2">
-              <button class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-plus mr-1"></i>
-                <span>Comprar</span>
-              </button>
-              <button class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded flex items-center">
-                <i class="fa-solid fa-cart-arrow-down mr-1"></i>
-                <span>Vender</span>
-              </button>
+        <div class="p-4 flex justify-center">
+          <div class="w-full max-w-md">
+            <div class="rounded-lg p-4">
+              <div id="assetDistributionChart" class="h-64"></div>
             </div>
           </div>
         </div>
       </div>
-          <button class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors">
-            Quitar filtros
-          </button>
+      
+      <!-- Rendimiento histórico -->
+      <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
+        <div class="border-b border-slate-700 p-4">
+          <h2 class="text-lg font-semibold text-white">Rendimiento Histórico</h2>
         </div>
-      </div>      <!-- Tabla de Acciones -->
-      <div class="commissioner-table-container overflow-x-auto mt-6 shadow border border-gray-700 rounded-lg">
-        <div class="flex justify-between items-center px-6 py-4 border-b border-gray-700 bg-slate-800">
-          <h3 class="text-lg text-gray-100">Detalle de Acciones</h3>
-          <span class="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-xs font-medium">
-            1 acción encontrada
-            <span>
-              (mostrando 1-1)
-            </span>
-          </span>
-        </div>
-        <table class="min-w-full commissioner-table">
-          <!-- Columna Símbolo -->
-          <thead>
-            <tr class="bg-slate-700">
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Símbolo</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Cantidad</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Valor Unitario</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Valor Total</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Rendimiento</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Retorno de Dinero</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Tipo de Orden</th>
-              <th class="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-slate-700/50 transition-colors">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white border-b border-gray-700">
-                AAPL
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 border-b border-gray-700">
-                10
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 border-b border-gray-700">
-                $150
-                <div class="text-xs text-gray-500">por acción</div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-white border-b border-gray-700">
-                $1500
-                <div class="text-xs text-gray-400">Inversión total</div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap border-b border-gray-700">
-                <div class="flex items-center">
-                  <span class="px-3 py-1 text-xs font-medium rounded-full mr-2 bg-green-900 text-green-200">
-                    +5.0%
-                  </span>
-                  <svg class="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                  </svg>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm border-b border-gray-700 text-green-400">
-                $75
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 border-b border-gray-700">
-                Market
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-right text-sm border-b border-gray-700">
-                <button class="text-indigo-400 hover:text-indigo-200 transition-colors">
-                  <span class="material-icons">add_shopping_cart</span>
-                </button>
-                <button class="text-red-400 hover:text-red-300 transition-colors">
-                  <span class="material-icons">sell</span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          
-          <!-- Fila para cuando no hay datos -->
-          <tr style="display: none;">
-            <td class="px-6 py-8 text-center text-gray-400 border-b border-gray-700" colspan="8">
-              <div class="flex flex-col items-center">
-                <span class="material-icons text-gray-500 mb-2 text-5xl">search_off</span>
-                <p>No se encontraron acciones que coincidan con los filtros seleccionados.</p>
-              </div>
-            </td>
-          </tr>
-        </table>
-        
-        <!-- Paginador -->
-        <div class="sticky-paginator bg-slate-800 border-t border-gray-700">
-        </div>
-      </div><!-- Resumen de Inversiones (solo mostrar cuando hay acciones filtradas) -->
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="bg-emerald-900/30 p-4 rounded-lg shadow-sm">
-          <p class="text-sm text-gray-400">Valor Total Invertido</p>
-          <p class="text-xl font-bold text-emerald-300">$1500</p>
-        </div>
-        <div class="bg-blue-900/30 p-4 rounded-lg shadow-sm">
-          <p class="text-sm text-gray-400">Ganancias Totales</p>
-          <div class="flex items-center">
-            <p class="text-xl font-bold text-blue-300">$75</p>
-            <svg class="h-5 w-5 ml-2 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-            </svg>
+        <div class="p-4">
+          <div class="rounded-lg p-4">
+            <div id="performanceChart" class="h-64"></div>
           </div>
         </div>
-        <div class="bg-purple-900/30 p-4 rounded-lg shadow-sm center">
-          <p class="text-sm text-gray-400">Acciones Totales</p>
-          <p class="text-xl font-bold text-purple-300">10</p>
-        </div>
-        <div class="bg-gray-800/50 p-4 rounded-lg shadow-sm">
-          <p class="text-sm text-gray-400">Rendimiento Total</p>
-          <div class="flex items-center">
-            <p class="text-xl font-bold text-green-300">5.00%</p>
-            <svg class="h-5 w-5 ml-2 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-            </svg>
-          </div>
+      </div>
+    </div>
+    
+    <!-- Sección de análisis sectorial -->
+    <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
+      <div class="border-b border-slate-700 p-4">
+        <h2 class="text-lg font-semibold text-white">Análisis por Sectores</h2>
+      </div>
+      <div class="p-4">
+        <div class="rounded-lg p-4">
+          <div id="sectorComparisonChart" class="h-64"></div>
         </div>
       </div>
     </div>

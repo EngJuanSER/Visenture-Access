@@ -8,34 +8,365 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- ApexCharts CDN -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- Gráficos personalizados -->
-    <script src="client-report-charts.js" defer></script>
 </head>
-<body class="min-h-screen">
+<body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
     <div id="content-placeholder"></div>
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts del sidebar -->
+    <script src="../../app/sidebar.js" defer></script>
+    <script src="../../app/dropdown-handler.js" defer></script>
+
     <script>
-        fetch('../../app/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
+        // Datos simulados de clientes
+        const clientsData = {
+            "1": {
+                name: "Juan Díaz",
+                email: "juan.diaz@ejemplo.com",
+                phone: "+34 612 345 678",
+                startDate: "01/06/2023",
+                status: "Activo",
+                investmentTotal: 12500,
+                currentValue: 15687.50,
+                roi: 25.50,
+                operations: 38,
+                lastOperation: "15/07/2025",
+                mainAssets: ["AAPL", "MSFT", "GOOGL", "AMZN"]
+            },
+            "2": {
+                name: "María Rodríguez",
+                email: "maria.rodriguez@ejemplo.com",
+                phone: "+34 623 456 789",
+                startDate: "15/03/2024",
+                status: "Activo",
+                investmentTotal: 8750,
+                currentValue: 10351.25,
+                roi: 18.30,
+                operations: 22,
+                lastOperation: "28/07/2025",
+                mainAssets: ["TSLA", "NIO", "AMD", "INTC"]
+            },
+            "3": {
+                name: "Carlos Gómez",
+                email: "carlos.gomez@ejemplo.com",
+                phone: "+34 634 567 890",
+                startDate: "10/08/2023",
+                status: "Revisión",
+                investmentTotal: 15300,
+                currentValue: 14871.60,
+                roi: -2.80,
+                operations: 45,
+                lastOperation: "20/07/2025",
+                mainAssets: ["NFLX", "FB", "BABA", "TWTR"]
+            }
+        };
         
-        fetch('client-report.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('content-placeholder').innerHTML = data;
-            });
+        // Función para obtener el ID del cliente de la URL
+        function getClientIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('client') || "1"; // Valor predeterminado: 1
+        }
+
+        // Función para cargar componentes de la interfaz
+        function loadInterface() {
+            const clientId = getClientIdFromUrl();
+            const clientData = clientsData[clientId] || clientsData["1"];
+            
+            // Cargar el encabezado
+            fetch('../../app/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    // Ajustar las rutas para que sean correctas desde commissioner-panel/client-report/
+                    let adjustedData = data.replace(/href="\.\.\/auth\//g, 'href="../../auth/');
+                    document.getElementById('header-placeholder').innerHTML = adjustedData;
+                    // Inicializar sidebar después de cargar el header
+                    if (typeof initSidebar === 'function') {
+                        setTimeout(initSidebar, 100);
+                        setTimeout(initSidebar, 500);
+                    }
+                    if (typeof initSidebarDropdowns === 'function') {
+                        setTimeout(initSidebarDropdowns, 200);
+                        setTimeout(initSidebarDropdowns, 600);
+                    }
+                })
+                .catch(error => console.error('Error cargando el header:', error));
+
+            // Cargar el contenido principal (con parámetro para prevenir caché)
+            fetch('client-report.html' + '?nocache=' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                    console.log("Contenido de reporte de cliente cargado");
+                    
+                    // Actualizar datos del cliente en la interfaz
+                    updateClientData(clientData);
+                    
+                    // Inicializar los gráficos una vez que el contenido esté cargado
+                    setTimeout(() => initCharts(clientId), 300);
+                })
+                .catch(error => console.error('Error cargando el contenido de reporte de cliente:', error));
+            
+            // Cargar el pie de página
+            fetch('../../app/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error cargando el footer:', error));
+        }
         
-        fetch('../../app/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
+        // Función para actualizar los datos del cliente en la interfaz
+        function updateClientData(client) {
+            // Actualizar el título y nombre del cliente
+            document.querySelectorAll('.client-name').forEach(el => {
+                el.textContent = client.name;
             });
+            
+            // Actualizar información de contacto
+            document.getElementById('client-email').textContent = client.email;
+            document.getElementById('client-phone').textContent = client.phone;
+            document.getElementById('client-status').textContent = client.status;
+            document.getElementById('client-since').textContent = `Cliente desde ${client.startDate}`;
+            
+            // Actualizar KPIs
+            document.getElementById('investment-total').textContent = `$${client.investmentTotal.toFixed(2)}`;
+            document.getElementById('current-value').textContent = `$${client.currentValue.toFixed(2)}`;
+            document.getElementById('roi-percentage').textContent = `${client.roi.toFixed(2)}%`;
+            document.getElementById('roi-gain').textContent = `$${(client.currentValue - client.investmentTotal).toFixed(2)}`;
+            document.getElementById('operations-count').textContent = client.operations.toString();
+            document.getElementById('last-operation').textContent = `Última operación: ${client.lastOperation}`;
+            
+            // Actualizar activos principales
+            const mainAssetsContainer = document.getElementById('main-assets');
+            if (mainAssetsContainer) {
+                mainAssetsContainer.innerHTML = '';
+                
+                client.mainAssets.forEach((asset, index) => {
+                    if (index < 3) {
+                        const span = document.createElement('span');
+                        span.className = 'inline-block px-2 py-1 text-xs font-medium rounded-full bg-emerald-900 text-emerald-300';
+                        span.textContent = asset;
+                        mainAssetsContainer.appendChild(span);
+                        
+                        // Añadir un espacio entre elementos
+                        if (index < client.mainAssets.length - 1) {
+                            mainAssetsContainer.appendChild(document.createTextNode(' '));
+                        }
+                    }
+                });
+                
+                // Si hay más de 3 activos, mostrar un contador
+                if (client.mainAssets.length > 3) {
+                    const moreSpan = document.createElement('span');
+                    moreSpan.className = 'inline-block px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-gray-300';
+                    moreSpan.textContent = `+${client.mainAssets.length - 3}`;
+                    mainAssetsContainer.appendChild(document.createTextNode(' '));
+                    mainAssetsContainer.appendChild(moreSpan);
+                }
+            }
+            
+            // Ajustar clases para el ROI (positivo/negativo)
+            if (client.roi < 0) {
+                document.getElementById('roi-card').classList.remove('positive');
+                document.getElementById('roi-card').classList.add('negative');
+                document.getElementById('roi-percentage').classList.remove('text-green-400');
+                document.getElementById('roi-percentage').classList.add('text-red-400');
+            } else {
+                document.getElementById('roi-card').classList.add('positive');
+                document.getElementById('roi-card').classList.remove('negative');
+                document.getElementById('roi-percentage').classList.add('text-green-400');
+                document.getElementById('roi-percentage').classList.remove('text-red-400');
+            }
+        }
+
+        // Función para inicializar los gráficos
+        function initCharts(clientId) {
+            // Datos personalizados según el cliente
+            const chartData = {
+                "1": {
+                    commissions: [120, 150, 180, 210, 250, 280, 320],
+                    assetDistribution: [40, 30, 20, 10],
+                    roiTrend: [8, 9, 7.5, 8.3, 9.2, 8.9, 10.5]
+                },
+                "2": {
+                    commissions: [80, 100, 130, 160, 195, 220, 240],
+                    assetDistribution: [25, 35, 30, 10],
+                    roiTrend: [6.5, 7.2, 8.1, 9.5, 10.2, 8.9, 7.8]
+                },
+                "3": {
+                    commissions: [180, 165, 140, 120, 105, 90, 85],
+                    assetDistribution: [50, 10, 25, 15],
+                    roiTrend: [5.2, 4.1, 3.5, 2.8, 1.5, 0.2, -2.8]
+                }
+            };
+            
+            const data = chartData[clientId] || chartData["1"];
+            
+            // Gráfico de tendencia de comisiones
+            if (document.getElementById('commissionsTrendChart')) {
+                const commissionsTrendOptions = {
+                    series: [{
+                        name: 'Comisiones',
+                        data: data.commissions
+                    }],
+                    chart: {
+                        height: 300,
+                        type: 'line',
+                        toolbar: {
+                            show: false
+                        },
+                        foreColor: '#ccc'
+                    },
+                    colors: ['#10b981'],
+                    stroke: {
+                        width: 3,
+                        curve: 'smooth'
+                    },
+                    xaxis: {
+                        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul']
+                    },
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            shade: 'dark',
+                            type: 'horizontal',
+                            shadeIntensity: 0.5,
+                            gradientToColors: ['#3b82f6'],
+                            inverseColors: false,
+                            opacityFrom: 1,
+                            opacityTo: 1,
+                            stops: [0, 100]
+                        },
+                    },
+                    markers: {
+                        size: 4,
+                        colors: ['#10b981'],
+                        strokeColors: '#fff',
+                        strokeWidth: 2,
+                        hover: {
+                            size: 7,
+                        }
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Comisiones ($)'
+                        }
+                    }
+                };
+
+                const commissionsTrendChart = new ApexCharts(document.getElementById('commissionsTrendChart'), commissionsTrendOptions);
+                commissionsTrendChart.render();
+            }
+
+            // Gráfico de distribución de activos
+            if (document.getElementById('assetDistributionChart')) {
+                const assetDistributionOptions = {
+                    series: data.assetDistribution,
+                    chart: {
+                        width: 380,
+                        type: 'donut',
+                        foreColor: '#ccc'
+                    },
+                    labels: ['Acciones', 'Bonos', 'ETFs', 'Otros'],
+                    colors: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899'],
+                    responsive: [{
+                        breakpoint: 480,
+                        options: {
+                            chart: {
+                                width: 300
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }],
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: '50%'
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                };
+
+                const assetDistributionChart = new ApexCharts(document.getElementById('assetDistributionChart'), assetDistributionOptions);
+                assetDistributionChart.render();
+            }
+
+            // Gráfico de tendencia ROI
+            if (document.getElementById('roiTrendChart')) {
+                const roiTrendOptions = {
+                    series: [{
+                        name: 'ROI del Cliente',
+                        data: data.roiTrend
+                    }, {
+                        name: 'Promedio',
+                        data: [7.2, 7.4, 7.3, 7.5, 7.6, 7.8, 8.0]
+                    }],
+                    chart: {
+                        height: 300,
+                        type: 'line',
+                        toolbar: {
+                            show: false
+                        },
+                        foreColor: '#ccc'
+                    },
+                    colors: ['#10b981', '#6b7280'],
+                    stroke: {
+                        width: [3, 2],
+                        dashArray: [0, 5]
+                    },
+                    xaxis: {
+                        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul']
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'ROI (%)'
+                        }
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function (val) {
+                                return val + "%";
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'top'
+                    }
+                };
+
+                const roiTrendChart = new ApexCharts(document.getElementById('roiTrendChart'), roiTrendOptions);
+                roiTrendChart.render();
+            }
+
+            console.log("Gráficos del reporte de cliente inicializados");
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', loadInterface);
+        
+        // Asegurarse de que los enlaces se abran en la ubicación correcta desde client-report
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' || e.target.parentElement.tagName === 'A') {
+                const link = e.target.tagName === 'A' ? e.target : e.target.parentElement;
+                const href = link.getAttribute('href');
+                
+                // Si es un enlace relativo que comienza con "../", asegúrate de que se resuelva correctamente
+                if (href && href.startsWith('../') && !href.startsWith('../../')) {
+                    e.preventDefault();
+                    window.location.href = '../../' + href.slice(3);
+                }
+            }
+        }, true);
     </script>
 </body>
 </html>

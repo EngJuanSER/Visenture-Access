@@ -3,34 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visenture - Profile</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Visenture - Perfil</title>
     <link rel="stylesheet" href="profile.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
     <div id="content-placeholder"></div>
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts del sidebar -->
+    <script src="../app/sidebar.js" defer></script>
+    <script src="../app/dropdown-handler.js" defer></script>
+
     <script>
-        fetch('../app/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
+        // Función para cargar componentes de la interfaz
+        function loadInterface() {
+            // Cargar el encabezado
+            fetch('../app/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Inicializar sidebar después de cargar el header
+                    if (typeof initSidebar === 'function') {
+                        setTimeout(initSidebar, 100);
+                        setTimeout(initSidebar, 500);
+                    }
+                    if (typeof initSidebarDropdowns === 'function') {
+                        setTimeout(initSidebarDropdowns, 200);
+                        setTimeout(initSidebarDropdowns, 600);
+                    }
+                })
+                .catch(error => console.error('Error cargando el header:', error));
+
+            // Cargar el contenido principal (con parámetro para prevenir caché)
+            fetch('profile.html' + '?nocache=' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                    console.log("Contenido de perfil cargado");
+                    
+                    // Inicializar la funcionalidad del perfil
+                    setTimeout(initProfileFunctionality, 100);
+                })
+                .catch(error => console.error('Error cargando el contenido de perfil:', error));
+            
+            // Cargar el pie de página
+            fetch('../app/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error cargando el footer:', error));
+        }
+
+        // Inicializar la funcionalidad de la página de perfil
+        function initProfileFunctionality() {
+            const tabButtons = document.querySelectorAll('[data-tab]');
+            const tabContents = document.querySelectorAll('[id$="Content"]');
+            
+            if (tabButtons.length === 0) {
+                console.log('Los botones de tab no han sido cargados aún, reintentando...');
+                setTimeout(initProfileFunctionality, 100);
+                return;
+            }
+            
+            console.log('Inicializando la funcionalidad del perfil');
+            
+            // Función para mostrar un tab y ocultar los demás
+            function showTab(tabId) {
+                // Desactivar todos los botones
+                tabButtons.forEach(button => {
+                    button.classList.remove('bg-emerald-900', 'text-emerald-300', 'font-medium');
+                });
+                
+                // Ocultar todos los contenidos
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                // Activar el botón seleccionado
+                const activeButton = document.querySelector(`[data-tab="${tabId}"]`);
+                if (activeButton) {
+                    activeButton.classList.add('bg-emerald-900', 'text-emerald-300', 'font-medium');
+                }
+                
+                // Mostrar el contenido correspondiente
+                const activeContent = document.getElementById(`${tabId}Content`);
+                if (activeContent) {
+                    activeContent.style.display = 'block';
+                }
+            }
+            
+            // Asignar evento click a cada botón
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    showTab(tabId);
+                });
             });
-        fetch('profile.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('content-placeholder').innerHTML = data;
-            });
-        fetch('../app/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+            
+            // Mostrar la primera tab por defecto
+            showTab('information');
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', loadInterface);
     </script>
 </body>
 </html>

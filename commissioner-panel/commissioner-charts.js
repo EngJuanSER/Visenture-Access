@@ -3,14 +3,37 @@
  * Implementados con ApexCharts
  */
 
+// Evento principal para inicializar las gráficas cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Inicializando gráficos de comisionista...");
-    initCommissionerCharts();
-    initCommissionerCharts2(); // Cargamos gráficos adicionales cuando se requieran
+    console.log("DOM cargado, esperando a que los componentes estén listos...");
+    
+    // Intentar inicializar gráficos si la página ya está completa
+    if (document.querySelector("#clientDistributionChart")) {
+        console.log("Contenedor de gráficos detectado, inicializando...");
+        initCommissionerCharts();
+        initCommissionerCharts2();
+    } else {
+        console.log("Esperando a que se cargue el panel del comisionista...");
+        // Verificar periódicamente si los contenedores ya existen
+        const checkInterval = setInterval(function() {
+            if (document.querySelector("#clientDistributionChart")) {
+                console.log("Contenedor de gráficos detectado, inicializando...");
+                clearInterval(checkInterval);
+                initCommissionerCharts();
+                initCommissionerCharts2();
+            }
+        }, 300);
+        
+        // Por seguridad, dejar de intentar después de 10 segundos
+        setTimeout(function() {
+            clearInterval(checkInterval);
+        }, 10000);
+    }
 });
 
 /**
  * Inicializa los gráficos principales del panel de comisionista
+ * Esta función puede ser llamada externamente desde index.html
  */
 function initCommissionerCharts() {
     console.log("Renderizando gráficos...");
@@ -18,8 +41,28 @@ function initCommissionerCharts() {
     // Comprobamos que los contenedores existan
     if (!document.querySelector("#clientDistributionChart")) {
         console.error("No se encontró el contenedor para el gráfico de distribución de clientes");
+        console.log("Esperando 500ms e intentando de nuevo...");
+        setTimeout(() => {
+            if (document.querySelector("#clientDistributionChart")) {
+                console.log("Contenedor encontrado en segundo intento");
+                initChartsAfterCheck();
+            } else {
+                console.error("No se encontró el contenedor después del segundo intento");
+            }
+        }, 500);
         return;
     }
+    
+    initChartsAfterCheck();
+}
+
+/**
+ * Función auxiliar que realiza la inicialización de las gráficas
+ * después de confirmar que los contenedores existen
+ */
+function initChartsAfterCheck() {
+    
+    console.log("Iniciando renderizado de gráficos de comisionista...");
     
     // Distribución de Clientes (gráfico de dona)
     var clientDistributionOptions = {
@@ -28,7 +71,14 @@ function initCommissionerCharts() {
             type: 'donut',
             height: 300,
             background: 'transparent',
-            foreColor: '#9ca3af'
+            foreColor: '#9ca3af',
+            dropShadow: {
+                enabled: true,
+                top: 3,
+                left: 2,
+                blur: 4,
+                opacity: 0.2
+            }
         },
         labels: ['Activos', 'Inactivos'],
         colors: ['#10B981', '#6B7280'],
@@ -62,7 +112,12 @@ function initCommissionerCharts() {
             },
             markers: {
                 width: 12,
-                height: 12
+                height: 12,
+                radius: 2
+            },
+            itemMargin: {
+                horizontal: 10,
+                vertical: 5
             }
         },
         tooltip: {
@@ -132,13 +187,17 @@ function initCommissionerCharts() {
                 }
             }
         },
-        colors: ['#047857'],
+        colors: ['#10B981'],
         plotOptions: {
             bar: {
                 horizontal: false,
                 columnWidth: '50%',
                 endingShape: 'rounded',
-                borderRadius: 4
+                borderRadius: 4,
+                distributed: false,
+                dataLabels: {
+                    position: 'top'
+                }
             },
         },
         dataLabels: {
@@ -154,7 +213,18 @@ function initCommissionerCharts() {
         },
         grid: {
             borderColor: '#374151',
-            strokeDashArray: 4
+            strokeDashArray: 4,
+            row: {
+                colors: ['transparent', 'rgba(16, 185, 129, 0.05)']
+            }
+        },
+        states: {
+            hover: {
+                filter: {
+                    type: 'darken',
+                    value: 0.9
+                }
+            }
         }
     };
 

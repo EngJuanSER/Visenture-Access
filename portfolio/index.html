@@ -3,34 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visenture - Portfolio</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Visenture - Portafolio</title>
     <link rel="stylesheet" href="portfolio.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- ApexCharts para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
-<body>
+<body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
     <div id="content-placeholder"></div>
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts del sidebar -->
+    <script src="../app/sidebar.js" defer></script>
+    <script src="../app/dropdown-handler.js" defer></script>
+
     <script>
-        fetch('../app/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-        fetch('portfolio.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('content-placeholder').innerHTML = data;
-            });
-        fetch('../app/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+        // Función para cargar componentes de la interfaz
+        function loadInterface() {
+            // Cargar el encabezado
+            fetch('../app/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Inicializar sidebar después de cargar el header
+                    if (typeof initSidebar === 'function') {
+                        setTimeout(initSidebar, 100);
+                        setTimeout(initSidebar, 500);
+                    }
+                    if (typeof initSidebarDropdowns === 'function') {
+                        setTimeout(initSidebarDropdowns, 200);
+                        setTimeout(initSidebarDropdowns, 600);
+                    }
+                })
+                .catch(error => console.error('Error cargando el header:', error));
+
+            // Cargar el contenido principal (con parámetro para prevenir caché)
+            fetch('portfolio.html' + '?nocache=' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-placeholder').innerHTML = data;
+                    console.log("Contenido de portafolio cargado");
+                    
+                    // Inicializar los gráficos después de cargar el contenido
+                    setTimeout(initCharts, 300);
+                })
+                .catch(error => console.error('Error cargando el contenido de portafolio:', error));
+            
+            // Cargar el pie de página
+            fetch('../app/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error cargando el footer:', error));
+        }
+
+        // Función para inicializar los gráficos
+        function initCharts() {
+            // Gráfico de distribución de activos
+            if (document.getElementById('assetDistributionChart')) {
+                const assetDistributionOptions = {
+                    series: [40, 25, 15, 12, 8],
+                    chart: {
+                        width: '100%',
+                        type: 'donut',
+                        foreColor: '#ccc'
+                    },
+                    labels: ['Acciones US', 'Acciones Europa', 'ETFs', 'Bonos', 'Criptomonedas'],
+                    colors: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6'],
+                    responsive: [{
+                        breakpoint: 480,
+                        options: {
+                            chart: {
+                                width: 300
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }],
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: '50%'
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                };
+
+                const assetDistributionChart = new ApexCharts(document.getElementById('assetDistributionChart'), assetDistributionOptions);
+                assetDistributionChart.render();
+            }
+
+            // Gráfico de rendimiento histórico
+            if (document.getElementById('performanceChart')) {
+                const performanceOptions = {
+                    series: [{
+                        name: 'Retorno',
+                        data: [2.3, 3.1, -0.8, 2.5, 5.1, -2.3, 3.2, 1.8, 4.2]
+                    }],
+                    chart: {
+                        height: 300,
+                        type: 'line',
+                        toolbar: {
+                            show: false
+                        },
+                        foreColor: '#ccc'
+                    },
+                    colors: ['#10b981'],
+                    stroke: {
+                        width: 3,
+                        curve: 'smooth'
+                    },
+                    xaxis: {
+                        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep']
+                    },
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            shade: 'dark',
+                            type: 'horizontal',
+                            shadeIntensity: 0.5,
+                            gradientToColors: ['#3b82f6'],
+                            inverseColors: false,
+                            opacityFrom: 1,
+                            opacityTo: 1,
+                            stops: [0, 100]
+                        },
+                    },
+                    markers: {
+                        size: 4,
+                        colors: ['#10b981'],
+                        strokeColors: '#fff',
+                        strokeWidth: 2,
+                        hover: {
+                            size: 7,
+                        }
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Retorno (%)'
+                        },
+                        labels: {
+                            formatter: function (val) {
+                                return val.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                };
+
+                const performanceChart = new ApexCharts(document.getElementById('performanceChart'), performanceOptions);
+                performanceChart.render();
+            }
+            
+            // Gráfico de comparación de sectores
+            if (document.getElementById('sectorComparisonChart')) {
+                const sectorComparisonOptions = {
+                    series: [{
+                        name: 'Retorno',
+                        data: [12, 8, 15, -5, 10, 7, -2]
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 300,
+                        foreColor: '#ccc',
+                        toolbar: {
+                            show: false
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 3,
+                            dataLabels: {
+                                position: 'top'
+                            },
+                            colors: {
+                                ranges: [{
+                                    from: -100,
+                                    to: 0,
+                                    color: '#ef4444'
+                                }],
+                                backgroundBarColors: [],
+                                backgroundBarOpacity: 1,
+                            }
+                        }
+                    },
+                    colors: ['#10b981'],
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function (val) {
+                            return val + '%';
+                        },
+                        offsetY: -20,
+                        style: {
+                            fontSize: '12px',
+                            colors: ["#ccc"]
+                        }
+                    },
+                    xaxis: {
+                        categories: ["Tecnología", "Finanzas", "Salud", "Energía", "Consumo", "Industrial", "Inmobiliario"],
+                        position: 'bottom'
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Rendimiento (%)'
+                        }
+                    }
+                };
+
+                const sectorComparisonChart = new ApexCharts(document.getElementById('sectorComparisonChart'), sectorComparisonOptions);
+                sectorComparisonChart.render();
+            }
+
+            console.log("Gráficos del portafolio inicializados");
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', loadInterface);
     </script>
 </body>
 </html>

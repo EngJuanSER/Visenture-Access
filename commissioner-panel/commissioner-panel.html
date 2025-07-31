@@ -27,84 +27,6 @@
                     </div>
                 </div>
 
-                <!-- Filtros -->
-                <form class="mb-6 p-4 bg-slate-800 rounded-lg border border-gray-700">
-                    <h3 class="text-md font-medium text-gray-200 mb-3 flex items-center">
-                        <i class="fa-solid fa-filter mr-2 text-indigo-400"></i>
-                        <span>Filtros</span>
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- Campo de búsqueda -->
-                        <div class="relative">
-                            <label for="client-search-filter" class="block text-sm font-medium text-gray-300 mb-2">Buscar cliente</label>
-                            <div class="relative">
-                                <input 
-                                    id="client-search-filter"
-                                    placeholder="Nombre, email..." 
-                                    class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-colors duration-200"
-                                >
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <i class="fa-solid fa-search text-blue-400"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Filtro por mercado -->
-                        <div class="relative">
-                            <label for="market-filter" class="block text-sm font-medium text-gray-300 mb-2">Mercado</label>
-                            <div class="relative">
-                                <select 
-                                    id="market-filter"
-                                    class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-colors duration-200">
-                                    <option value="">Todos</option>
-                                    <option value="NYSE">NYSE</option>
-                                    <option value="NASDAQ">NASDAQ</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <i class="fa-solid fa-globe text-indigo-400"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Filtro por estado -->
-                        <div class="relative">
-                            <label for="status-filter" class="block text-sm font-medium text-gray-300 mb-2">Estado</label>
-                            <div class="relative">
-                                <select 
-                                    id="status-filter"
-                                    class="block w-full bg-gray-700 border border-gray-600 text-gray-200 py-2.5 px-4 pr-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-colors duration-200">
-                                    <option value="">Todos</option>
-                                    <option value="active">Activo</option>
-                                    <option value="inactive">Inactivo</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <i class="fa-solid fa-user-check text-purple-400"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Botones de acción para los filtros -->
-                    <div class="flex justify-end mt-4 space-x-2">
-                        <button 
-                            type="button" 
-                            class="px-4 py-2 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-300 bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            <i class="fa-solid fa-xmark mr-1"></i>
-                            <span>Limpiar</span>
-                        </button>
-                        <button 
-                            type="submit" 
-                            class="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            <i class="fa-solid fa-search mr-1"></i>
-                            <span>Aplicar</span>
-                        </button>
-                        <div class="py-2 px-3 bg-emerald-900/30 border border-emerald-800 text-emerald-400 rounded-md flex items-center text-sm">
-                            <i class="fa-solid fa-filter mr-1 text-sm"></i>
-                            <span>Filtros activos</span>
-                        </div>
-                    </div>
-                </form>
-
                 <!-- Panel principal con tabs -->
                 <div>
                     <div class="py-6">
@@ -192,50 +114,396 @@
                                 <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container"></div>
                             </div>
                         </div>
+                        
+                        <!-- Listado de clientes con filtros integrados -->
+                        <div class="bg-slate-800 rounded-lg shadow-md border border-slate-700 mb-6 overflow-hidden">
+                            <div class="border-b border-slate-700 p-4 flex justify-between items-center">
+                                <h2 class="text-xl font-semibold text-white flex items-center">
+                                  <i class="fas fa-users mr-2 text-emerald-400"></i>
+                                  Mis Clientes
+                                </h2>
+                                <div class="flex items-center space-x-2">
+                                  <button class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm">
+                                    <i class="fa-solid fa-user-plus mr-1.5"></i>
+                                    <span>Añadir Cliente</span>
+                                  </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Filtros integrados en el panel de clientes -->
+                            <div class="p-4 border-b border-slate-700 bg-slate-850">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <!-- Campo de búsqueda -->
+                                    <div class="relative">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-300 mr-2">Buscar:</span>
+                                            <div class="relative flex-grow">
+                                                <i class="fa-solid fa-search absolute left-3 top-2 text-gray-500"></i>
+                                                <input 
+                                                    id="client-search-filter"
+                                                    placeholder="Nombre, email..." 
+                                                    class="bg-slate-700 text-white border border-slate-600 rounded pl-9 pr-4 py-1 w-full"
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <!-- Top clientes -->
-                        <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 mb-6">
-                            <h3 class="text-gray-300 font-medium mb-4">Mejores Clientes por ROI</h3>
+                                    <!-- Filtro por mercado -->
+                                    <div class="relative">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-300 mr-2">Mercado:</span>
+                                            <select 
+                                                id="market-filter"
+                                                class="bg-slate-700 text-white border border-slate-600 rounded px-3 py-1 flex-grow">
+                                                <option value="">Todos</option>
+                                                <option value="NYSE">NYSE</option>
+                                                <option value="NASDAQ">NASDAQ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Filtro por estado -->
+                                    <div class="relative">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-300 mr-2">Estado:</span>
+                                            <select 
+                                                id="status-filter"
+                                                class="bg-slate-700 text-white border border-slate-600 rounded px-3 py-1 flex-grow">
+                                                <option value="">Todos</option>
+                                                <option value="active">Activo</option>
+                                                <option value="inactive">Inactivo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-end mt-4 space-x-2">
+                                    <button 
+                                        type="button" 
+                                        class="px-4 py-1.5 border border-gray-600 rounded text-sm font-medium text-gray-300 bg-gray-800 hover:bg-gray-700">
+                                        <i class="fa-solid fa-xmark mr-1"></i>
+                                        <span>Limpiar</span>
+                                    </button>
+                                    <button 
+                                        type="button" 
+                                        class="px-4 py-1.5 border border-transparent rounded text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600">
+                                        <i class="fa-solid fa-search mr-1"></i>
+                                        <span>Aplicar</span>
+                                    </button>
+                                    <div class="py-1.5 px-3 bg-emerald-900/30 border border-emerald-800 text-emerald-400 rounded flex items-center text-sm">
+                                        <i class="fa-solid fa-filter mr-1 text-sm"></i>
+                                        <span>Filtros activos</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla de clientes -->
                             <div class="overflow-x-auto">
                                 <table class="min-w-full divide-y divide-gray-700">
                                     <thead class="bg-gray-900/50">
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Cliente</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Email</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Inversión Total</th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ROI</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Estado</th>
                                             <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-transparent divide-y divide-gray-700">
-                                        <tr>
+                                        <!-- Cliente 1 -->
+                                        <tr class="hover:bg-slate-700/30 transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="font-medium text-white">Cliente A</div>
+                                                <div class="flex items-center">
+                                                    <div class="h-10 w-10 flex-shrink-0 mr-3">
+                                                        <div class="h-10 w-10 rounded-full bg-emerald-700 flex items-center justify-center text-white font-semibold">
+                                                            JD
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="font-medium text-white">Juan Díaz</div>
+                                                        <div class="text-sm text-gray-400">Cliente desde Jun 2023</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                juan.diaz@ejemplo.com
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm font-medium text-emerald-400">25.50%</div>
+                                                <div class="text-sm font-medium text-white">$12,500.00</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-emerald-400">+25.50%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs rounded-full bg-green-900 text-green-300">
+                                                    Activo
+                                                </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
-                                                <button 
-                                                    class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
-                                                    Ver detalles
-                                                </button>
+                                                <div class="flex justify-end space-x-3">
+                                                    <a href="client-report/index.html?client=1" 
+                                                       class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center">
+                                                       <i class="fa-solid fa-chart-line mr-1.5"></i>
+                                                       Ver reporte
+                                                    </a>
+                                                    <div class="relative group inline-block">
+                                                        <button class="text-gray-400 hover:text-white">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                        </button>
+                                                        <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-envelope mr-2"></i>Enviar mensaje
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-edit mr-2"></i>Editar perfil
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-blue-400 hover:bg-blue-900/30">
+                                                                <i class="fa-solid fa-star mr-2"></i>Marcar como VIP
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        
+                                        <!-- Cliente 2 -->
+                                        <tr class="hover:bg-slate-700/30 transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="font-medium text-white">Cliente B</div>
+                                                <div class="flex items-center">
+                                                    <div class="h-10 w-10 flex-shrink-0 mr-3">
+                                                        <div class="h-10 w-10 rounded-full bg-blue-700 flex items-center justify-center text-white font-semibold">
+                                                            MR
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="font-medium text-white">María Rodríguez</div>
+                                                        <div class="text-sm text-gray-400">Cliente desde Mar 2024</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                maria.rodriguez@ejemplo.com
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm font-medium text-emerald-400">20.10%</div>
+                                                <div class="text-sm font-medium text-white">$8,750.00</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-emerald-400">+18.30%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs rounded-full bg-green-900 text-green-300">
+                                                    Activo
+                                                </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
-                                                <button 
-                                                    class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
-                                                    Ver detalles
-                                                </button>
+                                                <div class="flex justify-end space-x-3">
+                                                    <a href="client-report/index.html?client=2" 
+                                                       class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center">
+                                                       <i class="fa-solid fa-chart-line mr-1.5"></i>
+                                                       Ver reporte
+                                                    </a>
+                                                    <div class="relative group inline-block">
+                                                        <button class="text-gray-400 hover:text-white">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                        </button>
+                                                        <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-envelope mr-2"></i>Enviar mensaje
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-edit mr-2"></i>Editar perfil
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-green-400 hover:bg-green-900/30">
+                                                                <i class="fa-solid fa-user-plus mr-2"></i>Referir cliente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Cliente 3 -->
+                                        <tr class="hover:bg-slate-700/30 transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="h-10 w-10 flex-shrink-0 mr-3">
+                                                        <div class="h-10 w-10 rounded-full bg-purple-700 flex items-center justify-center text-white font-semibold">
+                                                            CG
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="font-medium text-white">Carlos Gómez</div>
+                                                        <div class="text-sm text-gray-400">Cliente desde Ago 2023</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                carlos.gomez@ejemplo.com
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-white">$15,300.00</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-red-400">-2.80%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs rounded-full bg-yellow-900 text-yellow-300">
+                                                    Revisión
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                                                <div class="flex justify-end space-x-3">
+                                                    <a href="client-report/index.html?client=3" 
+                                                       class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center">
+                                                       <i class="fa-solid fa-chart-line mr-1.5"></i>
+                                                       Ver reporte
+                                                    </a>
+                                                    <div class="relative group inline-block">
+                                                        <button class="text-gray-400 hover:text-white">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                        </button>
+                                                        <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-envelope mr-2"></i>Enviar mensaje
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-edit mr-2"></i>Editar perfil
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-yellow-400 hover:bg-yellow-900/30">
+                                                                <i class="fa-solid fa-exclamation-triangle mr-2"></i>Resolver problemas
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Cliente 4 -->
+                                        <tr class="hover:bg-slate-700/30 transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="h-10 w-10 flex-shrink-0 mr-3">
+                                                        <div class="h-10 w-10 rounded-full bg-amber-700 flex items-center justify-center text-white font-semibold">
+                                                            AL
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="font-medium text-white">Ana López</div>
+                                                        <div class="text-sm text-gray-400">Cliente desde Oct 2023</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                ana.lopez@ejemplo.com
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-white">$22,800.00</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-emerald-400">+32.75%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs rounded-full bg-green-900 text-green-300">
+                                                    Activo
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                                                <div class="flex justify-end space-x-3">
+                                                    <a href="client-report/index.html?client=4" 
+                                                       class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center">
+                                                       <i class="fa-solid fa-chart-line mr-1.5"></i>
+                                                       Ver reporte
+                                                    </a>
+                                                    <div class="relative group inline-block">
+                                                        <button class="text-gray-400 hover:text-white">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                        </button>
+                                                        <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-envelope mr-2"></i>Enviar mensaje
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-edit mr-2"></i>Editar perfil
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Cliente 5 -->
+                                        <tr class="hover:bg-slate-700/30 transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="h-10 w-10 flex-shrink-0 mr-3">
+                                                        <div class="h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-semibold">
+                                                            RM
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="font-medium text-white">Roberto Méndez</div>
+                                                        <div class="text-sm text-gray-400">Cliente desde Feb 2024</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                roberto.mendez@ejemplo.com
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-white">$5,200.00</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm font-medium text-red-400">-5.20%</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-300">
+                                                    Inactivo
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                                                <div class="flex justify-end space-x-3">
+                                                    <a href="client-report/index.html?client=5" 
+                                                       class="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center">
+                                                       <i class="fa-solid fa-chart-line mr-1.5"></i>
+                                                       Ver reporte
+                                                    </a>
+                                                    <div class="relative group inline-block">
+                                                        <button class="text-gray-400 hover:text-white">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                        </button>
+                                                        <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-envelope mr-2"></i>Enviar mensaje
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-600">
+                                                                <i class="fa-solid fa-edit mr-2"></i>Editar perfil
+                                                            </a>
+                                                            <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-red-900/30">
+                                                                <i class="fa-solid fa-user-slash mr-2"></i>Desactivar
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                            
+                            <!-- Paginación -->
+                            <div class="p-4 border-t border-slate-700 flex justify-between items-center">
+                                <p class="text-xs text-gray-400">Mostrando 5 de 150 clientes</p>
+                                <div class="flex space-x-1">
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600 disabled:opacity-50" disabled>
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button class="px-3 py-1 bg-emerald-600 text-white rounded">1</button>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600">2</button>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600">3</button>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -99,6 +99,67 @@ mat-card {
   fill: #e2e8f0 !important;
 }
 
+/* Estilos para centrado de gráficos */
+.chart-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container h3 {
+  margin-bottom: 1rem;
+}
+
+.chart-container > div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Asegurarse que ApexCharts esté centrado */
+.apexcharts-canvas {
+  margin: 0 auto !important;
+}
+
+/* Ajuste específico para gráficos de donut */
+.donut-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.donut-chart-container .apexcharts-canvas {
+  margin: 0 auto !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* Mejoras en la visualización del tooltip */
+.apexcharts-tooltip {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border: 1px solid rgba(71, 85, 105, 0.5) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+}
+
+.apexcharts-tooltip-title {
+  background-color: rgba(51, 65, 85, 0.7) !important;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.5) !important;
+  font-weight: 600 !important;
+}
+
+/* Ocultar leyendas y ajustar espacio */
+.apexcharts-legend {
+  display: none !important;
+}
+
+/* Mejora del indicador central */
+.apexcharts-datalabels-group text {
+  font-weight: 600 !important;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2)) !important;
+}
+
 .mat-mdc-paginator-navigation-first .mat-mdc-paginator-icon,
 .mat-mdc-paginator-navigation-previous .mat-mdc-paginator-icon,
 .mat-mdc-paginator-navigation-next .mat-mdc-paginator-icon,
