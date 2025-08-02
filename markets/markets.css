@@ -67,11 +67,11 @@
 
 /* Estilos para los paneles informativos */
 .warning-snackbar {
-  background: #f59e0b;
-  color: white;
+  background: var(--color-accent-warning);
+  color: var(--color-accent-primary-text);
 }
 
 .error-snackbar {
-  background: #ef4444;
-  color: white;
+  background: var(--color-accent-negative);
+  color: var(--color-accent-primary-text);
 }

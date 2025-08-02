@@ -1,7 +1,7 @@
 /* Estilos base para el contenedor */
 body {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: var(--color-background-base);
+  color: var(--color-text-primary);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,10 +10,10 @@ body {
 :host {
   display: block;
   padding: 1rem;
-  --background-color: #1a202c;
-  --text-color: #f7fafc;
-  --card-bg: #2d3748;
-  --border-color: #4a5568;
+  --background-color: var(--color-background-card);
+  --text-color: var(--color-text-primary);
+  --card-bg: var(--color-background-hover);
+  --border-color: var(--color-border-interactive);
 }
 
 /* Estilos para las tarjetas de métricas */
@@ -43,26 +43,26 @@ body {
 .apexcharts-text,
 .apexcharts-title-text,
 .apexcharts-legend-text {
-  fill: #f7fafc !important;
+  fill: var(--color-text-primary) !important;
 }
 
 .apexcharts-gridline {
-  stroke: #4a5568 !important;
+  stroke: var(--color-chart-grid) !important;
 }
 
 .apexcharts-tooltip {
-  background: #2d3748 !important;
-  border-color: #4a5568 !important;
-  color: #f7fafc !important;
+  background: var(--color-chart-tooltip-bg) !important;
+  border-color: var(--color-border-primary) !important;
+  color: var(--color-text-primary) !important;
 }
 
 .apexcharts-menu {
-  background: #2d3748 !important;
-  border-color: #4a5568 !important;
+  background: var(--color-chart-tooltip-bg) !important;
+  border-color: var(--color-border-primary) !important;
 }
 
 .apexcharts-menu-item:hover {
-  background: #4a5568 !important;
+  background: var(--color-background-selected) !important;
 }
 
 /* Estilo para los gráficos */
@@ -89,20 +89,20 @@ body {
 /* Estilos específicos para formularios en modo oscuro */
 input, 
 textarea {
-  color: #94a3b8; /* slate-400 */
+  color: var(--color-text-placeholder); /* slate-400 */
 }
 
 input::placeholder, 
 textarea::placeholder {
-  color: #94a3b8; /* slate-400 */
+  color: var(--color-text-placeholder); /* slate-400 */
 }
 
 /* Restaurar estilo de autofill de navegadores (Chrome, Edge) */
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-text-fill-color: #e2e8f0 !important;
-  -webkit-box-shadow: 0 0 0px 1000px #1e293b inset !important;
+  -webkit-text-fill-color: var(--color-text-primary) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-background-card) inset !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 

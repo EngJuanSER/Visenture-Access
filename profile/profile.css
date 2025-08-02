@@ -2,15 +2,15 @@
 
 /* Estilos para los botones */
 .bg-emerald-600 {
-  background-color: #10b981;
+  background-color: var(--color-accent-primary-hover);
 }
 
 .bg-emerald-600:hover {
-  background-color: #059669;
+  background-color: var(--color-accent-primary-active);
 }
 
 .bg-emerald-900 {
-  background-color: #064e3b;
+  background-color: var(--color-accent-primary-active);
 }
 
 /* Estilos para el switch de toggle */
@@ -34,7 +34,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #4b5563;
+  background-color: var(--color-background-selected);
   transition: .4s;
   border-radius: 24px;
 }
@@ -52,7 +52,7 @@
 }
 
 input:checked + .slider {
-  background-color: #10b981;
+  background-color: var(--color-accent-primary-hover);
 }
 
 input:checked + .slider:before {

@@ -36,7 +36,7 @@ input:focus {
 }
 
 input.focus\:border-emerald-600:focus {
-  border-color: #059669;
+  border-color: var(--color-accent-primary-active);
 }
 
 input.focus\:ring:focus {
@@ -107,7 +107,7 @@ button:active {
 .form-field {
   width: 100%;
   margin-bottom: 1.25rem;
-  color: #f1f5f9;
+  color: var(--color-text-primary);
 }
 
 .amount-field {
@@ -120,11 +120,11 @@ button:active {
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  background-color: #10b981;
+  background-color: var(--color-accent-primary-hover);
 }
 
 .add-funds-button:hover {
-  background-color: #059669;
+  background-color: var(--color-accent-primary-active);
 }
 
 .add-funds-button:disabled {
@@ -133,12 +133,12 @@ button:active {
 }
 
 .add-funds-button.success-animation {
-  background-color: #059669 !important;
+  background-color: var(--color-accent-primary-active) !important;
   transform: scale(1.05);
 }
 
 .add-funds-button.error-animation {
-  background-color: #dc2626 !important;
+  background-color: var(--color-accent-negative) !important;
 }
 
 .spinner {
@@ -207,11 +207,11 @@ button:active {
 }
 
 .mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
-  border-color: #10b981;
+  border-color: var(--color-accent-primary-hover);
 }
 
 .mat-mdc-form-field-appearance-outline.mat-focused .mat-mdc-form-field-outline-thick {
-  color: #10b981;
+  color: var(--color-accent-primary-hover);
 }
 
 .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {

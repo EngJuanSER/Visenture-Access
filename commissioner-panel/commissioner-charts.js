@@ -3,34 +3,6 @@
  * Implementados con ApexCharts
  */
 
-// Evento principal para inicializar las gráficas cuando el DOM está listo
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM cargado, esperando a que los componentes estén listos...");
-    
-    // Intentar inicializar gráficos si la página ya está completa
-    if (document.querySelector("#clientDistributionChart")) {
-        console.log("Contenedor de gráficos detectado, inicializando...");
-        initCommissionerCharts();
-        initCommissionerCharts2();
-    } else {
-        console.log("Esperando a que se cargue el panel del comisionista...");
-        // Verificar periódicamente si los contenedores ya existen
-        const checkInterval = setInterval(function() {
-            if (document.querySelector("#clientDistributionChart")) {
-                console.log("Contenedor de gráficos detectado, inicializando...");
-                clearInterval(checkInterval);
-                initCommissionerCharts();
-                initCommissionerCharts2();
-            }
-        }, 300);
-        
-        // Por seguridad, dejar de intentar después de 10 segundos
-        setTimeout(function() {
-            clearInterval(checkInterval);
-        }, 10000);
-    }
-});
-
 /**
  * Inicializa los gráficos principales del panel de comisionista
  * Esta función puede ser llamada externamente desde index.html
@@ -71,7 +43,7 @@ function initChartsAfterCheck() {
             type: 'donut',
             height: 300,
             background: 'transparent',
-            foreColor: '#9ca3af',
+            foreColor: '#e2e8f0',
             dropShadow: {
                 enabled: true,
                 top: 3,
@@ -108,7 +80,7 @@ function initChartsAfterCheck() {
             position: 'bottom',
             fontFamily: 'inherit',
             labels: {
-                colors: '#d1d5db'
+                colors: '#e2e8f0'
             },
             markers: {
                 width: 12,
@@ -164,7 +136,7 @@ function initChartsAfterCheck() {
             type: 'bar',
             height: 300,
             background: 'transparent',
-            foreColor: '#9ca3af',
+            foreColor: '#e2e8f0',
             toolbar: {
                 show: false
             }
@@ -173,14 +145,14 @@ function initChartsAfterCheck() {
             categories: ['NASDAQ', 'NYSE'],
             labels: {
                 style: {
-                    colors: '#d1d5db'
+                    colors: '#e2e8f0'
                 }
             }
         },
         yaxis: {
             labels: {
                 style: {
-                    colors: '#d1d5db'
+                    colors: '#e2e8f0'
                 },
                 formatter: function(val) {
                     return '$' + val.toFixed(0);
@@ -255,7 +227,7 @@ function initCommissionerCharts2() {
                 height: 280,
                 type: 'line',
                 background: 'transparent',
-                foreColor: '#9ca3af',
+                foreColor: '#e2e8f0',
                 zoom: {
                     enabled: false
                 },
@@ -283,14 +255,14 @@ function initCommissionerCharts2() {
                 categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
                 labels: {
                     style: {
-                        colors: '#d1d5db'
+                        colors: '#e2e8f0'
                     }
                 }
             },
             yaxis: {
                 labels: {
                     style: {
-                        colors: '#d1d5db'
+                        colors: '#e2e8f0'
                     },
                     formatter: function(val) {
                         return val.toFixed(1) + '%';

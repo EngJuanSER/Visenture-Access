@@ -49,7 +49,7 @@ function initAssetAllocationChart() {
             type: 'pie',
             height: 300,
             background: 'transparent',
-            foreColor: '#9ca3af'
+            foreColor: '#e2e8f0'
         },
         labels: ['AAPL', 'GOOGL', 'MSFT', 'AMZN'],
         colors: ['#10B981', '#F59E0B', '#6366F1', '#EF4444'],
@@ -63,7 +63,7 @@ function initAssetAllocationChart() {
             position: 'bottom',
             fontFamily: 'inherit',
             labels: {
-                colors: '#d1d5db'
+                colors: '#e2e8f0'
             }
         },
         tooltip: {
@@ -114,7 +114,7 @@ function initPerformanceChart() {
             type: 'line',
             height: 300,
             background: 'transparent',
-            foreColor: '#9ca3af',
+            foreColor: '#e2e8f0',
             toolbar: {
                 show: false
             }
@@ -127,14 +127,14 @@ function initPerformanceChart() {
             categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago'],
             labels: {
                 style: {
-                    colors: '#d1d5db'
+                    colors: '#e2e8f0'
                 }
             }
         },
         yaxis: {
             labels: {
                 style: {
-                    colors: '#d1d5db'
+                    colors: '#e2e8f0'
                 },
                 formatter: function(val) {
                     return val.toFixed(1) + '%';

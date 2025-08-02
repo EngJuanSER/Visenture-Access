@@ -6,7 +6,7 @@
   <!-- Logo y botón cerrar -->
   <div class="flex items-center justify-between p-4 border-b border-slate-800">
     <a href="../home/index.html" class="text-2xl font-bold text-emerald-500">Visenture</a>
-    <button id="close-sidebar" class="text-gray-400 hover:text-white">
+    <button id="close-sidebar" class="text-gray-400 hover:text-white" aria-label="Cerrar menú lateral">
       <i class="fa-solid fa-xmark text-xl"></i>
     </button>
   </div>
@@ -102,7 +102,7 @@
   <div class="container mx-auto px-4 flex justify-between items-center">
     <!-- Izquierda: Botón de menú y logo -->
     <div class="flex items-center">
-      <button id="toggle-sidebar" class="text-gray-400 hover:text-emerald-400 focus:outline-none mr-4">
+      <button id="toggle-sidebar" class="text-gray-400 hover:text-emerald-400 focus:outline-none mr-4" aria-label="Abrir menú lateral">
         <i class="fa-solid fa-bars text-xl"></i>
       </button>
       <a href="../home/index.html" class="text-2xl font-bold text-emerald-500">Visenture</a>
@@ -111,41 +111,41 @@
     <!-- Derecha: Controles adicionales -->
     <div class="flex items-center space-x-4">
       <!-- Botón de notificaciones -->
-      <button class="relative text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center">
+      <button class="relative text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center" aria-label="Ver notificaciones (3 no leídas)">
         <i class="fa-solid fa-bell"></i>
         <span class="absolute top-1 right-1 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
       </button>
       
       <!-- Botón de idioma -->
       <div class="relative group">
-        <button class="text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center">
+        <button class="text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center" aria-label="Abrir menú de selección de idioma">
           <i class="fa-solid fa-globe"></i>
         </button>
         <div class="absolute right-0 mt-2 w-32 bg-slate-800 border border-slate-700 rounded-md shadow-lg py-1 hidden group-hover:block">
-          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">Español</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">English</a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700" aria-label="Cambiar idioma a Español">Español</a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700" aria-label="Cambiar idioma a Inglés">English</a>
         </div>
       </div>
       
       <!-- Botón de tema -->
-      <button class="text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center">
+      <button class="text-gray-400 hover:text-emerald-400 w-10 h-10 flex items-center justify-center" aria-label="Cambiar tema (actualmente claro)">
         <i class="fa-solid fa-moon"></i>
       </button>
       
       <!-- Perfil de usuario (visible cuando está logueado) -->
       <div class="user-profile relative hidden group">
-        <button class="flex items-center">
+        <button class="flex items-center" aria-label="Abrir menú de usuario">
           <div class="h-9 w-9 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">JS</div>
         </button>
         <div class="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-md shadow-lg py-1 hidden group-hover:block">
-          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700" aria-label="Ir a mi perfil">
             <i class="fa-solid fa-user mr-2"></i>Mi Perfil
           </a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700" aria-label="Ir a configuración">
             <i class="fa-solid fa-gear mr-2"></i>Configuración
           </a>
           <div class="border-t border-slate-700 my-1"></div>
-          <a href="../auth/login/index.html" class="block px-4 py-2 text-sm text-red-400 hover:bg-slate-700">
+          <a href="../auth/login/index.html" class="block px-4 py-2 text-sm text-red-400 hover:bg-slate-700" aria-label="Cerrar sesión">
             <i class="fa-solid fa-right-from-bracket mr-2"></i>Cerrar Sesión
           </a>
         </div>

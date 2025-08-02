@@ -4,25 +4,48 @@
  */
 
 document.addEventListener('analyticsContentLoaded', function() {
-    console.log('Inicializando gráficos del dashboard administrativo...');
-    initializeOrderDistributionChart();
-    initializeOrderStatusChart();
-    initializeRechargeCommissionChart();
+    console.log("Inicializando gráficos para el panel de administración...");
+    
+    // Verificar que los contenedores existan
+    const chartContainers = {
+        "orderDistributionChart": initializeOrderDistributionChart,
+        "orderStatusChart": initializeOrderStatusChart,
+        "rechargeCommissionChart": initializeRechargeCommissionChart,
+        "activeUsersChart": initializeActiveUsersChart
+    };
+    
+    // Inicializar solo los gráficos cuyos contenedores existen en la página
+    Object.entries(chartContainers).forEach(([containerId, initFunction]) => {
+        const container = document.querySelector("#" + containerId);
+        if (container) {
+            try {
+                console.log(`Inicializando gráfico: ${containerId}`);
+                initFunction();
+            } catch (error) {
+                console.error(`Error al inicializar gráfico ${containerId}:`, error);
+            }
+        } else {
+            console.warn(`Contenedor #${containerId} no encontrado en el documento`);
+        }
+    });
 });
 
 // Función para inicializar el gráfico de distribución de órdenes
 function initializeOrderDistributionChart() {
-    if (!document.querySelector("#orderDistributionChart")) {
+    const container = document.querySelector("#orderDistributionChart");
+    if (!container) {
         console.error("No se encontró el contenedor #orderDistributionChart");
         return;
     }
+    // Limpiar el contenedor antes de renderizar un nuevo gráfico
+    container.innerHTML = '';
     
     const options = {
         chart: {
             height: 320,
             type: 'pie',
-            foreColor: '#ccc',
-            background: '#1e293b', // slate-800 para coincidir con dashboard
+            foreColor: 'var(--color-text-primary)',
+            background: 'var(--color-background-card)',
             animations: {
                 enabled: true,
                 easing: 'easeinout',
@@ -44,19 +67,19 @@ function initializeOrderDistributionChart() {
                 opacity: 0.15
             }
         },
-        colors: ['#10b981', '#ef4444'], // Emerald y rojo
+        colors: ['var(--color-accent-primary)', 'var(--color-accent-negative)'],
         series: [60, 40], // 60% compra, 40% venta
         labels: ['Compra', 'Venta'],
         legend: {
             position: 'bottom',
             horizontalAlign: 'center',
             labels: {
-                colors: '#ccc'
+                colors: 'var(--color-text-primary)'
             }
         },
         stroke: {
             width: 1, // Ligero borde para coincidir con el estilo dashboard
-            colors: ['#1e293b']
+            colors: ['var(--color-background-card)']
         },
         dataLabels: {
             enabled: true,
@@ -65,7 +88,7 @@ function initializeOrderDistributionChart() {
             },
             style: {
                 fontSize: '14px',
-                colors: ['#fff']
+                colors: ['var(--color-text-primary)']
             },
             dropShadow: {
                 enabled: true
@@ -92,17 +115,20 @@ function initializeOrderDistributionChart() {
 
 // Función para inicializar el gráfico de estado de órdenes
 function initializeOrderStatusChart() {
-    if (!document.querySelector("#orderStatusChart")) {
+    const container = document.querySelector("#orderStatusChart");
+    if (!container) {
         console.error("No se encontró el contenedor #orderStatusChart");
         return;
     }
+    // Limpiar el contenedor antes de renderizar un nuevo gráfico
+    container.innerHTML = '';
     
     const options = {
         chart: {
             height: 320,
             type: 'bar',
-            foreColor: '#ccc',
-            background: '#1e293b', // slate-800 para coincidir con dashboard
+            foreColor: 'var(--color-text-primary)',
+            background: 'var(--color-background-card)',
             toolbar: {
                 show: true,
                 tools: {
@@ -134,7 +160,7 @@ function initializeOrderStatusChart() {
                 left: 1,
                 blur: 3,
                 opacity: 0.2,
-                color: '#34d399'
+                color: 'var(--color-accent-primary)'
             }
         },
         plotOptions: {
@@ -153,7 +179,7 @@ function initializeOrderStatusChart() {
             width: 2,
             colors: ['transparent']
         },
-        colors: ['#10b981', '#f59e0b', '#ef4444'], // Emerald, Amber, Red
+        colors: ['var(--color-accent-primary)', 'var(--color-accent-warning)', 'var(--color-accent-negative)'],
         series: [
             {
                 name: 'Completadas',
@@ -172,33 +198,33 @@ function initializeOrderStatusChart() {
             text: 'Estado de Órdenes por Día',
             align: 'left',
             style: {
-                color: '#34d399' // emerald-400
+                color: 'var(--color-accent-primary)'
             }
         },
         xaxis: {
             categories: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
             labels: {
                 style: {
-                    colors: '#ccc'
+                    colors: 'var(--color-text-primary)'
                 }
             },
             axisTicks: {
-                color: '#334155'
+                color: 'var(--color-border-primary)'
             },
             axisBorder: {
-                color: '#334155'
+                color: 'var(--color-border-primary)'
             }
         },
         yaxis: {
             title: {
                 text: 'Número de Órdenes',
                 style: {
-                    color: '#ccc'
+                    color: 'var(--color-text-primary)'
                 }
             },
             labels: {
                 style: {
-                    colors: '#ccc'
+                    colors: 'var(--color-text-primary)'
                 }
             }
         },
@@ -206,14 +232,14 @@ function initializeOrderStatusChart() {
             opacity: 1
         },
         grid: {
-            borderColor: '#334155', // slate-700
+            borderColor: 'var(--color-border-primary)',
             row: {
-                colors: ['#1e293b', '#1e293b']
+                colors: ['var(--color-background-card)', 'var(--color-background-card)']
             }
         },
         legend: {
             labels: {
-                colors: '#ccc'
+                colors: 'var(--color-text-primary)'
             }
         },
         tooltip: {
@@ -237,17 +263,20 @@ function initializeOrderStatusChart() {
 
 // Función para inicializar el gráfico de recargas y comisiones
 function initializeRechargeCommissionChart() {
-    if (!document.querySelector("#rechargeCommissionChart")) {
+    const container = document.querySelector("#rechargeCommissionChart");
+    if (!container) {
         console.error("No se encontró el contenedor #rechargeCommissionChart");
         return;
     }
+    // Limpiar el contenedor antes de renderizar un nuevo gráfico
+    container.innerHTML = '';
     
     const options = {
         chart: {
             height: 320,
             type: 'area',
-            foreColor: '#ccc',
-            background: '#1e293b', // slate-800 para coincidir con dashboard
+            foreColor: 'var(--color-text-primary)',
+            background: 'var(--color-background-card)',
             toolbar: {
                 show: true,
                 tools: {
@@ -279,7 +308,7 @@ function initializeRechargeCommissionChart() {
                 left: 2,
                 blur: 4,
                 opacity: 0.2,
-                color: '#3b82f6'
+                color: 'var(--color-accent-info)'
             }
         },
         dataLabels: {
@@ -289,7 +318,7 @@ function initializeRechargeCommissionChart() {
             curve: 'smooth',
             width: 3
         },
-        colors: ['#10b981', '#3b82f6'], // Emerald y azul
+        colors: ['var(--color-accent-primary)', 'var(--color-accent-info)'],
         series: [
             {
                 name: 'Recargas',
@@ -304,7 +333,7 @@ function initializeRechargeCommissionChart() {
             text: 'Recargas y Comisiones a lo largo del tiempo',
             align: 'left',
             style: {
-                color: '#34d399' // emerald-400
+                color: 'var(--color-accent-primary)'
             }
         },
         xaxis: {
@@ -316,7 +345,7 @@ function initializeRechargeCommissionChart() {
             ],
             labels: {
                 style: {
-                    colors: '#ccc'
+                    colors: 'var(--color-text-primary)'
                 }
             }
         },
@@ -324,12 +353,12 @@ function initializeRechargeCommissionChart() {
             title: {
                 text: 'Monto ($)',
                 style: {
-                    color: '#ccc'
+                    color: 'var(--color-text-primary)'
                 }
             },
             labels: {
                 style: {
-                    colors: '#ccc'
+                    colors: 'var(--color-text-primary)'
                 },
                 formatter: function (val) {
                     return '$' + val.toLocaleString();
@@ -346,9 +375,9 @@ function initializeRechargeCommissionChart() {
             }
         },
         grid: {
-            borderColor: '#334155',
+            borderColor: 'var(--color-border-primary)',
             row: {
-                colors: ['transparent', 'rgba(59, 130, 246, 0.02)'] // Ligero fondo en filas alternadas
+                colors: ['transparent', 'rgba(59, 130, 246, 0.02)']
             }
         },
         states: {
@@ -361,7 +390,7 @@ function initializeRechargeCommissionChart() {
         },
         legend: {
             labels: {
-                colors: '#ccc'
+                colors: 'var(--color-text-primary)'
             },
             itemMargin: {
                 horizontal: 12,
@@ -388,16 +417,19 @@ function initializeRechargeCommissionChart() {
 
 // Función para inicializar el gráfico de usuarios activos
 function initializeActiveUsersChart() {
-    if (!document.querySelector("#activeUsersChart")) {
+    const container = document.querySelector("#activeUsersChart");
+    if (!container) {
         console.error("No se encontró el contenedor #activeUsersChart");
         return;
     }
+    // Limpiar el contenedor antes de renderizar un nuevo gráfico
+    container.innerHTML = '';
     
     const options = {
         chart: {
             height: 350,
             type: 'line',
-            foreColor: '#ccc',
+            foreColor: 'var(--color-text-primary)',
             background: 'transparent',
             toolbar: {
                 show: false
@@ -408,10 +440,10 @@ function initializeActiveUsersChart() {
                 left: 1,
                 blur: 3,
                 opacity: 0.2,
-                color: '#10b981'
+                color: 'var(--color-accent-primary)'
             }
         },
-        colors: ['#10b981'], // Emerald
+        colors: ['var(--color-accent-primary)'],
         series: [
             {
                 name: 'Usuarios Activos',
@@ -427,7 +459,7 @@ function initializeActiveUsersChart() {
             categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
             labels: {
                 style: {
-                    colors: '#ccc'
+                    colors: 'var(--color-text-primary)'
                 }
             }
         },
@@ -435,19 +467,19 @@ function initializeActiveUsersChart() {
             title: {
                 text: 'Número de Usuarios',
                 style: {
-                    color: '#ccc'
+                    color: 'var(--color-text-primary)'
                 }
             },
             labels: {
                 style: {
-                    colors: '#ccc'
+                    colors: 'var(--color-text-primary)'
                 }
             }
         },
         grid: {
-            borderColor: '#334155',
+            borderColor: 'var(--color-border-primary)',
             row: {
-                colors: ['transparent', 'rgba(16, 185, 129, 0.02)'] // Ligero fondo alternado
+                colors: ['transparent', 'rgba(16, 185, 129, 0.02)']
             },
             padding: {
                 top: 10
@@ -455,13 +487,13 @@ function initializeActiveUsersChart() {
         },
         legend: {
             labels: {
-                colors: '#ccc'
+                colors: 'var(--color-text-primary)'
             }
         },
         markers: {
             size: 5,
-            colors: ['#10b981'],
-            strokeColors: '#ffffff',
+            colors: ['var(--color-accent-primary)'],
+            strokeColors: 'var(--color-text-primary)',
             strokeWidth: 2,
             hover: {
                 size: 7
@@ -485,30 +517,24 @@ function initializeActiveUsersChart() {
     }
 }
 
-// Inicializar gráficos cuando se carga la página
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("Inicializando gráficos para el panel de administración...");
-    
-    // Verificar que los contenedores existan
-    const chartContainers = {
-        "orderDistributionChart": initializeOrderDistributionChart,
-        "orderStatusChart": initializeOrderStatusChart,
-        "rechargeCommissionChart": initializeRechargeCommissionChart,
-        "activeUsersChart": initializeActiveUsersChart
+// Función de debounce para controlar la frecuencia de redibujado
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
     };
-    
-    // Inicializar solo los gráficos cuyos contenedores existen en la página
-    Object.entries(chartContainers).forEach(([containerId, initFunction]) => {
-        const container = document.querySelector("#" + containerId);
-        if (container) {
-            try {
-                console.log(`Inicializando gráfico: ${containerId}`);
-                initFunction();
-            } catch (error) {
-                console.error(`Error al inicializar gráfico ${containerId}:`, error);
-            }
-        } else {
-            console.warn(`Contenedor #${containerId} no encontrado en el documento`);
-        }
-    });
-});
+};
+
+// Volver a dibujar los gráficos al cambiar el tamaño de la ventana
+window.addEventListener('resize', debounce(function() {
+    console.log("Redibujando gráficos por cambio de tamaño de la ventana...");
+    document.dispatchEvent(new Event('analyticsContentLoaded'));
+}, 250));

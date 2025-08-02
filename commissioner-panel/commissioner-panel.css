@@ -1,6 +1,6 @@
 body {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: var(--color-background-base);
+  color: var(--color-text-primary);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,23 +21,23 @@ body {
 
 /* Estilos para los iconos de acciones */
 .action-icon {
-  color: #10B981; /* emerald-500 */
+  color: var(--color-accent-primary-hover); /* emerald-500 */
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .action-icon:hover {
   transform: scale(1.15);
-  color: #6EE7B7; /* emerald-300 */
+  color: var(--color-accent-primary); /* emerald-300 */
 }
 
 /* Celdas de la tabla */
 .mat-mdc-header-cell,
 .mat-mdc-cell {
   padding: 12px 16px !important;
-  color: #e5e7eb !important;
+  color: var(--color-text-primary) !important;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: rgba(55, 65, 81, 0.5) !important;
+  border-bottom-color: var(--color-border-primary) !important;
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   font-size: 0.875rem !important;
   background-color: transparent !important;
@@ -48,34 +48,34 @@ body {
 }
 
 .mat-mdc-header-cell {
-  color: #10b981 !important;
+  color: var(--color-accent-primary-hover) !important;
   font-weight: 600 !important;
-  background-color: rgba(20, 184, 166, 0.05) !important;
+  background-color: rgba(52, 211, 153, 0.1) !important;
 }
 
 .mat-mdc-table {
-  border: 1px solid #374151;
+  border: 1px solid var(--color-border-primary);
   border-radius: 8px;
   overflow: hidden;
   background-color: transparent !important;
 }
 
 .mat-mdc-row:hover {
-  background-color: rgba(55, 65, 81, 0.3) !important;
+  background-color: var(--color-background-hover) !important;
 }
 
 .mat-mdc-table .mdc-data-table__row {
   background: transparent !important;
-  border-bottom: 1px solid rgba(55, 65, 81, 0.5) !important;
+  border-bottom: 1px solid var(--color-border-primary) !important;
 }
 
 .mat-mdc-row.selected-row {
-  background-color: rgba(16, 185, 129, 0.2) !important;
+  background-color: rgba(52, 211, 153, 0.2) !important;
 }
 
 .mat-mdc-table .mdc-data-table__header-row {
-  background-color: rgba(20, 184, 166, 0.05) !important;
-  border-bottom: 1px solid rgba(20, 184, 166, 0.1) !important;
+  background-color: rgba(52, 211, 153, 0.1) !important;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.2) !important;
 }
 
 /* Cabeceras pegajosas */
@@ -84,8 +84,8 @@ body {
   top: 0;
   z-index: 10;
   font-weight: 600 !important;
-  color: #e5e7eb !important;
-  background-color: #1f2937 !important;
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-background-card) !important;
 }
 
 /* Paginador pegajoso */
@@ -121,31 +121,31 @@ body {
 /* Estilos para ApexCharts en modo oscuro */
 .apexcharts-yaxis-label,
 .apexcharts-xaxis-label {
-  fill: #FFFFFF !important;
+  fill: var(--color-text-primary) !important;
 }
 
 .apexcharts-gridline {
-  stroke: #555555 !important;
+  stroke: var(--color-chart-grid) !important;
 }
 
 .apexcharts-xaxis-label tspan,
 .apexcharts-yaxis-label tspan {
-  fill: #FFFFFF !important;
+  fill: var(--color-text-primary) !important;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
-  background: rgba(30, 30, 30, 0.9) !important;
-  color: #FFFFFF !important;
-  border: 1px solid #888888 !important;
+  background: var(--color-chart-tooltip-bg) !important;
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-border-interactive) !important;
 }
 
 .apexcharts-tooltip-title,
 .apexcharts-tooltip-text {
-  color: #FFFFFF !important;
+  color: var(--color-text-primary) !important;
 }
 
 .apexcharts-tooltip-marker {
-  background-color: #FFFFFF !important;
+  background-color: var(--color-text-primary) !important;
 }
 
 /* Estilos específicos para los iconos del paginador */
@@ -165,7 +165,7 @@ body {
 .mat-mdc-paginator-navigation-previous:not([disabled]):hover,
 .mat-mdc-paginator-navigation-next:not([disabled]):hover,
 .mat-mdc-paginator-navigation-last:not([disabled]):hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(241, 245, 249, 0.1);
 }
 
 .mat-mdc-paginator-container {
@@ -174,7 +174,7 @@ body {
   align-items: center;
   justify-content: space-between;
   min-height: 56px;
-  border-top: 1px solid #374151;
+  border-top: 1px solid var(--color-border-primary);
   transition: border-color 0.2s ease;
   width: 100%;
 }
@@ -192,7 +192,7 @@ body {
 
 .mat-mdc-form-field-flex {
   height: 36px;
-  background-color: rgba(30, 41, 59, 0.5);
+  background-color: var(--color-background-card);
 }
 
 .mat-mdc-select-trigger {
@@ -226,7 +226,7 @@ body {
 .overflow-x-auto {
   overflow-x: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(226, 232, 240, 0.5) transparent;
+  scrollbar-color: var(--color-text-secondary) transparent;
   position: relative;
   border-radius: 0.5rem;
 }
@@ -242,12 +242,12 @@ body {
 }
 
 .overflow-x-auto::-webkit-scrollbar-thumb {
-  background-color: rgba(226, 232, 240, 0.5);
+  background-color: var(--color-text-secondary);
   border-radius: 3px;
 }
 
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(226, 232, 240, 0.8);
+  background-color: var(--color-text-placeholder);
 }
 
 .min-w-full {
@@ -260,7 +260,7 @@ body {
   right: 0;
   padding: 2px 6px;
   background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: var(--color-accent-primary-text);
   border-radius: 4px;
   font-size: 0.7rem;
   opacity: 0;
@@ -285,8 +285,8 @@ body {
 }
 
 .custom-table thead tr {
-  background-color: rgba(20, 184, 166, 0.05);
-  border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+  background-color: rgba(52, 211, 153, 0.1);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.2);
 }
 
 .custom-table th {
@@ -294,23 +294,23 @@ body {
   text-align: left;
   font-weight: 600;
   font-size: 0.875rem;
-  color: #10b981;
+  color: var(--color-accent-primary-hover);
   white-space: nowrap;
 }
 
 .custom-table tbody tr {
-  border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+  border-bottom: 1px solid var(--color-border-primary);
   transition: background-color 0.2s;
 }
 
 .custom-table tbody tr:hover {
-  background-color: rgba(55, 65, 81, 0.3);
+  background-color: var(--color-background-hover);
 }
 
 .custom-table td {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
-  color: #e5e7eb;
+  color: var(--color-text-primary);
 }
 
 /* Estilos para gráficos */
@@ -333,19 +333,19 @@ body {
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: #374151;
-  color: #e5e7eb;
+  background-color: var(--color-background-hover);
+  color: var(--color-text-primary);
   border: 1px solid transparent;
 }
 
 .filter-chip:hover {
-  background-color: #4b5563;
+  background-color: var(--color-background-selected);
 }
 
 .filter-chip.active {
-  background-color: rgba(16, 185, 129, 0.15);
-  border-color: #10b981;
-  color: #10b981;
+  background-color: rgba(52, 211, 153, 0.15);
+  border-color: var(--color-accent-primary-hover);
+  color: var(--color-accent-primary-hover);
   font-weight: 500;
 }
 
@@ -364,7 +364,7 @@ body {
 }
 
 .selectable-row:hover td:first-child {
-  border-left: 3px solid #10b981;
+  border-left: 3px solid var(--color-accent-primary-hover);
   padding-left: calc(1rem - 3px);
 }
 
@@ -373,15 +373,15 @@ body {
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2px solid #4b5563;
+  border: 2px solid var(--color-border-interactive);
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .custom-checkbox.checked {
-  background-color: #10b981;
-  border-color: #10b981;
+  background-color: var(--color-accent-primary-hover);
+  border-color: var(--color-accent-primary-hover);
 }
 
 .custom-checkbox.checked::after {
@@ -391,7 +391,7 @@ body {
   top: 2px;
   width: 5px;
   height: 9px;
-  border: solid white;
+  border: solid var(--color-accent-primary-text);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -402,37 +402,37 @@ body {
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: #374151;
-  color: #e5e7eb;
-  border: 1px solid #4b5563;
+  background-color: var(--color-background-hover);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-interactive);
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
 }
 
 .filter-btn:hover {
-  background-color: #4b5563;
+  background-color: var(--color-background-selected);
 }
 
 .filter-btn.active {
-  background-color: #047857;
-  border-color: #047857;
-  color: white;
+  background-color: var(--color-accent-primary-active);
+  border-color: var(--color-accent-primary-active);
+  color: var(--color-accent-primary-text);
 }
 
 .cancel-contract-btn {
-  color: #f87171;
+  color: var(--color-accent-negative);
   transition: all 0.2s ease;
 }
 
 .cancel-contract-btn:hover {
-  background-color: rgba(248, 113, 113, 0.1);
+  background-color: rgba(239, 68, 68, 0.1);
 }
 
 .chart-theme-dark {
-  --chart-background: #1f2937;
-  --chart-text-color: #e5e7eb;
-  --chart-grid-color: rgba(255, 255, 255, 0.1);
+  --chart-background: var(--color-background-card);
+  --chart-text-color: var(--color-text-primary);
+  --chart-grid-color: var(--color-chart-grid);
 }
 
 .chart-card {
@@ -455,7 +455,7 @@ body {
 .chart-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: #10B981;
+  border-color: var(--color-accent-primary-hover);
 }
 
 .apexcharts-canvas {
@@ -463,8 +463,8 @@ body {
 }
 
 .apexcharts-menu {
-  background: #1E293B !important;
-  border: 1px solid #334155 !important;
+  background: var(--color-background-card) !important;
+  border: 1px solid var(--color-border-primary) !important;
 }
 
 .apexcharts-toolbar {
@@ -472,48 +472,48 @@ body {
 }
 
 .detail-button {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(52, 211, 153, 0.1);
   transition: all 0.3s ease;
 }
 
 .detail-button:hover {
-  background-color: rgba(16, 185, 129, 0.2);
+  background-color: rgba(52, 211, 153, 0.2);
   transform: translateY(-2px);
 }
 
 .detail-button .mat-icon {
-  color: #10B981;
+  color: var(--color-accent-primary-hover);
   transition: color 0.2s ease;
 }
 
 .detail-button:hover .mat-icon {
-  color: #6EE7B7;
+  color: var(--color-accent-primary);
 }
 
 .commissioner-tabs .mat-mdc-tab-header {
-  border-bottom: 1px solid #374151;
+  border-bottom: 1px solid var(--color-border-primary);
   margin-bottom: 16px;
 }
 
 .commissioner-tabs .mat-mdc-tab .mdc-tab__text-label {
-  color: #d1d5db !important;
+  color: var(--color-text-secondary) !important;
   font-weight: 500;
   opacity: 0.8;
 }
 
 .commissioner-tabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
-  color: #10b981 !important;
+  color: var(--color-accent-primary-hover) !important;
   font-weight: 600;
   opacity: 1;
 }
 
 .commissioner-tabs .mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,
 .commissioner-tabs .mat-mdc-tab-header .mdc-tab-indicator__content--underline {
-  border-color: #10b981 !important;
+  border-color: var(--color-accent-primary-hover) !important;
 }
 
 .commissioner-tabs .mat-mdc-tab:hover .mdc-tab__text-label {
-  color: #6ee7b7 !important;
+  color: var(--color-accent-primary) !important;
   opacity: 0.9;
 }
 
@@ -523,7 +523,7 @@ body {
 }
 
 .commissioner-table-container .mat-mdc-table .mdc-data-table__cell {
-  color: #e5e7eb !important;
+  color: var(--color-text-primary) !important;
   font-size: 0.875rem !important;
 }
 
@@ -533,25 +533,25 @@ body {
 
 .commissioner-table th[class*="bg-gray-50"],
 .commissioner-table .mat-mdc-header-cell[class*="bg-gray-50"] {
-  background-color: rgba(20, 184, 166, 0.05) !important;
-  color: #10b981 !important;
+  background-color: rgba(52, 211, 153, 0.1) !important;
+  color: var(--color-accent-primary-hover) !important;
   font-weight: 600 !important;
   font-size: 0.875rem !important;
 }
 
 .commissioner-table th .text-gray-400,
 .commissioner-table .mat-mdc-header-cell .text-gray-400 {
-  color: #10b981 !important;
+  color: var(--color-accent-primary-hover) !important;
 }
 
 .commissioner-table td[class*="border-b border-gray-"],
 .commissioner-table .mat-mdc-cell[class*="border-b border-gray-"] {
-  border-bottom-color: rgba(55, 65, 81, 0.5) !important;
+  border-bottom-color: var(--color-border-primary) !important;
 }
 
 .commissioner-table td .text-gray-400,
 .commissioner-table .mat-mdc-cell .text-gray-400,
 .commissioner-table td .text-white,
 .commissioner-table .mat-mdc-cell .text-white {
-  color: #e5e7eb !important;
+  color: var(--color-text-primary) !important;
 }

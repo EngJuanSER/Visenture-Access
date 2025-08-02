@@ -1,13 +1,13 @@
 body {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: var(--color-background-base);
+  color: var(--color-text-primary);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .investment-panel {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(135deg, var(--color-background-card) 0%, var(--color-background-base) 100%);
     min-height: 100vh;
 }
 
@@ -18,7 +18,7 @@ body {
 }
 
 .investment-card {
-    background: #1e293b;
+    background: var(--color-background-card);
     border-radius: 1rem;
     padding: 1.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -32,23 +32,23 @@ body {
 }
 
 .chart-container {
-    background: #1e293b;
+    background: var(--color-background-card);
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .metric-card {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-accent-info) 0%, #1e40af 100%); /* Darker blue for gradient */
+    color: var(--color-accent-primary-text);
     padding: 1.5rem;
     border-radius: 1rem;
     text-align: center;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #4f46e5 0%, #a78bfa 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-primary-hover) 100%);
+    color: var(--color-accent-primary-text);
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 0.5rem;
@@ -59,5 +59,5 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
 }

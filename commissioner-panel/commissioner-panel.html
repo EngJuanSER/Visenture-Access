@@ -36,7 +36,7 @@
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
                                 <div class="flex items-start justify-between">
                                     <div>
-                                        <h3 class="text-gray-400 text-sm font-medium mb-1">Clientes Totales</h3>
+                                        <h2 class="text-gray-400 text-sm font-medium mb-1">Clientes Totales</h2>
                                         <div class="text-2xl font-semibold text-white">150</div>
                                         <div class="text-xs text-gray-400 mt-1">
                                             <span class="font-medium text-green-400">120</span>
@@ -53,7 +53,7 @@
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
                                 <div class="flex items-start justify-between">
                                     <div>
-                                        <h3 class="text-gray-400 text-sm font-medium mb-1">Comisiones (Mes)</h3>
+                                        <h2 class="text-gray-400 text-sm font-medium mb-1">Comisiones (Mes)</h2>
                                         <div class="text-2xl font-semibold text-white">$5,000.00</div>
                                         <div class="text-xs text-gray-400 mt-1">
                                             <span class="text-green-400">+10%</span> 
@@ -70,7 +70,7 @@
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
                                 <div class="flex items-start justify-between">
                                     <div>
-                                        <h3 class="text-gray-400 text-sm font-medium mb-1">ROI Promedio</h3>
+                                        <h2 class="text-gray-400 text-sm font-medium mb-1">ROI Promedio</h2>
                                         <div class="text-2xl font-semibold text-white">15.25%</div>
                                         <div class="text-xs text-gray-400 mt-1">
                                             <span class="font-medium text-red-400">5</span>
@@ -87,7 +87,7 @@
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
                                 <div class="flex items-start justify-between">
                                     <div>
-                                        <h3 class="text-gray-400 text-sm font-medium mb-1">Total Operaciones</h3>
+                                        <h2 class="text-gray-400 text-sm font-medium mb-1">Total Operaciones</h2>
                                         <div class="text-2xl font-semibold text-white">2500</div>
                                         <div class="text-xs text-gray-400 mt-1">
                                             Este mes
@@ -104,13 +104,13 @@
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                             <!-- Distribución de clientes -->
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card">
-                                <h3 class="text-gray-300 font-medium mb-4">Distribución de Clientes</h3>
+                                <h2 class="text-gray-300 font-medium mb-4">Distribución de Clientes</h2>
                                 <div id="clientDistributionChart" class="h-[300px] w-full chart-container"></div>
                             </div>
 
                             <!-- Comisiones por mercado -->
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card">
-                                <h3 class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h3>
+                                <h2 class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h2>
                                 <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container"></div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                     <!-- Campo de búsqueda -->
                                     <div class="relative">
                                         <div class="flex items-center">
-                                            <span class="text-gray-300 mr-2">Buscar:</span>
+                                            <label for="client-search-filter" class="text-gray-300 mr-2">Buscar:</label>
                                             <div class="relative flex-grow">
                                                 <i class="fa-solid fa-search absolute left-3 top-2 text-gray-500"></i>
                                                 <input 
@@ -151,7 +151,7 @@
                                     <!-- Filtro por mercado -->
                                     <div class="relative">
                                         <div class="flex items-center">
-                                            <span class="text-gray-300 mr-2">Mercado:</span>
+                                            <label for="market-filter" class="text-gray-300 mr-2">Mercado:</label>
                                             <select 
                                                 id="market-filter"
                                                 class="bg-slate-700 text-white border border-slate-600 rounded px-3 py-1 flex-grow">
@@ -165,7 +165,7 @@
                                     <!-- Filtro por estado -->
                                     <div class="relative">
                                         <div class="flex items-center">
-                                            <span class="text-gray-300 mr-2">Estado:</span>
+                                            <label for="status-filter" class="text-gray-300 mr-2">Estado:</span>
                                             <select 
                                                 id="status-filter"
                                                 class="bg-slate-700 text-white border border-slate-600 rounded px-3 py-1 flex-grow">
@@ -247,7 +247,7 @@
                                                        Ver reporte
                                                     </a>
                                                     <div class="relative group inline-block">
-                                                        <button class="text-gray-400 hover:text-white">
+                                                        <button class="text-gray-400 hover:text-white" aria-label="Más opciones para Juan Díaz">
                                                             <i class="fa-solid fa-ellipsis-vertical"></i>
                                                         </button>
                                                         <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
@@ -303,7 +303,7 @@
                                                        Ver reporte
                                                     </a>
                                                     <div class="relative group inline-block">
-                                                        <button class="text-gray-400 hover:text-white">
+                                                        <button class="text-gray-400 hover:text-white" aria-label="Más opciones para María Rodríguez">
                                                             <i class="fa-solid fa-ellipsis-vertical"></i>
                                                         </button>
                                                         <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
@@ -359,7 +359,7 @@
                                                        Ver reporte
                                                     </a>
                                                     <div class="relative group inline-block">
-                                                        <button class="text-gray-400 hover:text-white">
+                                                        <button class="text-gray-400 hover:text-white" aria-label="Más opciones para Carlos Gómez">
                                                             <i class="fa-solid fa-ellipsis-vertical"></i>
                                                         </button>
                                                         <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
@@ -415,7 +415,7 @@
                                                        Ver reporte
                                                     </a>
                                                     <div class="relative group inline-block">
-                                                        <button class="text-gray-400 hover:text-white">
+                                                        <button class="text-gray-400 hover:text-white" aria-label="Más opciones para Ana López">
                                                             <i class="fa-solid fa-ellipsis-vertical"></i>
                                                         </button>
                                                         <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
@@ -468,7 +468,7 @@
                                                        Ver reporte
                                                     </a>
                                                     <div class="relative group inline-block">
-                                                        <button class="text-gray-400 hover:text-white">
+                                                        <button class="text-gray-400 hover:text-white" aria-label="Más opciones para Roberto Méndez">
                                                             <i class="fa-solid fa-ellipsis-vertical"></i>
                                                         </button>
                                                         <div class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
@@ -494,13 +494,13 @@
                             <div class="p-4 border-t border-slate-700 flex justify-between items-center">
                                 <p class="text-xs text-gray-400">Mostrando 5 de 150 clientes</p>
                                 <div class="flex space-x-1">
-                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600 disabled:opacity-50" disabled>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600 disabled:opacity-50" disabled aria-label="Página anterior">
                                         <i class="fas fa-chevron-left"></i>
                                     </button>
-                                    <button class="px-3 py-1 bg-emerald-600 text-white rounded">1</button>
-                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600">2</button>
-                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600">3</button>
-                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600">
+                                    <button class="px-3 py-1 bg-emerald-600 text-white rounded" aria-label="Página 1">1</button>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600" aria-label="Página 2">2</button>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600" aria-label="Página 3">3</button>
+                                    <button class="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600" aria-label="Página siguiente">
                                         <i class="fas fa-chevron-right"></i>
                                     </button>
                                 </div>

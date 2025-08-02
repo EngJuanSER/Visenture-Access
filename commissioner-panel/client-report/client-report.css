@@ -1,7 +1,7 @@
 /* Estilos para el componente de reporte de cliente */
 body {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: var(--color-background-base);
+  color: var(--color-text-primary);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,15 +21,15 @@ body {
 }
 
 .kpi-card.positive {
-  border-left-color: #10b981;
+  border-left-color: var(--color-accent-primary-hover);
 }
 
 .kpi-card.negative {
-  border-left-color: #ef4444;
+  border-left-color: var(--color-accent-negative);
 }
 
 .kpi-card.neutral {
-  border-left-color: #6366f1;
+  border-left-color: var(--color-accent-info);
 }
 
 .stat-card:hover {
@@ -62,21 +62,21 @@ mat-card {
 }
 
 .mat-mdc-paginator-container {
-  color: #e2e8f0 !important;
+  color: var(--color-text-primary) !important;
 }
 
 .mat-mdc-paginator-range-label,
 .mat-mdc-paginator-page-size-label {
-  color: #e2e8f0 !important;
+  color: var(--color-text-primary) !important;
   opacity: 1;
 }
 
 .mdc-icon-button {
-  fill: #e2e8f0 !important;
+  fill: var(--color-text-primary) !important;
 }
 
 .mat-mdc-icon-button {
-  color: #e2e8f0 !important;
+  color: var(--color-text-primary) !important;
 }
 
 .mat-mdc-icon-button:hover {
@@ -88,15 +88,15 @@ mat-card {
 }
 
 .mat-mdc-select-value-text {
-  color: #e2e8f0 !important;
+  color: var(--color-text-primary) !important;
 }
 
 .mat-mdc-select-arrow {
-  color: #e2e8f0 !important;
+  color: var(--color-text-primary) !important;
 }
 
 .mat-mdc-paginator-icon {
-  fill: #e2e8f0 !important;
+  fill: var(--color-text-primary) !important;
 }
 
 /* Estilos para centrado de gráficos */
@@ -209,9 +209,9 @@ mat-card {
 
 /* Estilos para las gráficas */
 .apexcharts-tooltip {
-  background: #1f2937 !important;
-  color: #e5e7eb !important;
-  border: 1px solid #374151 !important;
+  background: var(--color-chart-tooltip-bg) !important;
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-border-primary) !important;
   border-radius: 5px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -233,7 +233,7 @@ mat-card {
   text-align: left;
   font-weight: 600;
   font-size: 0.875rem;
-  color: #10b981;
+  color: var(--color-accent-primary-hover);
   white-space: nowrap;
 }
 
@@ -249,7 +249,7 @@ mat-card {
 .custom-table td {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
-  color: #e5e7eb;
+  color: var(--color-text-primary);
 }
 
 /* Mejoras para las pestañas (tabs) */
@@ -269,16 +269,16 @@ mat-card {
 }
 
 .mat-mdc-tab .mdc-tab__text-label {
-  color: #e5e7eb !important;
+  color: var(--color-text-primary) !important;
 }
 
 .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
-  color: #10b981 !important;
+  color: var(--color-accent-primary-hover) !important;
   font-weight: 500;
 }
 
 .mat-mdc-tab-header-pagination-chevron {
-  border-color: #e5e7eb !important;
+  border-color: var(--color-text-primary) !important;
 }
 
 /* Estilo para la tabla con Angular Material */
@@ -288,7 +288,7 @@ mat-card {
 }
 
 .mat-mdc-table .mdc-data-table__header-cell {
-  color: #10b981 !important;
+  color: var(--color-accent-primary-hover) !important;
   font-weight: 600 !important;
   font-size: 0.875rem !important;
 }
@@ -303,7 +303,7 @@ mat-card {
 }
 
 .mat-mdc-table .mdc-data-table__cell {
-  color: #e5e7eb !important;
+  color: var(--color-text-primary) !important;
   font-size: 0.875rem !important;
 }
 
@@ -361,7 +361,7 @@ tr.hover\:bg-gray-700:hover {
   overflow: hidden;
   transition: all 0.3s ease;
   padding: 1rem;
-  background-color: #1f2937;
+  background-color: var(--color-background-card);
   animation: fadeInUp 0.5s ease-out;
   border-width: 2px;
 }
@@ -398,14 +398,14 @@ tr.hover\:bg-gray-700:hover {
   margin-bottom: 0.5rem;
   cursor: pointer;
   transition: all 0.15s ease;
-  background-color: #374151;
-  color: #e5e7eb;
+  background-color: var(--color-background-hover);
+  color: var(--color-text-primary);
   border: 1px solid transparent;
 }
 
 .filter-chip.active {
-  background-color: #059669;
-  color: white;
+  background-color: var(--color-accent-primary-active);
+  color: var(--color-accent-primary-text);
 }
 
 .filter-chip:hover {
@@ -434,12 +434,12 @@ tr.hover\:bg-gray-700:hover {
 }
 
 .pagination-item:hover:not(.active):not([disabled]) {
-  background-color: #374151;
+  background-color: var(--color-background-hover);
 }
 
 .pagination-item.active {
-  background-color: #059669;
-  color: white;
+  background-color: var(--color-accent-primary-active);
+  color: var(--color-accent-primary-text);
 }
 
 .pagination-item[disabled] {
@@ -449,7 +449,7 @@ tr.hover\:bg-gray-700:hover {
 
 /* Estilos para los filtros */
 .filter-form {
-  background-color: #1e293b; /* slate-800 */
+  background-color: var(--color-background-card); /* slate-800 */
 }
 
 .form-input {
@@ -457,8 +457,8 @@ tr.hover\:bg-gray-700:hover {
 }
 
 .form-input:focus {
-  border-color: #6366f1; /* indigo-500 */
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  border-color: var(--color-accent-info); /* indigo-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 /* Estilos para iconos en los filtros */
@@ -472,31 +472,31 @@ tr.hover\:bg-gray-700:hover {
 
 /* Estilos para los gráficos de ApexCharts */
 .apexcharts-tooltip-title {
-  background: #0f172a !important;
-  border-bottom: 1px solid #334155 !important;
+  background: var(--color-background-base) !important;
+  border-bottom: 1px solid var(--color-border-primary) !important;
 }
 
 .apexcharts-legend-text {
   font-family: 'Inter', sans-serif !important;
-  color: #e2e8f0 !important;
+  color: var(--color-text-primary) !important;
 }
 
 .apexcharts-gridline {
-  stroke: #334155 !important;
+  stroke: var(--color-chart-grid) !important;
 }
 
 .apexcharts-xaxis-label,
 .apexcharts-yaxis-label {
-  fill: #94a3b8 !important;
+  fill: var(--color-text-placeholder) !important;
 }
 
 .apexcharts-xaxis-title,
 .apexcharts-yaxis-title {
-  fill: #94a3b8 !important;
+  fill: var(--color-text-placeholder) !important;
 }
 
 .apexcharts-text {
-  fill: #e2e8f0 !important;
+  fill: var(--color-text-primary) !important;
 }
 
 .apexcharts-title-text,
@@ -505,11 +505,11 @@ tr.hover\:bg-gray-700:hover {
 }
 
 .apexcharts-title-text {
-  fill: #e2e8f0 !important;
+  fill: var(--color-text-primary) !important;
 }
 
 .apexcharts-subtitle-text {
-  fill: #94a3b8 !important;
+  fill: var(--color-text-placeholder) !important;
 }
 
 @keyframes fadeInUp {
@@ -537,7 +537,7 @@ tr.hover\:bg-gray-700:hover {
 .chart-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: #10B981; /* emerald-500 on hover in dark mode */
+  border-color: var(--color-accent-primary-hover); /* emerald-500 on hover in dark mode */
 }
 
 .apexcharts-canvas {
@@ -545,8 +545,8 @@ tr.hover\:bg-gray-700:hover {
 }
 
 .apexcharts-menu {
-  background: #1E293B !important;
-  border: 1px solid #334155 !important;
+  background: var(--color-background-card) !important;
+  border: 1px solid var(--color-border-primary) !important;
 }
 
 .apexcharts-toolbar {
@@ -566,7 +566,7 @@ tr.hover\:bg-gray-700:hover {
 /* Estilo uniforme para las tablas */
 .commissioner-table-container {
   background-color: transparent !important;
-  border: 1px solid #374151 !important; /* gray-700 */
+  border: 1px solid var(--color-border-primary) !important; /* gray-700 */
   border-radius: 0.5rem !important;
   overflow: hidden !important;
 }
