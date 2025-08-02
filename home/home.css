@@ -76,3 +76,34 @@ select:-webkit-autofill::first-line {
 .text-gray-300 {
   color: #e5e7eb !important; /* Gris más claro para mejor contraste */
 }
+
+/* Mejora del contraste para texto secundario */
+.text-gray-400 {
+  color: #d1d5db !important; /* Gris más claro para mejor contraste */
+}
+
+.text-gray-500 {
+  color: #9ca3af !important; /* Gris medio con mejor contraste */
+}
+
+/* Mejora el contraste de los botones emerald específicos */
+.bg-emerald-600 {
+  background-color: #059669 !important; /* Emerald más oscuro para mejor contraste */
+}
+
+.bg-emerald-700 {
+  background-color: #047857 !important; /* Emerald oscuro para mejor contraste */
+}
+
+.bg-emerald-700:hover,
+.bg-emerald-800:hover {
+  background-color: #065f46 !important; /* Emerald muy oscuro en hover */
+}
+
+/* Mejora el estilo de foco para todos los enlaces y botones */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #34d399 !important;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+}

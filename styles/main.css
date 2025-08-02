@@ -122,3 +122,66 @@ select:-webkit-autofill::first-line {
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
 }
+
+/*
+ Mejoras de Contraste WCAG AA
+------------------------------
+Corrigen problemas de contraste para cumplir con los estándares de accesibilidad.
+*/
+
+/* Mejora del contraste para botones emerald */
+.bg-emerald-600 {
+  background-color: #059669 !important; /* Emerald más oscuro para mejor contraste */
+}
+
+.bg-emerald-700 {
+  background-color: #047857 !important; /* Emerald oscuro para mejor contraste */
+}
+
+.bg-emerald-700:hover,
+.bg-emerald-600:hover {
+  background-color: #065f46 !important; /* Emerald muy oscuro en hover */
+}
+
+.bg-emerald-800 {
+  background-color: #065f46 !important; /* Emerald muy oscuro */
+}
+
+.bg-emerald-500:hover {
+  background-color: #047857 !important; /* Emerald oscuro en hover */
+}
+
+/* Mejora del contraste para texto sobre fondos oscuros */
+.text-gray-300 {
+  color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
+}
+
+.text-gray-400 {
+  color: #d1d5db !important; /* Gris más claro para mejor contraste */
+}
+
+.text-gray-500 {
+  color: #9ca3af !important; /* Gris medio con mejor contraste */
+}
+
+/* Mejora del contraste para badges y notificaciones */
+.bg-red-600 {
+  background-color: #dc2626 !important; /* Rojo más oscuro para mejor contraste */
+}
+
+.bg-red-700 {
+  background-color: #b91c1c !important; /* Rojo muy oscuro */
+}
+
+/* Mejora del contraste para elementos de estado */
+.text-emerald-400 {
+  color: #34d399 !important; /* Verde más saturado para mejor contraste */
+}
+
+.text-emerald-500 {
+  color: #10b981 !important; /* Verde oscuro para mejor contraste */
+}
+
+.text-emerald-600 {
+  color: #059669 !important; /* Verde muy oscuro para mejor contraste */
+}
