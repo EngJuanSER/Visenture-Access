@@ -1,53 +1,64 @@
-<div class="min-h-screen bg-slate-950 p-6">
-  <div class="container mx-auto max-w-7xl">
-    <div class="mb-8">
-      <h1 class="text-3xl font-bold text-white mb-2">Mi Portafolio</h1>
-      <p class="text-slate-400">Administra y supervisa tus inversiones</p>
-    </div>
+<main role="main" aria-labelledby="portfolio-title">
+  <div class="min-h-screen bg-slate-950 p-6">
+    <div class="container mx-auto max-w-7xl">
+      <div class="mb-8">
+        <h1 id="portfolio-title" class="text-3xl font-bold text-white mb-2">Mi Portafolio</h1>
+        <p class="text-slate-400" aria-describedby="portfolio-title">Administra y supervisa tus inversiones</p>
+      </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
-        <p class="text-sm text-gray-400">Valor Total</p>
-        <h2 class="text-2xl font-bold text-emerald-400">$24,850.75</h2>
-        <p class="text-xs text-emerald-500 flex items-center"><i class="fas fa-caret-up mr-1"></i>+2.4% hoy</p>
-      </div>
-      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
-        <p class="text-sm text-gray-400">Rendimiento</p>
-        <h2 class="text-2xl font-bold text-emerald-400">+$1,230.45</h2>
-        <p class="text-xs text-emerald-500 flex items-center"><i class="fas fa-caret-up mr-1"></i>+5.2% total</p>
-      </div>
-      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
-        <p class="text-sm text-gray-400">Acciones</p>
-        <h2 class="text-2xl font-bold text-white">12</h2>
-        <p class="text-xs text-gray-400">En 5 mercados</p>
-      </div>
-      <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
-        <p class="text-sm text-gray-400">Crecimiento Anual</p>
-        <h2 class="text-2xl font-bold text-emerald-400">+12.8%</h2>
-        <p class="text-xs text-gray-400">vs. 8.5% S&P 500</p>
-      </div>
-    </div>
-
-    <!-- Sección Acciones Compradas -->
-    <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
-      <div class="border-b border-slate-700 p-4 flex justify-between items-center">
-        <h2 class="text-xl font-semibold text-white flex items-center">
-          <i class="fas fa-chart-line mr-2 text-emerald-400"></i>
-          Mis Inversiones
-        </h2>
-        <div class="flex items-center space-x-2">
-          <a href="#" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm">
-            <i class="fas fa-plus mr-1"></i> Nueva inversión
-          </a>
+      <!-- Resumen del portafolio -->
+      <section aria-labelledby="portfolio-summary-title">
+        <h2 id="portfolio-summary-title" class="sr-only">Resumen del Portafolio</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="total-value-title">
+            <p id="total-value-title" class="text-sm text-gray-400">Valor Total</p>
+            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Valor total del portafolio: 24,850 dólares con 75 centavos">$24,850.75</h3>
+            <p class="text-xs text-emerald-500 flex items-center" aria-label="Incremento del 2.4% hoy">
+              <i class="fas fa-caret-up mr-1" aria-hidden="true"></i>+2.4% hoy
+            </p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="performance-title">
+            <p id="performance-title" class="text-sm text-gray-400">Rendimiento</p>
+            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Rendimiento: más 1,230 dólares con 45 centavos">+$1,230.45</h3>
+            <p class="text-xs text-emerald-500 flex items-center" aria-label="Incremento total del 5.2%">
+              <i class="fas fa-caret-up mr-1" aria-hidden="true"></i>+5.2% total
+            </p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="stocks-title">
+            <p id="stocks-title" class="text-sm text-gray-400">Acciones</p>
+            <h3 class="text-2xl font-bold text-white" aria-label="12 acciones en total">12</h3>
+            <p class="text-xs text-gray-400">En 5 mercados</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="annual-growth-title">
+            <p id="annual-growth-title" class="text-sm text-gray-400">Crecimiento Anual</p>
+            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Crecimiento anual del 12.8%">+12.8%</h3>
+            <p class="text-xs text-gray-400">vs. 8.5% S&P 500</p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Estado de carga -->
-      <div style="display: none;" class="flex justify-center items-center py-12">
-        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
-        <div class="ml-4">
-          <p class="text-lg font-medium text-gray-300">Cargando acciones...</p>
-          <p class="text-sm text-gray-400">Esto puede tardar unos segundos</p>
+      <!-- Sección Acciones Compradas -->
+      <section aria-labelledby="investments-section-title">
+        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
+          <div class="border-b border-slate-700 p-4 flex justify-between items-center">
+            <h2 id="investments-section-title" class="text-xl font-semibold text-white flex items-center">
+              <i class="fas fa-chart-line mr-2 text-emerald-400" aria-hidden="true"></i>
+              Mis Inversiones
+            </h2>
+            <div class="flex items-center space-x-2">
+              <a href="#" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm" 
+                 aria-label="Crear nueva inversión">
+                <i class="fas fa-plus mr-1" aria-hidden="true"></i> Nueva inversión
+              </a>
+            </div>
+          </div>
+
+          <!-- Estado de carga -->
+          <div style="display: none;" class="flex justify-center items-center py-12" role="status" aria-live="polite">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500" aria-hidden="true"></div>
+            <div class="ml-4">
+              <p class="text-lg font-medium text-gray-300">Cargando acciones...</p>
+              <p class="text-sm text-gray-400">Esto puede tardar unos segundos</p>
         </div>
       </div>
 

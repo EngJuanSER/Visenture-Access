@@ -1,11 +1,3 @@
-body {
-  background-color: var(--color-background-base);
-  color: var(--color-text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /* Estilos para la tabla */
 .commissioner-table-container {
   background-color: transparent;
@@ -554,4 +546,85 @@ body {
 .commissioner-table td .text-white,
 .commissioner-table .mat-mdc-cell .text-white {
   color: var(--color-text-primary) !important;
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+
+/* Clase para elementos solo visibles para lectores de pantalla */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Mejora del contraste para texto secundario */
+.text-gray-400 {
+  color: #d1d5db !important;
+}
+
+.text-gray-300 {
+  color: #e5e7eb !important;
+}
+
+.text-gray-500 {
+  color: #9ca3af !important;
+}
+
+/* Mejora del contraste para encabezados */
+.text-emerald-400 {
+  color: #34d399 !important;
+}
+
+.text-green-400 {
+  color: #4ade80 !important;
+}
+
+.text-red-400 {
+  color: #f87171 !important;
+}
+
+.text-blue-400 {
+  color: #60a5fa !important;
+}
+
+.text-purple-400 {
+  color: #c084fc !important;
+}
+
+.text-amber-400 {
+  color: #fbbf24 !important;
+}
+
+/* Mejora del contraste en botones */
+button:focus {
+  outline: 2px solid #34d399 !important;
+  outline-offset: 2px;
+}
+
+/* Mejora del contraste en inputs */
+input:focus {
+  outline: 2px solid #34d399 !important;
+  outline-offset: 2px;
+  border-color: #34d399 !important;
+}
+
+/* Mejora del contraste en gráficos */
+.apexcharts-legend-text {
+  fill: #ffffff !important;
+}
+
+.apexcharts-yaxis-label text,
+.apexcharts-xaxis-label text {
+  fill: #ffffff !important;
+}
+
+.apexcharts-tooltip {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
 }

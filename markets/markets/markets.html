@@ -1,102 +1,104 @@
-<div class="min-h-screen bg-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
+<main class="min-h-screen bg-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
   <div class="flex justify-center pb-10">
     <div class="bg-slate-800 p-8 rounded-xl shadow-2xl w-full max-w-7xl transition-all duration-300">
-      <h3 class="text-2xl font-bold text-center bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 bg-clip-text text-transparent mb-6">Mercados Disponibles</h3>
+      <h1 class="text-2xl font-bold text-center mb-6">Mercados Disponibles</h1>
 
       <!-- Panel informativo para gestión de horarios (visible para todos) -->
-      <div class="mb-8 bg-indigo-900/30 rounded-lg border border-indigo-800 p-4">
-        <h4 class="text-lg font-medium text-indigo-300 mb-2">Panel de Gestión de Horarios</h4>
+      <section class="mb-8 bg-indigo-900/30 rounded-lg border border-indigo-800 p-4" aria-labelledby="schedule-management-title" role="region">
+        <h2 id="schedule-management-title" class="text-lg font-medium text-indigo-300 mb-2">Panel de Gestión de Horarios</h2>
         <p class="text-sm text-indigo-400 mb-3">
           Puedes personalizar el horario de apertura de cada mercado. Haz clic en el botón de edición junto a la hora de apertura de cada mercado para configurar un horario personalizado.
         </p>
         <div class="flex items-center text-xs text-indigo-300">
-          <span class="material-icons text-sm mr-1">info</span>
+          <span class="material-icons text-sm mr-1" aria-hidden="true">info</span>
           <span>Los horarios personalizados se muestran en color verde y se aplican solo a la visualización en la aplicación.</span>
         </div>
-      </div>
+      </section>
       <!-- Mensaje de inicialización en proceso -->
-      <div class="flex justify-center items-center py-12" style="display: none;">
-        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+      <div class="flex justify-center items-center py-12" style="display: none;" role="status" aria-live="polite">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500" aria-hidden="true"></div>
         <div class="ml-4">
-          <p class="text-lg font-medium text-gray-300">
+          <p class="text-lg font-medium text-white">
             Cargando mercados...
           </p>
-          <p class="text-sm text-gray-400">Esto puede tardar unos segundos</p>
+          <p class="text-sm text-gray-300">Esto puede tardar unos segundos</p>
         </div>
       </div>
 
       <!-- Estado de error -->
-      <div class="bg-red-900/30 border border-red-800 rounded-lg p-6 my-6 flex flex-col md:flex-row items-center justify-between shadow-md" style="display: none;">
+      <div class="bg-red-900/30 border border-red-800 rounded-lg p-6 my-6 flex flex-col md:flex-row items-center justify-between shadow-md" style="display: none;" role="alert" aria-live="assertive">
         <div class="flex items-center mb-4 md:mb-0">
-          <span class="material-icons text-red-400 mr-3">error_outline</span>
+          <span class="material-icons text-red-400 mr-3" aria-hidden="true">error_outline</span>
           <div>
             <p class="text-red-300 font-medium">Error message here</p>
             <p class="text-xs text-red-400 mt-1">Por favor, intenta nuevamente o contacta con soporte si el error persiste.</p>
           </div>
         </div>
-        <button class="px-4 py-2 bg-red-800 text-red-200 rounded-lg hover:bg-red-700 transition-colors">
+        <button class="px-4 py-2 bg-red-800 text-white rounded-lg hover:bg-red-700 transition-colors">
           Reintentar
         </button>
       </div>      <!-- Listado de mercados -->
       <div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-stretch">
-          <div class="market-card-custom bg-slate-800 border-slate-700 border-2 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
+          <article class="market-card-custom bg-slate-800 border-slate-700 border-2 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
         <!-- Contenedor para todo el contenido visible de la tarjeta -->
         <div class="card-content-wrapper">
           <!-- Cabecera del mercado -->
-          <div class="relative h-24 bg-gradient-to-r from-emerald-700 to-teal-900 flex items-center justify-between px-6">
+          <header class="relative h-24 bg-gradient-to-r from-emerald-700 to-teal-900 flex items-center justify-between px-6">
             <div>
           <h3 class="text-xl font-bold text-white">Market Name</h3>
-          <p class="text-white text-opacity-80">Country/Region</p>
+          <p class="text-white">Country/Region</p>
             </div>
-            <div class="absolute top-2 right-2 px-2 py-1 rounded-full bg-green-100 text-green-800">
+            <div class="absolute top-2 right-2 px-2 py-1 rounded-full bg-green-100 text-green-800" role="status" aria-label="Estado del mercado: Abierto">
           <span class="text-xs font-medium">Open</span>
             </div>
-          </div>
+          </header>
           
           <!-- Cuerpo con información del mercado -->
           <div class="p-6">
-            <div class="flex items-center justify-between mb-2 text-gray-300">
-          <span class="font-medium">ID del mercado:</span>
-          <span class="text-emerald-400 font-mono">MIC</span>
-            </div>
+            <dl>
+              <div class="flex items-center justify-between mb-2">
+                <dt class="font-medium">ID del mercado:</dt>
+                <dd class="text-emerald-400 font-mono">MIC</dd>
+              </div>
+              
+              <div class="flex items-center justify-between mb-2">
+                <dt class="font-medium">Horario:</dt>
+                <dd class="flex items-center">
+                  <span class="text-emerald-600">Opening - Closing</span>
+                  
+                  <!-- Botón de edición de horario visible para todos -->
+                  <button class="ml-1 text-white hover:text-emerald-600" aria-label="Editar horario">
+                    <span class="material-icons text-sm" aria-hidden="true">edit</span>
+                  </button>
+                </dd>
+              </div>
+              
+              <!-- Indicador de horario personalizado -->
+              <div class="mb-2 text-xs text-emerald-400 flex items-center">
+                <span class="material-icons text-xs mr-1" aria-hidden="true">schedule</span>
+                <span>Horario personalizado (oficial: 09:30)</span>
+              </div>
+              
+              <div class="flex items-center justify-between mb-2">
+                <dt class="font-medium">Días operación:</dt>
+                <dd>Lunes a Viernes</dd>
+              </div>
+            </dl>
             
-            <div class="flex items-center justify-between mb-2 text-gray-300">
-          <span class="font-medium">Horario:</span>
-          <div class="flex items-center">
-            <span class="text-emerald-600">Opening - Closing</span>
-            
-            <!-- Botón de edición de horario visible para todos -->
-            <button class="ml-1 text-gray-500 hover:text-emerald-600">
-              <span class="material-icons text-sm">edit</span>
-            </button>
-          </div>
-            </div>
-            
-            <!-- Indicador de horario personalizado -->
-            <div class="mb-2 text-xs text-emerald-400 flex items-center">
-          <span class="material-icons text-xs mr-1">schedule</span>
-          <span>Horario personalizado (oficial: 09:30)</span>
-            </div>
-            
-            <div class="flex items-center justify-between mb-2 text-gray-300">
-          <span class="font-medium">Días operación:</span>
-          <span>Lunes a Viernes</span>
-            </div>
-            
-            <p class="text-gray-400 text-sm mt-4">
+            <p class="text-white text-sm mt-4">
               Market Name es un mercado ubicado en Country/Region que opera Lunes a Viernes.
             </p>
           </div>
           
           <!-- Footer con botón de acción -->
-          <div class="px-6 py-4 bg-slate-700 border-t border-slate-600 flex items-center justify-between">
-            <span class="text-sm text-gray-400">
-          <span class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-green-500"></span>
-          <span>En operación</span>
-            </span>
-            <button class="text-xs px-2 py-1">
-          Ver acciones
+          <footer class="px-6 py-4 bg-slate-700 border-t border-slate-600 flex items-center justify-between">
+            <div class="text-sm text-white">
+              <span class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-green-500" aria-hidden="true"></span>
+              <span>En operación</span>
+            </div>
+            <button class="text-xs px-3 py-2 bg-emerald-700 text-white hover:bg-emerald-600 rounded" aria-label="Ver acciones de este mercado">
+              Ver acciones
             </button>
           </div>
         </div>

@@ -75,3 +75,92 @@
   background: var(--color-accent-negative);
   color: var(--color-accent-primary-text);
 }
+
+/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+
+/* Mejora los colores de fondo para tener mejor contraste */
+.bg-slate-800 {
+  background-color: #1e293b !important;
+}
+
+/* Mejora el color del texto en las tarjetas */
+.market-card-custom .text-gray-300 {
+  color: #e5e7eb !important;
+}
+
+.market-card-custom .text-gray-400 {
+  color: #d1d5db !important;
+}
+
+/* Mejora los indicadores de estado */
+.market-card-custom .bg-green-100 {
+  background-color: #059669 !important;
+}
+
+.market-card-custom .text-green-800 {
+  color: #ffffff !important;
+}
+
+/* Mejora el contraste en las etiquetas del mercado */
+.market-card-custom .text-emerald-400,
+.market-card-custom .text-emerald-600 {
+  color: #34d399 !important;
+}
+
+/* Mejora los botones */
+button {
+  color: #ffffff !important;
+  background-color: #065f46 !important;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #047857 !important;
+}
+
+button:focus {
+  outline: 2px solid #34d399 !important;
+  outline-offset: 2px;
+}
+
+/* Mejora los elementos de panel informativo */
+.bg-indigo-900\/30 {
+  background-color: rgba(49, 46, 129, 0.7) !important;
+}
+
+.text-indigo-300,
+.text-indigo-400 {
+  color: #c4b5fd !important;
+}
+
+/* Mejora panel de error */
+.bg-red-900\/30 {
+  background-color: rgba(127, 29, 29, 0.7) !important;
+}
+
+.text-red-300,
+.text-red-400 {
+  color: #fca5a5 !important;
+}
+
+.bg-red-800 {
+  background-color: #991b1b !important;
+}
+
+.text-red-200 {
+  color: #ffffff !important;
+}
+
+/* Mejora encabezados */
+h1.text-2xl,
+h2.text-lg {
+  color: #ffffff !important;
+}
+
+/* Mejora iconos */
+.material-icons {
+  vertical-align: middle;
+}

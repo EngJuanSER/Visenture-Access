@@ -1,11 +1,4 @@
 /* CSS specific to home page */
-body {
-  background-color: var(--color-background-base);
-  color: var(--color-text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 /* Estilos específicos para formularios en modo oscuro */
 input, 
@@ -35,4 +28,51 @@ select:-webkit-autofill::first-line {
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+
+/* Mejoras de contraste para tarjetas de noticias */
+.news-card .news-metadata {
+  color: #cbd5e1 !important; /* Más claro para mejor contraste */
+}
+
+.news-card .news-content {
+  color: #f1f5f9 !important; /* Casi blanco para mejor contraste */
+}
+
+.news-card .symbol-tag {
+  background-color: #1d4ed8 !important; /* Azul más oscuro para mejor contraste */
+  color: #ffffff !important; /* Blanco para mejor contraste */
+}
+
+.news-card .read-more {
+  color: #34d399 !important; /* Verde más saturado para mejor contraste */
+}
+
+.news-card .svg-icon {
+  color: #9ca3af !important; /* Gris más claro para mejor contraste */
+}
+
+/* Mejora de botones */
+.btn-primary {
+  background-color: #047857 !important; /* Verde más oscuro para mejor contraste */
+}
+
+.btn-primary:hover {
+  background-color: #065f46 !important; /* Verde aún más oscuro al pasar el mouse */
+}
+
+.btn-secondary {
+  border-color: #9ca3af !important;
+  color: #f3f4f6 !important;
+}
+
+.btn-secondary:hover {
+  border-color: #34d399 !important;
+}
+
+/* Mejora del contraste en la sección de ventajas */
+.text-gray-300 {
+  color: #e5e7eb !important; /* Gris más claro para mejor contraste */
 }

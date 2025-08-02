@@ -1,11 +1,4 @@
 /* CSS specific to dashboard page */
-body {
-  background-color: var(--color-background-base);
-  color: var(--color-text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 /* Estilos específicos para formularios en modo oscuro */
 input, 
@@ -35,4 +28,56 @@ select:-webkit-autofill::first-line {
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+
+/* Mejora del contraste para texto secundario */
+.text-gray-400 {
+  color: #d1d5db !important; /* Gris más claro para mejor contraste */
+}
+
+.text-gray-300 {
+  color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
+}
+
+.text-gray-500 {
+  color: #9ca3af !important; /* Gris medio para mejor contraste */
+}
+
+/* Mejora del contraste para métricas y valores */
+.text-emerald-400 {
+  color: #34d399 !important; /* Verde más saturado */
+}
+
+.text-green-400 {
+  color: #4ade80 !important; /* Verde claro más saturado */
+}
+
+.text-red-400 {
+  color: #f87171 !important; /* Rojo más saturado */
+}
+
+.text-blue-400 {
+  color: #60a5fa !important; /* Azul más saturado */
+}
+
+/* Mejora del contraste en botones */
+button {
+  color: #ffffff !important;
+}
+
+button:focus {
+  outline: 2px solid #34d399 !important;
+  outline-offset: 2px;
+}
+
+/* Mejora del contraste en gráficos */
+.apexcharts-legend-text {
+  fill: #ffffff !important;
+}
+
+.apexcharts-yaxis-label text,
+.apexcharts-xaxis-label text {
+  fill: #ffffff !important;
 }

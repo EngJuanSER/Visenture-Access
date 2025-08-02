@@ -1,11 +1,4 @@
 /* CSS specific to login page */
-body {
-  background-color: var(--color-background-base);
-  color: var(--color-text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 /* Estilos específicos para formularios en modo oscuro */
 input, 
@@ -35,4 +28,46 @@ select:-webkit-autofill::first-line {
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+
+/* Mejora del contraste en texto secundario */
+.text-gray-400 {
+  color: #d1d5db !important; /* Gris más claro para mejor contraste */
+}
+
+/* Mejora del contraste en etiquetas de formulario */
+.text-gray-300 {
+  color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
+}
+
+/* Mejora del contraste en enlaces */
+.text-emerald-400 {
+  color: #34d399 !important; /* Verde más saturado para mejor contraste */
+}
+
+.text-emerald-300:hover {
+  color: #6ee7b7 !important; /* Verde más claro al hover */
+}
+
+/* Mejora del contraste en placeholders */
+.placeholder-gray-500::placeholder {
+  color: #9ca3af !important; /* Gris medio para mejor contraste */
+}
+
+/* Mejora del botón principal */
+.bg-emerald-500 {
+  background-color: #059669 !important; /* Verde más oscuro para mejor contraste */
+}
+
+.hover\:bg-emerald-600:hover {
+  background-color: #047857 !important; /* Verde aún más oscuro al hover */
+}
+
+/* Focus visible para accesibilidad */
+input:focus,
+button:focus {
+  outline: 2px solid #34d399 !important;
+  outline-offset: 2px;
 }

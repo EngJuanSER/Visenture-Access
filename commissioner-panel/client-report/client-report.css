@@ -1,11 +1,4 @@
 /* Estilos para el componente de reporte de cliente */
-body {
-  background-color: var(--color-background-base);
-  color: var(--color-text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 /* Estilos para las tarjetas KPI */
 .kpi-card {

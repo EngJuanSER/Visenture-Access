@@ -1,4 +1,5 @@
 <!-- Panel del Comisionista -->
+<main role="main" aria-labelledby="main-title">
     <div class="min-h-screen bg-gradient-to-r from-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
 
         <!-- Card Principal -->
@@ -7,21 +8,23 @@
                 <!-- Cabecera y título -->
                 <div class="flex flex-wrap justify-between items-center mb-6">
                     <div class="flex items-center">
-                        <h1 class="text-2xl font-bold text-emerald-400">Panel del Comisionista</h1>
-                        <span class="ml-3 px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded-full">Próximamente (Simulación)</span>
+                        <h1 id="main-title" class="text-2xl font-bold text-emerald-400">Panel del Comisionista</h1>
+                        <span class="ml-3 px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded-full" role="status" aria-label="Estado: Próximamente en simulación">Próximamente (Simulación)</span>
                     </div>
-                    <p class="text-gray-400 mt-1 w-full">Gestiona tus clientes y comisiones</p>
+                    <p class="text-gray-400 mt-1 w-full" aria-describedby="main-title">Gestiona tus clientes y comisiones</p>
                     
                     <!-- Acciones -->
-                    <div class="flex space-x-2 mt-2 sm:mt-0">
+                    <div class="flex space-x-2 mt-2 sm:mt-0" role="group" aria-label="Acciones de exportación">
                         <button 
-                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
-                            <i class="fa-solid fa-file-pdf mr-1"></i>
+                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150"
+                            aria-label="Exportar datos en formato PDF">
+                            <i class="fa-solid fa-file-pdf mr-1" aria-hidden="true"></i>
                             <span>Exportar PDF</span>
                         </button>
                         <button 
-                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
-                            <i class="fa-solid fa-table mr-1"></i>
+                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150"
+                            aria-label="Exportar datos en formato Excel">
+                            <i class="fa-solid fa-table mr-1" aria-hidden="true"></i>
                             <span>Exportar Excel</span>
                         </button>
                     </div>
@@ -31,122 +34,132 @@
                 <div>
                     <div class="py-6">
                         <!-- Cards de estadísticas -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                            <!-- Total de clientes -->
-                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
-                                <div class="flex items-start justify-between">
-                                    <div>
-                                        <h2 class="text-gray-400 text-sm font-medium mb-1">Clientes Totales</h2>
-                                        <div class="text-2xl font-semibold text-white">150</div>
-                                        <div class="text-xs text-gray-400 mt-1">
-                                            <span class="font-medium text-green-400">120</span>
-                                            <span>activos</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 rounded-full bg-emerald-900/40 text-emerald-400">
-                                        <i class="fa-solid fa-users"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Comisiones del mes -->
-                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
-                                <div class="flex items-start justify-between">
-                                    <div>
-                                        <h2 class="text-gray-400 text-sm font-medium mb-1">Comisiones (Mes)</h2>
-                                        <div class="text-2xl font-semibold text-white">$5,000.00</div>
-                                        <div class="text-xs text-gray-400 mt-1">
-                                            <span class="text-green-400">+10%</span> 
-                                            <span>vs. último mes</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 rounded-full bg-blue-900/40 text-blue-400">
-                                        <i class="fa-solid fa-money-bill-wave"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- ROI promedio -->
-                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
-                                <div class="flex items-start justify-between">
-                                    <div>
-                                        <h2 class="text-gray-400 text-sm font-medium mb-1">ROI Promedio</h2>
-                                        <div class="text-2xl font-semibold text-white">15.25%</div>
-                                        <div class="text-xs text-gray-400 mt-1">
-                                            <span class="font-medium text-red-400">5</span>
-                                            <span>clientes con ROI negativo</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 rounded-full bg-purple-900/40 text-purple-400">
-                                        <i class="fa-solid fa-chart-line"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Total de operaciones -->
-                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow">
-                                <div class="flex items-start justify-between">
-                                    <div>
-                                        <h2 class="text-gray-400 text-sm font-medium mb-1">Total Operaciones</h2>
-                                        <div class="text-2xl font-semibold text-white">2500</div>
-                                        <div class="text-xs text-gray-400 mt-1">
-                                            Este mes
-                                        </div>
-                                    </div>
-                                    <div class="p-3 rounded-full bg-amber-900/40 text-amber-400">
-                                        <i class="fa-solid fa-right-left"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Gráficos -->
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                            <!-- Distribución de clientes -->
-                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card">
-                                <h2 class="text-gray-300 font-medium mb-4">Distribución de Clientes</h2>
-                                <div id="clientDistributionChart" class="h-[300px] w-full chart-container"></div>
-                            </div>
-
-                            <!-- Comisiones por mercado -->
-                            <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card">
-                                <h2 class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h2>
-                                <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Listado de clientes con filtros integrados -->
-                        <div class="bg-slate-800 rounded-lg shadow-md border border-slate-700 mb-6 overflow-hidden">
-                            <div class="border-b border-slate-700 p-4 flex justify-between items-center">
-                                <h2 class="text-xl font-semibold text-white flex items-center">
-                                  <i class="fas fa-users mr-2 text-emerald-400"></i>
-                                  Mis Clientes
-                                </h2>
-                                <div class="flex items-center space-x-2">
-                                  <button class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm">
-                                    <i class="fa-solid fa-user-plus mr-1.5"></i>
-                                    <span>Añadir Cliente</span>
-                                  </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Filtros integrados en el panel de clientes -->
-                            <div class="p-4 border-b border-slate-700 bg-slate-850">
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <!-- Campo de búsqueda -->
-                                    <div class="relative">
-                                        <div class="flex items-center">
-                                            <label for="client-search-filter" class="text-gray-300 mr-2">Buscar:</label>
-                                            <div class="relative flex-grow">
-                                                <i class="fa-solid fa-search absolute left-3 top-2 text-gray-500"></i>
-                                                <input 
-                                                    id="client-search-filter"
-                                                    placeholder="Nombre, email..." 
-                                                    class="bg-slate-700 text-white border border-slate-600 rounded pl-9 pr-4 py-1 w-full"
-                                                >
+                        <section aria-labelledby="stats-title">
+                            <h2 id="stats-title" class="sr-only">Estadísticas del Panel de Comisionista</h2>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                                <!-- Total de clientes -->
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="clients-title">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 id="clients-title" class="text-gray-400 text-sm font-medium mb-1">Clientes Totales</h3>
+                                            <div class="text-2xl font-semibold text-white" aria-label="150 clientes totales">150</div>
+                                            <div class="text-xs text-gray-400 mt-1">
+                                                <span class="font-medium text-green-400" aria-label="120 clientes activos">120</span>
+                                                <span>activos</span>
                                             </div>
                                         </div>
+                                        <div class="p-3 rounded-full bg-emerald-900/40 text-emerald-400" aria-hidden="true">
+                                            <i class="fa-solid fa-users"></i>
+                                        </div>
                                     </div>
+                                </div>
+
+                                <!-- Comisiones del mes -->
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="commissions-title">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 id="commissions-title" class="text-gray-400 text-sm font-medium mb-1">Comisiones (Mes)</h3>
+                                            <div class="text-2xl font-semibold text-white" aria-label="5000 dólares en comisiones este mes">$5,000.00</div>
+                                            <div class="text-xs text-gray-400 mt-1">
+                                                <span class="text-green-400" aria-label="Incremento del 10 por ciento">+10%</span> 
+                                                <span>vs. último mes</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 rounded-full bg-blue-900/40 text-blue-400" aria-hidden="true">
+                                            <i class="fa-solid fa-money-bill-wave"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ROI promedio -->
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="roi-title">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 id="roi-title" class="text-gray-400 text-sm font-medium mb-1">ROI Promedio</h3>
+                                            <div class="text-2xl font-semibold text-white" aria-label="ROI promedio del 15.25 por ciento">15.25%</div>
+                                            <div class="text-xs text-gray-400 mt-1">
+                                                <span class="font-medium text-red-400" aria-label="5 clientes con ROI negativo">5</span>
+                                                <span>clientes con ROI negativo</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 rounded-full bg-purple-900/40 text-purple-400" aria-hidden="true">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Total de operaciones -->
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="operations-title">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 id="operations-title" class="text-gray-400 text-sm font-medium mb-1">Total Operaciones</h3>
+                                            <div class="text-2xl font-semibold text-white" aria-label="2500 operaciones totales">2500</div>
+                                            <div class="text-xs text-gray-400 mt-1">
+                                                Este mes
+                                            </div>
+                                        </div>
+                                        <div class="p-3 rounded-full bg-amber-900/40 text-amber-400" aria-hidden="true">
+                                            <i class="fa-solid fa-right-left"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Gráficos -->
+                        <section aria-labelledby="charts-title">
+                            <h2 id="charts-title" class="sr-only">Gráficos de Análisis</h2>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                                <!-- Distribución de clientes -->
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card" role="img" aria-labelledby="client-distribution-title">
+                                    <h3 id="client-distribution-title" class="text-gray-300 font-medium mb-4">Distribución de Clientes</h3>
+                                    <div id="clientDistributionChart" class="h-[300px] w-full chart-container" aria-label="Gráfico de distribución de clientes por categoría"></div>
+                                </div>
+
+                                <!-- Comisiones por mercado -->
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card" role="img" aria-labelledby="commissions-market-title">
+                                    <h3 id="commissions-market-title" class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h3>
+                                    <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container" aria-label="Gráfico de comisiones distribuidas por mercado"></div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Listado de clientes con filtros integrados -->
+                        <section aria-labelledby="clients-section-title">
+                            <div class="bg-slate-800 rounded-lg shadow-md border border-slate-700 mb-6 overflow-hidden">
+                                <div class="border-b border-slate-700 p-4 flex justify-between items-center">
+                                    <h2 id="clients-section-title" class="text-xl font-semibold text-white flex items-center">
+                                      <i class="fas fa-users mr-2 text-emerald-400" aria-hidden="true"></i>
+                                      Mis Clientes
+                                    </h2>
+                                    <div class="flex items-center space-x-2">
+                                      <button class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm" aria-label="Añadir nuevo cliente">
+                                        <i class="fa-solid fa-user-plus mr-1.5" aria-hidden="true"></i>
+                                        <span>Añadir Cliente</span>
+                                      </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Filtros integrados en el panel de clientes -->
+                                <div class="p-4 border-b border-slate-700 bg-slate-850" role="search" aria-labelledby="filters-title">
+                                    <h3 id="filters-title" class="sr-only">Filtros de búsqueda de clientes</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <!-- Campo de búsqueda -->
+                                        <div class="relative">
+                                            <div class="flex items-center">
+                                                <label for="client-search-filter" class="text-gray-300 mr-2">Buscar:</label>
+                                                <div class="relative flex-grow">
+                                                    <i class="fa-solid fa-search absolute left-3 top-2 text-gray-500" aria-hidden="true"></i>
+                                                    <input 
+                                                        id="client-search-filter"
+                                                        placeholder="Nombre, email..." 
+                                                        class="bg-slate-700 text-white border border-slate-600 rounded pl-9 pr-4 py-1 w-full"
+                                                        aria-describedby="search-help"
+                                                    >
+                                                    <div id="search-help" class="sr-only">Buscar clientes por nombre o email</div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     <!-- Filtro por mercado -->
                                     <div class="relative">
