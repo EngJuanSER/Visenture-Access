@@ -129,59 +129,104 @@ select:-webkit-autofill::first-line {
 Corrigen problemas de contraste para cumplir con los estándares de accesibilidad.
 */
 
-/* Mejora del contraste para botones emerald */
-.bg-emerald-600 {
-  background-color: #059669 !important; /* Emerald más oscuro para mejor contraste */
+/* Mejora del contraste para botones emerald - Más agresivo */
+.bg-emerald-600,
+a.bg-emerald-600,
+button.bg-emerald-600 {
+  background-color: #065f46 !important; /* Verde muy oscuro para asegurar ratio de contraste superior a 4.5:1 */
 }
 
-.bg-emerald-700 {
-  background-color: #047857 !important; /* Emerald oscuro para mejor contraste */
+.bg-emerald-700,
+a.bg-emerald-700,
+button.bg-emerald-700 {
+  background-color: #064e3b !important; /* Verde extremadamente oscuro para contraste óptimo */
 }
 
 .bg-emerald-700:hover,
-.bg-emerald-600:hover {
-  background-color: #065f46 !important; /* Emerald muy oscuro en hover */
+.bg-emerald-600:hover,
+a.bg-emerald-600:hover,
+a.bg-emerald-700:hover,
+button.bg-emerald-600:hover,
+button.bg-emerald-700:hover {
+  background-color: #052e16 !important; /* Verde casi negro en hover */
 }
 
-.bg-emerald-800 {
-  background-color: #065f46 !important; /* Emerald muy oscuro */
+.bg-emerald-800,
+a.bg-emerald-800,
+button.bg-emerald-800 {
+  background-color: #052e16 !important; /* Verde casi negro para contraste máximo */
 }
 
 .bg-emerald-500:hover {
-  background-color: #047857 !important; /* Emerald oscuro en hover */
+  background-color: #064e3b !important; /* Verde muy oscuro en hover */
+}
+
+/* Asegurar texto blanco visible en todos los botones - Más específico */
+.bg-emerald-600,
+.bg-emerald-700,
+.bg-emerald-800,
+a.bg-emerald-600,
+a.bg-emerald-700,
+a.bg-emerald-800,
+button.bg-emerald-600,
+button.bg-emerald-700,
+button.bg-emerald-800,
+.btn-primary {
+  color: #ffffff !important;
+  font-weight: 600 !important; /* Semi-negrita para mejor legibilidad */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important; /* Sutil sombra para mayor contraste */
 }
 
 /* Mejora del contraste para texto sobre fondos oscuros */
 .text-gray-300 {
-  color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
+  color: #f1f5f9 !important; /* Casi blanco para asegurar ratio de contraste 4.5:1 */
 }
 
 .text-gray-400 {
-  color: #d1d5db !important; /* Gris más claro para mejor contraste */
+  color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
 }
 
 .text-gray-500 {
-  color: #9ca3af !important; /* Gris medio con mejor contraste */
+  color: #d1d5db !important; /* Gris medio-claro con mejor contraste */
 }
 
-/* Mejora del contraste para badges y notificaciones */
-.bg-red-600 {
-  background-color: #dc2626 !important; /* Rojo más oscuro para mejor contraste */
+/* Mejora del contraste para badges y notificaciones - Más agresivo */
+.bg-red-600,
+span.bg-red-600 {
+  background-color: #991b1b !important; /* Rojo muy oscuro */
 }
 
-.bg-red-700 {
-  background-color: #b91c1c !important; /* Rojo muy oscuro */
+.bg-red-700,
+span.bg-red-700 {
+  background-color: #7f1d1d !important; /* Rojo extremadamente oscuro para contraste máximo */
+}
+
+.bg-red-800,
+span.bg-red-800 {
+  background-color: #7f1d1d !important; /* Rojo casi negro */
+}
+
+/* Asegurar texto visible en badges y notificaciones - Más específico */
+.bg-red-600,
+.bg-red-700,
+.bg-red-800,
+span.bg-red-600,
+span.bg-red-700,
+span.bg-red-800 {
+  color: #ffffff !important; 
+  font-weight: 700 !important; /* Negrita para mejor legibilidad */
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2) !important; /* Sombra para mayor contraste */
 }
 
 /* Mejora del contraste para elementos de estado */
 .text-emerald-400 {
-  color: #34d399 !important; /* Verde más saturado para mejor contraste */
+  color: #4ade80 !important; /* Verde más saturado y brillante para mejor contraste */
 }
 
 .text-emerald-500 {
-  color: #10b981 !important; /* Verde oscuro para mejor contraste */
+  color: #34d399 !important; /* Verde más brillante para cumplir ratio de contraste 4.5:1 */
 }
 
 .text-emerald-600 {
-  color: #059669 !important; /* Verde muy oscuro para mejor contraste */
+  color: #10b981 !important; /* Verde más oscuro para mejor contraste */
 }

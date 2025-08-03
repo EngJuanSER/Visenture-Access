@@ -225,24 +225,24 @@
 }
 
 .text-gray-400 {
-  color: #d1d5db !important;
+  color: #e5e7eb !important; /* Gris muy claro para mejor contraste - SINCRONIZADO CON MAIN.CSS */
 }
 
 .text-gray-300 {
-  color: #e5e7eb !important;
+  color: #f1f5f9 !important; /* Casi blanco para ratio de contraste 4.5:1 - SINCRONIZADO CON MAIN.CSS */
 }
 
-/* Mejora del contraste para encabezados y elementos destacados */
+/* Mejora del contraste para encabezados y elementos destacados - SINCRONIZADO CON MAIN.CSS */
 .text-emerald-400 {
-  color: #34d399 !important;
+  color: #4ade80 !important; /* Verde más saturado y brillante */
 }
 
 .text-emerald-500 {
-  color: #10b981 !important;
+  color: #34d399 !important; /* Verde más brillante para cumplir ratio de contraste 4.5:1 */
 }
 
 .text-emerald-600 {
-  color: #059669 !important;
+  color: #10b981 !important; /* Verde más oscuro para mejor contraste */
 }
 
 /* Mejora del contraste en botones y enlaces */

@@ -32,22 +32,22 @@ select:-webkit-autofill::first-line {
 
 /* ===== MEJORAS DE ACCESIBILIDAD ===== */
 
-/* Mejora del contraste para texto secundario */
+/* Mejora del contraste para texto secundario - SINCRONIZADO CON MAIN.CSS */
 .text-gray-400 {
-  color: #d1d5db !important; /* Gris más claro para mejor contraste */
-}
-
-.text-gray-300 {
   color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
 }
 
-.text-gray-500 {
-  color: #9ca3af !important; /* Gris medio para mejor contraste */
+.text-gray-300 {
+  color: #f1f5f9 !important; /* Casi blanco para ratio de contraste 4.5:1 */
 }
 
-/* Mejora del contraste para métricas y valores */
+.text-gray-500 {
+  color: #d1d5db !important; /* Gris medio-claro con mejor contraste */
+}
+
+/* Mejora del contraste para métricas y valores - SINCRONIZADO CON MAIN.CSS */
 .text-emerald-400 {
-  color: #34d399 !important; /* Verde más saturado */
+  color: #4ade80 !important; /* Verde más saturado y brillante */
 }
 
 .text-green-400 {

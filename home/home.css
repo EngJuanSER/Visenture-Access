@@ -42,8 +42,10 @@ select:-webkit-autofill::first-line {
 }
 
 .news-card .symbol-tag {
-  background-color: #1d4ed8 !important; /* Azul más oscuro para mejor contraste */
+  background-color: #1e40af !important; /* Azul más oscuro para mejor contraste 4.5:1 */
   color: #ffffff !important; /* Blanco para mejor contraste */
+  font-weight: 600 !important; /* Semi-negrita para mejor legibilidad */
+  padding: 0.25rem 0.75rem !important; /* Aumentar ligeramente el tamaño del badge */
 }
 
 .news-card .read-more {
@@ -54,51 +56,60 @@ select:-webkit-autofill::first-line {
   color: #9ca3af !important; /* Gris más claro para mejor contraste */
 }
 
-/* Mejora de botones */
+/* Mejora de botones - Eliminar conflictos con main.css */
 .btn-primary {
-  background-color: #047857 !important; /* Verde más oscuro para mejor contraste */
+  background-color: #052e16 !important; /* Verde casi negro para contraste máximo */
 }
 
 .btn-primary:hover {
-  background-color: #065f46 !important; /* Verde aún más oscuro al pasar el mouse */
+  background-color: #14532d !important; /* Verde muy oscuro al pasar el mouse */
 }
 
 .btn-secondary {
-  border-color: #9ca3af !important;
-  color: #f3f4f6 !important;
+  border-color: #d1d5db !important; /* Borde más claro */
+  color: #ffffff !important; /* Texto blanco para mejor contraste */
+  font-weight: 500 !important;
 }
 
 .btn-secondary:hover {
-  border-color: #34d399 !important;
+  border-color: #4ade80 !important; /* Verde brillante */
+  background-color: #1f2937 !important; /* Fondo oscuro en hover */
 }
 
 /* Mejora del contraste en la sección de ventajas */
 .text-gray-300 {
-  color: #e5e7eb !important; /* Gris más claro para mejor contraste */
+  color: #f1f5f9 !important; /* Casi blanco para asegurar ratio de contraste 4.5:1 */
 }
 
-/* Mejora del contraste para texto secundario */
-.text-gray-400 {
-  color: #d1d5db !important; /* Gris más claro para mejor contraste */
+/* Mejora específica para fondo de gradiente - Más agresivo */
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #0c1424, #0f1419) !important;
+  position: relative;
 }
 
-.text-gray-500 {
-  color: #9ca3af !important; /* Gris medio con mejor contraste */
+/* Asegurar contraste máximo para texto sobre gradiente */
+.bg-gradient-to-r * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Mejora el contraste de los botones emerald específicos */
-.bg-emerald-600 {
-  background-color: #059669 !important; /* Emerald más oscuro para mejor contraste */
+/* Overlay oscuro para garantizar contraste */
+.bg-gradient-to-r::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
 }
 
-.bg-emerald-700 {
-  background-color: #047857 !important; /* Emerald oscuro para mejor contraste */
-}
+/* Eliminar conflictos y permitir que main.css controle estos colores */
+/* .text-gray-400 y .text-gray-500 ahora se manejan en main.css */
 
-.bg-emerald-700:hover,
-.bg-emerald-800:hover {
-  background-color: #065f46 !important; /* Emerald muy oscuro en hover */
-}
+/* Mejora el contraste de los botones emerald específicos - Eliminar conflictos */
+/* Estos estilos ahora se manejan en main.css para evitar conflictos */
 
 /* Mejora el estilo de foco para todos los enlaces y botones */
 a:focus-visible,
