@@ -163,7 +163,7 @@
                 // Si hay más de 3 activos, mostrar un contador
                 if (client.mainAssets.length > 3) {
                     const moreSpan = document.createElement('span');
-                    moreSpan.className = 'inline-block px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-gray-300';
+                    moreSpan.className = 'inline-block px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-accessible-light';
                     moreSpan.textContent = `+${client.mainAssets.length - 3}`;
                     mainAssetsContainer.appendChild(document.createTextNode(' '));
                     mainAssetsContainer.appendChild(moreSpan);
@@ -222,7 +222,7 @@
                         },
                         foreColor: '#e2e8f0'
                     },
-                    colors: ['#10b981'],
+                    colors: ['#6ee7b7'],
                     stroke: {
                         width: 3,
                         curve: 'smooth'
@@ -245,7 +245,7 @@
                     },
                     markers: {
                         size: 4,
-                        colors: ['#10b981'],
+                        colors: ['#6ee7b7'],
                         strokeColors: '#fff',
                         strokeWidth: 2,
                         hover: {
@@ -273,7 +273,7 @@
                         foreColor: '#e2e8f0'
                     },
                     labels: ['Acciones', 'Bonos', 'ETFs', 'Otros'],
-                    colors: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899'],
+                    colors: ['#6ee7b7', '#3b82f6', '#f59e0b', '#ec4899'],
                     responsive: [{
                         breakpoint: 480,
                         options: {
@@ -319,7 +319,7 @@
                         },
                         foreColor: '#e2e8f0'
                     },
-                    colors: ['#10b981', '#6b7280'],
+                    colors: ['#6ee7b7', '#6b7280'],
                     stroke: {
                         width: [3, 2],
                         dashArray: [0, 5]

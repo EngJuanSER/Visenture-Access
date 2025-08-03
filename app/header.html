@@ -1,11 +1,13 @@
 <!-- Overlay para cuando el sidebar está abierto -->
-<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-o      <button class="relative text-gray-200 hover:text-accessible-brand w-10 h-10 flex items-center justify-center" aria-label="Notificaciones">
+        <i class="fa-solid fa-bell text-xl" aria-hidden="true"></i>
+        <span class="absolute top-1 right-1 h-5 w-5 notification-badge rounded-full text-xs text-white flex items-center justify-center font-extra-bold" aria-label="3 notificaciones no leídas">3</span>ity-50 z-40 hidden transition-opacity duration-300"></div>
 
 <!-- Sidebar (Menú lateral) -->
 <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-slate-900 shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
   <!-- Logo y botón cerrar -->
   <div class="flex items-center justify-between p-4 border-b border-slate-800">
-    <a href="../home/index.html" class="text-2xl font-bold text-emerald-400">Visenture</a>
+    <a href="../home/index.html" class="text-2xl font-bold brand-text">Visenture</a>
     <button id="close-sidebar" class="text-gray-400 hover:text-white" aria-label="Cerrar menú lateral">
       <i class="fa-solid fa-xmark text-xl"></i>
     </button>
@@ -14,7 +16,7 @@
   <!-- Usuario (visible cuando está logueado) -->
   <div class="user-profile hidden border-b border-slate-800 p-4">
     <div class="flex items-center space-x-3">
-      <div class="h-10 w-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">JS</div>
+      <div class="h-10 w-10 rounded-full bg-accessible-primary flex items-center justify-center text-white font-semibold">JS</div>
       <div>
         <div class="text-white font-medium">Juan Serrano</div>
         <div class="text-xs text-gray-400">usuario@visenture.com</div>
@@ -27,17 +29,17 @@
     <div class="px-4 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Menú principal</div>
     
     <a href="../dashboard/index.html" class="flex items-center text-white hover:bg-slate-800 px-4 py-3 transition-colors">
-      <i class="fa-solid fa-chart-line w-6 text-center mr-3 text-emerald-400"></i>
+      <i class="fa-solid fa-chart-line w-6 text-center mr-3 text-accessible-brand"></i>
       <span>Dashboard</span>
     </a>
     
     <a href="../investment-panel/index.html" class="flex items-center text-white hover:bg-slate-800 px-4 py-3 transition-colors">
-      <i class="fa-solid fa-briefcase w-6 text-center mr-3 text-emerald-400"></i>
+      <i class="fa-solid fa-briefcase w-6 text-center mr-3 text-accessible-brand"></i>
       <span>Inversiones</span>
     </a>
     
     <a href="../funds/index.html" class="flex items-center text-white hover:bg-slate-800 px-4 py-3 transition-colors">
-      <i class="fa-solid fa-wallet w-6 text-center mr-3 text-emerald-400"></i>
+      <i class="fa-solid fa-wallet w-6 text-center mr-3 text-accessible-brand"></i>
       <span>Fondos</span>
     </a>
     
@@ -45,7 +47,7 @@
     <div class="sidebar-dropdown">
       <button type="button" class="sidebar-dropdown-toggle flex items-center justify-between text-white hover:bg-slate-800 px-4 py-3 w-full transition-colors cursor-pointer" aria-expanded="false" aria-controls="dropdown-comisionistas">
         <div class="flex items-center">
-          <i class="fa-solid fa-users w-6 text-center mr-3 text-emerald-400" aria-hidden="true"></i>
+          <i class="fa-solid fa-users w-6 text-center mr-3 text-accessible-brand" aria-hidden="true"></i>
           <span>Comisionistas</span>
         </div>
         <i class="fa-solid fa-chevron-down text-xs text-white" aria-hidden="true"></i>
@@ -63,7 +65,7 @@
     <div class="sidebar-dropdown">
       <button type="button" class="sidebar-dropdown-toggle flex items-center justify-between text-white hover:bg-slate-800 px-4 py-3 w-full transition-colors cursor-pointer" aria-expanded="false" aria-controls="dropdown-administracion">
         <div class="flex items-center">
-          <i class="fa-solid fa-gear w-6 text-center mr-3 text-emerald-400" aria-hidden="true"></i>
+          <i class="fa-solid fa-gear w-6 text-center mr-3 text-accessible-brand" aria-hidden="true"></i>
           <span>Administración</span>
         </div>
         <i class="fa-solid fa-chevron-down text-xs text-white" aria-hidden="true"></i>
@@ -81,10 +83,10 @@
   
   <!-- Botones de autenticación en el sidebar (visibles cuando NO está logueado) -->
   <div class="auth-buttons p-4 border-t border-slate-800">
-    <a href="../auth/login/index.html" class="bg-emerald-700 hover:bg-emerald-800 text-white rounded flex items-center justify-center py-2 px-4 mb-2 transition-colors">
+    <a href="../auth/login/index.html" class="btn-primary text-white rounded flex items-center justify-center py-2 px-4 mb-2 transition-colors">
       <i class="fa-solid fa-right-to-bracket mr-2"></i> Iniciar Sesión
     </a>
-    <a href="../auth/register/index.html" class="border border-emerald-500 text-white hover:bg-slate-800 rounded flex items-center justify-center py-2 px-4 transition-colors">
+    <a href="../auth/register/index.html" class="border border-accessible-brand text-white hover:bg-slate-800 rounded flex items-center justify-center py-2 px-4 transition-colors">
       <i class="fa-solid fa-user-plus mr-2"></i> Registrarse
     </a>
   </div>
@@ -102,23 +104,23 @@
   <div class="container mx-auto px-4 flex justify-between items-center">
     <!-- Izquierda: Botón de menú y logo -->
     <div class="flex items-center">
-      <button id="toggle-sidebar" class="text-gray-400 hover:text-emerald-400 focus:outline-none mr-4" aria-label="Abrir menú lateral">
+      <button id="toggle-sidebar" class="text-gray-400 hover:text-accessible-brand focus:outline-none mr-4" aria-label="Abrir menú lateral">
         <i class="fa-solid fa-bars text-xl"></i>
       </button>
-      <a href="../home/index.html" class="text-2xl font-bold text-emerald-400">Visenture</a>
+      <a href="../home/index.html" class="text-2xl font-bold brand-text">Visenture</a>
     </div>
     
     <!-- Derecha: Controles adicionales -->
     <div class="flex items-center space-x-4">
       <!-- Botón de notificaciones -->
-      <button class="relative text-gray-200 hover:text-emerald-400 w-10 h-10 flex items-center justify-center" aria-label="Notificaciones">
+      <button class="relative text-gray-200 hover:text-accessible-brand w-10 h-10 flex items-center justify-center" aria-label="Notificaciones">
         <i class="fa-solid fa-bell" aria-hidden="true"></i>
         <span class="absolute top-1 right-1 h-5 w-5 bg-red-800 rounded-full text-xs text-white flex items-center justify-center font-bold" aria-label="3 notificaciones no leídas">3</span>
       </button>
       
       <!-- Botón de idioma -->
       <div class="relative group">
-        <button class="text-gray-200 hover:text-emerald-400 w-10 h-10 flex items-center justify-center" id="language-button" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false">
+        <button class="text-gray-200 hover:text-accessible-brand w-10 h-10 flex items-center justify-center" id="language-button" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false">
           <i class="fa-solid fa-globe" aria-hidden="true"></i>
         </button>
         <div class="absolute right-0 mt-2 w-32 bg-slate-800 border border-slate-700 rounded-md shadow-lg py-1 hidden group-hover:block" role="menu" aria-labelledby="language-button">
@@ -128,14 +130,14 @@
       </div>
       
       <!-- Botón de tema -->
-      <button class="text-gray-200 hover:text-emerald-400 w-10 h-10 flex items-center justify-center" aria-label="Cambiar tema">
+      <button class="text-gray-200 hover:text-accessible-brand w-10 h-10 flex items-center justify-center" aria-label="Cambiar tema">
         <i class="fa-solid fa-moon" aria-hidden="true"></i>
       </button>
       
       <!-- Perfil de usuario (visible cuando está logueado) -->
       <div class="user-profile relative hidden group">
         <button class="flex items-center" id="user-menu-button" aria-haspopup="true" aria-expanded="false" aria-label="Abrir menú de usuario - JS">
-          <div class="h-9 w-9 rounded-full bg-emerald-700 flex items-center justify-center text-white font-semibold">JS</div>
+          <div class="h-9 w-9 rounded-full bg-accessible-primary flex items-center justify-center text-white font-semibold">JS</div>
         </button>
         <div class="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-md shadow-lg py-1 hidden group-hover:block" role="menu" aria-labelledby="user-menu-button">
           <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-slate-700" role="menuitem">
@@ -154,11 +156,11 @@
       <!-- Botones de autenticación (visibles cuando NO está logueado) -->
       <div class="auth-buttons hidden md:flex items-center space-x-2">
         <a href="../auth/login/index.html" 
-           class="py-2 px-3 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition duration-200 text-sm">
+           class="py-2 px-3 rounded btn-primary text-white transition duration-200 text-sm">
           Iniciar Sesión
         </a>
         <a href="../auth/register/index.html" 
-           class="py-2 px-3 rounded border border-emerald-600 text-emerald-500 hover:bg-slate-800 transition duration-200 text-sm">
+           class="py-2 px-3 rounded border border-accessible-brand text-accessible-brand hover:bg-slate-800 transition duration-200 text-sm">
           Registrarse
         </a>
       </div>
