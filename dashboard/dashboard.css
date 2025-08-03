@@ -14,6 +14,41 @@
   align-items: center;
 }
 
+/* Estilo para tablas de datos accesibles como alternativa a gráficos */
+.accessible-data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.accessible-data-table caption {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.accessible-data-table th {
+  background-color: #1e293b;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 1px solid #334155;
+}
+
+.accessible-data-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #334155;
+  color: #fff;
+}
+
+.accessible-data-table tbody tr:nth-child(odd) {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
 /* Estilos específicos para formularios en modo oscuro */
 input, 
 textarea {
@@ -48,32 +83,57 @@ select:-webkit-autofill::first-line {
 
 /* Mejora del contraste para texto secundario - SINCRONIZADO CON MAIN.CSS */
 .text-gray-400 {
-  color: #e5e7eb !important; /* Gris muy claro para mejor contraste */
+  color: #ffffff !important; /* Blanco para máximo contraste */
+  font-weight: 500 !important; /* Medium para mayor legibilidad */
 }
 
 .text-gray-300 {
-  color: #f1f5f9 !important; /* Casi blanco para ratio de contraste 4.5:1 */
+  color: #ffffff !important; /* Blanco para máximo contraste */
+  font-weight: 500 !important;
 }
 
 .text-gray-500 {
-  color: #d1d5db !important; /* Gris medio-claro con mejor contraste */
+  color: #ffffff !important; /* Blanco para máximo contraste */
+  font-weight: 500 !important;
 }
 
 /* Mejora del contraste para métricas y valores - SINCRONIZADO CON MAIN.CSS */
-.text-emerald-400 {
-  color: #4ade80 !important; /* Verde más saturado y brillante */
+.text-emerald-400,
+.text-accessible-brand {
+  color: #86efac !important; /* emerald-300 - Verde brillante con mejor contraste */
+  font-weight: 600 !important; /* Semi-bold para mayor legibilidad */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 
-.text-green-400 {
-  color: #4ade80 !important; /* Verde claro más saturado */
+.text-green-400,
+.text-accessible-success {
+  color: #86efac !important; /* emerald-300 - Verde más claro */
+  font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 
-.text-red-400 {
-  color: #f87171 !important; /* Rojo más saturado */
+.text-red-400,
+.text-accessible-danger {
+  color: #fca5a5 !important; /* red-300 - Rojo más claro */
+  font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 
-.text-blue-400 {
-  color: #60a5fa !important; /* Azul más saturado */
+.text-blue-400,
+.text-accessible-info {
+  color: #93c5fd !important; /* blue-300 - Azul más claro */
+  font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Estilos para etiquetas de estado/alertas */
+.tag-warning {
+  background-color: #854d0e !important; /* yellow-900 - Fondo más oscuro */
+  color: #fef08a !important; /* yellow-200 - Texto amarillo claro */
+  border: 1px solid #fef08a !important;
+  font-weight: 600 !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.8rem !important;
 }
 
 /* Mejora del contraste en botones */
@@ -86,55 +146,107 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Mejora del contraste en gráficos */
-.apexcharts-legend-text {
+/* Mejora del contraste en gráficos - Mayor especificidad para sobreescribir ApexCharts */
+.chart-container .apexcharts-legend-text {
   fill: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
 }
 
-.apexcharts-yaxis-label text,
-.apexcharts-xaxis-label text {
+.chart-container .apexcharts-yaxis-label text,
+.chart-container .apexcharts-xaxis-label text,
+.chart-container .apexcharts-text tspan,
+.chart-container .apexcharts-tooltip-text,
+.chart-container .apexcharts-datalabel,
+.chart-container .apexcharts-title-text {
   fill: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Fondos de etiquetas para mayor contraste */
+.chart-container .apexcharts-yaxis-label,
+.chart-container .apexcharts-xaxis-label {
+  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.9)) !important;
+}
+
+/* Corrección sutil para la barra de herramientas */
+.chart-container .apexcharts-toolbar {
+  background: transparent !important;
 }
 
 /* Estilos para los gráficos de ApexCharts */
-.apexcharts-tooltip {
-  background: var(--color-background-med) !important;
-  border-color: var(--color-border) !important;
-  color: var(--color-text-white) !important;
+.chart-container .apexcharts-tooltip {
+  background: #0f172a !important; /* slate-900 - Fondo muy oscuro */
+  border: 2px solid #ffffff !important; /* Borde blanco para máximo contraste */
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
 }
 
-.apexcharts-tooltip-title {
-  background: var(--color-background-light) !important;
-  border-bottom-color: var(--color-border) !important;
-  color: var(--color-text-white) !important;
+.chart-container .apexcharts-tooltip-title {
+  background: #1e293b !important; /* slate-800 */
+  border-bottom: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 8px 10px !important;
 }
 
-.apexcharts-tooltip-marker {
-  background-color: var(--color-brand) !important;
+.chart-container .apexcharts-tooltip-y-group {
+  padding: 6px 8px !important;
 }
 
-.apexcharts-xcrosshairs, .apexcharts-ycrosshairs {
-  stroke: var(--color-border) !important;
+.chart-container .apexcharts-tooltip-marker {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #4ade80 !important; /* emerald-400 */
+  border: 1px solid #ffffff !important;
 }
 
-.apexcharts-gridline {
-  stroke: var(--color-border) !important;
+.chart-container .apexcharts-xcrosshairs,
+.chart-container .apexcharts-ycrosshairs {
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: 0 !important;
+  opacity: 0.5 !important;
 }
 
-.apexcharts-text, .apexcharts-xaxis-label, .apexcharts-yaxis-label {
-  fill: var(--color-text-light) !important;
+.chart-container .apexcharts-gridline {
+  stroke: rgba(255, 255, 255, 0.1) !important; /* Líneas de cuadrícula más visibles */
+  stroke-width: 1px !important;
 }
 
-.apexcharts-legend-text {
-  color: var(--color-text-light) !important;
+/* Elementos del menú */
+.chart-container .apexcharts-menu {
+  background-color: #1e293b !important; /* slate-800 */
+  border: 2px solid #ffffff !important;
 }
 
-.apexcharts-menu-item {
-  color: var(--color-text-light) !important;
-  background-color: var(--color-background-med) !important;
+.chart-container .apexcharts-menu-item {
+  color: #ffffff !important;
+  background-color: #1e293b !important; /* slate-800 */
+  font-weight: 500 !important;
+  padding: 8px 12px !important;
 }
 
-.apexcharts-menu-item:hover {
-  color: var(--color-text-white) !important;
-  background-color: var(--color-background-light) !important;
+.chart-container .apexcharts-menu-item:hover {
+  color: #000000 !important;
+  background-color: #4ade80 !important; /* emerald-400 */
+}
+
+/* Selector de zoom */
+.chart-container .apexcharts-zoom-icon,
+.chart-container .apexcharts-reset-icon,
+.chart-container .apexcharts-menu-icon {
+  fill: #ffffff !important;
+  background: transparent !important;
+}
+
+/* Corrección específica para los iconos con cuadrados */
+.chart-container .apexcharts-toolbar svg rect {
+  fill: transparent !important;
+  stroke: none !important;
 }

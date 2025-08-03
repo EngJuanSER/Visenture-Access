@@ -45,19 +45,20 @@
         </div>
 
         <!-- Chart Controls -->
-        <div class="bg-slate-800 p-4 rounded-lg shadow-md mb-6 border border-slate-700 flex flex-wrap items-center justify-between">
+        <div class="bg-slate-800 p-4 rounded-lg shadow-md mb-6 border border-slate-700 flex flex-wrap items-center justify-between" aria-labelledby="chart-controls-heading">
+          <h2 id="chart-controls-heading" class="sr-only">Controles del gráfico</h2>
           <div class="flex items-center space-x-4">
             <div class="flex flex-col">
-              <label for="period-select" class="text-xs font-medium text-accessible-light mb-1">Período</label>
-              <select id="period-select" class="border border-slate-600 rounded-md text-sm p-1 bg-slate-700 text-white">
+              <label for="period-select" class="text-sm font-semibold text-white mb-1">Período</label>
+              <select id="period-select" class="border border-slate-400 rounded-md text-sm p-2 bg-slate-700 text-white" aria-label="Seleccionar período de tiempo">
                 <option value="1d">1 Día</option>
                 <option value="5d">5 Días</option>
                 <option value="1mo">1 Mes</option>
               </select>
             </div>
             <div class="flex flex-col">
-              <label for="interval-select" class="text-xs font-medium text-accessible-light mb-1">Intervalo</label>
-              <select id="interval-select" class="border border-slate-600 rounded-md text-sm p-1 bg-slate-700 text-white">
+              <label for="interval-select" class="text-sm font-semibold text-white mb-1">Intervalo</label>
+              <select id="interval-select" class="border border-slate-400 rounded-md text-sm p-2 bg-slate-700 text-white" aria-label="Seleccionar intervalo de datos">
                 <option value="1m">1 Minuto</option>
                 <option value="5m">5 Minutos</option>
                 <option value="15m">15 Minutos</option>
@@ -65,8 +66,8 @@
             </div>
           </div>
           <div>
-            <button class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md text-sm flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 4l5 5M20 20l-5-5"/></svg>
+            <button class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md text-sm flex items-center border border-white font-semibold" aria-label="Actualizar datos del gráfico">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 4l5 5M20 20l-5-5"/></svg>
               Actualizar
             </button>
           </div>
@@ -76,18 +77,47 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           <div class="lg:col-span-2 bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700">
             <div class="flex justify-between items-center mb-4">
-              <h2 class="font-semibold text-accessible-brand">
+              <h2 id="chart-title" class="font-semibold text-accessible-brand">
                 AAPL - Evolución de Precios
               </h2>
-              <span class="text-xs px-2 py-1 rounded-full tag-warning">
-                Datos Simulados
-              </span>
+              <div class="flex items-center">
+                <span class="text-xs px-2 py-1 rounded-full tag-warning font-semibold border border-yellow-500">
+                  Datos Simulados
+                </span>
+                <button id="toggle-view-btn" class="ml-3 text-sm bg-blue-600 hover:bg-blue-500 px-2 py-1 rounded-md text-white border border-white" aria-pressed="false">
+                  Mostrar tabla
+                </button>
+              </div>
             </div>
             
-            <div class="h-80 relative">
-              <!-- Gráfico de velas (candlestick) para la acción -->
-              <div id="stock-price-chart" class="w-full h-full chart-container"></div>
+            <!-- Chart visualization -->
+            <div id="chart-view" aria-labelledby="chart-title">
+              <div class="h-80 relative">
+                <!-- Gráfico de velas (candlestick) para la acción -->
+                <div id="stock-price-chart" class="w-full h-full chart-container" role="img" aria-label="Gráfico de evolución de precios de Apple"></div>
+              </div>
             </div>
+            
+            <!-- Accessible data table (hidden by default) -->
+            <div id="table-view" class="hidden" role="region" aria-labelledby="table-caption">
+              <table class="w-full border-collapse border border-slate-400" aria-live="polite">
+                <caption id="table-caption" class="text-white text-left font-semibold mb-2">
+                  Tabla de datos de evolución de precios de Apple
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col" class="border border-slate-400 p-2 text-white bg-slate-700">Fecha</th>
+                    <th scope="col" class="border border-slate-400 p-2 text-white bg-slate-700">Precio ($)</th>
+                    <th scope="col" class="border border-slate-400 p-2 text-white bg-slate-700">Cambio (%)</th>
+                  </tr>
+                </thead>
+                <tbody id="stock-data-table-body">
+                  <!-- Los datos se llenarán dinámicamente con JavaScript -->
+                </tbody>
+              </table>
+            </div>
+            
+            <div id="chart-accessibility-announcement" class="sr-only" aria-live="polite"></div>
           </div>
           
           <!-- Watchlist -->
@@ -103,7 +133,7 @@
                 <div class="text-right">
                   <div class="font-semibold">$150.00</div>
                   <div class="text-accessible-success text-xs flex items-center justify-end">
-                    <span class="mr-1">+</span>1.25%
+                    <span class="mr-1" aria-hidden="true">+</span><span>1.25%</span><span class="sr-only">(subida)</span>
                   </div>
                 </div>
               </div>
@@ -115,7 +145,7 @@
                 <div class="text-right">
                   <div class="font-semibold">$2800.00</div>
                   <div class="text-accessible-danger text-xs flex items-center justify-end">
-                    <span class="mr-1">-</span>0.50%
+                    <span class="mr-1" aria-hidden="true">-</span><span>0.50%</span><span class="sr-only">(bajada)</span>
                   </div>
                 </div>
               </div>
@@ -188,6 +218,103 @@
         // Función para inicializar los gráficos del dashboard
         function initDashboardCharts() {
             const chartContainer = document.getElementById('stock-price-chart');
+            const toggleViewBtn = document.getElementById('toggle-view-btn');
+            const chartView = document.getElementById('chart-view');
+            const tableView = document.getElementById('table-view');
+            const accessibilityAnnouncement = document.getElementById('chart-accessibility-announcement');
+            
+            // Datos del gráfico - los usaremos también para la tabla
+            const chartData = [
+                {x: new Date(2022, 0, 1), y: [150, 155, 148, 153]},
+                {x: new Date(2022, 0, 2), y: [153, 159, 151, 156]},
+                {x: new Date(2022, 0, 3), y: [156, 160, 154, 158]},
+                {x: new Date(2022, 0, 4), y: [158, 162, 155, 160]},
+                {x: new Date(2022, 0, 5), y: [160, 165, 158, 163]},
+                {x: new Date(2022, 0, 6), y: [163, 168, 160, 165]},
+                {x: new Date(2022, 0, 7), y: [165, 170, 162, 167]},
+                {x: new Date(2022, 0, 8), y: [167, 172, 164, 169]},
+                {x: new Date(2022, 0, 9), y: [169, 174, 166, 171]},
+                {x: new Date(2022, 0, 10), y: [171, 176, 168, 173]},
+                {x: new Date(2022, 0, 11), y: [173, 178, 170, 175]},
+                {x: new Date(2022, 0, 12), y: [175, 180, 172, 177]},
+                {x: new Date(2022, 0, 13), y: [177, 182, 174, 179]},
+                {x: new Date(2022, 0, 14), y: [179, 184, 176, 181]}
+            ];
+            
+            // Función para alternar entre vista de gráfico y tabla
+            if (toggleViewBtn) {
+                toggleViewBtn.addEventListener('click', function() {
+                    const isShowingTable = toggleViewBtn.getAttribute('aria-pressed') === 'true';
+                    
+                    if (isShowingTable) {
+                        // Cambiar a mostrar gráfico
+                        chartView.classList.remove('hidden');
+                        tableView.classList.add('hidden');
+                        toggleViewBtn.textContent = 'Mostrar tabla';
+                        toggleViewBtn.setAttribute('aria-pressed', 'false');
+                        accessibilityAnnouncement.textContent = 'Mostrando gráfico visual';
+                    } else {
+                        // Cambiar a mostrar tabla
+                        chartView.classList.add('hidden');
+                        tableView.classList.remove('hidden');
+                        toggleViewBtn.textContent = 'Mostrar gráfico';
+                        toggleViewBtn.setAttribute('aria-pressed', 'true');
+                        accessibilityAnnouncement.textContent = 'Mostrando tabla de datos accesible';
+                    }
+                });
+            }
+            
+            // Función para llenar la tabla con los datos del gráfico
+            function populateDataTable() {
+                const tableBody = document.getElementById('stock-data-table-body');
+                if (!tableBody) return;
+                
+                tableBody.innerHTML = '';
+                
+                // Calcular cambios porcentuales
+                chartData.forEach((dataPoint, index) => {
+                    const row = document.createElement('tr');
+                    
+                    // Columna de fecha
+                    const dateCell = document.createElement('td');
+                    dateCell.className = 'border border-slate-400 p-2 text-white';
+                    dateCell.textContent = dataPoint.x.toLocaleDateString();
+                    row.appendChild(dateCell);
+                    
+                    // Columna de precio (usamos el precio de cierre)
+                    const priceCell = document.createElement('td');
+                    priceCell.className = 'border border-slate-400 p-2 text-white';
+                    priceCell.textContent = '$' + dataPoint.y[3].toFixed(2);
+                    row.appendChild(priceCell);
+                    
+                    // Columna de cambio porcentual
+                    const changeCell = document.createElement('td');
+                    changeCell.className = 'border border-slate-400 p-2';
+                    
+                    // Calculamos el porcentaje de cambio si no es el primer punto
+                    if (index > 0) {
+                        const prevClose = chartData[index-1].y[3];
+                        const currentClose = dataPoint.y[3];
+                        const change = ((currentClose - prevClose) / prevClose) * 100;
+                        
+                        const changeText = change.toFixed(2) + '%';
+                        if (change >= 0) {
+                            changeCell.textContent = '+' + changeText;
+                            changeCell.className += ' text-green-300';
+                        } else {
+                            changeCell.textContent = changeText;
+                            changeCell.className += ' text-red-300';
+                        }
+                    } else {
+                        changeCell.textContent = 'N/A';
+                    }
+                    row.appendChild(changeCell);
+                    
+                    tableBody.appendChild(row);
+                });
+            }
+            
+            // Inicializar el gráfico
             if (chartContainer) {
                 // Limpiar el contenedor antes de renderizar un nuevo gráfico
                 chartContainer.innerHTML = '';
@@ -195,7 +322,7 @@
                     chart: {
                         type: 'candlestick',
                         height: 320,
-                        foreColor: 'var(--color-text-primary)',
+                        foreColor: '#ffffff', // Mejorado contraste para texto
                         toolbar: {
                             show: true
                         },
@@ -205,36 +332,32 @@
                         }
                     },
                     series: [{
-                        data: [
-                            {x: new Date(2022, 0, 1), y: [150, 155, 148, 153]},
-                            {x: new Date(2022, 0, 2), y: [153, 159, 151, 156]},
-                            {x: new Date(2022, 0, 3), y: [156, 160, 154, 158]},
-                            {x: new Date(2022, 0, 4), y: [158, 162, 155, 160]},
-                            {x: new Date(2022, 0, 5), y: [160, 165, 158, 163]},
-                            {x: new Date(2022, 0, 6), y: [163, 168, 160, 165]},
-                            {x: new Date(2022, 0, 7), y: [165, 170, 162, 167]},
-                            {x: new Date(2022, 0, 8), y: [167, 172, 164, 169]},
-                            {x: new Date(2022, 0, 9), y: [169, 174, 166, 171]},
-                            {x: new Date(2022, 0, 10), y: [171, 176, 168, 173]},
-                            {x: new Date(2022, 0, 11), y: [173, 178, 170, 175]},
-                            {x: new Date(2022, 0, 12), y: [175, 180, 172, 177]},
-                            {x: new Date(2022, 0, 13), y: [177, 182, 174, 179]},
-                            {x: new Date(2022, 0, 14), y: [179, 184, 176, 181]}
-                        ]
+                        name: 'Precio AAPL',
+                        data: chartData
                     }],
                     title: {
                         text: 'AAPL - Evolución de Precios',
                         align: 'left',
                         style: {
-                            color: 'var(--color-accent-primary)'
+                            color: '#ffffff', // Mejorado contraste para el título
+                            fontSize: '16px',
+                            fontWeight: 'bold'
                         }
                     },
                     xaxis: {
                         type: 'datetime',
                         labels: {
                             style: {
-                                colors: 'var(--color-text-primary)'
-                            }
+                                colors: '#ffffff', // Mejorado contraste para etiquetas
+                                fontSize: '12px'
+                            },
+                            format: 'dd/MM/yy'
+                        },
+                        axisBorder: {
+                            color: '#6b7280' // Borde de eje más visible
+                        },
+                        axisTicks: {
+                            color: '#6b7280' // Marcas de eje más visibles
                         }
                     },
                     yaxis: {
@@ -243,17 +366,46 @@
                         },
                         labels: {
                             style: {
-                                colors: 'var(--color-text-primary)'
+                                colors: '#ffffff', // Mejorado contraste para etiquetas
+                                fontSize: '12px'
                             }
+                        },
+                        axisBorder: {
+                            show: true,
+                            color: '#6b7280' // Borde de eje más visible
                         }
                     },
                     tooltip: {
-                        theme: 'dark'
+                        theme: 'dark',
+                        style: {
+                            fontSize: '14px'
+                        },
+                        x: {
+                            format: 'dd MMM yyyy'
+                        }
+                    },
+                    plotOptions: {
+                        candlestick: {
+                            colors: {
+                                upward: '#10b981', // Verde más brillante para subidas
+                                downward: '#ef4444' // Rojo más brillante para bajadas
+                            },
+                            wick: {
+                                useFillColor: true
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#4b5563', // Líneas de cuadrícula más visibles
+                        strokeDashArray: 0
                     }
                 };
                 
                 const chart = new ApexCharts(chartContainer, options);
                 chart.render();
+                
+                // Llenar la tabla de datos
+                populateDataTable();
             }
         }
     </script>

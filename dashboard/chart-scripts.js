@@ -1,16 +1,21 @@
 /**
  * Gráficos para el Dashboard
- * Implementados con ApexCharts
+ * Implementados con ApexCharts con mejoras de accesibilidad
  */
 
 /**
  * Inicializa los gráficos del dashboard
+ * @param {boolean} accessibilityEnabled - Si se deben habilitar mejoras de accesibilidad
  */
-function initDashboardCharts() {
-    console.log("Inicializando gráficos del dashboard...");
+function initDashboardCharts(accessibilityEnabled = true) {
+    console.log("Inicializando gráficos del dashboard con accesibilidad...");
     
     // Comprobar que el contenedor para el gráfico existe
     const chartContainer = document.getElementById('stock-price-chart');
+    const toggleViewBtn = document.getElementById('toggle-view-btn');
+    const chartView = document.getElementById('chart-view');
+    const tableView = document.getElementById('table-view');
+    
     if (!chartContainer) {
         console.error("No se encontró el contenedor para el gráfico de precios");
         console.log("Esperando 500ms e intentando de nuevo...");
@@ -19,7 +24,7 @@ function initDashboardCharts() {
             const retryContainer = document.getElementById('stock-price-chart');
             if (retryContainer) {
                 console.log("Contenedor encontrado en segundo intento");
-                renderStockPriceChart(retryContainer);
+                renderStockPriceChart(retryContainer, accessibilityEnabled);
             } else {
                 console.error("No se encontró el contenedor después del segundo intento");
             }
@@ -27,21 +32,90 @@ function initDashboardCharts() {
         return;
     }
     
+    // Configurar el botón para alternar entre gráfico y tabla si existe
+    if (toggleViewBtn) {
+        toggleViewBtn.addEventListener('click', function() {
+            const isShowingTable = toggleViewBtn.getAttribute('aria-pressed') === 'true';
+            
+            if (isShowingTable) {
+                // Cambiar a mostrar gráfico
+                chartView.classList.remove('hidden');
+                tableView.classList.add('hidden');
+                toggleViewBtn.textContent = 'Mostrar tabla';
+                toggleViewBtn.setAttribute('aria-pressed', 'false');
+                announceToScreenReader('Mostrando gráfico visual');
+            } else {
+                // Cambiar a mostrar tabla
+                chartView.classList.add('hidden');
+                tableView.classList.remove('hidden');
+                toggleViewBtn.textContent = 'Mostrar gráfico';
+                toggleViewBtn.setAttribute('aria-pressed', 'true');
+                announceToScreenReader('Mostrando tabla de datos accesible');
+            }
+        });
+    }
+    
     // Si tenemos el contenedor, renderizamos el gráfico
-    renderStockPriceChart(chartContainer);
+    renderStockPriceChart(chartContainer, accessibilityEnabled);
+    
+    // Llenar la tabla de datos accesible si existe
+    populateDataTable();
 }
 
-// Función para crear un gráfico de línea básico usando ApexCharts
-function createBasicLineChart(chartId, title) {
+/**
+ * Anuncia un mensaje para lectores de pantalla
+ * @param {string} message - El mensaje a anunciar
+ */
+function announceToScreenReader(message) {
+    const announcement = document.getElementById('chart-accessibility-announcement');
+    if (announcement) {
+        announcement.textContent = message;
+    }
+}
+
+/**
+ * Función para crear un gráfico de línea básico usando ApexCharts con opciones de accesibilidad
+ * @param {string} chartId - El ID del elemento contenedor del gráfico
+ * @param {string} title - El título del gráfico
+ * @param {boolean} accessibilityEnabled - Si se deben habilitar mejoras de accesibilidad
+ * @returns {Object} - Configuración de opciones para ApexCharts
+ */
+function createBasicLineChart(chartId, title, accessibilityEnabled = true) {
+  // Colores optimizados para accesibilidad con suficiente contraste
+  const accessibleColors = {
+    line: '#10b981',        // Verde brillante para la línea principal
+    grid: '#6b7280',        // Gris medio para la cuadrícula
+    text: '#ffffff',        // Blanco para el texto
+    title: '#ffffff',       // Blanco para títulos
+    background: 'transparent',
+    tooltip: {
+      background: '#1f2937', // Fondo del tooltip
+      text: '#ffffff'       // Texto del tooltip
+    }
+  };
+
+  // Usar colores estándar si la accesibilidad no está habilitada
+  const colors = accessibilityEnabled ? accessibleColors : {
+    line: '#10b981',
+    grid: '#334155',
+    text: '#ccc',
+    title: '#34d399',
+    background: 'transparent',
+    tooltip: {
+      background: 'dark',
+      text: '#ccc'
+    }
+  };
+
   const options = {
     chart: {
       type: 'line',
       height: 320,
-      foreColor: '#ccc',
+      foreColor: colors.text,
       toolbar: {
         show: true
       },
-      background: 'transparent',
+      background: colors.background,
       animations: {
         enabled: true,
         easing: 'easeinout',
@@ -49,10 +123,10 @@ function createBasicLineChart(chartId, title) {
       }
     },
     stroke: {
-      width: 3,
+      width: accessibilityEnabled ? 4 : 3, // Línea más gruesa para mejor visibilidad
       curve: 'smooth'
     },
-    colors: ['#10b981'], // emerald-500
+    colors: [colors.line],
     series: [{
       name: "Precio",
       data: generateRandomData(30)
@@ -61,40 +135,68 @@ function createBasicLineChart(chartId, title) {
       text: title,
       align: 'left',
       style: {
-        color: '#34d399' // emerald-400
+        color: colors.title,
+        fontSize: accessibilityEnabled ? '16px' : '14px',
+        fontWeight: accessibilityEnabled ? 'bold' : 'normal'
       }
     },
     xaxis: {
       categories: generateDateRange(30),
       labels: {
         style: {
-          colors: '#ccc'
+          colors: colors.text,
+          fontSize: accessibilityEnabled ? '13px' : '12px'
+        },
+        rotate: 0, // Mantener etiquetas horizontales para mejor legibilidad
+        formatter: function(value) {
+          // Formato de fecha más legible
+          const date = new Date(value);
+          return date.toLocaleDateString();
         }
       },
       axisTicks: {
-        color: '#333'
+        color: colors.grid
       },
       axisBorder: {
-        color: '#333'
+        color: colors.grid,
+        width: accessibilityEnabled ? 2 : 1
       }
     },
     yaxis: {
       labels: {
         style: {
-          colors: '#ccc'
+          colors: colors.text,
+          fontSize: accessibilityEnabled ? '13px' : '12px'
+        },
+        formatter: function(value) {
+          // Añadir símbolo de dólar para claridad
+          return '$' + value;
         }
+      },
+      axisBorder: {
+        show: accessibilityEnabled,
+        color: colors.grid,
+        width: accessibilityEnabled ? 2 : 1
       }
     },
     grid: {
-      borderColor: '#334155', // slate-700
+      borderColor: colors.grid,
+      strokeDashArray: accessibilityEnabled ? 0 : 1, // Líneas sólidas para mejor visibilidad
       row: {
-        colors: ['#1e293b', '#1e293b']
+        colors: [colors.background, colors.background]
       }
     },
     tooltip: {
       theme: 'dark',
       x: {
         show: true
+      },
+      style: {
+        fontSize: accessibilityEnabled ? '14px' : '12px',
+        fontFamily: 'Arial, sans-serif'
+      },
+      marker: {
+        size: accessibilityEnabled ? 6 : 4
       }
     },
     dataLabels: {
@@ -486,3 +588,73 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+/**
+ * Genera datos para la tabla accesible
+ * @returns {Array} - Array de objetos con fecha, precio y cambio porcentual
+ */
+function generateTableData() {
+  const tableData = [];
+  const dates = generateDateRange(14);
+  const prices = generateRandomData(14);
+  
+  for (let i = 0; i < prices.length; i++) {
+    const previousPrice = i > 0 ? prices[i-1] : prices[i];
+    const change = ((prices[i] - previousPrice) / previousPrice) * 100;
+    
+    tableData.push({
+      date: dates[i],
+      price: prices[i],
+      change: i > 0 ? change.toFixed(2) : 'N/A'
+    });
+  }
+  
+  return tableData;
+}
+
+/**
+ * Llena la tabla de datos accesible con los datos del gráfico
+ */
+function populateDataTable() {
+  const tableBody = document.getElementById('stock-data-table-body');
+  if (!tableBody) return;
+  
+  tableBody.innerHTML = '';
+  const tableData = generateTableData();
+  
+  tableData.forEach(data => {
+    const row = document.createElement('tr');
+    
+    // Columna de fecha
+    const dateCell = document.createElement('td');
+    dateCell.className = 'border border-slate-400 p-2 text-white';
+    dateCell.textContent = data.date;
+    row.appendChild(dateCell);
+    
+    // Columna de precio
+    const priceCell = document.createElement('td');
+    priceCell.className = 'border border-slate-400 p-2 text-white';
+    priceCell.textContent = '$' + data.price.toFixed(2);
+    row.appendChild(priceCell);
+    
+    // Columna de cambio porcentual
+    const changeCell = document.createElement('td');
+    changeCell.className = 'border border-slate-400 p-2';
+    
+    if (data.change !== 'N/A') {
+      if (parseFloat(data.change) >= 0) {
+        changeCell.textContent = '+' + data.change + '%';
+        changeCell.className += ' text-green-300';
+      } else {
+        changeCell.textContent = data.change + '%';
+        changeCell.className += ' text-red-300';
+      }
+    } else {
+      changeCell.textContent = data.change;
+      changeCell.className += ' text-white';
+    }
+    
+    row.appendChild(changeCell);
+    tableBody.appendChild(row);
+  });
+}
