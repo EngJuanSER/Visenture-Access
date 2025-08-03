@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- ApexCharts CDN -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Chart Scripts -->
+    <script src="client-report-charts.js" defer></script>
 </head>
 <body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
@@ -187,7 +189,7 @@
         // Función para inicializar los gráficos
         function initCharts(clientId) {
             // Datos personalizados según el cliente
-            const chartData = {
+            window.chartData = {
                 "1": {
                     commissions: [120, 150, 180, 210, 250, 280, 320],
                     assetDistribution: [40, 30, 20, 10],
@@ -205,147 +207,16 @@
                 }
             };
             
-            const data = chartData[clientId] || chartData["1"];
+            window.clientId = clientId;
+            window.currentData = window.chartData[clientId] || window.chartData["1"];
             
-            // Gráfico de tendencia de comisiones
-            if (document.getElementById('commissionsTrendChart')) {
-                const commissionsTrendOptions = {
-                    series: [{
-                        name: 'Comisiones',
-                        data: data.commissions
-                    }],
-                    chart: {
-                        height: 300,
-                        type: 'line',
-                        toolbar: {
-                            show: false
-                        },
-                        foreColor: '#e2e8f0'
-                    },
-                    colors: ['#10b981'],
-                    stroke: {
-                        width: 3,
-                        curve: 'smooth'
-                    },
-                    xaxis: {
-                        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul']
-                    },
-                    fill: {
-                        type: 'gradient',
-                        gradient: {
-                            shade: 'dark',
-                            type: 'horizontal',
-                            shadeIntensity: 0.5,
-                            gradientToColors: ['#3b82f6'],
-                            inverseColors: false,
-                            opacityFrom: 1,
-                            opacityTo: 1,
-                            stops: [0, 100]
-                        },
-                    },
-                    markers: {
-                        size: 4,
-                        colors: ['#10b981'],
-                        strokeColors: '#fff',
-                        strokeWidth: 2,
-                        hover: {
-                            size: 7,
-                        }
-                    },
-                    yaxis: {
-                        title: {
-                            text: 'Comisiones ($)'
-                        }
-                    }
-                };
-
-                const commissionsTrendChart = new ApexCharts(document.getElementById('commissionsTrendChart'), commissionsTrendOptions);
-                commissionsTrendChart.render();
-            }
-
-            // Gráfico de distribución de activos
-            if (document.getElementById('assetDistributionChart')) {
-                const assetDistributionOptions = {
-                    series: data.assetDistribution,
-                    chart: {
-                        width: 380,
-                        type: 'donut',
-                        foreColor: '#e2e8f0'
-                    },
-                    labels: ['Acciones', 'Bonos', 'ETFs', 'Otros'],
-                    colors: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899'],
-                    responsive: [{
-                        breakpoint: 480,
-                        options: {
-                            chart: {
-                                width: 300
-                            },
-                            legend: {
-                                position: 'bottom'
-                            }
-                        }
-                    }],
-                    plotOptions: {
-                        pie: {
-                            donut: {
-                                size: '50%'
-                            }
-                        }
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                };
-
-                const assetDistributionChart = new ApexCharts(document.getElementById('assetDistributionChart'), assetDistributionOptions);
-                assetDistributionChart.render();
-            }
-
-            // Gráfico de tendencia ROI
-            if (document.getElementById('roiTrendChart')) {
-                const roiTrendOptions = {
-                    series: [{
-                        name: 'ROI del Cliente',
-                        data: data.roiTrend
-                    }, {
-                        name: 'Promedio',
-                        data: [7.2, 7.4, 7.3, 7.5, 7.6, 7.8, 8.0]
-                    }],
-                    chart: {
-                        height: 300,
-                        type: 'line',
-                        toolbar: {
-                            show: false
-                        },
-                        foreColor: '#e2e8f0'
-                    },
-                    colors: ['#10b981', '#6b7280'],
-                    stroke: {
-                        width: [3, 2],
-                        dashArray: [0, 5]
-                    },
-                    xaxis: {
-                        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul']
-                    },
-                    yaxis: {
-                        title: {
-                            text: 'ROI (%)'
-                        }
-                    },
-                    tooltip: {
-                        y: {
-                            formatter: function (val) {
-                                return val + "%";
-                            }
-                        }
-                    },
-                    legend: {
-                        position: 'top'
-                    }
-                };
-
-                const roiTrendChart = new ApexCharts(document.getElementById('roiTrendChart'), roiTrendOptions);
-                roiTrendChart.render();
+            console.log("Inicializando gráficos desde client-report-charts.js...");
+            
+            // Inicializar los gráficos desde el archivo client-report-charts.js
+            if (typeof initClientReportCharts === 'function') {
+                initClientReportCharts();
+            } else {
+                console.error("La función initClientReportCharts no está disponible. Verifique que client-report-charts.js se ha cargado correctamente.");
             }
 
             console.log("Gráficos del reporte de cliente inicializados");

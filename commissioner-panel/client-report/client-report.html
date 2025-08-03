@@ -10,10 +10,10 @@
                     <i class="fa-solid fa-arrow-left text-accessible-brand"></i>
                 </a>
                 <div>
-                    <h1 class="text-2xl font-bold text-accessible-brand">
+                    <h1 class="text-2xl font-bold text-white">
                         Reporte de Cliente: <span class="client-name">Nombre del Cliente</span>
                     </h1>
-                    <p class="text-accessible-light mt-1">Vista detallada de actividad y rendimiento</p>
+                    <p class="text-white mt-1">Vista detallada de actividad y rendimiento</p>
                 </div>
             </div>
 
@@ -28,20 +28,20 @@
                             </div>
                             <div class="ml-4">
                                 <h2 class="text-xl font-bold text-white client-name">Nombre del Cliente</h2>
-                                <p id="client-since" class="text-sm text-accessible-dark">Cliente desde 01/01/2023</p>
+                                <p id="client-since" class="text-sm text-white">Cliente desde 01/01/2023</p>
                             </div>
                         </div>
                         <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
-                                <p class="text-sm font-medium text-accessible-light">Email</p>
+                                <p class="text-sm font-medium text-white">Email</p>
                                 <p id="client-email" class="text-white">cliente@ejemplo.com</p>
                             </div>
                             <div>
-                                <p class="text-sm font-medium text-accessible-light">Teléfono</p>
+                                <p class="text-sm font-medium text-white">Teléfono</p>
                                 <p id="client-phone" class="text-white">+1234567890</p>
                             </div>
                             <div>
-                                <p class="text-sm font-medium text-accessible-light">Estado</p>
+                                <p class="text-sm font-medium text-white">Estado</p>
                                 <span id="client-status" class="tag tag-success">Activo</span>
                             </div>
                         </div>
@@ -102,12 +102,12 @@
                     <div class="bg-slate-800 rounded-lg p-5 border border-slate-700">
                         <div class="flex justify-between items-start">
                             <div>
-                                <p class="text-sm font-medium text-accessible-light">Activos Principales</p>
+                                <p class="text-sm font-medium text-white">Activos Principales</p>
                                 <div id="main-assets" class="flex flex-wrap gap-1 mt-2">
-                                    <span class="tag tag-brand">AAPL</span>
-                                    <span class="tag tag-brand">GOOGL</span>
-                                    <span class="tag tag-brand">MSFT</span>
-                                    <span class="tag tag-neutral">+2</span>
+                                    <span class="tag tag-brand" aria-label="Apple">AAPL</span>
+                                    <span class="tag tag-brand" aria-label="Google">GOOGL</span>
+                                    <span class="tag tag-brand" aria-label="Microsoft">MSFT</span>
+                                    <span class="tag tag-neutral" aria-label="Dos activos más">+2</span>
                                 </div>
                             </div>
                             <div class="p-2 bg-warning-dark rounded-lg text-accessible-warning">
@@ -126,7 +126,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- Filtro por período -->
                         <div>
-                            <label for="period-filter" class="block text-sm font-medium text-accessible-light mb-2">Período</label>
+                            <label for="period-filter" class="block text-sm font-medium text-white mb-2">Período</label>
                             <select id="period-filter" class="block w-full rounded-lg border border-slate-600 bg-slate-700 text-white py-2.5 pl-3 pr-10 focus:border-accessible-brand focus:ring focus:ring-accessible-brand/20 transition">
                                 <option value="all">Todo el tiempo</option>
                                 <option value="last_month">Último mes</option>
@@ -138,7 +138,7 @@
 
                         <!-- Filtro por mercado -->
                         <div>
-                            <label for="market-filter" class="block text-sm font-medium text-accessible-light mb-2">Mercado</label>
+                            <label for="market-filter" class="block text-sm font-medium text-white mb-2">Mercado</label>
                             <select id="market-filter" class="block w-full rounded-lg border border-slate-600 bg-slate-700 text-white py-2.5 pl-3 pr-10 focus:border-accessible-brand focus:ring focus:ring-accessible-brand/20 transition">
                                 <option value="">Todos</option>
                                 <option value="NYSE">NYSE</option>
@@ -148,7 +148,7 @@
 
                         <!-- Filtro por estado -->
                         <div>
-                            <label for="status-filter" class="block text-sm font-medium text-accessible-light mb-2">Estado</label>
+                            <label for="status-filter" class="block text-sm font-medium text-white mb-2">Estado</label>
                             <select id="status-filter" class="block w-full rounded-lg border border-slate-600 bg-slate-700 text-white py-2.5 pl-3 pr-10 focus:border-accessible-brand focus:ring focus:ring-accessible-brand/20 transition">
                                 <option value="">Todos</option>
                                 <option value="active">Activo</option>
@@ -201,7 +201,7 @@
                     <!-- Gráfico de ROI vs Benchmark -->
                     <div class="bg-slate-800 rounded-lg p-4 border border-slate-700 lg:col-span-2">
                         <h3 class="text-lg font-medium text-white mb-3">ROI vs Benchmark</h3>
-                        <div id="roiTrendChart" class="h-[350px] w-full"></div>
+                        <div id="roiTrendChart" class="h-[380px] w-full"></div>
                     </div>
                 </div>
 
@@ -209,38 +209,39 @@
                 <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
                     <div class="p-5 border-b border-slate-700">
                         <h2 class="text-lg font-semibold text-white">Historial de Comisiones</h2>
-                        <p class="text-sm text-accessible-light">Detalle de comisiones generadas por este cliente</p>
+                        <p class="text-sm text-white">Detalle de comisiones generadas por este cliente</p>
                     </div>
                     
                     <div class="overflow-x-auto">
                         <table class="min-w-full">
+                            <caption class="sr-only">Historial de Comisiones del Cliente - Detalle de comisiones generadas por transacciones del cliente</caption>
                             <thead class="bg-slate-700/50">
                                 <tr>
-                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Mes</th>
-                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Año</th>
-                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Comisiones</th>
-                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Operaciones</th>
-                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Mercado</th>
-                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Estado</th>
+                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Mes</th>
+                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Año</th>
+                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Comisiones</th>
+                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Operaciones</th>
+                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Mercado</th>
+                                    <th class="px-6 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Estado</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-700">
                                 <tr class="hover:bg-slate-700/30">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">Julio</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">2024</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-accessible-success">$150.00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">5</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">NASDAQ</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">Julio</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">2024</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-emerald-400">$150.00</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">5</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">NASDAQ</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="tag tag-success">Pagada</span>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-700/30">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">Junio</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">2024</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-accessible-success">$120.00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">4</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">NYSE</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">Junio</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">2024</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-emerald-400">$120.00</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">4</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">NYSE</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="tag tag-warning">Aprobada</span>
                                     </td>
@@ -251,10 +252,10 @@
 
                     <!-- Paginador -->
                     <div class="bg-slate-800 border-t border-slate-700 p-4 flex justify-between items-center">
-                        <span class="text-sm text-accessible-light">Mostrando 1-10 de 25 resultados</span>
+                        <span class="text-sm text-white">Mostrando 1-10 de 25 resultados</span>
                         <div class="flex space-x-2">
                             <button class="px-3 py-1 rounded-md bg-slate-700 text-white" aria-label="Página anterior">Anterior</button>
-                            <button class="px-3 py-1 rounded-md bg-accessible-brand text-slate-900" aria-label="Página 1">1</button>
+                            <button class="px-3 py-1 rounded-md bg-emerald-600 text-white font-bold" aria-label="Página 1" aria-current="page">1</button>
                             <button class="px-3 py-1 rounded-md bg-slate-700 text-white" aria-label="Página 2">2</button>
                             <button class="px-3 py-1 rounded-md bg-slate-700 text-white" aria-label="Página 3">3</button>
                             <button class="px-3 py-1 rounded-md bg-slate-700 text-white" aria-label="Página siguiente">Siguiente</button>

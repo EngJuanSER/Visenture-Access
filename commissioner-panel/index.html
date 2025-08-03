@@ -15,137 +15,9 @@
 <body class="bg-slate-950 text-gray-200 min-h-screen flex flex-col">
     <div id="header-placeholder" class="content-placeholder"></div>
     
-    <!-- Contenido del panel de comisionista -->
-    <main role="main" aria-labelledby="main-title" class="content-placeholder">
-        <div class="min-h-screen bg-slate-950 p-4 transition-colors duration-300">
+    <div id="content-placeholder" class="content-placeholder"></div>
+    
 
-            <!-- Card Principal -->
-            <div class="flex justify-center pb-6">
-                <div class="bg-slate-800 p-6 rounded-xl shadow-2xl w-full max-w-7xl transition-all duration-300">
-                    <!-- Cabecera y título -->
-                    <div class="flex flex-wrap justify-between items-center mb-6">
-                        <div class="flex items-center">
-                            <h1 id="main-title" class="text-2xl font-bold text-emerald-400">Panel del Comisionista</h1>
-                            <span class="ml-3 px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded-full" role="status" aria-label="Estado: Próximamente en simulación">Próximamente (Simulación)</span>
-                        </div>
-                        <p class="text-gray-400 mt-1 w-full" aria-describedby="main-title">Gestiona tus clientes y comisiones</p>
-                        
-                        <!-- Acciones -->
-                        <div class="flex space-x-2 mt-2 sm:mt-0" role="group" aria-label="Acciones de exportación">
-                            <button 
-                                class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150"
-                                aria-label="Exportar datos en formato PDF">
-                                <i class="fa-solid fa-file-pdf mr-1" aria-hidden="true"></i>
-                                <span>Exportar PDF</span>
-                            </button>
-                            <button 
-                                class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150"
-                                aria-label="Exportar datos en formato Excel">
-                                <i class="fa-solid fa-table mr-1" aria-hidden="true"></i>
-                                <span>Exportar Excel</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Panel principal con tabs -->
-                    <div>
-                        <div class="py-6">
-                            <!-- Cards de estadísticas -->
-                            <section aria-labelledby="stats-title">
-                                <h2 id="stats-title" class="sr-only">Estadísticas del Panel de Comisionista</h2>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                                    <!-- Total de clientes -->
-                                    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="clients-title">
-                                        <div class="flex items-start justify-between">
-                                            <div>
-                                                <h3 id="clients-title" class="text-gray-400 text-sm font-medium mb-1">Clientes Totales</h3>
-                                                <div class="text-2xl font-semibold text-white" aria-label="150 clientes totales">150</div>
-                                                <div class="text-xs text-gray-400 mt-1">
-                                                    <span class="font-medium text-green-400" aria-label="120 clientes activos">120</span>
-                                                    <span>activos</span>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 rounded-full bg-emerald-900/40 text-emerald-400" aria-hidden="true">
-                                                <i class="fa-solid fa-users"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Comisiones del mes -->
-                                    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="commissions-title">
-                                        <div class="flex items-start justify-between">
-                                            <div>
-                                                <h3 id="commissions-title" class="text-gray-400 text-sm font-medium mb-1">Comisiones (Mes)</h3>
-                                                <div class="text-2xl font-semibold text-white" aria-label="5000 dólares en comisiones este mes">$5,000.00</div>
-                                                <div class="text-xs text-gray-400 mt-1">
-                                                    <span class="text-green-400" aria-label="Incremento del 10 por ciento">+10%</span> 
-                                                    <span>vs. último mes</span>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 rounded-full bg-blue-900/40 text-blue-400" aria-hidden="true">
-                                                <i class="fa-solid fa-money-bill-wave"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROI promedio -->
-                                    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="roi-title">
-                                        <div class="flex items-start justify-between">
-                                            <div>
-                                                <h3 id="roi-title" class="text-gray-400 text-sm font-medium mb-1">ROI Promedio</h3>
-                                                <div class="text-2xl font-semibold text-white" aria-label="ROI promedio del 15.25 por ciento">15.25%</div>
-                                                <div class="text-xs text-gray-400 mt-1">
-                                                    <span class="font-medium text-red-400" aria-label="5 clientes con ROI negativo">5</span>
-                                                    <span>clientes con ROI negativo</span>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 rounded-full bg-purple-900/40 text-purple-400" aria-hidden="true">
-                                                <i class="fa-solid fa-chart-line"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Total de operaciones -->
-                                    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 hover:shadow-lg transition-shadow" role="article" aria-labelledby="operations-title">
-                                        <div class="flex items-start justify-between">
-                                            <div>
-                                                <h3 id="operations-title" class="text-gray-400 text-sm font-medium mb-1">Total Operaciones</h3>
-                                                <div class="text-2xl font-semibold text-white" aria-label="2500 operaciones totales">2500</div>
-                                                <div class="text-xs text-gray-400 mt-1">
-                                                    Este mes
-                                                </div>
-                                            </div>
-                                            <div class="p-3 rounded-full bg-amber-900/40 text-amber-400" aria-hidden="true">
-                                                <i class="fa-solid fa-right-left"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            <!-- Gráficos -->
-                            <section aria-labelledby="charts-title">
-                                <h2 id="charts-title" class="sr-only">Gráficos de Análisis</h2>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                                    <!-- Distribución de clientes -->
-                                    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card" role="img" aria-labelledby="client-distribution-title">
-                                        <h3 id="client-distribution-title" class="text-gray-300 font-medium mb-4">Distribución de Clientes</h3>
-                                        <div id="clientDistributionChart" class="h-[300px] w-full chart-container" aria-label="Gráfico de distribución de clientes por categoría"></div>
-                                    </div>
-
-                                    <!-- Comisiones por mercado -->
-                                    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card" role="img" aria-labelledby="commissions-market-title">
-                                        <h3 id="commissions-market-title" class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h3>
-                                        <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container" aria-label="Gráfico de comisiones distribuidas por mercado"></div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
     
     <div id="footer-placeholder" class="content-placeholder"></div>
 
@@ -169,24 +41,35 @@
                 }
             });
             
+        // Cargar el contenido del panel de comisionista
+        fetch('./commissioner-panel.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-placeholder').innerHTML = data;
+                
+                // Ajustar los enlaces para asegurarse de que apuntan correctamente
+                document.querySelectorAll('#content-placeholder a[href^="client-report/"]').forEach(link => {
+                    console.log("Ajustando enlace:", link.href);
+                    // Mantener el enlace tal cual está, ya que es relativo a commissioner-panel/
+                });
+                
+                // Inicializar gráficos cuando el contenido esté cargado
+                setTimeout(function() {
+                    if (typeof initCommissionerCharts === 'function') {
+                        console.log("Inicializando gráficos del panel de comisionista...");
+                        initCommissionerCharts();
+                    } else {
+                        console.error("La función initCommissionerCharts no está disponible");
+                    }
+                }, 300);
+            });
+            
         // Cargar el footer
         fetch('../app/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
             });
-            
-        // Inicializar gráficos con un pequeño retraso para asegurar que los contenedores estén listos
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                if (typeof initCommissionerCharts === 'function') {
-                    console.log("Inicializando gráficos del panel de comisionista...");
-                    initCommissionerCharts();
-                } else {
-                    console.error("La función initCommissionerCharts no está disponible");
-                }
-            }, 300);
-        });
     </script>
 </body>
 </html>
