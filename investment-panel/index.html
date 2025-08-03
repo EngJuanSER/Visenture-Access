@@ -24,12 +24,12 @@
                 <!-- Cabecera y título -->
                 <div class="flex flex-wrap justify-between items-center mb-6">
                     <div>
-                        <h1 class="text-2xl font-bold brand-text">Panel de Inversiones</h1>
+                        <h1 class="text-2xl font-bold text-emerald-400">Panel de Inversiones</h1>
                         <p class="text-gray-400 mt-1">Visualiza el rendimiento de tu portafolio.</p>
                     </div>
                     <div class="flex space-x-2 mt-2 sm:mt-0">
                         <button 
-                            class="px-3 py-2 btn-primary text-white rounded-lg flex items-center text-sm transition-colors duration-150">
+                            class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150">
                             <i class="fa-solid fa-file-pdf mr-1 text-sm"></i>
                             <span>Exportar PDF</span>
                         </button>
@@ -74,7 +74,7 @@
                                         <h2 class="text-gray-400 text-sm font-medium mb-1">Rendimiento</h2>
                                         <div class="text-2xl font-semibold text-white">20.00%</div>
                                     </div>
-                                    <div class="p-3 rounded-full bg-emerald-900/40 text-accessible-brand">
+                                    <div class="p-3 rounded-full bg-emerald-900/40 text-emerald-400">
                                         <i class="fa-solid fa-chart-simple"></i>
                                     </div>
                                 </div>
@@ -98,13 +98,13 @@
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                             <!-- Distribución de Activos -->
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700">
-                                <h2 class="text-accessible-light font-medium mb-4">Distribución de Activos</h2>
+                                <h2 class="text-gray-300 font-medium mb-4">Distribución de Activos</h2>
                                 <div id="assetAllocationChart" class="h-[300px] w-full"></div>
                             </div>
 
                             <!-- Rendimiento a lo largo del tiempo -->
                             <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700">
-                                <h2 class="text-accessible-light font-medium mb-4">Rendimiento del Portafolio</h2>
+                                <h2 class="text-gray-300 font-medium mb-4">Rendimiento del Portafolio</h2>
                                 <div id="performanceChart" class="h-[300px] w-full"></div>
                             </div>
                         </div>

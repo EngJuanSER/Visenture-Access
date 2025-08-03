@@ -227,7 +227,7 @@ select:focus, input:focus {
 
 /* Mejora del contraste para encabezados */
 .text-emerald-400 {
-  color: #6ee7b7 !important; /* Color accesible brand */
+  color: #34d399 !important;
 }
 
 .text-green-400 {

@@ -19,7 +19,7 @@ function createBasicLineChart(chartId, title) {
       width: 3,
       curve: 'smooth'
     },
-    colors: ['#6ee7b7'], // emerald-500
+    colors: ['#10b981'], // emerald-500
     series: [{
       name: "Precio",
       data: generateRandomData(30)
@@ -28,7 +28,7 @@ function createBasicLineChart(chartId, title) {
       text: title,
       align: 'left',
       style: {
-        color: '#6ee7b7' // emerald-400
+        color: '#34d399' // emerald-400
       }
     },
     xaxis: {
@@ -69,7 +69,7 @@ function createBasicLineChart(chartId, title) {
     },
     markers: {
       size: 4,
-      colors: ["#6ee7b7"],
+      colors: ["#10b981"],
       strokeColors: "#fff",
       strokeWidth: 2,
       hover: {
@@ -109,7 +109,7 @@ function createCandlestickChart(chartId, title) {
       text: title,
       align: 'left',
       style: {
-        color: '#6ee7b7' // emerald-400
+        color: '#34d399' // emerald-400
       }
     },
     xaxis: {
@@ -136,7 +136,7 @@ function createCandlestickChart(chartId, title) {
     plotOptions: {
       candlestick: {
         colors: {
-          upward: '#6ee7b7', // emerald-500
+          upward: '#10b981', // emerald-500
           downward: '#ef4444' // red-500
         },
         wick: {
@@ -170,7 +170,7 @@ function createBarChart(chartId, title, categories, data, colors) {
         distributed: true
       }
     },
-    colors: colors || ['#6ee7b7', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'],
+    colors: colors || ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'],
     series: [{
       name: 'Valor',
       data: data
@@ -179,7 +179,7 @@ function createBarChart(chartId, title, categories, data, colors) {
       text: title,
       align: 'left',
       style: {
-        color: '#6ee7b7' // emerald-400
+        color: '#34d399' // emerald-400
       }
     },
     xaxis: {
@@ -226,7 +226,7 @@ function createAreaChart(chartId, title) {
       },
       background: '#1e293b' // slate-800
     },
-    colors: ['#6ee7b7'], // emerald-500
+    colors: ['#10b981'], // emerald-500
     series: [{
       name: 'Valor',
       data: generateRandomData(30, 1000, 5000)
@@ -244,7 +244,7 @@ function createAreaChart(chartId, title) {
       text: title,
       align: 'left',
       style: {
-        color: '#6ee7b7' // emerald-400
+        color: '#34d399' // emerald-400
       }
     },
     xaxis: {
@@ -293,12 +293,12 @@ function createDonutChart(chartId, title, labels, series) {
     },
     series: series,
     labels: labels,
-    colors: ['#6ee7b7', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'],
+    colors: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'],
     title: {
       text: title,
       align: 'left',
       style: {
-        color: '#6ee7b7' // emerald-400
+        color: '#34d399' // emerald-400
       }
     },
     plotOptions: {

@@ -52,7 +52,7 @@ function initAssetAllocationChart() {
             foreColor: '#e2e8f0'
         },
         labels: ['AAPL', 'GOOGL', 'MSFT', 'AMZN'],
-        colors: ['#6ee7b7', '#F59E0B', '#6366F1', '#EF4444'],
+        colors: ['#10B981', '#F59E0B', '#6366F1', '#EF4444'],
         dataLabels: {
             enabled: true,
             formatter: function(val) {
@@ -141,7 +141,7 @@ function initPerformanceChart() {
                 }
             }
         },
-        colors: ['#065f46'],
+        colors: ['#047857'],
         tooltip: {
             theme: 'dark',
             y: {
@@ -156,7 +156,7 @@ function initPerformanceChart() {
         },
         markers: {
             size: 5,
-            colors: ['#065f46'],
+            colors: ['#047857'],
             strokeColors: '#fff',
             strokeWidth: 2
         },
