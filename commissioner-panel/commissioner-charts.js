@@ -53,7 +53,7 @@ function initChartsAfterCheck() {
             }
         },
         labels: ['Activos', 'Inactivos'],
-        colors: ['#6ee7b7', '#6B7280'],
+        colors: ['#10B981', '#6B7280'],
         dataLabels: {
             enabled: true,
             formatter: function(val) {
@@ -159,7 +159,7 @@ function initChartsAfterCheck() {
                 }
             }
         },
-        colors: ['#6ee7b7'],
+        colors: ['#10B981'],
         plotOptions: {
             bar: {
                 horizontal: false,

@@ -1,7 +1,7 @@
 <main role="main" aria-labelledby="portfolio-title">
   <div class="min-h-screen bg-slate-950 p-6">
     <div class="container mx-auto max-w                  <div class="flex gap-1">
-                    <button class="p-1 btn-primary text-white rounded" aria-label="Comprar más acciones de Apple">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Apple">
                       <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Apple">
@@ -18,15 +18,15 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
           <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="total-value-title">
             <p id="total-value-title" class="text-sm text-gray-400">Valor Total</p>
-            <h3 class="text-2xl font-bold text-accessible-brand" aria-label="Valor total del portafolio: 24,850 dólares con 75 centavos">$24,850.75</h3>
-            <p class="text-xs text-accessible-brand flex items-center" aria-label="Incremento del 2.4% hoy">
+            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Valor total del portafolio: 24,850 dólares con 75 centavos">$24,850.75</h3>
+            <p class="text-xs text-emerald-500 flex items-center" aria-label="Incremento del 2.4% hoy">
               <i class="fas fa-caret-up mr-1" aria-hidden="true"></i>+2.4% hoy
             </p>
           </div>
           <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="performance-title">
             <p id="performance-title" class="text-sm text-gray-400">Rendimiento</p>
-            <h3 class="text-2xl font-bold text-accessible-brand" aria-label="Rendimiento: más 1,230 dólares con 45 centavos">+$1,230.45</h3>
-            <p class="text-xs text-accessible-brand flex items-center" aria-label="Incremento total del 5.2%">
+            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Rendimiento: más 1,230 dólares con 45 centavos">+$1,230.45</h3>
+            <p class="text-xs text-emerald-500 flex items-center" aria-label="Incremento total del 5.2%">
               <i class="fas fa-caret-up mr-1" aria-hidden="true"></i>+5.2% total
             </p>
           </div>
@@ -37,7 +37,7 @@
           </div>
           <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="annual-growth-title">
             <p id="annual-growth-title" class="text-sm text-gray-400">Crecimiento Anual</p>
-            <h3 class="text-2xl font-bold text-accessible-brand" aria-label="Crecimiento anual del 12.8%">+12.8%</h3>
+            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Crecimiento anual del 12.8%">+12.8%</h3>
             <p class="text-xs text-gray-400">vs. 8.5% S&P 500</p>
           </div>
         </div>
@@ -48,11 +48,11 @@
         <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
           <div class="border-b border-slate-700 p-4 flex justify-between items-center">
             <h2 id="investments-section-title" class="text-xl font-semibold text-white flex items-center">
-              <i class="fas fa-chart-line mr-2 text-accessible-brand" aria-hidden="true"></i>
+              <i class="fas fa-chart-line mr-2 text-emerald-400" aria-hidden="true"></i>
               Mis Inversiones
             </h2>
             <div class="flex items-center space-x-2">
-              <a href="#" class="px-3 py-1 btn-primary text-white rounded flex items-center text-sm" 
+              <a href="#" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm" 
                  aria-label="Crear nueva inversión">
                 <i class="fas fa-plus mr-1" aria-hidden="true"></i> Nueva inversión
               </a>
@@ -63,7 +63,7 @@
           <div style="display: none;" class="flex justify-center items-center py-12" role="status" aria-live="polite">
             <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500" aria-hidden="true"></div>
             <div class="ml-4">
-              <p class="text-lg font-medium text-accessible-light">Cargando acciones...</p>
+              <p class="text-lg font-medium text-gray-300">Cargando acciones...</p>
               <p class="text-sm text-gray-400">Esto puede tardar unos segundos</p>
         </div>
       </div>
@@ -86,7 +86,7 @@
       <div class="p-4 bg-slate-850 border-b border-slate-700">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div class="flex items-center">
-            <span class="text-accessible-light mr-2">Ordenar por:</span>
+            <span class="text-gray-300 mr-2">Ordenar por:</span>
             <select class="bg-slate-700 text-white border border-slate-600 rounded px-3 py-1">
               <option>Nombre</option>
               <option>Precio (mayor a menor)</option>
@@ -133,7 +133,7 @@
                   <div class="text-white text-base font-medium">$183.79</div>
                 </td>
                 <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-accessible-brand font-medium">+2.45%</div>
+                  <div class="text-emerald-400 font-medium">+2.45%</div>
                 </td>
                 <td class="p-3 whitespace-nowrap text-right">
                   <div class="text-white">15</div>
@@ -143,7 +143,7 @@
                 </td>
                 <td class="p-3 whitespace-nowrap text-right">
                   <div class="flex justify-end space-x-2">
-                    <button class="p-1 btn-primary text-white rounded" aria-label="Comprar más acciones de Apple">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Apple">
                       <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Apple">
@@ -180,7 +180,7 @@
                 </td>
                 <td class="p-3 whitespace-nowrap text-right">
                   <div class="flex justify-end space-x-2">
-                    <button class="p-1 btn-primary text-white rounded" aria-label="Comprar más acciones de Tesla">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Tesla">
                       <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Tesla">
@@ -217,7 +217,7 @@
                 </td>
                 <td class="p-3 whitespace-nowrap text-right">
                   <div class="flex justify-end space-x-2">
-                    <button class="p-1 btn-primary text-white rounded" aria-label="Comprar más acciones de Microsoft">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Microsoft">
                       <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Microsoft">
@@ -254,7 +254,7 @@
                 </td>
                 <td class="p-3 whitespace-nowrap text-right">
                   <div class="flex justify-end space-x-2">
-                    <button class="p-1 btn-primary text-white rounded" aria-label="Comprar más acciones de Amazon">
+                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Amazon">
                       <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Amazon">
