@@ -1,20 +1,14 @@
 /**
- * admin-charts.js
- * Script para inicializar y manejar los gráficos del dashboard administrativo
+ * Panel de Administración - Gráficos
  */
 
 function initAdminCharts() {
-    console.log("Inicializando gráficos para el panel de administración...");
-    
-    // Verificar que los contenedores existan
     const chartContainers = {
         "orderDistributionChart": initializeOrderDistributionChart,
         "orderStatusChart": initializeOrderStatusChart,
         "rechargeCommissionChart": initializeRechargeCommissionChart,
         "activeUsersChart": initializeActiveUsersChart
     };
-    
-    // Inicializar solo los gráficos cuyos contenedores existen en la página
     Object.entries(chartContainers).forEach(([containerId, initFunction]) => {
         const container = document.querySelector("#" + containerId);
         if (container) {
@@ -30,14 +24,15 @@ function initAdminCharts() {
     });
 }
 
-// Función para inicializar el gráfico de distribución de órdenes
+/**
+ * Gráfico de distribución de órdenes
+ */
 function initializeOrderDistributionChart() {
     const container = document.querySelector("#orderDistributionChart");
     if (!container) {
         console.error("No se encontró el contenedor #orderDistributionChart");
         return;
     }
-    // Limpiar el contenedor antes de renderizar un nuevo gráfico
     container.innerHTML = '';
     
     const options = {
@@ -146,14 +141,15 @@ function initializeOrderDistributionChart() {
     }
 }
 
-// Función para inicializar el gráfico de estado de órdenes
+/**
+ * Gráfico de estado de órdenes
+ */
 function initializeOrderStatusChart() {
     const container = document.querySelector("#orderStatusChart");
     if (!container) {
         console.error("No se encontró el contenedor #orderStatusChart");
         return;
     }
-    // Limpiar el contenedor antes de renderizar un nuevo gráfico
     container.innerHTML = '';
     
     const options = {
@@ -294,14 +290,15 @@ function initializeOrderStatusChart() {
     }
 }
 
-// Función para inicializar el gráfico de recargas y comisiones
+/**
+ * Gráfico de recargas y comisiones
+ */
 function initializeRechargeCommissionChart() {
     const container = document.querySelector("#rechargeCommissionChart");
     if (!container) {
         console.error("No se encontró el contenedor #rechargeCommissionChart");
         return;
     }
-    // Limpiar el contenedor antes de renderizar un nuevo gráfico
     container.innerHTML = '';
     
     const options = {
@@ -525,14 +522,15 @@ function initializeRechargeCommissionChart() {
     }
 }
 
-// Función para inicializar el gráfico de usuarios activos
+/**
+ * Gráfico de usuarios activos
+ */
 function initializeActiveUsersChart() {
     const container = document.querySelector("#activeUsersChart");
     if (!container) {
         console.error("No se encontró el contenedor #activeUsersChart");
         return;
     }
-    // Limpiar el contenedor antes de renderizar un nuevo gráfico
     container.innerHTML = '';
     
     const options = {

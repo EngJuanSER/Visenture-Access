@@ -1,26 +1,15 @@
 /**
  * Gráficos para el Panel del Comisionista
- * Implementados con ApexCharts
- */
-
-/**
- * Inicializa los gráficos principales del panel de comisionista
- * Esta función puede ser llamada externamente desde index.html
  */
 function initCommissionerCharts() {
-    console.log("Inicializando gráficos del panel de comisionista...");
-    
-    // Comprobamos que los contenedores existan
     const clientChartContainer = document.querySelector("#clientDistributionChart");
     const marketChartContainer = document.querySelector("#commissionsByMarketChart");
     
     if (!clientChartContainer || !marketChartContainer) {
         console.error("No se encontraron los contenedores para los gráficos");
-        console.log("Esperando 500ms e intentando de nuevo...");
         
         setTimeout(() => {
             if (document.querySelector("#clientDistributionChart") && document.querySelector("#commissionsByMarketChart")) {
-                console.log("Contenedores encontrados en segundo intento");
                 initChartsAfterCheck();
             } else {
                 console.error("No se encontraron los contenedores después del segundo intento");
@@ -29,18 +18,10 @@ function initCommissionerCharts() {
         return;
     }
     
-    // Si tenemos los contenedores, continuamos con la inicialización
     initChartsAfterCheck();
 }
 
-/**
- * Función auxiliar que realiza la inicialización de las gráficas
- * después de confirmar que los contenedores existen
- */
 function initChartsAfterCheck() {
-    console.log("Renderizando gráficos de comisionista...");
-    
-    // Distribución de Clientes (gráfico de dona)
     var clientDistributionOptions = {
         series: [70, 30],
         chart: {
@@ -497,11 +478,7 @@ function initChartsAfterCheck() {
     }
 }
 
-/**
- * Inicializa gráficos adicionales para el panel de comisionista
- */
 function initCommissionerCharts2() {
-    // Tendencia de ROI (para implementación futura)
     if (document.querySelector("#roiTrendChart")) {
         var roiTrendOptions = {
             series: [{

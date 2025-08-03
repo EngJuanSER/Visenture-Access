@@ -1,4 +1,6 @@
-/* Estilos base para el contenedor */
+/*--------------------------------------------------
+  ESTILOS BASE
+--------------------------------------------------*/
 :host {
   display: block;
   padding: 1rem;
@@ -8,7 +10,9 @@
   --border-color: var(--color-border-interactive);
 }
 
-/* Estilos para las tarjetas de métricas */
+/*--------------------------------------------------
+  TARJETAS DE MÉTRICAS
+--------------------------------------------------*/
 .metric-card {
   background-color: var(--card-bg);
   border-radius: 0.5rem;
@@ -32,7 +36,9 @@
 }
 
 
-/* Contenedor principal del gráfico y leyenda */
+/*--------------------------------------------------
+  CONTENEDORES DE GRÁFICOS
+--------------------------------------------------*/
 .chart-wrapper {
   position: relative;
   width: 100%;
@@ -61,7 +67,9 @@
   overflow: visible;
 }
 
-/* Estilo para el SVG principal */
+/*--------------------------------------------------
+  SVG Y CANVAS
+--------------------------------------------------*/
 #orderDistributionChart .apexcharts-canvas,
 #orderStatusChart .apexcharts-canvas,
 #rechargeCommissionChart .apexcharts-canvas,
@@ -85,7 +93,9 @@
   display: block !important;
 }
 
-/* Mejorar la definición de los segmentos del gráfico de pastel */
+/*--------------------------------------------------
+  GRÁFICOS DE PASTEL
+--------------------------------------------------*/
 #orderDistributionChart .apexcharts-pie-series path,
 #orderStatusChart .apexcharts-pie-series path,
 #orderDistributionChart .apexcharts-donut-series path,

@@ -1,3 +1,6 @@
+/*--------------------------------------------------
+  TARJETAS DE MERCADO
+--------------------------------------------------*/
 .market-card-custom,
 .bg-slate-800.border.border-slate-700.rounded-lg {
   position: relative;
@@ -28,7 +31,9 @@
   min-height: 300px;
 }
 
-/* Estilos de estado para los mercados */
+/*--------------------------------------------------
+  INDICADORES DE ESTADO
+--------------------------------------------------*/
 .market-status-indicator,
 .tag-success {
   display: flex;
@@ -37,8 +42,8 @@
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
-  background-color: #065f46 !important; /* Verde más oscuro para contraste */
-  color: #ffffff !important; /* Texto blanco para mejor contraste */
+  background-color: #065f46 !important;
+  color: #ffffff !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.025em;
   border: 1px solid rgba(52, 211, 153, 0.3);
@@ -54,7 +59,9 @@
   box-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
 }
 
-/* Estilos para el botón de edición de horario */
+/*--------------------------------------------------
+  BOTONES DE EDICIÓN
+--------------------------------------------------*/
 .market-card-custom .mat-icon-button,
 .btn-icon.btn-secondary {
   width: 32px;
@@ -90,7 +97,9 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Estilos para los paneles informativos */
+/*--------------------------------------------------
+  NOTIFICACIONES Y ALERTAS
+--------------------------------------------------*/
 .warning-snackbar {
   background: var(--color-accent-warning);
   color: var(--color-accent-primary-text);
@@ -101,7 +110,9 @@
   color: var(--color-accent-primary-text);
 }
 
-/* Mejora visual del panel informativo */
+/*--------------------------------------------------
+  PANELES INFORMATIVOS
+--------------------------------------------------*/
 .bg-info-dark {
   background: linear-gradient(145deg, #064e3b, #065f46);
   border-radius: 0.75rem !important;
@@ -150,9 +161,9 @@
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD Y VISUALES ===== */
-
-/* Mejora los colores de fondo para tener mejor contraste */
+/*--------------------------------------------------
+  ACCESIBILIDAD Y CONTRASTE (WCAG AA)
+--------------------------------------------------*/
 .bg-slate-800 {
   background: linear-gradient(145deg, #1e293b, #1a2234) !important;
 }
@@ -304,7 +315,9 @@
   color: #ffffff !important;
 }
 
-/* Mejora encabezados */
+/*--------------------------------------------------
+  TIPOGRAFÍA Y ENCABEZADOS
+--------------------------------------------------*/
 h1.text-3xl,
 h1.text-2xl,
 h2.text-lg {
@@ -342,7 +355,9 @@ h1.text-3xl::after {
   transform: translateY(0.05em);
 }
 
-/* Mejora iconos */
+/*--------------------------------------------------
+  ICONOS
+--------------------------------------------------*/
 .material-icons,
 .fa-solid {
   vertical-align: middle;
@@ -424,7 +439,9 @@ h1.text-3xl::after {
   animation: fadeIn 0.3s ease-out forwards;
 }
 
-/* Estilos responsivos */
+/*--------------------------------------------------
+  RESPONSIVE
+--------------------------------------------------*/
 @media (max-width: 768px) {
   h1.text-3xl {
     font-size: 1.875rem;

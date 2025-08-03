@@ -1,6 +1,6 @@
-/* Estilos específicos para el componente de perfil */
-
-/* Estilos para los botones */
+/*--------------------------------------------------
+  BOTONES
+--------------------------------------------------*/
 .bg-emerald-600 {
   background-color: var(--color-accent-primary-hover);
 }
@@ -13,7 +13,9 @@
   background-color: var(--color-accent-primary-active);
 }
 
-/* Estilos para el switch de toggle */
+/*--------------------------------------------------
+  TOGGLE SWITCH
+--------------------------------------------------*/
 .switch {
   position: relative;
   display: inline-block;
@@ -59,8 +61,9 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
-
+/*--------------------------------------------------
+  ACCESIBILIDAD Y CONTRASTE (WCAG AA)
+--------------------------------------------------*/
 /* Clase para elementos solo visibles para lectores de pantalla */
 .sr-only {
   position: absolute !important;
@@ -114,7 +117,9 @@ button:hover {
   box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25);
 }
 
-/* Mejoras para tabs */
+/*--------------------------------------------------
+  TABS Y NAVEGACIÓN
+--------------------------------------------------*/
 [role="tab"]:focus {
   outline: 2px solid #34d399 !important;
   outline-offset: 2px;
@@ -125,7 +130,9 @@ button:hover {
   color: rgb(110 231 183) !important;
 }
 
-/* Mejoras para formularios */
+/*--------------------------------------------------
+  FORMULARIOS
+--------------------------------------------------*/
 label {
   color: #f3f4f6 !important;
 }

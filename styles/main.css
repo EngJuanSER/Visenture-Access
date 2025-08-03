@@ -1,20 +1,6 @@
-/*
- Paleta de Colores Centralizada y Accesible
------------------------------------------
-Esta hoja de estilos define la paleta de colores principal de la aplicación,
-asegurando que todas las combinaciones cumplan con las directrices de accesibilidad
-WCAG 2.1 Nivel AA y AAA siempre que sea posible.
-
-Estrategia de Nomenclatura:
-- `bg-*`: Clases para fondos.
-- `text-*`: Clases para colores de texto.
-- `border-*`: Clases para bordes.
-- `btn-*`: Estilos para botones.
-- `tag-*`: Estilos para etiquetas de estado.
-- `link-*`: Estilos para enlaces.
-- `form-*`: Estilos para elementos de formulario.
-- `chart-*`: Estilos para gráficos.
-*/
+/*==================================================
+  PALETA DE COLORES PRINCIPAL - WCAG 2.1
+==================================================*/
 
 :root {
   /* -- Colores Base -- */
@@ -44,10 +30,9 @@ Estrategia de Nomenclatura:
   --color-border: #334155;
 }
 
-/*
- Clases de Utilidad de Accesibilidad
-------------------------------------
-Clases reutilizables para aplicar la paleta de colores de forma consistente.
+/*==================================================
+  CLASES DE UTILIDAD
+==================================================*/
 */
 
 /* -- Textos -- */
@@ -113,15 +98,17 @@ Clases reutilizables para aplicar la paleta de colores de forma consistente.
   color: var(--color-text-black);
 }
 
-/* -- Etiquetas de Estado (Tags) -- */
+/*==================================================
+  ETIQUETAS DE ESTADO
+==================================================*/
 .tag {
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-  font-weight: 700; /* Aumentado para mejor legibilidad */
+  font-weight: 700;
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); /* Sombra para mejor contraste */
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
 }
 .tag-success {
   background-color: var(--color-success-bg);

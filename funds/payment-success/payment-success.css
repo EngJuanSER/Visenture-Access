@@ -1,6 +1,10 @@
-/* Estilos para la página de pago exitoso */
+/*--------------------------------------------------
+  ESTILOS PARA LA PÁGINA DE PAGO EXITOSO
+--------------------------------------------------*/
 
-/* Animación para el ícono de éxito */
+/*--------------------------------------------------
+  ANIMACIÓN PARA EL ÍCONO DE ÉXITO
+--------------------------------------------------*/
 .success-icon {
     animation: scaleIn 0.5s ease-out;
 }
@@ -19,7 +23,9 @@
     }
 }
 
-/* Estilos adicionales */
+/*--------------------------------------------------
+  EFECTOS ADICIONALES
+--------------------------------------------------*/
 .success-icon .material-icons {
     filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
 }

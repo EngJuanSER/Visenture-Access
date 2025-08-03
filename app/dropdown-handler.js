@@ -1,18 +1,10 @@
-/**
- * dropdown-handler.js
- * Script específico para manejar los dropdowns del sidebar en la aplicación Visenture
- */
-
-// Esta función se encargará específicamente de los menús desplegables
+/*--------------------------------------------------
+  MANEJO DE MENÚS DESPLEGABLES
+--------------------------------------------------*/
 function initSidebarDropdowns() {
-  console.log('Inicializando dropdowns del sidebar...');
-  
-  // Obtener todos los botones de dropdown
   const dropdownButtons = document.querySelectorAll('.sidebar-dropdown-toggle');
-  console.log(`Encontrados ${dropdownButtons.length} botones de dropdown`);
   
   if (dropdownButtons.length === 0) {
-    console.log('No se encontraron botones de dropdown, reintentando en 300ms...');
     setTimeout(initSidebarDropdowns, 300);
     return;
   }
@@ -39,9 +31,6 @@ function initSidebarDropdowns() {
       
       // Toggle de visibilidad
       const isHidden = dropdownContent.classList.contains('hidden');
-      console.log(`Dropdown está oculto: ${isHidden}, toggling...`);
-      
-      // Mostrar/ocultar el contenido
       if (isHidden) {
         dropdownContent.classList.remove('hidden');
       } else {
@@ -70,6 +59,9 @@ function initSidebarDropdowns() {
   });
 }
 
+/*--------------------------------------------------
+  INICIALIZACIÓN Y CARGA
+--------------------------------------------------*/
 // Ejecutar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
   // Esperar un momento para que el sidebar se haya inicializado
@@ -91,7 +83,10 @@ window.resetSidebarDropdowns = function() {
   initSidebarDropdowns();
 };
 
-// También configurar un observador para detectar cuando se carga el header
+/*--------------------------------------------------
+  OBSERVADOR DOM PARA HEADER
+--------------------------------------------------*/
+// Configurar un observador para detectar cuando se carga el header
 const headerObserver = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
     if (mutation.type === 'childList' && 

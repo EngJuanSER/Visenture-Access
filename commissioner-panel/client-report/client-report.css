@@ -1,6 +1,6 @@
-/* Estilos para el componente de reporte de cliente */
-
-/* Estilos para las tarjetas KPI */
+/*==================================================
+  TARJETAS KPI
+==================================================*/
 .kpi-card {
   transition: all 0.3s ease;
   border-left: 4px solid transparent;
@@ -71,7 +71,6 @@
   display: block !important;
 }
 
-/* Mejorar la definición de los segmentos del gráfico */
 #assetDistributionChart .apexcharts-pie-series path,
 #assetDistributionChart .apexcharts-donut-series path {
   stroke: #000000 !important;
@@ -81,7 +80,6 @@
   filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* Eliminar elementos no deseados */
 #assetDistributionChart hr,
 #assetDistributionChart .apexcharts-canvas line:not(.apexcharts-gridline):not(.apexcharts-radialbar-line) {
   display: none !important;
@@ -89,7 +87,6 @@
   stroke: transparent !important;
 }
 
-/* Eliminar transformaciones no deseadas */
 #assetDistributionChart .apexcharts-inner,
 #assetDistributionChart .apexcharts-graphical,
 #assetDistributionChart .apexcharts-pie,
@@ -97,7 +94,6 @@
   transform: none !important;
 }
 
-/* Mejorar la responsividad de la leyenda */
 #assetDistributionChart .apexcharts-legend {
   width: 100% !important;
   display: flex !important;
@@ -123,7 +119,6 @@
   background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Mejorar tamaño de texto en las etiquetas del gráfico */
 #assetDistributionChart .apexcharts-datalabel text,
 #assetDistributionChart .apexcharts-datalabel-label,
 #assetDistributionChart .apexcharts-datalabel-value,
@@ -140,7 +135,6 @@
   -webkit-text-stroke: 1px #000000 !important;
 }
 
-/* Mejorar tamaño y contraste de la leyenda */
 #assetDistributionChart .apexcharts-legend-text {
   font-size: 14px !important;
   font-weight: 600 !important;
@@ -156,7 +150,9 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Estilos para el gráfico de línea ROI vs Benchmark */
+/*==================================================
+  ROI VS BENCHMARK
+==================================================*/
 #roiTrendChart .apexcharts-canvas {
   width: 100% !important;
   height: auto !important;
@@ -212,7 +208,6 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Ajuste adicional para mejorar la separación entre las gráficas de ROI y Benchmark */
 #roiTrendChart .apexcharts-legend {
   margin-bottom: 20px !important;
 }
@@ -222,7 +217,6 @@
   padding: 3px 5px !important;
 }
 
-/* Ajuste para la distancia entre las líneas del gráfico */
 #roiTrendChart .apexcharts-series[seriesName="ROI del Cliente"] {
   transform: translateY(-2px);
 }
@@ -231,22 +225,15 @@
   transform: translateY(2px);
 }
 
-/*--------------------------------------------------
-  ESTILOS PARA GRÁFICOS DE LÍNEA
---------------------------------------------------*/
-
-/* Estilo base para todas las líneas de gráficos */
 .apexcharts-line-series .apexcharts-series path {
   stroke-width: 4px !important;
 }
 
-/* Estilo para la línea del ROI del cliente */
 #roiTrendChart .apexcharts-series[seriesName="ROI del Cliente"] path {
   stroke: #10B981 !important;
   stroke-width: 4px !important;
 }
 
-/* Estilo para la línea promedio (línea punteada) */
 .apexcharts-series[seriesName="Promedio"] path {
   stroke: #94A3B8 !important;
   stroke-width: 2px !important;

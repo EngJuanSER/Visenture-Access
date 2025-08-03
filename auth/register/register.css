@@ -1,6 +1,6 @@
-/* CSS specific to register page */
-
-/* Estilos específicos para formularios en modo oscuro */
+/*--------------------------------------------------
+  ESTILOS DE FORMULARIO
+--------------------------------------------------*/
 input, 
 textarea {
   color: var(--color-text-placeholder); /* slate-400 */
@@ -11,7 +11,9 @@ textarea::placeholder {
   color: var(--color-text-placeholder); /* slate-400 */
 }
 
-/* Restaurar estilo de autofill de navegadores (Chrome, Edge) */
+/*--------------------------------------------------
+  AUTOFILL Y NAVEGADORES
+--------------------------------------------------*/
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
@@ -30,8 +32,9 @@ select:-webkit-autofill::first-line {
   color: inherit;
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
-
+/*--------------------------------------------------
+  ACCESIBILIDAD Y CONTRASTE (WCAG AA)
+--------------------------------------------------*/
 /* Clase para elementos solo visibles para lectores de pantalla */
 .sr-only {
   position: absolute !important;

@@ -1,32 +1,19 @@
 /**
  * Gráficos para el Dashboard
- * Implementados con ApexCharts con mejoras de accesibilidad
- */
-
-/**
- * Inicializa los gráficos del dashboard
- * @param {boolean} accessibilityEnabled - Si se deben habilitar mejoras de accesibilidad
  */
 function initDashboardCharts(accessibilityEnabled = true) {
-    console.log("Inicializando gráficos del dashboard con accesibilidad...");
-    
-    // Comprobar que el contenedor para el gráfico existe
     const chartContainer = document.getElementById('stock-price-chart');
     const toggleViewBtn = document.getElementById('toggle-view-btn');
     const chartView = document.getElementById('chart-view');
     const tableView = document.getElementById('table-view');
     
     if (!chartContainer) {
-        console.error("No se encontró el contenedor para el gráfico de precios");
-        console.log("Esperando 500ms e intentando de nuevo...");
-        
         setTimeout(() => {
             const retryContainer = document.getElementById('stock-price-chart');
             if (retryContainer) {
-                console.log("Contenedor encontrado en segundo intento");
                 renderStockPriceChart(retryContainer, accessibilityEnabled);
             } else {
-                console.error("No se encontró el contenedor después del segundo intento");
+                console.error("No se encontró el contenedor para el gráfico de precios");
             }
         }, 500);
         return;
@@ -63,8 +50,7 @@ function initDashboardCharts(accessibilityEnabled = true) {
 }
 
 /**
- * Anuncia un mensaje para lectores de pantalla
- * @param {string} message - El mensaje a anunciar
+ * Accesibilidad - Anuncios para lectores de pantalla
  */
 function announceToScreenReader(message) {
     const announcement = document.getElementById('chart-accessibility-announcement');
@@ -74,23 +60,18 @@ function announceToScreenReader(message) {
 }
 
 /**
- * Función para crear un gráfico de línea básico usando ApexCharts con opciones de accesibilidad
- * @param {string} chartId - El ID del elemento contenedor del gráfico
- * @param {string} title - El título del gráfico
- * @param {boolean} accessibilityEnabled - Si se deben habilitar mejoras de accesibilidad
- * @returns {Object} - Configuración de opciones para ApexCharts
+ * Configuración de gráfico de línea
  */
 function createBasicLineChart(chartId, title, accessibilityEnabled = true) {
-  // Colores optimizados para accesibilidad con suficiente contraste
   const accessibleColors = {
-    line: '#10b981',        // Verde brillante para la línea principal
-    grid: '#6b7280',        // Gris medio para la cuadrícula
-    text: '#ffffff',        // Blanco para el texto
-    title: '#ffffff',       // Blanco para títulos
+    line: '#10b981',
+    grid: '#6b7280',
+    text: '#ffffff',
+    title: '#ffffff',
     background: 'transparent',
     tooltip: {
-      background: '#1f2937', // Fondo del tooltip
-      text: '#ffffff'       // Texto del tooltip
+      background: '#1f2937',
+      text: '#ffffff'
     }
   };
 
@@ -223,7 +204,9 @@ function createBasicLineChart(chartId, title, accessibilityEnabled = true) {
   return chart;
 }
 
-// Función para crear un gráfico de velas (candlestick) para datos de trading
+/**
+ * Gráfico de velas (candlestick)
+ */
 function createCandlestickChart(chartId, title) {
   const candlestickData = generateCandlestickData(30);
   
@@ -235,7 +218,7 @@ function createCandlestickChart(chartId, title) {
       toolbar: {
         show: true
       },
-      background: '#1e293b' // slate-800
+      background: '#1e293b'
     },
     series: [{
       data: candlestickData
@@ -286,7 +269,9 @@ function createCandlestickChart(chartId, title) {
   return chart;
 }
 
-// Crear un gráfico de barras simple
+/**
+ * Gráfico de barras
+ */
 function createBarChart(chartId, title, categories, data, colors) {
   const options = {
     chart: {
@@ -296,7 +281,7 @@ function createBarChart(chartId, title, categories, data, colors) {
       toolbar: {
         show: true
       },
-      background: '#1e293b' // slate-800
+      background: '#1e293b'
     },
     plotOptions: {
       bar: {
@@ -349,7 +334,9 @@ function createBarChart(chartId, title, categories, data, colors) {
   return chart;
 }
 
-// Crear un gráfico de áreas con degradado
+/**
+ * Gráfico de áreas con degradado
+ */
 function createAreaChart(chartId, title) {
   const options = {
     chart: {
@@ -359,7 +346,7 @@ function createAreaChart(chartId, title) {
       toolbar: {
         show: true
       },
-      background: '#1e293b' // slate-800
+      background: '#1e293b'
     },
     colors: ['#10b981'], // emerald-500
     series: [{
@@ -417,14 +404,16 @@ function createAreaChart(chartId, title) {
   return chart;
 }
 
-// Función para crear un gráfico de pie/donut
+/**
+ * Gráfico de donut
+ */
 function createDonutChart(chartId, title, labels, series) {
   const options = {
     chart: {
       type: 'donut',
       height: 320,
       foreColor: '#ccc',
-      background: '#1e293b' // slate-800
+      background: '#1e293b'
     },
     series: series,
     labels: labels,
@@ -488,7 +477,9 @@ function createDonutChart(chartId, title, labels, series) {
   return chart;
 }
 
-// Funciones de utilidad para generar datos aleatorios
+/**
+ * Generación de datos
+ */
 function generateRandomData(count, min = 100, max = 400) {
   return Array.from({ length: count }, () => 
     parseFloat((Math.random() * (max - min) + min).toFixed(2))
@@ -531,11 +522,10 @@ function generateDateRange(count) {
   return dates;
 }
 
-// Inicialización cuando el DOM está listo
+/**
+ * Inicialización de gráficos
+ */
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("Inicializando gráficos del panel de trading...");
-  
-  // Define los gráficos a inicializar con sus funciones correspondientes
   const chartsToInitialize = [
     {
       id: '#stock-price-chart',
@@ -573,25 +563,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   ];
   
-  // Inicializar cada gráfico si su contenedor existe
   chartsToInitialize.forEach(chart => {
     const container = document.querySelector(chart.id);
     if (container) {
       try {
-        console.log(`Inicializando gráfico: ${chart.id}`);
         chart.init(chart.id, chart.title);
       } catch (error) {
         console.error(`Error al inicializar gráfico ${chart.id}:`, error);
       }
-    } else {
-      console.warn(`Contenedor ${chart.id} no encontrado`);
     }
   });
 });
 
 /**
- * Genera datos para la tabla accesible
- * @returns {Array} - Array de objetos con fecha, precio y cambio porcentual
+ * Datos para tabla accesible
  */
 function generateTableData() {
   const tableData = [];
@@ -613,7 +598,7 @@ function generateTableData() {
 }
 
 /**
- * Llena la tabla de datos accesible con los datos del gráfico
+ * Generación de tabla de datos
  */
 function populateDataTable() {
   const tableBody = document.getElementById('stock-data-table-body');

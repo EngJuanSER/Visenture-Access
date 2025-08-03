@@ -1,4 +1,6 @@
-/* Estilos para la tabla */
+/*==================================================
+  PORTFOLIO - TABLAS
+==================================================*/
 .commissioner-table-container {
   background-color: transparent;
 }
@@ -7,7 +9,9 @@
   width: 100%;
 }
 
-/* Estilos para los iconos de acciones */
+/*--------------------------------------------------
+  BOTONES E ICONOS
+--------------------------------------------------*/
 .mat-icon-button {
   color: currentColor;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -17,9 +21,8 @@
   transform: scale(1.15);
 }
 
-/* Estilos para los iconos de acciones */
 .action-icon {
-  color: var(--color-accent-primary-active); /* emerald-800 */
+  color: var(--color-accent-primary-active);
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -36,13 +39,14 @@
   color: var(--color-accent-primary); /* emerald-300 */
 }
 
-/* Estilos para el paginador */
+/*--------------------------------------------------
+  PAGINADOR
+--------------------------------------------------*/
 .mat-mdc-paginator {
   background: transparent !important;
   font-family: inherit;
 }
 
-/* Estilos modo oscuro para paginador */
 .dark .mat-mdc-paginator-container {
   color: var(--color-text-primary) !important;
 }
@@ -204,8 +208,9 @@
   }
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
-
+/*--------------------------------------------------
+  ACCESIBILIDAD Y CONTRASTE (WCAG AA)
+--------------------------------------------------*/
 /* Clase para elementos solo visibles para lectores de pantalla */
 .sr-only {
   position: absolute !important;

@@ -1,27 +1,20 @@
 
-// Función para inicializar el sidebar
+/*--------------------------------------------------
+  INICIALIZACIÓN DEL SIDEBAR
+--------------------------------------------------*/
 function initSidebar() {
-  console.log('Inicializando sidebar desde archivo externo...');
-  
-  // Elementos del sidebar
   const sidebar = document.getElementById('sidebar');
   const toggleSidebar = document.getElementById('toggle-sidebar');
   const closeSidebar = document.getElementById('close-sidebar');
   const sidebarOverlay = document.getElementById('sidebar-overlay');
   const sidebarDropdownToggles = document.querySelectorAll('.sidebar-dropdown-toggle');
   
-  // Verificar si se encontraron los elementos
   if (!sidebar || !toggleSidebar) {
-    console.log('Elementos del sidebar no encontrados, intentando de nuevo en 200ms...');
     setTimeout(initSidebar, 200);
     return;
   }
   
-  console.log('Elementos del sidebar encontrados:', {sidebar, toggleSidebar, closeSidebar, sidebarOverlay});
-  
-  // Función para abrir el sidebar
   function openSidebar() {
-    console.log('Abriendo sidebar');
     sidebar.classList.remove('-translate-x-full');
     sidebarOverlay.classList.remove('hidden');
     setTimeout(() => {
@@ -30,9 +23,7 @@ function initSidebar() {
     }, 50);
   }
   
-  // Función para cerrar el sidebar
   function closeSidebarFn() {
-    console.log('Cerrando sidebar');
     sidebar.classList.add('-translate-x-full');
     sidebarOverlay.classList.add('opacity-0');
     sidebarOverlay.classList.remove('opacity-100');
@@ -41,8 +32,6 @@ function initSidebar() {
     }, 300);
   }
   
-  // Event listeners para abrir/cerrar el sidebar
-  console.log('Añadiendo evento click al botón de toggle');
   toggleSidebar.addEventListener('click', openSidebar);
   
   if (closeSidebar) {
@@ -53,9 +42,9 @@ function initSidebar() {
     sidebarOverlay.addEventListener('click', closeSidebarFn);
   }
   
-  // Manejar dropdowns dentro del sidebar - Reimplementación completa
-  console.log(`Encontrados ${sidebarDropdownToggles.length} dropdowns para configurar`);
-  
+  /*--------------------------------------------------
+    MANEJO DE DROPDOWNS
+  --------------------------------------------------*/
   // Primero eliminar cualquier evento previo para evitar duplicados
   sidebarDropdownToggles.forEach(toggle => {
     const newToggle = toggle.cloneNode(true);
@@ -111,7 +100,9 @@ function initSidebar() {
     console.log('Event listener añadido a dropdown toggle');
   });
   
-  // Demo: Toggle entre botones de autenticación y perfil de usuario
+  /*--------------------------------------------------
+    DEMOSTRACIÓN DE AUTENTICACIÓN
+  --------------------------------------------------*/
   function setupAuthToggle() {
     const authButtons = document.querySelectorAll('.auth-buttons');
     const userProfiles = document.querySelectorAll('.user-profile');
@@ -132,7 +123,9 @@ function initSidebar() {
   setupAuthToggle();
 }
 
-// Esta función observa cambios en el DOM para reinicializar el sidebar cuando cambia el contenido
+/*--------------------------------------------------
+  OBSERVADOR DE CAMBIOS DOM
+--------------------------------------------------*/
 function setupSidebarObserver() {
   // Variables para controlar la frecuencia de inicialización
   let lastInitTime = 0;

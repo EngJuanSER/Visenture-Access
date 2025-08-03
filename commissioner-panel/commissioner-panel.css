@@ -1,10 +1,10 @@
-/* Estilos específicos para el panel del comisionista */
+/*==================================================
+  PANEL DE COMISIONISTA
+==================================================*/
 .content-placeholder {
   width: 100%;
 }
 
-/* Estilos para los gráficos */
-/* Contenedor principal del gráfico y leyenda */
 .asset-chart-wrapper,
 .market-chart-wrapper {
   position: relative;
@@ -21,7 +21,6 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Contenedor específico del gráfico */
 #clientChartContainer,
 #marketChartContainer {
   position: relative;
@@ -51,7 +50,9 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para la tabla */
+/*--------------------------------------------------
+  TABLAS
+--------------------------------------------------*/
 .commissioner-table-container {
   background-color: transparent;
   border-radius: 0.5rem;
@@ -64,7 +65,9 @@
   background: transparent !important;
 }
 
-/* Estilos para los iconos de acciones */
+/*--------------------------------------------------
+  ICONOS Y ACCIONES
+--------------------------------------------------*/
 .action-icon {
   color: var(--color-accent-primary-hover); /* emerald-500 */
   transition: color 0.2s ease, transform 0.2s ease;
@@ -75,7 +78,9 @@
   color: var(--color-accent-primary); /* emerald-300 */
 }
 
-/* Estilo para el SVG principal */
+/*--------------------------------------------------
+  GRÁFICOS SVG
+--------------------------------------------------*/
 #clientDistributionChart .apexcharts-canvas {
   width: 100% !important;
   height: auto !important;

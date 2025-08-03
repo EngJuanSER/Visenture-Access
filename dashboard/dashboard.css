@@ -1,11 +1,10 @@
-/* CSS specific to dashboard page */
-
-/* Estilos para la página del dashboard */
+/*==================================================
+  DASHBOARD
+==================================================*/
 .content-placeholder {
   width: 100%;
 }
 
-/* Estilos para los gráficos */
 .chart-container {
   width: 100%;
   height: 100%;
@@ -14,7 +13,9 @@
   align-items: center;
 }
 
-/* Estilo para tablas de datos accesibles como alternativa a gráficos */
+/*==================================================
+  TABLAS DE DATOS
+==================================================*/
 .accessible-data-table {
   width: 100%;
   border-collapse: separate;

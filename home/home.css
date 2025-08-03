@@ -1,6 +1,6 @@
-/* CSS specific to home page */
-
-/* Estilos específicos para formularios en modo oscuro */
+/*--------------------------------------------------
+  ESTILOS DE FORMULARIO
+--------------------------------------------------*/
 input, 
 textarea {
   color: var(--color-text-placeholder); /* slate-400 */
@@ -11,7 +11,9 @@ textarea::placeholder {
   color: var(--color-text-placeholder); /* slate-400 */
 }
 
-/* Restaurar estilo de autofill de navegadores (Chrome, Edge) */
+/*--------------------------------------------------
+  AUTOFILL Y NAVEGADORES
+--------------------------------------------------*/
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
@@ -30,9 +32,9 @@ select:-webkit-autofill::first-line {
   color: inherit;
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
-
-/* Mejoras de contraste para tarjetas de noticias */
+/*--------------------------------------------------
+  TARJETAS DE NOTICIAS
+--------------------------------------------------*/
 .news-card .news-metadata {
   color: #cbd5e1 !important; /* Más claro para mejor contraste */
 }
@@ -56,7 +58,9 @@ select:-webkit-autofill::first-line {
   color: #9ca3af !important; /* Gris más claro para mejor contraste */
 }
 
-/* Mejora de botones - Eliminar conflictos con main.css */
+/*--------------------------------------------------
+  BOTONES
+--------------------------------------------------*/
 .btn-primary {
   background-color: #065f46 !important; /* emerald-800 - Contraste mejorado */
   border: 2px solid #ecfdf5 !important; /* emerald-50 - Borde muy claro */
@@ -85,7 +89,9 @@ select:-webkit-autofill::first-line {
   color: #f1f5f9 !important; /* Casi blanco para asegurar ratio de contraste 4.5:1 */
 }
 
-/* Mejora específica para fondo de gradiente - Más agresivo */
+/*--------------------------------------------------
+  FONDOS Y GRADIENTES
+--------------------------------------------------*/
 .bg-gradient-to-r {
   background: linear-gradient(to right, #0c1424, #0f1419) !important;
   position: relative;
@@ -115,9 +121,9 @@ select:-webkit-autofill::first-line {
 /* Mejora el contraste de los botones emerald específicos - Eliminar conflictos */
 /* Estos estilos ahora se manejan en main.css para evitar conflictos */
 
-/* Mejoras adicionales de accesibilidad para Home */
-
-/* Mejora la marca Visenture para todos los lugares donde aparece */
+/*--------------------------------------------------
+  ACCESIBILIDAD Y CONTRASTE (WCAG AA)
+--------------------------------------------------*/
 .text-emerald-400 {
   color: #86efac !important; /* emerald-300 - Más claro y con mejor contraste */
   font-weight: bold !important;

@@ -1,56 +1,24 @@
 /**
  * Gráficos para el Panel de Inversiones
- * Implementados     const options = {
-        series: seriesData,
-        chart: {
-            type: 'pie',
-            width: '100%',
-            height: 320,
-            background: 'transparent',
-            foreColor: '#ffffff',
-            toolbar: {
-                show: false
-            },
-            animations: {
-                enabled: true,
-                dynamicAnimation: {
-                    speed: 350
-                }
-            },
-            redrawOnWindowResize: true,
-            redrawOnParentResize: true
-/**
- * Inicializa los gráficos del panel de inversiones
  */
 function initInvestmentCharts() {
-    console.log("Inicializando gráficos del panel de inversiones...");
-    
-    // Verificamos que los contenedores existan
     const assetChart = document.querySelector("#assetAllocationChart");
     const performanceChart = document.querySelector("#performanceChart");
     
     if (!assetChart || !performanceChart) {
-        console.error("No se encontraron los contenedores para los gráficos");
-        console.log("Esperando 500ms e intentando de nuevo...");
-        
         setTimeout(() => {
             if (document.querySelector("#assetAllocationChart") && document.querySelector("#performanceChart")) {
-                console.log("Contenedores encontrados en segundo intento");
                 renderInvestmentCharts();
             } else {
-                console.error("No se encontraron los contenedores después del segundo intento");
+                console.error("No se encontraron los contenedores para los gráficos");
             }
         }, 500);
         return;
     }
     
-    // Si tenemos los contenedores, continuamos con la inicialización
     renderInvestmentCharts();
 }
 
-/**
- * Renderiza todos los gráficos del panel de inversiones
- */
 function renderInvestmentCharts() {
     try {
         initAssetAllocationChart();
@@ -61,7 +29,7 @@ function renderInvestmentCharts() {
 }
 
 /**
- * Inicializa el gráfico de distribución de activos
+ * Gráfico de distribución de activos
  */
 function initAssetAllocationChart() {
     if (!document.querySelector("#assetAllocationChart")) {

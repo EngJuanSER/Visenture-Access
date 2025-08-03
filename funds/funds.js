@@ -1,15 +1,11 @@
-/**
- * VISENTURE - Sistema de Gestión de Fondos
- * Este script maneja la funcionalidad de las pestañas y la carga dinámica de componentes
- */
+/*--------------------------------------------------
+  VISENTURE - SISTEMA DE GESTIÓN DE FONDOS
+--------------------------------------------------*/
 
-// Inicialización cuando el contenido principal se ha cargado
 document.addEventListener('fundsContentLoaded', initFundsModule);
 document.addEventListener('DOMContentLoaded', function() {
-    // Si después de 2 segundos no se ha disparado el evento fundsContentLoaded, intentamos inicializar
     setTimeout(function() {
         if (!window.fundsModuleInitialized) {
-            console.log('Inicializando funds module manualmente...');
             initFundsModule();
         }
     }, 2000);
@@ -18,31 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
 // Variable para controlar si el módulo ya fue inicializado
 window.fundsModuleInitialized = false;
 
-/**
- * Inicializa el módulo de gestión de fondos
- */
+/*--------------------------------------------------
+  INICIALIZACIÓN DEL MÓDULO
+--------------------------------------------------*/
 function initFundsModule() {
-    // Evitar inicialización múltiple
     if (window.fundsModuleInitialized) {
         return;
     }
     
-    console.log('Inicializando módulo de gestión de fondos...');
-
-    // Obtener referencias a los elementos de la interfaz
     const addFundsTab = document.getElementById('addFundsTab');
     const transactionsTab = document.getElementById('transactionsTab');
     const tabContentContainer = document.getElementById('tab-content-container');
     
-    // Verificar que los elementos necesarios existan
     if (!addFundsTab || !transactionsTab || !tabContentContainer) {
-        console.error('No se encontraron elementos críticos para el módulo de fondos:', {
-            addFundsTab: addFundsTab ? 'OK' : 'No encontrado',
-            transactionsTab: transactionsTab ? 'OK' : 'No encontrado',
-            tabContentContainer: tabContentContainer ? 'OK' : 'No encontrado'
-        });
-        
-        // Intentar nuevamente después de un tiempo
         setTimeout(initFundsModule, 1000);
         return;
     }
@@ -50,15 +34,10 @@ function initFundsModule() {
     // Marcar que el módulo ha sido inicializado
     window.fundsModuleInitialized = true;
     
-    /**
-     * Activa una pestaña y carga su contenido
-     * @param {HTMLElement} tab - El elemento de pestaña a activar
-     * @param {string} contentPath - La ruta al archivo HTML del contenido
-     * @param {string} contentId - El ID para el contenedor del contenido
-     */
+    /*--------------------------------------------------
+      CONTROL DE PESTAÑAS
+    --------------------------------------------------*/
     function activateTab(tab, contentPath, contentId) {
-        console.log(`Activando pestaña: ${contentId}`);
-        
         // Actualizar apariencia de las pestañas
         document.querySelectorAll('.tab-button').forEach(t => {
             t.classList.remove('active', 'text-emerald-400', 'border-b-2', 'border-emerald-500');
@@ -131,11 +110,10 @@ function initFundsModule() {
             });
     }
     
-    /**
-     * Inicializa las interacciones para el componente de Añadir Fondos
-     */
+    /*--------------------------------------------------
+      INTERACCIÓN - AÑADIR FONDOS
+    --------------------------------------------------*/
     function initAddFundsInteractions() {
-        // Inicializar botones de cantidad rápida
         const amountButtons = document.querySelectorAll('.quick-amount-btn');
         if (amountButtons.length > 0) {
             amountButtons.forEach(btn => {
@@ -176,11 +154,10 @@ function initFundsModule() {
         console.log('Interacciones del componente "Añadir Fondos" inicializadas');
     }
     
-    /**
-     * Inicializa las interacciones para el componente de Historial de Transacciones
-     */
+    /*--------------------------------------------------
+      INTERACCIÓN - HISTORIAL DE TRANSACCIONES
+    --------------------------------------------------*/
     function initTransactionsInteractions() {
-        // Inicializar filtros
         const filterButtons = document.querySelectorAll('.filter-button');
         if (filterButtons.length > 0) {
             filterButtons.forEach(btn => {

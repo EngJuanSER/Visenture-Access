@@ -1,6 +1,6 @@
-/* Estilos para la página de notificaciones */
-
-/* Estilos para tarjetas de notificaciones */
+/*--------------------------------------------------
+  TARJETAS DE NOTIFICACIONES
+--------------------------------------------------*/
 .bg-emerald-900\/10 {
     background-color: rgba(6, 78, 59, 0.1);
 }
@@ -17,7 +17,9 @@
     background-color: rgba(37, 99, 235, 0.2);
 }
 
-/* Transiciones y animaciones */
+/*--------------------------------------------------
+  TRANSICIONES Y ANIMACIONES
+--------------------------------------------------*/
 .transition-colors {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,9 +31,9 @@ button:hover {
     transform: translateY(-1px);
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
-
-/* Mejora del contraste para texto secundario */
+/*--------------------------------------------------
+  ACCESIBILIDAD Y CONTRASTE (WCAG AA)
+--------------------------------------------------*/
 .text-slate-400 {
   color: #cbd5e1 !important;
 }

@@ -1,10 +1,14 @@
-/* Estilos para la sección de Gestión de Fondos */
+/*==================================================
+  GESTIÓN DE FONDOS
+==================================================*/
 
-/* Estilos para el sistema de pestañas */
+/*--------------------------------------------------
+  SISTEMA DE PESTAÑAS
+--------------------------------------------------*/
 .tab-button {
     cursor: pointer;
     transition: all 0.3s ease;
-    color: var(--color-text-placeholder); /* text-slate-400 */
+    color: var(--color-text-placeholder);
     position: relative;
 }
 
@@ -27,7 +31,9 @@
     transform: translateY(-2px);
 }
 
-/* Animaciones para el cambio de pestañas */
+/*--------------------------------------------------
+  ANIMACIONES
+--------------------------------------------------*/
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -37,7 +43,9 @@
     animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Spinner de carga */
+/*--------------------------------------------------
+  ELEMENTOS DE CARGA
+--------------------------------------------------*/
 .spinner-border {
     border: 4px solid rgba(52, 211, 153, 0.1);
     border-radius: 50%;
@@ -56,7 +64,9 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Efectos para tarjetas y elementos interactivos */
+/*--------------------------------------------------
+  EFECTOS PARA TARJETAS Y ELEMENTOS INTERACTIVOS
+--------------------------------------------------*/
 .card-glow {
     position: relative;
 }
@@ -80,7 +90,9 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Efectos para los botones */
+/*--------------------------------------------------
+  EFECTOS PARA BOTONES
+--------------------------------------------------*/
 button {
     transition: all 0.2s ease;
 }
@@ -89,7 +101,9 @@ button:active {
     transform: scale(0.97);
 }
 
-/* Estilos para transacciones y filtros */
+/*--------------------------------------------------
+  TRANSACCIONES Y FILTROS
+--------------------------------------------------*/
 .transaction-item {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -100,7 +114,9 @@ button:active {
     background-color: var(--color-background-hover); /* bg-slate-800/50 */
 }
 
-/* Estilos para etiquetas de estado */
+/*--------------------------------------------------
+  ETIQUETAS DE ESTADO
+--------------------------------------------------*/
 .status-badge {
     transition: all 0.3s ease;
 }
@@ -109,7 +125,9 @@ button:active {
     transform: scale(1.05);
 }
 
-/* Efecto de destello para notificaciones o alertas */
+/*--------------------------------------------------
+  EFECTOS DE DESTELLO PARA NOTIFICACIONES
+--------------------------------------------------*/
 @keyframes pulse-border {
     0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
     70% { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
@@ -120,13 +138,17 @@ button:active {
     animation: pulse-border 2s infinite;
 }
 
-/* Mejora los inputs y selects */
+/*--------------------------------------------------
+  INPUTS Y SELECTS
+--------------------------------------------------*/
 select:focus, input:focus {
     box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2);
     outline: none;
 }
 
-/* Personalización de scrollbars para un look más moderno */
+/*--------------------------------------------------
+  PERSONALIZACIÓN DE SCROLLBARS
+--------------------------------------------------*/
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -145,7 +167,9 @@ select:focus, input:focus {
     background: var(--color-background-selected);
 }
 
-/* Estilos para los botones de cantidad rápida */
+/*--------------------------------------------------
+  BOTONES DE CANTIDAD RÁPIDA
+--------------------------------------------------*/
 .quick-amount-btn {
     transition: all 0.2s ease;
 }
@@ -154,7 +178,9 @@ select:focus, input:focus {
     background-color: var(--color-background-hover);
 }
 
-/* Ayuda para los colores de fondo personalizados */
+/*--------------------------------------------------
+  COLORES DE FONDO PERSONALIZADOS
+--------------------------------------------------*/
 .bg-slate-700\/30 {
     background-color: rgba(30, 41, 59, 0.3);
 }
@@ -167,7 +193,9 @@ select:focus, input:focus {
     background-color: rgba(52, 211, 153, 0.2);
 }
 
-/* Estilos para los métodos de pago */
+/*--------------------------------------------------
+  MÉTODOS DE PAGO
+--------------------------------------------------*/
 .payment-method {
     transition: all 0.2s ease;
     cursor: pointer;
@@ -183,7 +211,9 @@ select:focus, input:focus {
     border-color: var(--color-accent-primary-hover);
 }
 
-/* Estilos para las transacciones */
+/*--------------------------------------------------
+  TRANSACCIONES
+--------------------------------------------------*/
 .transaction-item {
     transition: all 0.2s ease;
 }
@@ -193,7 +223,9 @@ select:focus, input:focus {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Adaptaciones responsivas */
+/*--------------------------------------------------
+  ADAPTACIONES RESPONSIVAS
+--------------------------------------------------*/
 @media (max-width: 640px) {
     .grid-cols-3 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -206,9 +238,13 @@ select:focus, input:focus {
     }
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+/*==================================================
+  MEJORAS DE ACCESIBILIDAD
+==================================================*/
 
-/* Mejora del contraste para texto secundario */
+/*--------------------------------------------------
+  MEJORA DE CONTRASTE PARA TEXTO SECUNDARIO
+--------------------------------------------------*/
 .text-gray-400 {
   color: #e5e7eb !important; /* Más claro para mejor contraste */
 }
@@ -225,7 +261,9 @@ select:focus, input:focus {
   color: #e2e8f0 !important; /* Gris claro con mejor contraste */
 }
 
-/* Mejora del contraste para etiquetas de texto específicas */
+/*--------------------------------------------------
+  MEJORA DE CONTRASTE PARA ETIQUETAS ESPECÍFICAS
+--------------------------------------------------*/
 .text-accessible-light {
   color: #f1f5f9 !important; /* Muy claro para cumplir WCAG AA 4.5:1 */
   font-weight: 500 !important; /* Más negrita para mejor legibilidad */
@@ -251,7 +289,9 @@ select:focus, input:focus {
   font-weight: 600 !important; /* Más negrita para mejor legibilidad */
 }
 
-/* Mejora del contraste para encabezados */
+/*--------------------------------------------------
+  MEJORA DE CONTRASTE PARA ENCABEZADOS
+--------------------------------------------------*/
 .text-emerald-400 {
   color: #34d399 !important; /* Verde más saturado y brillante */
 }
@@ -268,7 +308,9 @@ select:focus, input:focus {
   color: #60a5fa !important; /* Azul claro con mejor contraste */
 }
 
-/* Mejora del contraste para botones */
+/*--------------------------------------------------
+  MEJORA DE CONTRASTE PARA BOTONES
+--------------------------------------------------*/
 button {
   color: #ffffff !important;
 }
@@ -278,7 +320,9 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Mejora para las etiquetas de estado (tags) */
+/*--------------------------------------------------
+  MEJORA PARA ETIQUETAS DE ESTADO (TAGS)
+--------------------------------------------------*/
 .tag {
   font-weight: 700 !important;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5) !important;
@@ -302,7 +346,9 @@ button:focus {
   border: 1px solid #ef4444 !important; /* Borde rojo medio */
 }
 
-/* Mejora del contraste para los inputs */
+/*--------------------------------------------------
+  MEJORA DE CONTRASTE PARA INPUTS
+--------------------------------------------------*/
 input, select, textarea {
   color: #ffffff !important;
   border-color: #4b5563 !important; /* Borde más visible */
@@ -312,7 +358,9 @@ input::placeholder, select::placeholder, textarea::placeholder {
   color: #9ca3af !important; /* Placeholder más visible */
 }
 
-/* Mejora del contraste en pestañas */
+/*--------------------------------------------------
+  MEJORA DE CONTRASTE EN PESTAÑAS
+--------------------------------------------------*/
 .tab-button {
   color: #9ca3af !important;
 }

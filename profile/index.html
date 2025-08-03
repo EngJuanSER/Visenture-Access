@@ -50,7 +50,9 @@
             })
             .catch(error => console.error('Error cargando el footer:', error));
 
-        // Inicializar la funcionalidad de la página de perfil
+        /*--------------------------------------------------
+          FUNCIONALIDAD DE PESTAÑAS DEL PERFIL
+        --------------------------------------------------*/
         function initProfileFunctionality() {
             const tabButtons = document.querySelectorAll('[data-tab]');
             const tabContents = document.querySelectorAll('[id$="Content"]');
@@ -63,7 +65,9 @@
             
             console.log('Inicializando la funcionalidad del perfil');
             
-            // Función para mostrar un tab y ocultar los demás
+            /*--------------------------------------------------
+              GESTIÓN DE VISUALIZACIÓN DE PESTAÑAS
+            --------------------------------------------------*/
             function showTab(tabId) {
                 // Desactivar todos los botones
                 tabButtons.forEach(button => {

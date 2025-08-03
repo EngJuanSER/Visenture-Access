@@ -1,28 +1,19 @@
 /**
  * Gráficos para el Reporte de Cliente
- * Implementados con ApexCharts siguiendo el estilo de Visenture
- */
-
-/**
- * Inicializa los gráficos del reporte de cliente
  */
 function initClientReportCharts() {
-    console.log("Inicializando gráficos del reporte de cliente...");
-    
-    // Verificar que existan datos y contenedores
     if (!window.currentData) {
         console.error("No se encontraron datos para los gráficos");
         return;
     }
     
-    // Contenedores de gráficos a verificar
     const chartContainers = {
         "commissionsTrendChart": initCommissionsTrendChart,
         "assetDistributionChart": initAssetDistributionChart,
         "roiTrendChart": initRoiTrendChart
     };
     
-    // Inicializar cada gráfico solo si su contenedor existe
+    // Inicializar gráficos
     Object.entries(chartContainers).forEach(([containerId, initFunction]) => {
         const container = document.getElementById(containerId);
         if (container) {
@@ -40,7 +31,7 @@ function initClientReportCharts() {
 }
 
 /**
- * Inicializa el gráfico de tendencia de comisiones
+ * Gráfico de tendencia de comisiones
  */
 function initCommissionsTrendChart() {
     const container = document.querySelector("#commissionsTrendChart");
@@ -49,10 +40,7 @@ function initCommissionsTrendChart() {
         return;
     }
     
-    // Datos de comisiones del cliente actual
     const data = window.currentData.commissions;
-    
-    // Generar etiquetas para el eje X (últimos 7 meses)
     const xLabels = generateMonthLabels(7);
     
     const options = {
@@ -245,8 +233,7 @@ function initCommissionsTrendChart() {
 }
 
 /**
- * Inicializa el gráfico de distribución de activos (gráfico de dona)
- * Estilo basado en la gráfica de distribución de clientes del panel de comisionista
+ * Gráfico de distribución de activos
  */
 function initAssetDistributionChart() {
     const container = document.querySelector("#assetDistributionChart");
@@ -255,7 +242,6 @@ function initAssetDistributionChart() {
         return;
     }
 
-    // Datos de distribución de activos del cliente actual
     const data = window.currentData.assetDistribution;
     
     const options = {
@@ -514,7 +500,7 @@ function initAssetDistributionChart() {
 }
 
 /**
- * Inicializa el gráfico de tendencia ROI vs Benchmark
+ * Gráfico de tendencia ROI vs Benchmark
  */
 function initRoiTrendChart() {
     const container = document.querySelector("#roiTrendChart");
@@ -523,13 +509,8 @@ function initRoiTrendChart() {
         return;
     }
     
-    // Datos de ROI del cliente actual
     const data = window.currentData.roiTrend;
-    
-    // Generar datos de promedio del mercado como referencia
     const averageData = generateAverageMarketData(data);
-    
-    // Generar etiquetas para el eje X (últimos 7 meses)
     const xLabels = generateMonthLabels(7);
     
     const options = {
@@ -776,7 +757,6 @@ function initRoiTrendChart() {
 /**
  * Genera etiquetas para los últimos n meses
  * @param {number} months - Número de meses a generar
- * @returns {Array} - Array de etiquetas de meses
  */
 function generateMonthLabels(months) {
     const labels = [];
@@ -794,14 +774,11 @@ function generateMonthLabels(months) {
 }
 
 /**
- * Genera datos de promedio del mercado basados en los datos del cliente
- * @param {Array} clientData - Datos del cliente
- * @returns {Array} - Datos de promedio del mercado
+ * Datos de promedio del mercado
  */
 function generateAverageMarketData(clientData) {
     return clientData.map(value => {
-        // Genera un valor promedio ligeramente diferente al valor del cliente
-        const adjustment = (Math.random() * 2 - 1) * 1.5; // Entre -1.5% y 1.5% de diferencia
+        const adjustment = (Math.random() * 2 - 1) * 1.5;
         return Math.max(0, (value - adjustment).toFixed(2));
     });
 }
