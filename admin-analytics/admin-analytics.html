@@ -100,8 +100,9 @@
                         <h3 class="text-lg font-semibold text-white mb-4">Crear Activo de Prueba</h3>
                         <p class="text-accessible-light mb-4">Crea un activo (acción) con un símbolo específico para realizar pruebas en la plataforma.</p>
                         <div class="flex gap-2">
-                            <input type="text" placeholder="Símbolo (ej. AAPL)" class="input-control flex-grow">
-                            <button class="btn-secondary">
+                            <label for="test-asset-symbol" class="sr-only">Símbolo del Activo de Prueba</label>
+                            <input id="test-asset-symbol" type="text" placeholder="Símbolo (ej. AAPL)" class="input-control flex-grow">
+                            <button class="btn-secondary" aria-label="Crear activo de prueba">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                         </div>

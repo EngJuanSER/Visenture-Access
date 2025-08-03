@@ -230,10 +230,12 @@
   align-items: center;
   padding: 0.35rem 0.85rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.85rem; /* Aumentado para mejor legibilidad */
   letter-spacing: 0.025em;
   background-color: #065f46 !important;
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #ffffff !important; /* Asegura texto blanco para contraste */
+  font-weight: 700; /* Negrita para mejor legibilidad */
+  border: 1px solid rgba(74, 222, 128, 0.5); /* Borde más visible */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -241,12 +243,13 @@
 .content-placeholder button:not(#toggle-sidebar):not(#close-sidebar),
 .btn-primary {
   color: #ffffff !important;
-  background: linear-gradient(135deg, #059669, #047857) !important;
+  background: #047857 !important; /* Color sólido para mejor contraste WCAG AA */
   border-radius: 0.5rem !important;
-  padding: 0.55rem 1.25rem !important;
-  font-weight: 600 !important;
+  padding: 0.65rem 1.5rem !important; /* Mayor área táctil */
+  font-weight: 700 !important; /* Más negrita para mejor legibilidad */
+  font-size: 1rem !important; /* Texto más grande */
   transition: all 0.25s ease;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Borde visible */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 
               0 1px 1px rgba(0, 0, 0, 0.12),
               inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -255,6 +258,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); /* Mejora legibilidad */
 }
 
 .content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):hover,
@@ -365,13 +369,17 @@ h1.text-3xl::after {
 
 /* Mejora visual para los párrafos de descripción */
 .text-accessible-light {
-  color: #e5e7eb !important; /* Color más claro para mejor contraste */
+  color: #ffffff !important; /* Blanco puro para contraste WCAG AA (relación 4.5:1) */
   line-height: 1.6;
+  font-weight: 500; /* Mejora la legibilidad */
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .text-accessible-dark {
-  color: #d1d5db !important; /* Color más claro para mejor contraste */
+  color: #ffffff !important; /* Blanco puro para cumplir WCAG AA (relación 4.5:1) */
   line-height: 1.5;
+  font-weight: 500; /* Mejora la legibilidad */
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Mejora visual para elementos informativos */
@@ -483,6 +491,38 @@ h1.text-3xl::after {
 
 .market-card-animation .p-4 ul li:nth-child(3) {
   animation-delay: 0.5s;
+}
+
+/*--------------------------------------------------
+  MEJORAS DE CONTRASTE PARA ENCABEZADOS (WCAG AA)
+--------------------------------------------------*/
+/* Mejora contraste en encabezado principal */
+h1, .text-white, h1.text-white {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 700;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.01em;
+}
+
+/* Mejora contraste en encabezados secundarios */
+h2, h2.text-accessible-light, h2.text-white {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.005em;
+}
+
+/* Mejora contraste en encabezados terciarios */
+h3, h3.text-accessible-light, h3.text-white {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Mejora legibilidad en textos de horarios y datos críticos */
+.text-xs, .text-sm, .text-base, span[class*="text-"] {
+  color: #ffffff !important; /* Asegura alto contraste en todos los textos pequeños */
+  font-weight: 500;
 }
 
 .market-card-animation .px-4.py-3 {

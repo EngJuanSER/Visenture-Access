@@ -113,6 +113,18 @@
   background-color: var(--color-background-card) !important; /* slate-800 */
 }
 
+/*--------------------------------------------------
+  CLASES DE ACCESIBILIDAD ESPECÍFICAS DEL PORTAFOLIO
+--------------------------------------------------*/
+.text-accessible-light {
+  color: #e2e8f0 !important; /* Aumenta el brillo para cumplir con WCAG AA */
+}
+
+.bg-accessible-brand {
+  background-color: #2dd4bf !important; /* Un turquesa más vibrante */
+  color: #0f172a !important; /* Texto oscuro para máximo contraste */
+}
+
 /* Estilos para filas de la tabla */
 .mat-mdc-row:hover {
   background-color: rgba(16, 185, 129, 0.05) !important; /* emerald-500 with low opacity */

@@ -75,60 +75,64 @@ function initializeOrderDistributionChart() {
                 }
             }
         },
-        colors: ['#4ade80', '#f87171'],
+        colors: ['#34d399', '#f87171'], // Verde y rojo más brillantes y accesibles
         series: [60, 40], // 60% compra, 40% venta
         labels: ['Compra', 'Venta'],
         legend: {
             position: 'bottom',
             horizontalAlign: 'center',
-            fontSize: '14px',
-            fontWeight: 600,
+            fontSize: '16px', // Aumentar tamaño de fuente
+            fontWeight: 700, // Aumentar grosor
             labels: {
-                colors: '#ffffff'
+                colors: '#f1f5f9' // Usar un blanco más suave y legible
             },
             markers: {
-                width: 12,
-                height: 12,
+                width: 14,
+                height: 14,
                 strokeWidth: 0,
-                strokeColor: '#fff',
-                radius: 3
+                radius: 4
             },
             itemMargin: {
-                horizontal: 10,
-                vertical: 5
+                horizontal: 15,
+                vertical: 8
             }
         },
         stroke: {
-            width: 1, // Ligero borde para coincidir con el estilo dashboard
-            colors: ['var(--color-background-card)']
+            width: 2, // Borde más grueso para mejor separación
+            colors: ['#1e2937'] // Usar un color de fondo de tarjeta para el borde
         },
         dataLabels: {
             enabled: true,
             formatter: function (val, opts) {
-                return opts.w.config.series[opts.seriesIndex] + '%';
+                return opts.w.globals.labels[opts.seriesIndex] + ": " + val.toFixed(1) + "%"
             },
             style: {
                 fontSize: '16px',
                 fontWeight: 'bold',
-                colors: ['#FFFFFF'],
-                textShadow: '0px 1px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 0.8)'
+                colors: ['#ffffff'],
+                textShadow: '0 1px 3px rgba(0,0,0,0.7)' // Sombra más pronunciada
             },
             dropShadow: {
                 enabled: true,
                 color: '#000000',
-                top: 1,
-                left: 1,
-                blur: 3,
-                opacity: 0.5
+                top: 2,
+                left: 2,
+                blur: 4,
+                opacity: 0.6
             }
         },
         tooltip: {
             theme: 'dark',
             y: {
                 formatter: function (val) {
-                    return val + '%';
+                    return val + "%";
                 }
-            }
+            },
+            style: {
+                fontSize: '14px',
+            },
+            background: 'rgba(20, 25, 38, 0.85)',
+            border: '1px solid rgba(255, 255, 255, 0.2)'
         }
     };
 

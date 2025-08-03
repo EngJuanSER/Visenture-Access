@@ -319,32 +319,43 @@ button.bg-emerald-800,
   color: #d1d5db !important; /* Gris medio-claro con mejor contraste */
 }
 
-/* Mejora del contraste para badges y notificaciones - Más agresivo */
+/* Mejora del contraste para badges y notificaciones - WCAG AA (Relación de contraste 4.5:1) */
 .bg-red-600,
-span.bg-red-600 {
-  background-color: #991b1b !important; /* Rojo muy oscuro */
+span.bg-red-600,
+.notification-badge,
+.notification-counter {
+  background-color: #b91c1c !important; /* Rojo más claro para contraste con texto blanco */
+  font-size: 0.875rem !important; /* Aumentado para mejor legibilidad */
+  border: 1px solid #ffffff !important; /* Borde blanco para destacar más */
 }
 
 .bg-red-700,
 span.bg-red-700 {
-  background-color: #7f1d1d !important; /* Rojo extremadamente oscuro para contraste máximo */
+  background-color: #b91c1c !important; /* Unificado para consistencia */
 }
 
 .bg-red-800,
 span.bg-red-800 {
-  background-color: #7f1d1d !important; /* Rojo casi negro */
+  background-color: #b91c1c !important; /* Unificado para consistencia */
 }
 
-/* Asegurar texto visible en badges y notificaciones - Más específico */
+/* Asegurar texto visible en badges y notificaciones - WCAG AA */
 .bg-red-600,
 .bg-red-700,
 .bg-red-800,
 span.bg-red-600,
 span.bg-red-700,
-span.bg-red-800 {
-  color: #ffffff !important; 
+span.bg-red-800,
+.notification-badge,
+.notification-counter {
+  color: #ffffff !important;
   font-weight: 700 !important; /* Negrita para mejor legibilidad */
-  text-shadow: 0 1px 1px rgba(0,0,0,0.2) !important; /* Sombra para mayor contraste */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important; /* Sombra mejorada para mayor contraste */
+  min-width: 1.5rem !important; /* Asegurar tamaño mínimo táctil */
+  min-height: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* Mejora del contraste para elementos de estado */
