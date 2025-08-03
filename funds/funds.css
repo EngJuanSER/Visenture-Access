@@ -210,36 +210,62 @@ select:focus, input:focus {
 
 /* Mejora del contraste para texto secundario */
 .text-gray-400 {
-  color: #d1d5db !important;
+  color: #e5e7eb !important; /* Más claro para mejor contraste */
 }
 
 .text-gray-300 {
-  color: #e5e7eb !important;
+  color: #f1f5f9 !important; /* Casi blanco para ratio de contraste 4.5:1 */
 }
 
 .text-gray-500 {
-  color: #9ca3af !important;
+  color: #d1d5db !important; /* Gris medio-claro con mejor contraste */
 }
 
 .text-slate-400 {
-  color: #9ca3af !important;
+  color: #e2e8f0 !important; /* Gris claro con mejor contraste */
+}
+
+/* Mejora del contraste para etiquetas de texto específicas */
+.text-accessible-light {
+  color: #f1f5f9 !important; /* Muy claro para cumplir WCAG AA 4.5:1 */
+  font-weight: 500 !important; /* Más negrita para mejor legibilidad */
+}
+
+.text-accessible-dark {
+  color: #e2e8f0 !important; /* Ahora más claro para mejor contraste */
+  font-weight: 500 !important; /* Más negrita para mejor legibilidad */
+}
+
+.text-accessible-success {
+  color: #6ee7b7 !important; /* Verde más claro para mejor contraste */
+  font-weight: 600 !important; /* Más negrita para mejor legibilidad */
+}
+
+.text-accessible-warning {
+  color: #fef08a !important; /* Amarillo más claro para mejor contraste */
+  font-weight: 600 !important; /* Más negrita para mejor legibilidad */
+}
+
+.text-accessible-info {
+  color: #93c5fd !important; /* Azul más claro para mejor contraste */
+  font-weight: 600 !important; /* Más negrita para mejor legibilidad */
 }
 
 /* Mejora del contraste para encabezados */
 .text-emerald-400 {
-  color: #34d399 !important;
+  color: #34d399 !important; /* Verde más saturado y brillante */
 }
 
 .text-green-400 {
-  color: #4ade80 !important;
+  color: #4ade80 !important; /* Verde claro con mejor contraste */
 }
 
 .text-red-400 {
-  color: #f87171 !important;
+  color: #f87171 !important; /* Rojo claro con mejor contraste */
 }
 
 .text-blue-400 {
-  color: #60a5fa !important;
+  color: #60a5fa !important; /* Azul claro con mejor contraste */
 }
 
 /* Mejora del contraste para botones */
@@ -250,6 +276,40 @@ button {
 button:focus {
   outline: 2px solid #34d399 !important;
   outline-offset: 2px;
+}
+
+/* Mejora para las etiquetas de estado (tags) */
+.tag {
+  font-weight: 700 !important;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.tag-success {
+  background-color: #065f46 !important; /* Verde oscuro */
+  color: #6ee7b7 !important; /* Verde claro */
+  border: 1px solid #10b981 !important; /* Borde verde medio */
+}
+
+.tag-warning {
+  background-color: #854d0e !important; /* Naranja oscuro */
+  color: #fef08a !important; /* Amarillo claro */
+  border: 1px solid #f59e0b !important; /* Borde naranja medio */
+}
+
+.tag-danger {
+  background-color: #991b1b !important; /* Rojo oscuro */
+  color: #fda4af !important; /* Rojo claro */
+  border: 1px solid #ef4444 !important; /* Borde rojo medio */
+}
+
+/* Mejora del contraste para los inputs */
+input, select, textarea {
+  color: #ffffff !important;
+  border-color: #4b5563 !important; /* Borde más visible */
+}
+
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: #9ca3af !important; /* Placeholder más visible */
 }
 
 /* Mejora del contraste en pestañas */

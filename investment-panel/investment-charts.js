@@ -1,8 +1,24 @@
 /**
  * Gráficos para el Panel de Inversiones
- * Implementados con ApexCharts
- */
-
+ * Implementados     const options = {
+        series: seriesData,
+        chart: {
+            type: 'pie',
+            width: '100%',
+            height: 320,
+            background: 'transparent',
+            foreColor: '#ffffff',
+            toolbar: {
+                show: false
+            },
+            animations: {
+                enabled: true,
+                dynamicAnimation: {
+                    speed: 350
+                }
+            },
+            redrawOnWindowResize: true,
+            redrawOnParentResize: true
 /**
  * Inicializa los gráficos del panel de inversiones
  */
@@ -53,6 +69,9 @@ function initAssetAllocationChart() {
         return;
     }
     
+    // Limpiar el contenedor antes de renderizar
+    document.querySelector("#assetAllocationChart").innerHTML = "";
+    
     // Datos del gráfico - definiremos en una variable para reutilizar en la tabla
     const seriesData = [44, 55, 13, 43];
     const labelsData = ['AAPL', 'GOOGL', 'MSFT', 'AMZN'];
@@ -61,24 +80,43 @@ function initAssetAllocationChart() {
         series: seriesData,
         chart: {
             type: 'pie',
-            height: 360, // Aumentado para mejor visualización
+            width: '100%',
+            height: '100%',
             background: 'transparent',
-            foreColor: '#ffffff', // Mejora de contraste: cambiado a blanco puro
+            foreColor: '#ffffff',
             toolbar: {
-                show: false // Desactivar barra de herramientas para evitar líneas extrañas
+                show: false
             },
-            sparkline: {
-                enabled: false // Asegurar que no se recorte
-            },
-            margin: [10, 10, 10, 10], // Margen reducido para aprovechar espacio [superior, derecho, inferior, izquierdo]
             animations: {
                 enabled: true,
                 dynamicAnimation: {
                     speed: 350
                 }
             },
-            redrawOnWindowResize: true, // Redibujar al cambiar el tamaño de la ventana
-            redrawOnParentResize: true // Redibujar cuando el contenedor padre cambie de tamaño
+            redrawOnWindowResize: true,
+            redrawOnParentResize: true,
+            events: {
+                mounted: function(chartContext, config) {
+                    // Ajuste del tamaño después de montar
+                    setTimeout(function() {
+                        chartContext.updateOptions({
+                            chart: {
+                                height: 'auto'
+                            }
+                        }, false, false);
+                    }, 300);
+                },
+                updated: function(chartContext, config) {
+                    // Ajustar cuando se actualiza el gráfico
+                    setTimeout(function() {
+                        chartContext.updateOptions({
+                            chart: {
+                                height: 'auto'
+                            }
+                        }, false, false);
+                    }, 300);
+                }
+            }
         },
         labels: labelsData,
         colors: [
@@ -93,7 +131,7 @@ function initAssetAllocationChart() {
                 return val.toFixed(1) + "%"
             },
             style: {
-                fontSize: '18px', // Fuente más grande para mejor legibilidad
+                fontSize: '22px', // Fuente más grande para mejor legibilidad
                 fontWeight: 'bold',
                 colors: ['#FFFFFF'], // Texto blanco para contraste con todos los fondos
                 textShadow: '0px 1px 1px rgba(0, 0, 0, 0.9), 0px 0px 2px rgba(0, 0, 0, 0.7)', // Sombra más oscura
@@ -107,39 +145,43 @@ function initAssetAllocationChart() {
                 top: 1,
                 left: 1,
                 blur: 3,
-                opacity: 0.4
+                opacity: 0.5
             },
             background: {
                 enabled: false
             }
         },
         legend: {
+            show: true,
             position: 'bottom',
             fontFamily: 'inherit',
-            offsetY: 0, // Sin offset adicional
-            horizontalAlign: 'center', // Centrar horizontalmente
-            floating: false, // No flotante para mejor posicionamiento
-            fontSize: '14px', // Tamaño de fuente explícito
+            offsetY: -5, // Valor negativo para moverlo hacia arriba
+            horizontalAlign: 'center',
+            verticalAlign: 'bottom',
+            floating: false,
+            fontSize: '12px', // Más pequeño para ahorrar espacio
             labels: {
-                colors: '#ffffff', // Mejora de contraste: cambiado a blanco puro
-                useSeriesColors: false, // No usar colores de serie para el texto
-                textShadow: '0px 1px 1px rgba(0, 0, 0, 0.9), 0px 0px 2px rgba(0, 0, 0, 0.7)' // Sombra similar a los números
+                colors: '#ffffff',
+                useSeriesColors: false,
+                textShadow: '0px 1px 1px rgba(0, 0, 0, 0.9)'
             },
             formatter: function(seriesName, opts) {
-                // Añadir el porcentaje al nombre de la serie para mayor claridad
                 return seriesName + ' - ' + opts.w.globals.series[opts.seriesIndex] + '%';
             },
-            fontSize: '14px', // Texto de leyenda más grande
-            fontWeight: 600, // Texto más grueso
+            fontWeight: 600,
             markers: {
-                width: 15,
-                height: 15,
+                width: 12, // Más pequeños para ahorrar espacio
+                height: 12,
                 strokeWidth: 0,
-                radius: 4
+                radius: 3
             },
             itemMargin: {
-                horizontal: 10,
-                vertical: 8 // Mayor espacio vertical entre items
+                horizontal: 6, // Reducido para ahorrar espacio
+                vertical: 3 // Reducido para ahorrar espacio
+            },
+            containerMargin: {
+                top: 0,
+                bottom: 0
             }
         },
         stroke: {
@@ -161,37 +203,195 @@ function initAssetAllocationChart() {
         plotOptions: {
             pie: {
                 donut: {
-                    size: '0%' // Asegurarse de que sea un gráfico circular completo
+                    size: '0%' // Gráfico circular completo
                 },
-                customScale: 0.95, // Escala aumentada para hacer la gráfica más grande
-                offsetX: 0,
-                offsetY: 0, // Centrado vertical
+                customScale: 0.75, // Escala reducida para que quede compacto
+                offsetX: 0, // Sin desplazamiento horizontal
+                offsetY: -10, // Ligero desplazamiento hacia arriba
                 dataLabels: {
-                    offset: -30 // Valor negativo para mover las etiquetas hacia el centro del gráfico
+                    offset: -8, // Offset negativo para mover etiquetas hacia el centro
+                    minAngleToShowLabel: 10 // Solo mostrar etiquetas en segmentos suficientemente grandes
                 },
-                expandOnClick: false, // Desactivar la expansión al hacer clic para mantener el aspecto consistente
-                borderWidth: 2, // Borde de los segmentos
+                expandOnClick: false,
+                borderWidth: 2,
+                startAngle: 0,
+                endAngle: 360
             }
         },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    height: 250
-                },
-                legend: {
-                    position: 'bottom'
+        responsive: [
+            {
+                breakpoint: 1200,
+                options: {
+                    plotOptions: {
+                        pie: {
+                            customScale: 0.85,
+                            dataLabels: {
+                                offset: -10
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        style: {
+                            fontSize: '16px'
+                        }
+                    }
+                }
+            },
+            {
+                breakpoint: 992,
+                options: {
+                    plotOptions: {
+                        pie: {
+                            customScale: 0.82,
+                            dataLabels: {
+                                offset: -8
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        style: {
+                            fontSize: '14px'
+                        }
+                    }
+                }
+            },
+            {
+                breakpoint: 768,
+                options: {
+                    plotOptions: {
+                        pie: {
+                            customScale: 0.78,
+                            dataLabels: {
+                                offset: -6
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        style: {
+                            fontSize: '12px'
+                        }
+                    },
+                    legend: {
+                        itemMargin: {
+                            horizontal: 6,
+                            vertical: 3
+                        },
+                        fontSize: '12px'
+                    }
+                }
+            },
+            {
+                breakpoint: 576,
+                options: {
+                    plotOptions: {
+                        pie: {
+                            customScale: 0.75,
+                            dataLabels: {
+                                offset: -5
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        style: {
+                            fontSize: '11px'
+                        }
+                    },
+                    legend: {
+                        itemMargin: {
+                            horizontal: 4,
+                            vertical: 2
+                        },
+                        fontSize: '11px',
+                        formatter: function(seriesName, opts) {
+                            // Versión más compacta para pantallas pequeñas
+                            return seriesName + ' (' + opts.w.globals.series[opts.seriesIndex] + '%)';
+                        }
+                    }
+                }
+            },
+            {
+                breakpoint: 375,
+                options: {
+                    plotOptions: {
+                        pie: {
+                            customScale: 0.7,
+                            dataLabels: {
+                                offset: -3,
+                                minAngleToShowLabel: 15
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        style: {
+                            fontSize: '10px'
+                        }
+                    },
+                    legend: {
+                        itemMargin: {
+                            horizontal: 3,
+                            vertical: 2
+                        },
+                        fontSize: '10px'
+                    }
                 }
             }
-        }]
+        ]
     };
 
-    try {
+        try {
+        // Crear y renderizar el gráfico
         const assetAllocationChart = new ApexCharts(document.querySelector("#assetAllocationChart"), options);
+        
+        // Renderizar el gráfico y ajustar la leyenda
+        assetAllocationChart.render().then(() => {
+            // Optimización para asegurar que la leyenda esté correctamente posicionada
+            setTimeout(() => {
+                const legendElement = document.querySelector("#assetAllocationChart .apexcharts-legend");
+                if (legendElement) {
+                    legendElement.style.position = 'relative';
+                    legendElement.style.transform = 'none';
+                    legendElement.style.top = 'auto';
+                    legendElement.style.left = 'auto';
+                    legendElement.style.marginTop = '-5px';
+                    legendElement.style.padding = '0';
+                    
+                    // Ajustar la posición del contenedor del gráfico si es necesario
+                    const chartElement = document.querySelector("#assetAllocationChart");
+                    if (chartElement) {
+                        chartElement.style.height = 'auto';
+                        chartElement.style.marginBottom = '0';
+                    }
+                }
+            }, 100);
+        });
         assetAllocationChart.render();
         console.log("Gráfico de distribución de activos renderizado correctamente");
         
-        // Crear la tabla de datos accesible
+        // Ajustes post-renderizado para asegurar visualización correcta
+        setTimeout(() => {
+            const chartContainer = document.querySelector("#assetAllocationChart");
+            if (chartContainer) {
+                // Asegurar que el SVG ocupa todo el espacio disponible
+                const svg = chartContainer.querySelector('svg');
+                if (svg) {
+                    svg.setAttribute('width', '100%');
+                    svg.setAttribute('height', '100%');
+                    svg.style.overflow = 'visible';
+                }
+                
+                // Asegurar que no hay transformaciones indeseadas
+                const graphical = chartContainer.querySelector('.apexcharts-graphical');
+                if (graphical) {
+                    graphical.style.transform = 'none';
+                }
+                
+                // Ajustar contenedor interno del pie
+                const pieContainer = chartContainer.querySelector('.apexcharts-pie');
+                if (pieContainer) {
+                    pieContainer.style.transform = 'none';
+                }
+            }
+        }, 100);        // Crear la tabla de datos accesible
         populateAssetAllocationTable(labelsData, seriesData);
         
         // Configurar el botón para alternar entre gráfico y tabla

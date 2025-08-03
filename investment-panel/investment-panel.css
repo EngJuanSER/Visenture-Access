@@ -128,14 +128,14 @@ button:focus {
 #assetAllocationChart tspan {
   fill: #FFFFFF !important;
   font-weight: 700 !important;
-  font-size: 18px !important;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 1), 
-               0px 0px 6px rgba(0, 0, 0, 0.8), 
-               0px 0px 2px rgba(0, 0, 0, 0.9) !important;
+  font-size: 18px !important; /* Tamaño más compacto */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 1), 
+               0px 0px 4px rgba(0, 0, 0, 0.8), 
+               0px 0px 1px rgba(0, 0, 0, 0.9) !important;
   stroke: #000000 !important;
-  stroke-width: 1.5px !important;
+  stroke-width: 1px !important;
   paint-order: stroke fill !important;
-  -webkit-text-stroke: 1.5px #000000 !important;
+  -webkit-text-stroke: 1px #000000 !important;
 }
 
 /* Mejoras para los textos en el gráfico de líneas */
@@ -154,11 +154,86 @@ button:focus {
   paint-order: stroke fill !important;
 }
 
-/* Eliminar líneas horizontales no deseadas */
-#assetAllocationChart .apexcharts-inner {
-  overflow: visible !important;
+/* Contenedor principal del gráfico y leyenda */
+.asset-chart-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: visible;
 }
 
+/* Contenedor específico del gráfico */
+#assetChartContainer {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.chart-container {
+  width: 100%;
+  min-height: 260px; /* Altura reducida */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 5px 0 0 0;
+  overflow: visible;
+}
+
+/* Contenedor específico para la leyenda */
+.legend-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0; /* Reducido el espacio */
+  padding-bottom: 5px; /* Reducido el padding */
+}
+
+/* Elemento contenedor del gráfico */
+#assetAllocationChart {
+  width: 100%;
+  height: 100%;
+  max-width: 500px; /* Aumentado para mejor visualización */
+  margin: 0 auto;
+  position: relative;
+  overflow: visible;
+}
+
+/* Estilo para el SVG principal */
+#assetAllocationChart .apexcharts-canvas {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  display: block !important;
+  overflow: visible !important;
+  margin: 0 auto !important;
+}
+
+#assetAllocationChart .apexcharts-canvas svg {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  overflow: visible !important;
+  display: block !important;
+}
+
+/* Mejorar la definición de los segmentos del gráfico circular */
+#assetAllocationChart .apexcharts-pie-series path {
+  stroke: #000000 !important;
+  stroke-width: 2px !important;
+  stroke-linejoin: round !important;
+  stroke-linecap: round !important;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Eliminar elementos no deseados */
 #assetAllocationChart hr,
 #assetAllocationChart .apexcharts-canvas line:not(.apexcharts-gridline):not(.apexcharts-radialbar-line) {
   display: none !important;
@@ -166,39 +241,12 @@ button:focus {
   stroke: transparent !important;
 }
 
-/* Asegurar que no haya bordes innecesarios */
-#assetAllocationChart {
-  border-top: none !important;
-  overflow: visible !important; /* Cambiado a visible para mostrar todo el contenido */
-  margin: 0 auto !important; /* Centrado horizontal */
-  width: 100% !important;
-  height: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  min-height: 300px !important;
-}
-
-/* Mejorar la definición de los segmentos del gráfico circular */
-#assetAllocationChart .apexcharts-pie-series path {
-  stroke: #000000 !important;
-  stroke-width: 2px !important; /* Reducido de 3px a 2px */
-  stroke-linejoin: round !important;
-  stroke-linecap: round !important;
-  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) !important; /* Sombra menos intensa */
-}
-
-/* Hacer que los gráficos sean más adaptables */
-#assetAllocationChart .apexcharts-canvas {
-  margin: 0 auto !important;
-  width: 100% !important;
-  max-width: 400px !important; /* Limitar ancho máximo */
-}
-
-#assetAllocationChart .apexcharts-plot-series,
-#assetAllocationChart .apexcharts-pie {
-  width: 100% !important;
+/* Eliminar transformaciones no deseadas */
+#assetAllocationChart .apexcharts-inner,
+#assetAllocationChart .apexcharts-graphical,
+#assetAllocationChart .apexcharts-pie,
+#assetAllocationChart .apexcharts-plot-series {
+  transform: none !important;
 }
 
 /* Mejorar la responsividad de la leyenda */
@@ -207,7 +255,140 @@ button:focus {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
-  padding-top: 10px !important;
+  padding: 0 !important;
+  margin-top: -5px !important;
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  background-color: transparent !important;
+  overflow: visible !important;
+}
+
+#assetAllocationChart .apexcharts-legend-series {
+  margin: 2px 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 1px 3px !important;
+  border-radius: 3px !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Mejorar tamaño de texto en las etiquetas del gráfico */
+#assetAllocationChart .apexcharts-datalabels text {
+  font-size: 22px !important;
+}
+
+/* Mejorar tamaño y contraste de la leyenda */
+#assetAllocationChart .apexcharts-legend-text {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+#assetAllocationChart .apexcharts-legend-marker {
+  margin-right: 6px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Ajustes de responsividad */
+@media (min-width: 1200px) {
+  #assetAllocationChart {
+    max-width: 480px;
+  }
+  
+  .chart-container {
+    min-height: 280px;
+  }
+  
+  #assetAllocationChart .apexcharts-canvas,
+  #assetAllocationChart .apexcharts-canvas svg {
+    min-height: 280px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  #assetAllocationChart {
+    max-width: 460px;
+  }
+  
+  .chart-container {
+    min-height: 320px;
+    padding: 5px 0 25px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #assetAllocationChart {
+    max-width: 400px;
+  }
+  
+  .chart-container {
+    min-height: 300px;
+    padding: 5px 0 5px 0;
+  }
+  
+  #assetAllocationChart .apexcharts-canvas,
+  #assetAllocationChart .apexcharts-canvas svg {
+    min-height: 280px !important;
+  }
+  
+  #assetAllocationChart .apexcharts-datalabel text,
+  #assetAllocationChart .apexcharts-datalabel-label,
+  #assetAllocationChart .apexcharts-datalabel-value,
+  #assetAllocationChart text.apexcharts-pie-label,
+  #assetAllocationChart tspan {
+    font-size: 18px !important;
+  }
+  
+  #assetAllocationChart .apexcharts-legend-text {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #assetAllocationChart {
+    max-width: 380px;
+  }
+  
+  .chart-container {
+    min-height: 280px;
+    padding: 0 0 20px 0;
+  }
+  
+  #assetAllocationChart .apexcharts-canvas,
+  #assetAllocationChart .apexcharts-canvas svg {
+    min-height: 260px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #assetAllocationChart {
+    max-width: 340px;
+  }
+  
+  .chart-container {
+    min-height: 260px;
+    padding: 0 0 15px 0;
+  }
+  
+  #assetAllocationChart .apexcharts-legend-series {
+    margin: 2px 4px !important;
+  }
+  
+  #assetAllocationChart .apexcharts-legend-text {
+    font-size: 11px !important;
+  }
+  
+  #assetAllocationChart .apexcharts-canvas,
+  #assetAllocationChart .apexcharts-canvas svg {
+    min-height: 240px !important;
+  }
 }
 
 #assetAllocationChart .apexcharts-legend-series {
