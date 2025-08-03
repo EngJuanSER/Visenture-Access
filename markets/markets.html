@@ -2,7 +2,7 @@
   <div class="bg-slate-950 p-6">
     <div class="container mx-auto">
       <div class="mb-8 text-center">
-        <h1 id="markets-title" class="text-3xl font-bold text-white mb-2">Mercados Disponibles</h1>
+        <h1 id="markets-title" class="text-3xl font-bold text-white mb-2" data-content="Mercados Disponibles">Mercados Disponibles</h1>
         <p class="text-accessible-light">Explora los mercados de valores de todo el mundo.</p>
       </div>
 
@@ -47,7 +47,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
           <!-- Tarjeta de Mercado Ejemplo -->
-          <div class="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden flex flex-col">
+          <div class="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden flex flex-col market-card-animation">
             <!-- Cabecera -->
             <div class="p-4 border-b border-slate-700 flex justify-between items-start">
               <div>
@@ -100,3 +100,18 @@
     </div>
   </div>
 </main>
+
+<script>
+  // Efecto de iluminación al pasar el ratón por las tarjetas
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.bg-slate-800.border.border-slate-700.rounded-lg').forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / this.offsetWidth) * 100;
+        const y = ((e.clientY - rect.top) / this.offsetHeight) * 100;
+        this.style.setProperty('--x', x + '%');
+        this.style.setProperty('--y', y + '%');
+      });
+    });
+  });
+</script>

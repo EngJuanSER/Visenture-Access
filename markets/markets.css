@@ -1,4 +1,5 @@
-.market-card-custom {
+.market-card-custom,
+.bg-slate-800.border.border-slate-700.rounded-lg {
   position: relative;
   width: 100%;
   height: 100%;
@@ -6,11 +7,15 @@
   border-radius: 1rem;
   transition: all 400ms ease-in-out;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(145deg, #1e293b, #1a2234);
+  border: 1px solid rgba(99, 102, 241, 0.1) !important;
 }
 
-.market-card-custom:hover {
+.market-card-custom:hover,
+.bg-slate-800.border.border-slate-700.rounded-lg:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  border-color: rgba(99, 102, 241, 0.3) !important;
 }
 
 /* Wrapper for card content to ensure proper layout */
@@ -24,34 +29,53 @@
 }
 
 /* Estilos de estado para los mercados */
-.market-status-indicator {
+.market-status-indicator,
+.tag-success {
   display: flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 9999px;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
+  background-color: #065f46 !important; /* Verde más oscuro para contraste */
+  color: #ffffff !important; /* Texto blanco para mejor contraste */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.025em;
+  border: 1px solid rgba(52, 211, 153, 0.3);
 }
 
-.market-status-dot {
+.market-status-dot,
+.tag-success i {
   height: 0.5rem;
   width: 0.5rem;
   border-radius: 50%;
-  margin-right: 0.375rem;
+  margin-right: 0.5rem;
+  background-color: #4ade80; /* Verde brillante para el punto */
+  box-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
 }
 
 /* Estilos para el botón de edición de horario */
-.market-card-custom .mat-icon-button {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
+.market-card-custom .mat-icon-button,
+.btn-icon.btn-secondary {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
 }
 
-.market-card-custom .mat-icon-button .mat-icon {
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
+.market-card-custom .mat-icon-button .mat-icon,
+.btn-icon.btn-secondary i {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  color: #ffffff;
 }
 
 /* Estilos para el indicador de horario personalizado */
@@ -60,9 +84,10 @@
 }
 
 /* Animación sutil para el botón de edición */
-.market-card-custom .mat-icon-button:hover {
-  transform: scale(1.2);
-  transition: transform 0.2s ease-in-out;
+.market-card-custom .mat-icon-button:hover,
+.btn-icon.btn-secondary:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Estilos para los paneles informativos */
@@ -76,11 +101,86 @@
   color: var(--color-accent-primary-text);
 }
 
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
+/* Mejora visual del panel informativo */
+.bg-info-dark {
+  background: linear-gradient(145deg, #064e3b, #065f46);
+  border-radius: 0.75rem !important;
+  border-width: 1px !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.5s ease-out;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.bg-info-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  border-color: rgba(52, 211, 153, 0.4) !important;
+}
+
+/* Aseguramos contraste en todos los textos dentro del panel informativo verde */
+.bg-info-dark h2,
+.bg-info-dark p,
+.bg-info-dark .text-accessible-light,
+.bg-info-dark .text-accessible-dark,
+.bg-info-dark .text-sm,
+.bg-info-dark .text-xs {
+  color: #ffffff !important; /* Texto blanco puro para máximo contraste */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.bg-info-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(110, 231, 183, 0), rgba(110, 231, 183, 0.3), rgba(110, 231, 183, 0));
+}
+
+.bg-info-dark i.fa-info-circle {
+  font-size: 1.5rem;
+  color: #ffffff; /* Cambiado a blanco para máximo contraste */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD Y VISUALES ===== */
 
 /* Mejora los colores de fondo para tener mejor contraste */
 .bg-slate-800 {
-  background-color: #1e293b !important;
+  background: linear-gradient(145deg, #1e293b, #1a2234) !important;
+}
+
+/* Mejora los bordes y esquinas */
+.rounded-lg {
+  border-radius: 0.75rem !important;
+}
+
+/* Mejora en las tarjetas de mercado */
+.bg-slate-800.border.border-slate-700 {
+  border-width: 1px !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
+              0 2px 4px rgba(0, 0, 0, 0.05),
+              inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+/* Efecto de resplandor sutil en los bordes superiores */
+.bg-slate-800.border.border-slate-700::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
 /* Mejora el color del texto en las tarjetas */
@@ -93,47 +193,97 @@
 }
 
 /* Mejora los indicadores de estado */
-.market-card-custom .bg-green-100 {
-  background-color: #059669 !important;
+.market-card-custom .bg-green-100,
+.tag-success {
+  background-color: #065f46 !important; /* Verde oscuro para mejor contraste */
 }
 
-.market-card-custom .text-green-800 {
-  color: #ffffff !important;
+.market-card-custom .text-green-800,
+.tag-success {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 600;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Mejora el contraste en las etiquetas del mercado */
 .market-card-custom .text-emerald-400,
-.market-card-custom .text-emerald-600 {
-  color: #34d399 !important;
+.market-card-custom .text-emerald-600,
+.text-accessible-brand {
+  color: #4ade80 !important; /* Verde más brillante para mejor contraste */
+  font-weight: 600;
+}
+
+/* Mejora para el badge/tag Abierto */
+.tag-success {
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  background-color: #065f46 !important;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Mejora los botones dentro del contenido */
-.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar) {
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar),
+.btn-primary {
   color: #ffffff !important;
-  background-color: #065f46 !important;
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  background: linear-gradient(135deg, #059669, #047857) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.55rem 1.25rem !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 
+              0 1px 1px rgba(0, 0, 0, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):hover {
-  background-color: #047857 !important;
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):hover,
+.btn-primary:hover {
+  background: linear-gradient(135deg, #047857, #065f46) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 
+              0 2px 4px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):focus {
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):focus,
+.btn-primary:focus {
   outline: 2px solid #34d399 !important;
   outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.5);
+}
+
+/* Mejora estilo de los iconos en los botones */
+.btn-primary i {
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover i {
+  transform: translateX(3px);
 }
 
 /* Mejora los elementos de panel informativo */
 .bg-indigo-900\/30 {
-  background-color: rgba(49, 46, 129, 0.7) !important;
+  background-color: rgba(6, 78, 59, 0.7) !important;
 }
 
 .text-indigo-300,
 .text-indigo-400 {
-  color: #c4b5fd !important;
+  color: #ffffff !important; /* Cambiado a blanco para mejor contraste */
+}
+
+.text-accessible-info {
+  color: #ffffff !important; /* Cambiado a blanco para máximo contraste */
 }
 
 /* Mejora panel de error */
@@ -155,12 +305,172 @@
 }
 
 /* Mejora encabezados */
+h1.text-3xl,
 h1.text-2xl,
 h2.text-lg {
   color: #ffffff !important;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+h1.text-3xl {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #ffffff, #34d399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  position: relative;
+}
+
+h1.text-3xl::after {
+  content: attr(data-content);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: transparent;
+  background: rgba(52, 211, 153, 0.2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.6;
+  transform: translateY(0.05em);
 }
 
 /* Mejora iconos */
-.material-icons {
+.material-icons,
+.fa-solid {
   vertical-align: middle;
+}
+
+/* Mejora visual para los párrafos de descripción */
+.text-accessible-light {
+  color: #e5e7eb !important; /* Color más claro para mejor contraste */
+  line-height: 1.6;
+}
+
+.text-accessible-dark {
+  color: #d1d5db !important; /* Color más claro para mejor contraste */
+  line-height: 1.5;
+}
+
+/* Mejora visual para elementos informativos */
+.text-sm, .text-xs {
+  line-height: 1.6;
+}
+
+/* Mejoras para los elementos de información en las tarjetas */
+.p-4 ul.space-y-3 li {
+  transition: background-color 0.15s ease;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.p-4 ul.space-y-3 li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Mejoras para el footer de las tarjetas */
+.px-4.py-3.bg-slate-800\/50 {
+  background: linear-gradient(0deg, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.4)) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Mejoras para el header de las tarjetas */
+.p-4.border-b.border-slate-700 {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.4)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Añade un sutil efecto de iluminación al pasar el mouse sobre las tarjetas */
+.bg-slate-800.border.border-slate-700.rounded-lg:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--x) var(--y), 
+                             rgba(255, 255, 255, 0.08) 0%, 
+                             rgba(255, 255, 255, 0) 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animaciones sutiles para mejorar la experiencia */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bg-slate-800.border.border-slate-700.rounded-lg,
+.market-card-animation {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Animaciones escalonadas para los elementos internos */
+.market-card-animation .p-4 h3,
+.market-card-animation .p-4 p,
+.market-card-animation .p-4 ul li {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  h1.text-3xl {
+    font-size: 1.875rem;
+  }
+  
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 {
+    gap: 1rem !important;
+  }
+  
+  .bg-info-dark {
+    padding: 1rem !important;
+  }
+  
+  .p-4 {
+    padding: 1rem !important;
+  }
+  
+  .market-card-custom,
+  .bg-slate-800.border.border-slate-700.rounded-lg {
+    border-radius: 0.75rem;
+  }
+}
+
+.market-card-animation .p-4 h3 {
+  animation-delay: 0.1s;
+}
+
+.market-card-animation .p-4 p {
+  animation-delay: 0.2s;
+}
+
+.market-card-animation .p-4 ul li:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.market-card-animation .p-4 ul li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.market-card-animation .p-4 ul li:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.market-card-animation .px-4.py-3 {
+  animation-delay: 0.6s;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  animation-delay: 0.6s;
 }
