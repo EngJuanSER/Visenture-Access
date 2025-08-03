@@ -43,9 +43,11 @@ function initializeOrderDistributionChart() {
     const options = {
         chart: {
             height: 320,
+            width: '100%',
             type: 'pie',
-            foreColor: 'var(--color-text-primary)',
-            background: 'var(--color-background-card)',
+            foreColor: '#ffffff',
+            background: 'transparent',
+            fontFamily: 'Inter, Helvetica, Arial, sans-serif',
             animations: {
                 enabled: true,
                 easing: 'easeinout',
@@ -63,18 +65,42 @@ function initializeOrderDistributionChart() {
                 enabled: true,
                 top: 3,
                 left: 2,
-                blur: 4,
-                opacity: 0.15
+                blur: 6,
+                opacity: 0.25
+            },
+            events: {
+                mounted: function(chartContext, config) {
+                    setTimeout(function() {
+                        chartContext.updateOptions({
+                            chart: {
+                                height: 'auto'
+                            }
+                        }, false, false);
+                    }, 300);
+                }
             }
         },
-        colors: ['var(--color-accent-primary)', 'var(--color-accent-negative)'],
+        colors: ['#4ade80', '#f87171'],
         series: [60, 40], // 60% compra, 40% venta
         labels: ['Compra', 'Venta'],
         legend: {
             position: 'bottom',
             horizontalAlign: 'center',
+            fontSize: '14px',
+            fontWeight: 600,
             labels: {
-                colors: 'var(--color-text-primary)'
+                colors: '#ffffff'
+            },
+            markers: {
+                width: 12,
+                height: 12,
+                strokeWidth: 0,
+                strokeColor: '#fff',
+                radius: 3
+            },
+            itemMargin: {
+                horizontal: 10,
+                vertical: 5
             }
         },
         stroke: {
@@ -87,11 +113,18 @@ function initializeOrderDistributionChart() {
                 return opts.w.config.series[opts.seriesIndex] + '%';
             },
             style: {
-                fontSize: '14px',
-                colors: ['var(--color-text-primary)']
+                fontSize: '16px',
+                fontWeight: 'bold',
+                colors: ['#FFFFFF'],
+                textShadow: '0px 1px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 0.8)'
             },
             dropShadow: {
-                enabled: true
+                enabled: true,
+                color: '#000000',
+                top: 1,
+                left: 1,
+                blur: 3,
+                opacity: 0.5
             }
         },
         tooltip: {
@@ -274,9 +307,11 @@ function initializeRechargeCommissionChart() {
     const options = {
         chart: {
             height: 320,
-            type: 'area',
-            foreColor: 'var(--color-text-primary)',
-            background: 'var(--color-background-card)',
+            width: '100%',
+            type: 'bar',
+            foreColor: '#ffffff',
+            background: 'transparent',
+            fontFamily: 'Inter, Helvetica, Arial, sans-serif',
             toolbar: {
                 show: true,
                 tools: {
@@ -287,6 +322,17 @@ function initializeRechargeCommissionChart() {
                     zoomout: true,
                     pan: false,
                     reset: true
+                },
+                export: {
+                    csv: {
+                        filename: 'Recargas-Comisiones',
+                    },
+                    svg: {
+                        filename: 'Recargas-Comisiones',
+                    },
+                    png: {
+                        filename: 'Recargas-Comisiones',
+                    }
                 }
             },
             animations: {
@@ -311,12 +357,51 @@ function initializeRechargeCommissionChart() {
                 color: 'var(--color-accent-info)'
             }
         },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                borderRadius: 6,
+                distributed: false,
+                dataLabels: {
+                    position: 'top',
+                },
+                borderRadiusApplication: 'end',
+                borderRadiusWhenStacked: 'last',
+                colors: {
+                    backgroundBarColors: [],
+                    backgroundBarOpacity: 0.1,
+                    backgroundBarRadius: 4,
+                },
+            }
+        },
         dataLabels: {
-            enabled: false
+            enabled: true,
+            offsetY: -20,
+            style: {
+                fontSize: '16px',
+                colors: ['#ffffff'],
+                fontWeight: 'bold',
+                textShadow: '0px 1px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 0.8)'
+            },
+            formatter: function(val) {
+                return '$' + val.toFixed(0);
+            },
+            dropShadow: {
+                enabled: true,
+                color: '#000000',
+                top: 1,
+                left: 1,
+                blur: 3,
+                opacity: 0.5
+            },
+            background: {
+                enabled: false
+            }
         },
         stroke: {
-            curve: 'smooth',
-            width: 3
+            width: 1,
+            colors: ['#ffffff20']
         },
         colors: ['var(--color-accent-primary)', 'var(--color-accent-info)'],
         series: [
@@ -337,28 +422,53 @@ function initializeRechargeCommissionChart() {
             }
         },
         xaxis: {
-            type: 'datetime',
             categories: [
-                '2025-01-01', '2025-02-01', '2025-03-01',
-                '2025-04-01', '2025-05-01', '2025-06-01',
-                '2025-07-01'
+                'Ene', 'Feb', 'Mar',
+                'Abr', 'May', 'Jun',
+                'Jul'
             ],
             labels: {
                 style: {
-                    colors: 'var(--color-text-primary)'
+                    colors: '#ffffff',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    textShadow: '0px 1px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 0.8)',
+                    cssClass: 'apexcharts-xaxis-label'
+                },
+                offsetY: 2,
+                dropShadow: {
+                    enabled: true,
+                    top: 1,
+                    left: 1,
+                    blur: 2,
+                    opacity: 0.5
                 }
+            },
+            axisBorder: {
+                show: true,
+                color: '#6B7280'
+            },
+            axisTicks: {
+                show: true,
+                color: '#6B7280'
             }
         },
         yaxis: {
             title: {
                 text: 'Monto ($)',
                 style: {
-                    color: 'var(--color-text-primary)'
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    textShadow: '0px 1px 2px rgba(0, 0, 0, 0.8)'
                 }
             },
             labels: {
                 style: {
-                    colors: 'var(--color-text-primary)'
+                    colors: '#ffffff',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    textShadow: '0px 1px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 0.8)',
+                    cssClass: 'apexcharts-yaxis-label'
                 },
                 formatter: function (val) {
                     return '$' + val.toLocaleString();

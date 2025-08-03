@@ -31,21 +31,168 @@
   color: var(--text-color);
 }
 
-/* Dark mode ApexCharts overrides */
-.apexcharts-text,
-.apexcharts-title-text,
+
+/* Contenedor principal del gráfico y leyenda */
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(29, 36, 46, 0.8);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.chart-container {
+  width: 100%;
+  min-height: 260px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 5px 0 0 0;
+  overflow: visible;
+}
+
+/* Estilo para el SVG principal */
+#orderDistributionChart .apexcharts-canvas,
+#orderStatusChart .apexcharts-canvas,
+#rechargeCommissionChart .apexcharts-canvas,
+#activeUsersChart .apexcharts-canvas {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  display: block !important;
+  overflow: visible !important;
+  margin: 0 auto !important;
+}
+
+#orderDistributionChart .apexcharts-canvas svg,
+#orderStatusChart .apexcharts-canvas svg,
+#rechargeCommissionChart .apexcharts-canvas svg,
+#activeUsersChart .apexcharts-canvas svg {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  overflow: visible !important;
+  display: block !important;
+}
+
+/* Mejorar la definición de los segmentos del gráfico de pastel */
+#orderDistributionChart .apexcharts-pie-series path,
+#orderStatusChart .apexcharts-pie-series path,
+#orderDistributionChart .apexcharts-donut-series path,
+#orderStatusChart .apexcharts-donut-series path {
+  stroke: #000000 !important;
+  stroke-width: 2px !important;
+  stroke-linejoin: round !important;
+  stroke-linecap: round !important;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Mejorar la apariencia de las barras */
+#rechargeCommissionChart .apexcharts-bar-series .apexcharts-series rect,
+#activeUsersChart .apexcharts-bar-series .apexcharts-series rect {
+  stroke-width: 1px !important;
+  stroke: rgba(255, 255, 255, 0.4) !important;
+  rx: 2px !important;
+  ry: 2px !important;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Mejorar la legibilidad de las barras */
+#rechargeCommissionChart .apexcharts-bar-series .apexcharts-bar,
+#activeUsersChart .apexcharts-bar-series .apexcharts-bar {
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Estilo para las etiquetas de datos */
+.apexcharts-datalabels text,
+.apexcharts-data-labels text {
+  fill: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 1), 
+               0px 0px 4px rgba(0, 0, 0, 0.8) !important;
+  stroke: #000000 !important;
+  stroke-width: 0.5px !important;
+  paint-order: stroke fill !important;
+}
+
+/* Mejorar la visibilidad de las etiquetas en los ejes */
+.apexcharts-yaxis-label text,
+.apexcharts-xaxis-label text {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 1), 
+               0px 0px 4px rgba(0, 0, 0, 0.8) !important;
+  stroke: #000000 !important;
+  stroke-width: 0.5px !important;
+  paint-order: stroke fill !important;
+}
+
+/* Mejorar la apariencia de las líneas de la cuadrícula */
+.apexcharts-grid-borders line,
+.apexcharts-grid line {
+  stroke: rgba(255, 255, 255, 0.1) !important;
+  stroke-dasharray: 3 !important;
+}
+
+/* Mejorar la apariencia de las marcas de los ejes */
+.apexcharts-xaxis-tick,
+.apexcharts-yaxis-tick {
+  stroke: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Estilos para las leyendas */
+.apexcharts-legend {
+  justify-content: center !important;
+  padding: 10px 0 !important;
+}
+
+.apexcharts-legend-series {
+  margin: 5px 15px !important;
+}
+
 .apexcharts-legend-text {
-  fill: var(--color-text-primary) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8) !important;
+  fill: #ffffff !important;
 }
 
-.apexcharts-gridline {
-  stroke: var(--color-chart-grid) !important;
+.apexcharts-legend-marker {
+  border-radius: 4px !important;
+  margin-right: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Estilos para los tooltips */
 .apexcharts-tooltip {
-  background: var(--color-chart-tooltip-bg) !important;
-  border-color: var(--color-border-primary) !important;
-  color: var(--color-text-primary) !important;
+  background-color: rgba(26, 32, 51, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+}
+
+.apexcharts-tooltip-title {
+  background-color: rgba(26, 32, 51, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
 }
 
 .apexcharts-menu {

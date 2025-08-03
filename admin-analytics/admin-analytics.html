@@ -43,19 +43,43 @@
 
             <!-- Gráficos -->
             <section aria-labelledby="charts-section-title">
-                <h2 id="charts-section-title" class="sr-only">Visualización de Datos</h2>
+                <h2 id="charts-section-title" class="text-xl font-bold text-white mb-4">Visualización de Datos</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                    <div class="chart-card">
-                        <h3 class="text-lg font-semibold text-white mb-4">Distribución de Órdenes</h3>
-                        <div id="orderDistributionChart"></div>
+                    <div class="chart-card" role="region" aria-labelledby="order-distribution-title">
+                        <h3 id="order-distribution-title" class="text-lg font-semibold text-white mb-4">Distribución de Órdenes</h3>
+                        <p class="sr-only">Este gráfico muestra la distribución de órdenes por tipo: compra y venta</p>
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <div id="orderDistributionChart" class="w-full h-full" aria-label="Gráfico de pastel que muestra la distribución de órdenes por tipo"></div>
+                                <div class="chart-description mt-2 text-sm text-gray-400 text-center">
+                                    <p>Porcentaje de órdenes de compra y venta en la plataforma</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="chart-card">
-                        <h3 class="text-lg font-semibold text-white mb-4">Estado de Órdenes (Semanal)</h3>
-                        <div id="orderStatusChart"></div>
+                    <div class="chart-card" role="region" aria-labelledby="order-status-title">
+                        <h3 id="order-status-title" class="text-lg font-semibold text-white mb-4">Estado de Órdenes (Semanal)</h3>
+                        <p class="sr-only">Este gráfico muestra el estado de las órdenes durante la última semana: completadas, pendientes y canceladas</p>
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <div id="orderStatusChart" class="w-full h-full" aria-label="Gráfico de pastel que muestra la distribución de órdenes según su estado"></div>
+                                <div class="chart-description mt-2 text-sm text-gray-400 text-center">
+                                    <p>Distribución de órdenes según su estado de ejecución</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="chart-card lg:col-span-2">
-                        <h3 class="text-lg font-semibold text-white mb-4">Reporte de Recargas y Comisiones</h3>
-                        <div id="rechargeCommissionChart"></div>
+                    <div class="chart-card lg:col-span-2" role="region" aria-labelledby="recharge-commission-title">
+                        <h3 id="recharge-commission-title" class="text-lg font-semibold text-white mb-4">Reporte de Recargas y Comisiones</h3>
+                        <p class="sr-only">Este gráfico muestra las recargas y comisiones generadas en los últimos 6 meses</p>
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <div id="rechargeCommissionChart" class="w-full h-full" aria-label="Gráfico de barras que muestra las recargas y comisiones generadas mensualmente"></div>
+                                <div class="chart-description mt-2 text-sm text-gray-400 text-center">
+                                    <p>Recargas realizadas y comisiones generadas en los últimos meses</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
