@@ -4,20 +4,50 @@
 }
 
 /* Estilos para los gráficos */
+/* Contenedor principal del gráfico y leyenda */
+.asset-chart-wrapper,
+.market-chart-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(29, 36, 46, 0.5);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor específico del gráfico */
+#clientChartContainer,
+#marketChartContainer {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: visible;
+}
+
 .chart-container {
   width: 100%;
-  height: 300px;
+  min-height: 260px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 5px 0 0 0;
+  overflow: visible;
 }
 
 .chart-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .chart-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
@@ -43,6 +73,234 @@
 .action-icon:hover {
   transform: scale(1.15);
   color: var(--color-accent-primary); /* emerald-300 */
+}
+
+/* Estilo para el SVG principal */
+#clientDistributionChart .apexcharts-canvas {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  display: block !important;
+  overflow: visible !important;
+  margin: 0 auto !important;
+}
+
+#clientDistributionChart .apexcharts-canvas svg {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  overflow: visible !important;
+  display: block !important;
+}
+
+/* Mejorar la definición de los segmentos del gráfico */
+#clientDistributionChart .apexcharts-pie-series path,
+#clientDistributionChart .apexcharts-donut-series path {
+  stroke: #000000 !important;
+  stroke-width: 2px !important;
+  stroke-linejoin: round !important;
+  stroke-linecap: round !important;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Eliminar elementos no deseados */
+#clientDistributionChart hr,
+#clientDistributionChart .apexcharts-canvas line:not(.apexcharts-gridline):not(.apexcharts-radialbar-line) {
+  display: none !important;
+  opacity: 0 !important;
+  stroke: transparent !important;
+}
+
+/* Eliminar transformaciones no deseadas */
+#clientDistributionChart .apexcharts-inner,
+#clientDistributionChart .apexcharts-graphical,
+#clientDistributionChart .apexcharts-pie,
+#clientDistributionChart .apexcharts-plot-series {
+  transform: none !important;
+}
+
+/* Mejorar la responsividad de la leyenda */
+#clientDistributionChart .apexcharts-legend {
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin-top: -5px !important;
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  background-color: transparent !important;
+  overflow: visible !important;
+}
+
+#clientDistributionChart .apexcharts-legend-series {
+  margin: 2px 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 1px 3px !important;
+  border-radius: 3px !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Mejorar tamaño de texto en las etiquetas del gráfico */
+#clientDistributionChart .apexcharts-datalabel text,
+#clientDistributionChart .apexcharts-datalabel-label,
+#clientDistributionChart .apexcharts-datalabel-value,
+#clientDistributionChart text.apexcharts-pie-label,
+#clientDistributionChart tspan {
+  fill: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 1), 
+               0px 0px 4px rgba(0, 0, 0, 0.8), 
+               0px 0px 1px rgba(0, 0, 0, 0.9) !important;
+  stroke: #000000 !important;
+  stroke-width: 1px !important;
+  paint-order: stroke fill !important;
+  -webkit-text-stroke: 1px #000000 !important;
+}
+
+/* Mejorar tamaño y contraste de la leyenda */
+#clientDistributionChart .apexcharts-legend-text {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+#clientDistributionChart .apexcharts-legend-marker {
+  margin-right: 6px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Ajustes de responsividad */
+@media (min-width: 1200px) {
+  #clientDistributionChart {
+    max-width: 480px;
+  }
+  
+  .chart-container {
+    min-height: 280px;
+  }
+  
+  #clientDistributionChart .apexcharts-canvas,
+  #clientDistributionChart .apexcharts-canvas svg {
+    min-height: 280px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #clientDistributionChart {
+    max-width: 400px;
+  }
+  
+  .chart-container {
+    min-height: 300px;
+    padding: 5px 0 5px 0;
+  }
+  
+  #clientDistributionChart .apexcharts-datalabel text,
+  #clientDistributionChart .apexcharts-datalabel-label,
+  #clientDistributionChart .apexcharts-datalabel-value,
+  #clientDistributionChart text.apexcharts-pie-label,
+  #clientDistributionChart tspan {
+    font-size: 16px !important;
+  }
+  
+  #clientDistributionChart .apexcharts-legend-text {
+    font-size: 13px !important;
+  }
+}
+
+/* Estilos específicos para el gráfico de barras */
+#commissionsByMarketChart .apexcharts-canvas {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  display: block !important;
+  overflow: visible !important;
+  margin: 0 auto !important;
+}
+
+#commissionsByMarketChart .apexcharts-canvas svg {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  overflow: visible !important;
+  display: block !important;
+}
+
+/* Mejorar la visibilidad de las etiquetas en el gráfico de barras */
+#commissionsByMarketChart .apexcharts-yaxis-label text,
+#commissionsByMarketChart .apexcharts-xaxis-label text {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 1), 
+               0px 0px 4px rgba(0, 0, 0, 0.8) !important;
+  stroke: #000000 !important;
+  stroke-width: 0.5px !important;
+  paint-order: stroke fill !important;
+}
+
+/* Mejorar la legibilidad de las barras */
+#commissionsByMarketChart .apexcharts-bar-series .apexcharts-bar {
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Mejorar la apariencia de las barras */
+#commissionsByMarketChart .apexcharts-bar-series .apexcharts-series rect {
+  stroke-width: 1px !important;
+  stroke: rgba(255, 255, 255, 0.4) !important;
+  rx: 2px !important;
+  ry: 2px !important;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Mejorar la apariencia de las líneas de la cuadrícula */
+#commissionsByMarketChart .apexcharts-grid-borders line,
+#commissionsByMarketChart .apexcharts-grid line {
+  stroke: rgba(255, 255, 255, 0.1) !important;
+  stroke-dasharray: 3 !important;
+}
+
+/* Mejorar la apariencia de las marcas de los ejes */
+#commissionsByMarketChart .apexcharts-xaxis-tick,
+#commissionsByMarketChart .apexcharts-yaxis-tick {
+  stroke: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Estilo para las etiquetas de datos en las barras */
+#commissionsByMarketChart .apexcharts-datalabels text,
+#commissionsByMarketChart .apexcharts-data-labels text {
+  fill: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 1), 
+               0px 0px 4px rgba(0, 0, 0, 0.8), 
+               0px 0px 1px rgba(0, 0, 0, 0.9) !important;
+  stroke: #000000 !important;
+  stroke-width: 1px !important;
+  paint-order: stroke fill !important;
+  -webkit-text-stroke: 1px #000000 !important;
+}
+
+/* Mejorar la responsividad de la leyenda en el gráfico de barras */
+#commissionsByMarketChart .apexcharts-legend {
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  position: relative !important;
 }
 
 /* Celdas de la tabla */
@@ -650,4 +908,37 @@ input:focus {
 .apexcharts-tooltip {
   background-color: #1f2937 !important;
   color: #ffffff !important;
+}
+
+/* Estilos responsivos para los gráficos */
+@media (max-width: 768px) {
+  #commissionsByMarketChart {
+    height: 300px;
+  }
+  
+  #commissionsByMarketChart .apexcharts-datalabels text,
+  #commissionsByMarketChart .apexcharts-data-labels text {
+    font-size: 14px !important;
+  }
+  
+  #commissionsByMarketChart .apexcharts-yaxis-label text,
+  #commissionsByMarketChart .apexcharts-xaxis-label text {
+    font-size: 12px !important;
+  }
+  
+  .market-chart-wrapper,
+  .asset-chart-wrapper {
+    padding: 5px;
+  }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 640px) {
+  #commissionsByMarketChart {
+    height: 250px;
+  }
+  
+  .chart-description {
+    font-size: 11px;
+  }
 }

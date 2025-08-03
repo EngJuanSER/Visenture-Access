@@ -17,13 +17,13 @@
                     <div class="flex space-x-2 mt-2 sm:mt-0" role="group" aria-label="Acciones de exportación">
                         <button 
                             class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150"
-                            aria-label="Exportar datos en formato PDF">
+                            aria-label="Exportar datos en formato PDF con icono de PDF">
                             <i class="fa-solid fa-file-pdf mr-1" aria-hidden="true"></i>
                             <span>Exportar PDF</span>
                         </button>
                         <button 
                             class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center text-sm transition-colors duration-150"
-                            aria-label="Exportar datos en formato Excel">
+                            aria-label="Exportar datos en formato Excel con icono de tabla">
                             <i class="fa-solid fa-table mr-1" aria-hidden="true"></i>
                             <span>Exportar Excel</span>
                         </button>
@@ -111,15 +111,28 @@
                             <h2 id="charts-title" class="sr-only">Gráficos de Análisis</h2>
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                                 <!-- Distribución de clientes -->
-                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card" role="img" aria-labelledby="client-distribution-title">
-                                    <h3 id="client-distribution-title" class="text-gray-300 font-medium mb-4">Distribución de Clientes</h3>
-                                    <div id="clientDistributionChart" class="h-[300px] w-full chart-container" aria-label="Gráfico de distribución de clientes por categoría"></div>
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card flex-auto" role="img" aria-labelledby="client-distribution-title">
+                                    <h3 id="client-distribution-title" class="text-white font-semibold mb-2">Distribución de Clientes</h3>
+                                    <p class="sr-only">Este gráfico muestra la distribución entre clientes activos e inactivos</p>
+                                    <div class="asset-chart-wrapper">
+                                        <div class="chart-container" id="clientChartContainer">
+                                            <div id="clientDistributionChart" class="w-full" aria-label="Gráfico de distribución de clientes por categoría"></div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Comisiones por mercado -->
-                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card" role="img" aria-labelledby="commissions-market-title">
-                                    <h3 id="commissions-market-title" class="text-gray-300 font-medium mb-4">Comisiones por Mercado</h3>
-                                    <div id="commissionsByMarketChart" class="h-[300px] w-full chart-container" aria-label="Gráfico de comisiones distribuidas por mercado"></div>
+                                <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 chart-card flex-auto" role="region" aria-labelledby="commissions-market-title">
+                                    <h3 id="commissions-market-title" class="text-white font-semibold mb-4">Comisiones por Mercado</h3>
+                                    <p class="sr-only">Este gráfico muestra la distribución de comisiones por cada mercado: NASDAQ y NYSE</p>
+                                    <div class="market-chart-wrapper">
+                                        <div class="chart-container" id="marketChartContainer">
+                                            <div id="commissionsByMarketChart" class="w-full h-full" aria-label="Gráfico de barras que muestra comisiones distribuidas por mercado"></div>
+                                            <div class="chart-description mt-2 text-sm text-gray-400 text-center">
+                                                <p>Distribución de ingresos por comisiones entre los principales mercados</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
