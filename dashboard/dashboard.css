@@ -1,5 +1,19 @@
 /* CSS specific to dashboard page */
 
+/* Estilos para la página del dashboard */
+.content-placeholder {
+  width: 100%;
+}
+
+/* Estilos para los gráficos */
+.chart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Estilos específicos para formularios en modo oscuro */
 input, 
 textarea {
@@ -80,4 +94,47 @@ button:focus {
 .apexcharts-yaxis-label text,
 .apexcharts-xaxis-label text {
   fill: #ffffff !important;
+}
+
+/* Estilos para los gráficos de ApexCharts */
+.apexcharts-tooltip {
+  background: var(--color-background-med) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-white) !important;
+}
+
+.apexcharts-tooltip-title {
+  background: var(--color-background-light) !important;
+  border-bottom-color: var(--color-border) !important;
+  color: var(--color-text-white) !important;
+}
+
+.apexcharts-tooltip-marker {
+  background-color: var(--color-brand) !important;
+}
+
+.apexcharts-xcrosshairs, .apexcharts-ycrosshairs {
+  stroke: var(--color-border) !important;
+}
+
+.apexcharts-gridline {
+  stroke: var(--color-border) !important;
+}
+
+.apexcharts-text, .apexcharts-xaxis-label, .apexcharts-yaxis-label {
+  fill: var(--color-text-light) !important;
+}
+
+.apexcharts-legend-text {
+  color: var(--color-text-light) !important;
+}
+
+.apexcharts-menu-item {
+  color: var(--color-text-light) !important;
+  background-color: var(--color-background-med) !important;
+}
+
+.apexcharts-menu-item:hover {
+  color: var(--color-text-white) !important;
+  background-color: var(--color-background-light) !important;
 }

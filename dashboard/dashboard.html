@@ -29,17 +29,17 @@
     <!-- Chart Controls -->
     <div class="bg-slate-800 p-4 rounded-lg shadow-md mb-6 border border-slate-700 flex flex-wrap items-center justify-between">
       <div class="flex items-center space-x-4">
-        <div>
-          <label for="period-select" class="text-xs font-medium text-gray-300 mb-1 block">Periodo:</label>
-          <select id="period-select" class="border border-slate-600 rounded-md text-sm p-1 bg-slate-700 text-gray-200">
+        <div class="flex flex-col">
+          <label for="period-select" class="text-xs font-medium text-accessible-light mb-1">Período</label>
+          <select id="period-select" class="border border-slate-600 rounded-md text-sm p-1 bg-slate-700 text-white">
             <option value="1d">1 Día</option>
             <option value="5d">5 Días</option>
             <option value="1mo">1 Mes</option>
           </select>
         </div>
-        <div>
-          <label for="interval-select" class="text-xs font-medium text-gray-300 mb-1 block">Intervalo:</label>
-          <select id="interval-select" class="border border-slate-600 rounded-md text-sm p-1 bg-slate-700 text-gray-200">
+        <div class="flex flex-col">
+          <label for="interval-select" class="text-xs font-medium text-accessible-light mb-1">Intervalo</label>
+          <select id="interval-select" class="border border-slate-600 rounded-md text-sm p-1 bg-slate-700 text-white">
             <option value="1m">1 Minuto</option>
             <option value="5m">5 Minutos</option>
             <option value="15m">15 Minutos</option>
@@ -58,10 +58,10 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
       <div class="lg:col-span-2 bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="font-semibold text-emerald-400">
+          <h2 class="font-semibold text-accessible-brand">
             AAPL - Evolución de Precios
           </h2>
-          <span class="text-xs px-2 py-1 rounded-full bg-yellow-900 text-yellow-400">
+          <span class="text-xs px-2 py-1 rounded-full tag-warning">
             Datos Simulados
           </span>
         </div>
@@ -74,17 +74,17 @@
       
       <!-- Watchlist -->
       <div class="bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700">
-        <h2 class="font-semibold text-emerald-400 mb-4">Lista de Observación</h2>
+        <h2 class="font-semibold text-accessible-brand mb-4">Lista de Observación</h2>
         
         <div class="space-y-3">
           <div class="flex items-center justify-between p-3 border-b border-slate-700 cursor-pointer hover:bg-slate-700/50">
             <div>
               <div class="font-medium">AAPL</div>
-              <div class="text-xs text-gray-400">Apple Inc.</div>
+              <div class="text-xs text-accessible-light">Apple Inc.</div>
             </div>
             <div class="text-right">
               <div class="font-semibold">$150.00</div>
-              <div class="text-green-400 text-xs flex items-center justify-end">
+              <div class="text-accessible-success text-xs flex items-center justify-end">
                 <span class="mr-1">+</span>1.25%
               </div>
             </div>
@@ -92,11 +92,11 @@
           <div class="flex items-center justify-between p-3 border-b border-slate-700 cursor-pointer hover:bg-slate-700/50">
             <div>
               <div class="font-medium">GOOGL</div>
-              <div class="text-xs text-gray-400">Alphabet Inc.</div>
+              <div class="text-xs text-accessible-light">Alphabet Inc.</div>
             </div>
             <div class="text-right">
               <div class="font-semibold">$2800.00</div>
-              <div class="text-red-400 text-xs flex items-center justify-end">
+              <div class="text-accessible-danger text-xs flex items-center justify-end">
                 <span class="mr-1">-</span>0.50%
               </div>
             </div>
@@ -107,21 +107,21 @@
     
     <!-- Mercados disponibles -->
     <div class="bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700 mb-8">
-      <h2 class="font-semibold text-emerald-400 mb-4">Mercados Disponibles</h2>
+      <h2 class="font-semibold text-accessible-brand mb-4">Mercados Disponibles</h2>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div class="border border-slate-700 rounded-lg p-3 hover:bg-slate-700/50 cursor-pointer">
           <div class="font-medium">NASDAQ</div>
-          <div class="text-xs text-gray-400">USA</div>
+          <div class="text-xs text-accessible-light">USA</div>
           <div class="mt-1.5 flex items-center">
-            <span class="inline-block w-2 h-2 rounded-full mr-1 bg-green-500"></span>
-            <span class="text-xs text-green-600">Abierto</span>
+            <span class="inline-block w-2 h-2 rounded-full mr-1 bg-accessible-success-bg"></span>
+            <span class="text-xs text-accessible-success">Abierto</span>
           </div>
         </div>
       </div>
       
       <div class="mt-4 text-center">
-        <a href="../markets/markets.html" class="text-sm text-emerald-400 hover:underline">
+        <a href="../markets/index.html" class="text-sm text-accessible-brand hover:underline">
           Ver todos los mercados
         </a>
       </div>
@@ -130,20 +130,21 @@
     
     <!-- Órdenes Recientes -->
     <div class="bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700 mb-8">
-      <h2 class="font-semibold text-emerald-400 mb-4">Órdenes Recientes</h2>
+      <h2 class="font-semibold text-accessible-brand mb-4">Órdenes Recientes</h2>
       
       <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-slate-700">
+          <caption class="text-lg font-semibold text-white mb-4 text-left sr-only">Historial de transacciones recientes</caption>
           <thead class="bg-slate-700/50">
             <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ID</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Símbolo</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Tipo</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Cantidad</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Precio Promedio</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Total Aproximado</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Fecha Creación</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Estado</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">ID</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Símbolo</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Tipo</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Cantidad</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Precio Promedio</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Total Aproximado</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Fecha Creación</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-accessible-light uppercase tracking-wider">Estado</th>
             </tr>
           </thead>
           <tbody class="bg-slate-800 divide-y divide-slate-700">
@@ -151,14 +152,14 @@
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">12345</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-white">AAPL</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">
-                <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-green-900/30 text-green-400">Compra</span>
+                <span class="px-2 py-0.5 rounded-full text-xs font-medium tag-success">Compra</span>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-white">10</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-white">$150.00</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-white">$1500.00</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">24/07/2025 10:30</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-accessible-light">24/07/2025 10:30</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">
-                <span class="px-2 py-0.5 rounded-full text-xs font-medium capitalize bg-green-900/30 text-green-400">Completada</span>
+                <span class="px-2 py-0.5 rounded-full text-xs font-medium capitalize tag-success">Completada</span>
               </td>
             </tr>
           </tbody>

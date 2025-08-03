@@ -1,3 +1,36 @@
+/**
+ * Gráficos para el Dashboard
+ * Implementados con ApexCharts
+ */
+
+/**
+ * Inicializa los gráficos del dashboard
+ */
+function initDashboardCharts() {
+    console.log("Inicializando gráficos del dashboard...");
+    
+    // Comprobar que el contenedor para el gráfico existe
+    const chartContainer = document.getElementById('stock-price-chart');
+    if (!chartContainer) {
+        console.error("No se encontró el contenedor para el gráfico de precios");
+        console.log("Esperando 500ms e intentando de nuevo...");
+        
+        setTimeout(() => {
+            const retryContainer = document.getElementById('stock-price-chart');
+            if (retryContainer) {
+                console.log("Contenedor encontrado en segundo intento");
+                renderStockPriceChart(retryContainer);
+            } else {
+                console.error("No se encontró el contenedor después del segundo intento");
+            }
+        }, 500);
+        return;
+    }
+    
+    // Si tenemos el contenedor, renderizamos el gráfico
+    renderStockPriceChart(chartContainer);
+}
+
 // Función para crear un gráfico de línea básico usando ApexCharts
 function createBasicLineChart(chartId, title) {
   const options = {
@@ -8,7 +41,7 @@ function createBasicLineChart(chartId, title) {
       toolbar: {
         show: true
       },
-      background: '#1e293b', // slate-800
+      background: 'transparent',
       animations: {
         enabled: true,
         easing: 'easeinout',

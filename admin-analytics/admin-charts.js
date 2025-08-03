@@ -3,7 +3,7 @@
  * Script para inicializar y manejar los gráficos del dashboard administrativo
  */
 
-document.addEventListener('analyticsContentLoaded', function() {
+function initAdminCharts() {
     console.log("Inicializando gráficos para el panel de administración...");
     
     // Verificar que los contenedores existan
@@ -28,7 +28,7 @@ document.addEventListener('analyticsContentLoaded', function() {
             console.warn(`Contenedor #${containerId} no encontrado en el documento`);
         }
     });
-});
+}
 
 // Función para inicializar el gráfico de distribución de órdenes
 function initializeOrderDistributionChart() {

@@ -1,329 +1,315 @@
 <main role="main" aria-labelledby="portfolio-title">
-  <div class="min-h-screen bg-slate-950 p-6">
-    <div class="container mx-auto max-w                  <div class="flex gap-1">
-                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Apple">
-                      <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Apple">
-                      <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
-                  </div>     <div class="mb-8">
+  <div class="bg-slate-950 p-6">
+    <div class="container mx-auto">
+      <div class="mb-8">
         <h1 id="portfolio-title" class="text-3xl font-bold text-white mb-2">Mi Portafolio</h1>
-        <p class="text-slate-400" aria-describedby="portfolio-title">Administra y supervisa tus inversiones</p>
+        <p class="text-accessible-light" aria-describedby="portfolio-title">Administra y supervisa tus inversiones</p>
       </div>
 
       <!-- Resumen del portafolio -->
       <section aria-labelledby="portfolio-summary-title">
         <h2 id="portfolio-summary-title" class="sr-only">Resumen del Portafolio</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="total-value-title">
-            <p id="total-value-title" class="text-sm text-gray-400">Valor Total</p>
-            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Valor total del portafolio: 24,850 dólares con 75 centavos">$24,850.75</h3>
-            <p class="text-xs text-emerald-500 flex items-center" aria-label="Incremento del 2.4% hoy">
-              <i class="fas fa-caret-up mr-1" aria-hidden="true"></i>+2.4% hoy
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="bg-slate-800 p-5 rounded-lg border border-slate-700" role="article" aria-labelledby="total-value-title">
+            <p id="total-value-title" class="text-sm font-medium text-accessible-light">Valor Total</p>
+            <h3 class="text-2xl font-bold text-accessible-brand mt-2" aria-label="Valor total del portafolio: 24,850 dólares con 75 centavos">$24,850.75</h3>
+            <p class="text-xs text-accessible-success flex items-center mt-1" aria-label="Incremento del 2.4% hoy">
+              <i class="fa-solid fa-caret-up mr-1" aria-hidden="true"></i>+2.4% hoy
             </p>
           </div>
-          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="performance-title">
-            <p id="performance-title" class="text-sm text-gray-400">Rendimiento</p>
-            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Rendimiento: más 1,230 dólares con 45 centavos">+$1,230.45</h3>
-            <p class="text-xs text-emerald-500 flex items-center" aria-label="Incremento total del 5.2%">
-              <i class="fas fa-caret-up mr-1" aria-hidden="true"></i>+5.2% total
+          <div class="bg-slate-800 p-5 rounded-lg border border-slate-700" role="article" aria-labelledby="performance-title">
+            <p id="performance-title" class="text-sm font-medium text-accessible-light">Rendimiento</p>
+            <h3 class="text-2xl font-bold text-accessible-success mt-2" aria-label="Rendimiento: más 1,230 dólares con 45 centavos">+$1,230.45</h3>
+            <p class="text-xs text-accessible-success flex items-center mt-1" aria-label="Incremento total del 5.2%">
+              <i class="fa-solid fa-caret-up mr-1" aria-hidden="true"></i>+5.2% total
             </p>
           </div>
-          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="stocks-title">
-            <p id="stocks-title" class="text-sm text-gray-400">Acciones</p>
-            <h3 class="text-2xl font-bold text-white" aria-label="12 acciones en total">12</h3>
-            <p class="text-xs text-gray-400">En 5 mercados</p>
+          <div class="bg-slate-800 p-5 rounded-lg border border-slate-700" role="article" aria-labelledby="stocks-title">
+            <p id="stocks-title" class="text-sm font-medium text-accessible-light">Acciones</p>
+            <h3 class="text-2xl font-bold text-white mt-2" aria-label="12 acciones en total">12</h3>
+            <p class="text-xs text-accessible-dark mt-1">En 5 mercados</p>
           </div>
-          <div class="bg-slate-800 p-4 rounded-lg shadow-lg" role="article" aria-labelledby="annual-growth-title">
-            <p id="annual-growth-title" class="text-sm text-gray-400">Crecimiento Anual</p>
-            <h3 class="text-2xl font-bold text-emerald-400" aria-label="Crecimiento anual del 12.8%">+12.8%</h3>
-            <p class="text-xs text-gray-400">vs. 8.5% S&P 500</p>
+          <div class="bg-slate-800 p-5 rounded-lg border border-slate-700" role="article" aria-labelledby="annual-growth-title">
+            <p id="annual-growth-title" class="text-sm font-medium text-accessible-light">Crecimiento Anual</p>
+            <h3 class="text-2xl font-bold text-accessible-success mt-2" aria-label="Crecimiento anual del 12.8%">+12.8%</h3>
+            <p class="text-xs text-accessible-dark mt-1">vs. 8.5% S&P 500</p>
           </div>
         </div>
       </section>
 
       <!-- Sección Acciones Compradas -->
       <section aria-labelledby="investments-section-title">
-        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
+        <div class="bg-slate-800 rounded-lg border border-slate-700 overflow-hidden mb-6">
           <div class="border-b border-slate-700 p-4 flex justify-between items-center">
             <h2 id="investments-section-title" class="text-xl font-semibold text-white flex items-center">
-              <i class="fas fa-chart-line mr-2 text-emerald-400" aria-hidden="true"></i>
+              <i class="fa-solid fa-chart-pie mr-3 text-accessible-brand" aria-hidden="true"></i>
               Mis Inversiones
             </h2>
-            <div class="flex items-center space-x-2">
-              <a href="#" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded flex items-center text-sm" 
-                 aria-label="Crear nueva inversión">
-                <i class="fas fa-plus mr-1" aria-hidden="true"></i> Nueva inversión
-              </a>
-            </div>
+            <a href="#" class="btn-primary text-sm" aria-label="Crear nueva inversión">
+              <i class="fa-solid fa-plus mr-2" aria-hidden="true"></i> Nueva inversión
+            </a>
           </div>
 
           <!-- Estado de carga -->
           <div style="display: none;" class="flex justify-center items-center py-12" role="status" aria-live="polite">
-            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500" aria-hidden="true"></div>
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accessible-brand" aria-hidden="true"></div>
             <div class="ml-4">
-              <p class="text-lg font-medium text-gray-300">Cargando acciones...</p>
-              <p class="text-sm text-gray-400">Esto puede tardar unos segundos</p>
-        </div>
-      </div>
+              <p class="text-lg font-medium text-white">Cargando acciones...</p>
+              <p class="text-sm text-accessible-light">Esto puede tardar unos segundos</p>
+            </div>
+          </div>
 
-      <!-- Estado de error -->
-      <div style="display: none;" class="bg-red-900/30 border border-red-800 rounded-lg m-4 p-6 flex flex-col md:flex-row items-center justify-between shadow-md">
-        <div class="flex items-center mb-4 md:mb-0">
-          <i class="fas fa-exclamation-circle text-red-400 mr-3"></i>
-          <div>
-            <p class="text-red-300 font-medium">Error al cargar el portafolio</p>
-            <p class="text-xs text-red-400 mt-1">Por favor, intenta nuevamente o contacta con soporte si el error persiste.</p>
+          <!-- Estado de error -->
+          <div style="display: none;" class="bg-error-dark border border-error-dark-hover rounded-lg m-4 p-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-4 md:mb-0">
+              <i class="fa-solid fa-exclamation-circle text-accessible-error mr-3 text-xl"></i>
+              <div>
+                <p class="text-white font-medium">Error al cargar el portafolio</p>
+                <p class="text-xs text-accessible-error mt-1">Por favor, intenta nuevamente o contacta con soporte.</p>
+              </div>
+            </div>
+            <button class="btn-danger">Reintentar</button>
           </div>
-        </div>
-        <button class="px-4 py-2 bg-red-800 text-red-200 rounded hover:bg-red-700 transition-colors">
-          Reintentar
-        </button>
-      </div>
 
-      <!-- Filtros y ordenamiento -->
-      <div class="p-4 bg-slate-850 border-b border-slate-700">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div class="flex items-center">
-            <span class="text-gray-300 mr-2">Ordenar por:</span>
-            <select class="bg-slate-700 text-white border border-slate-600 rounded px-3 py-1">
-              <option>Nombre</option>
-              <option>Precio (mayor a menor)</option>
-              <option>Precio (menor a mayor)</option>
-              <option>Rendimiento (mayor a menor)</option>
-            </select>
+          <!-- Filtros y ordenamiento -->
+          <div class="p-4 bg-slate-800/50 border-b border-slate-700">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div class="flex items-center">
+                <label for="sort-by" class="text-accessible-light mr-2">Ordenar por:</label>
+                <select id="sort-by" class="input-control">
+                  <option>Nombre</option>
+                  <option>Precio (mayor a menor)</option>
+                  <option>Precio (menor a mayor)</option>
+                  <option>Rendimiento (mayor a menor)</option>
+                </select>
+              </div>
+              <div class="relative">
+                <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-accessible-dark"></i>
+                <input type="text" placeholder="Buscar por símbolo o nombre" class="input-control pl-9 w-full md:w-auto">
+              </div>
+            </div>
           </div>
-          <div class="relative">
-            <i class="fa-solid fa-search absolute left-3 top-2 text-gray-500"></i>
-            <input type="text" placeholder="Buscar por símbolo o nombre" class="bg-slate-700 text-white border border-slate-600 rounded pl-9 pr-4 py-1 w-full md:w-auto">
-          </div>
-        </div>
-      </div>
       
-      <!-- Lista de acciones en el portfolio -->
-      <div class="p-4">
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-slate-700">
-            <thead>
-              <tr>
-                <th scope="col" class="p-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Activo</th>
-                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Precio</th>
-                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Cambio</th>
-                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Cantidad</th>
-                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Valor</th>
-                <th scope="col" class="p-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Acciones</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-700">
-              <!-- Acción 1: Apple -->
-              <tr class="hover:bg-slate-750 transition-colors">
-                <td class="p-3 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
-                      <i class="fa-brands fa-apple text-white text-xl"></i>
+          <!-- Lista de acciones en el portfolio -->
+          <div class="overflow-x-auto">
+            <table class="min-w-full">
+              <thead class="bg-slate-700/50">
+                <tr>
+                  <th scope="col" class="px-6 py-3.5 text-left text-xs font-semibold text-accessible-light uppercase tracking-wider">Activo</th>
+                  <th scope="col" class="px-6 py-3.5 text-right text-xs font-semibold text-accessible-light uppercase tracking-wider">Precio</th>
+                  <th scope="col" class="px-6 py-3.5 text-right text-xs font-semibold text-accessible-light uppercase tracking-wider">Cambio</th>
+                  <th scope="col" class="px-6 py-3.5 text-right text-xs font-semibold text-accessible-light uppercase tracking-wider">Cantidad</th>
+                  <th scope="col" class="px-6 py-3.5 text-right text-xs font-semibold text-accessible-light uppercase tracking-wider">Valor</th>
+                  <th scope="col" class="px-6 py-3.5 text-center text-xs font-semibold text-accessible-light uppercase tracking-wider">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-700">
+                <!-- Acción 1: Apple -->
+                <tr class="hover:bg-slate-700/30 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="bg-slate-700 rounded-full p-2 mr-4 h-10 w-10 flex items-center justify-center">
+                        <i class="fa-brands fa-apple text-white text-xl"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-white">Apple Inc.</div>
+                        <div class="text-sm text-accessible-dark">AAPL</div>
+                      </div>
                     </div>
-                    <div>
-                      <div class="font-medium text-white">Apple Inc.</div>
-                      <div class="text-sm text-gray-400">AAPL</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white text-base font-medium">$183.79</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-accessible-success font-medium">+2.45%</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white">15</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white font-medium">$2,756.85</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <div class="flex justify-center space-x-2">
+                      <button class="btn-icon btn-success" aria-label="Comprar más acciones de Apple">
+                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                      </button>
+                      <button class="btn-icon btn-danger" aria-label="Vender acciones de Apple">
+                        <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
+                      </button>
                     </div>
-                  </div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white text-base font-medium">$183.79</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-emerald-400 font-medium">+2.45%</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white">15</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white font-medium">$2,756.85</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="flex justify-end space-x-2">
-                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Apple">
-                      <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Apple">
-                      <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              
-              <!-- Acción 2: Tesla -->
-              <tr class="hover:bg-slate-750 transition-colors">
-                <td class="p-3 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
-                      <i class="fa-solid fa-bolt text-white text-xl"></i>
+                  </td>
+                </tr>
+                
+                <!-- Acción 2: Tesla -->
+                <tr class="hover:bg-slate-700/30 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="bg-slate-700 rounded-full p-2 mr-4 h-10 w-10 flex items-center justify-center">
+                        <i class="fa-solid fa-bolt text-white text-xl"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-white">Tesla Inc.</div>
+                        <div class="text-sm text-accessible-dark">TSLA</div>
+                      </div>
                     </div>
-                    <div>
-                      <div class="font-medium text-white">Tesla Inc.</div>
-                      <div class="text-sm text-gray-400">TSLA</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white text-base font-medium">$228.82</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-accessible-error font-medium">-0.84%</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white">8</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white font-medium">$1,830.56</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <div class="flex justify-center space-x-2">
+                      <button class="btn-icon btn-success" aria-label="Comprar más acciones de Tesla">
+                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                      </button>
+                      <button class="btn-icon btn-danger" aria-label="Vender acciones de Tesla">
+                        <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
+                      </button>
                     </div>
-                  </div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white text-base font-medium">$228.82</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-red-400 font-medium">-0.84%</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white">8</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white font-medium">$1,830.56</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="flex justify-end space-x-2">
-                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Tesla">
-                      <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Tesla">
-                      <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              
-              <!-- Acción 3: Microsoft -->
-              <tr class="hover:bg-slate-750 transition-colors">
-                <td class="p-3 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
-                      <i class="fa-brands fa-microsoft text-white text-xl"></i>
+                  </td>
+                </tr>
+                
+                <!-- Acción 3: Microsoft -->
+                <tr class="hover:bg-slate-700/30 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="bg-slate-700 rounded-full p-2 mr-4 h-10 w-10 flex items-center justify-center">
+                        <i class="fa-brands fa-microsoft text-white text-xl"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-white">Microsoft Corp.</div>
+                        <div class="text-sm text-accessible-dark">MSFT</div>
+                      </div>
                     </div>
-                    <div>
-                      <div class="font-medium text-white">Microsoft Corp.</div>
-                      <div class="text-sm text-gray-400">MSFT</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white text-base font-medium">$315.75</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-accessible-success font-medium">+1.31%</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white">10</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white font-medium">$3,157.50</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <div class="flex justify-center space-x-2">
+                      <button class="btn-icon btn-success" aria-label="Comprar más acciones de Microsoft">
+                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                      </button>
+                      <button class="btn-icon btn-danger" aria-label="Vender acciones de Microsoft">
+                        <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
+                      </button>
                     </div>
-                  </div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white text-base font-medium">$315.75</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-emerald-400 font-medium">+1.31%</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white">10</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white font-medium">$3,157.50</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="flex justify-end space-x-2">
-                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Microsoft">
-                      <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Microsoft">
-                      <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              
-              <!-- Acción 4: Amazon -->
-              <tr class="hover:bg-slate-750 transition-colors">
-                <td class="p-3 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="bg-slate-700 rounded-full p-2 mr-3 h-10 w-10 flex items-center justify-center">
-                      <i class="fa-brands fa-amazon text-white text-xl"></i>
+                  </td>
+                </tr>
+                
+                <!-- Acción 4: Amazon -->
+                <tr class="hover:bg-slate-700/30 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="bg-slate-700 rounded-full p-2 mr-4 h-10 w-10 flex items-center justify-center">
+                        <i class="fa-brands fa-amazon text-white text-xl"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-white">Amazon.com Inc.</div>
+                        <div class="text-sm text-accessible-dark">AMZN</div>
+                      </div>
                     </div>
-                    <div>
-                      <div class="font-medium text-white">Amazon.com Inc.</div>
-                      <div class="text-sm text-gray-400">AMZN</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white text-base font-medium">$146.32</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-accessible-success font-medium">+0.95%</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white">12</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <div class="text-white font-medium">$1,755.84</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <div class="flex justify-center space-x-2">
+                      <button class="btn-icon btn-success" aria-label="Comprar más acciones de Amazon">
+                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                      </button>
+                      <button class="btn-icon btn-danger" aria-label="Vender acciones de Amazon">
+                        <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
+                      </button>
                     </div>
-                  </div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white text-base font-medium">$146.32</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-emerald-400 font-medium">+0.95%</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white">12</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="text-white font-medium">$1,755.84</div>
-                </td>
-                <td class="p-3 whitespace-nowrap text-right">
-                  <div class="flex justify-end space-x-2">
-                    <button class="p-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded" aria-label="Comprar más acciones de Amazon">
-                      <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="p-1 bg-red-600 hover:bg-red-700 text-white rounded" aria-label="Vender acciones de Amazon">
-                      <i class="fa-solid fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- Paginación -->
-        <div class="flex justify-between items-center pt-4">
-          <div class="text-sm text-gray-400">Mostrando 4 de 12 activos</div>
-          <div class="flex space-x-1">
-            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600 disabled:opacity-50" disabled>
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="px-3 py-1 bg-emerald-600 text-white rounded-md">1</button>
-            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">2</button>
-            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">3</button>
-            <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">
-              <i class="fas fa-chevron-right"></i>
-            </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Resumen del portafolio y gráficos -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-      <!-- Distribución del portafolio -->
-      <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
-        <div class="border-b border-slate-700 p-4">
-          <h2 class="text-lg font-semibold text-white">Distribución del Portafolio</h2>
-        </div>
-        <div class="p-4 flex justify-center">
-          <div class="w-full max-w-md">
-            <div class="rounded-lg p-4">
-              <div id="assetDistributionChart" class="h-64"></div>
+        
+          <!-- Paginación -->
+          <div class="flex justify-between items-center p-4 border-t border-slate-700">
+            <div class="text-sm text-accessible-light">Mostrando 4 de 12 activos</div>
+            <div class="flex space-x-1">
+              <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600 disabled:opacity-50" disabled>
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button class="px-3 py-1 bg-accessible-brand text-slate-900 rounded-md">1</button>
+              <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">2</button>
+              <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">3</button>
+              <button class="px-3 py-1 bg-slate-700 text-white rounded-md hover:bg-slate-600">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Rendimiento histórico -->
-      <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden">
-        <div class="border-b border-slate-700 p-4">
-          <h2 class="text-lg font-semibold text-white">Rendimiento Histórico</h2>
-        </div>
-        <div class="p-4">
-          <div class="rounded-lg p-4">
-            <div id="performanceChart" class="h-64"></div>
+      </section>
+    
+      <!-- Resumen del portafolio y gráficos -->
+      <section aria-labelledby="charts-section-title">
+        <h2 id="charts-section-title" class="sr-only">Gráficos del Portafolio</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+          <!-- Distribución del portafolio -->
+          <div class="bg-slate-800 rounded-lg border border-slate-700">
+            <div class="border-b border-slate-700 p-4">
+              <h3 class="text-lg font-semibold text-white">Distribución del Portafolio</h3>
+            </div>
+            <div class="p-4">
+              <div id="assetDistributionChart" class="h-64"></div>
+            </div>
+          </div>
+          
+          <!-- Rendimiento histórico -->
+          <div class="bg-slate-800 rounded-lg border border-slate-700">
+            <div class="border-b border-slate-700 p-4">
+              <h3 class="text-lg font-semibold text-white">Rendimiento Histórico</h3>
+            </div>
+            <div class="p-4">
+              <div id="performanceChart" class="h-64"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
     
-    <!-- Sección de análisis sectorial -->
-    <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
-      <div class="border-b border-slate-700 p-4">
-        <h2 class="text-lg font-semibold text-white">Análisis por Sectores</h2>
-      </div>
-      <div class="p-4">
-        <div class="rounded-lg p-4">
-          <div id="sectorComparisonChart" class="h-64"></div>
+      <!-- Sección de análisis sectorial -->
+      <section aria-labelledby="sector-analysis-title">
+        <div class="bg-slate-800 rounded-lg border border-slate-700">
+          <div class="border-b border-slate-700 p-4">
+            <h2 id="sector-analysis-title" class="text-lg font-semibold text-white">Análisis por Sectores</h2>
+          </div>
+          <div class="p-4">
+            <div id="sectorComparisonChart" class="h-64"></div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
-</div>
+</main>

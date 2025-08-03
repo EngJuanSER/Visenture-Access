@@ -3,16 +3,133 @@
 -----------------------------------------
 Esta hoja de estilos define la paleta de colores principal de la aplicación,
 asegurando que todas las combinaciones cumplan con las directrices de accesibilidad
-WCAG 2.1 Nivel AA.
+WCAG 2.1 Nivel AA y AAA siempre que sea posible.
 
 Estrategia de Nomenclatura:
-- `--color-background-*`: Colores de fondo.
-- `--color-text-*`: Colores para texto.
-- `--color-accent-*`: Colores para elementos interactivos y de estado (botones, enlaces, indicadores).
-- `--color-border-*`: Colores para bordes y separadores.
-- `--color-component-*`: Colores específicos para componentes (gráficos, tooltips).
+- `bg-*`: Clases para fondos.
+- `text-*`: Clases para colores de texto.
+- `border-*`: Clases para bordes.
+- `btn-*`: Estilos para botones.
+- `tag-*`: Estilos para etiquetas de estado.
+- `link-*`: Estilos para enlaces.
+- `form-*`: Estilos para elementos de formulario.
+- `chart-*`: Estilos para gráficos.
 */
 
+:root {
+  /* -- Colores Base -- */
+  --color-brand: #6ee7b7; /* Verde menta claro - Contraste AAA sobre fondo oscuro */
+  --color-brand-dark: #065f46; /* Verde oscuro para fondos de botones */
+  
+  --color-background-dark: #020617; /* Negro azulado muy oscuro */
+  --color-background-med: #1e293b;  /* Azul-gris oscuro para tarjetas */
+  --color-background-light: #334155;/* Gris-azul para hovers */
+
+  --color-text-light: #cbd5e1;      /* Gris claro para texto secundario */
+  --color-text-dark: #94a3b8;       /* Gris medio para texto de menor jerarquía */
+  --color-text-white: #ffffff;      /* Blanco puro */
+  --color-text-black: #000000;      /* Negro puro */
+
+  /* -- Colores Semánticos Accesibles -- */
+  --color-success: #4ade80;         /* Verde brillante para éxito */
+  --color-success-bg: #166534;      /* Fondo oscuro para texto de éxito */
+  --color-danger: #f87171;          /* Rojo claro para errores */
+  --color-danger-bg: #991b1b;       /* Fondo oscuro para texto de error */
+  --color-warning: #facc15;         /* Amarillo para advertencias */
+  --color-warning-bg: #854d0e;      /* Fondo oscuro para texto de advertencia */
+  --color-info: #60a5fa;            /* Azul para información */
+  --color-info-bg: #1e40af;         /* Fondo oscuro para texto de info */
+
+  /* -- Bordes -- */
+  --color-border: #334155;
+}
+
+/*
+ Clases de Utilidad de Accesibilidad
+------------------------------------
+Clases reutilizables para aplicar la paleta de colores de forma consistente.
+*/
+
+/* -- Textos -- */
+.text-accessible-brand { color: var(--color-brand); }
+.text-accessible-light { color: var(--color-text-light); }
+.text-accessible-dark { color: var(--color-text-dark); }
+.text-accessible-success { color: var(--color-success); }
+.text-accessible-danger { color: var(--color-danger); }
+.text-accessible-warning { color: var(--color-warning); }
+.text-accessible-info { color: var(--color-info); }
+
+/* -- Fondos -- */
+.bg-accessible-dark { background-color: var(--color-background-dark); }
+.bg-accessible-med { background-color: var(--color-background-med); }
+.bg-accessible-light { background-color: var(--color-background-light); }
+.bg-accessible-success-bg { background-color: var(--color-success-bg); }
+.bg-accessible-danger-bg { background-color: var(--color-danger-bg); }
+.bg-accessible-warning-bg { background-color: var(--color-warning-bg); }
+.bg-accessible-info-bg { background-color: var(--color-info-bg); }
+
+/* -- Botones -- */
+.btn-primary {
+  background-color: var(--color-brand-dark);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-brand);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: var(--color-brand);
+  color: var(--color-text-black);
+  border-color: var(--color-brand);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-brand);
+  border: 1px solid var(--color-brand);
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover {
+  background-color: var(--color-brand);
+  color: var(--color-text-black);
+}
+
+/* -- Etiquetas de Estado (Tags) -- */
+.tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+.tag-success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+.tag-danger {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+.tag-warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+.tag-info {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+/*
+ Estilos Globales y Reseteo
+-----------------------------
+*/
+
+body {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-white);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ... resto de estilos globales ... */
 :root {
   /* -- Fondos -- */
   --color-background-base: #0f172a;       /* Fondo principal oscuro (azul marino profundo) */

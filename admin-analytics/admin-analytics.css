@@ -110,8 +110,8 @@ select:-webkit-autofill::first-line {
 
 /* ===== MEJORAS DE ACCESIBILIDAD ===== */
 
-/* Mejora del contraste para texto en general */
-body {
+/* Mejora del contraste para texto en general (solo para el contenido) */
+.content-placeholder {
   color: #f3f4f6 !important;
 }
 
@@ -137,22 +137,22 @@ h3.text-emerald-400 {
   fill: #ffffff !important;
 }
 
-/* Mejora del contraste para los botones */
-button {
+/* Mejora del contraste para los botones del contenido */
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar) {
   background-color: #065f46 !important;
   color: #ffffff !important;
 }
 
-button:hover {
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):hover {
   background-color: #047857 !important;
 }
 
-button:disabled {
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):disabled {
   background-color: #064e3b !important;
   color: #d1d5db !important;
 }
 
-button:focus {
+.content-placeholder button:not(#toggle-sidebar):not(#close-sidebar):focus {
   outline: 2px solid #34d399 !important;
   outline-offset: 2px;
 }

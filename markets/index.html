@@ -4,32 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercados - Visenture Access</title>
-    <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="markets.css">
+    <link rel="stylesheet" href="../styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
     <div id="content-placeholder"></div>
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts del sidebar -->
+    <!-- Script del sidebar -->
     <script src="../app/sidebar.js" defer></script>
-    <script src="../app/dropdown-handler.js" defer></script>
 
     <script>
+        // Cargar el header primero
         fetch('../app/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
+                // Cuando el header se ha cargado, inicializar el sidebar
+                if (typeof initSidebar === 'function') {
+                    console.log('Llamando a initSidebar después de cargar el header');
+                    setTimeout(initSidebar, 100);
+                }
             });
+            
+        // Cargar el contenido principal y footer
         fetch('markets.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('content-placeholder').innerHTML = data;
             });
+            
         fetch('../app/footer.html')
             .then(response => response.text())
             .then(data => {

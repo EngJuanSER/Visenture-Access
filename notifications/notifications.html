@@ -1,88 +1,90 @@
 <main role="main" aria-labelledby="notifications-title">
-  <div class="min-h-screen bg-slate-900 p-6">
+  <div class="bg-slate-950 p-6">
     <div class="container mx-auto max-w-4xl">
       <div class="mb-8">
         <h1 id="notifications-title" class="text-3xl font-bold text-white mb-2">Notificaciones</h1>
-        <p class="text-slate-400" aria-describedby="notifications-title">Gestiona tus alertas y mensajes importantes</p>
+        <p class="text-accessible-light" aria-describedby="notifications-title">Gestiona tus alertas y mensajes importantes</p>
       </div>
 
       <section aria-labelledby="notifications-section-title">
-        <div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden mb-6">
+        <div class="bg-slate-800 rounded-lg border border-slate-700 overflow-hidden mb-6">
           <div class="border-b border-slate-700 p-4 flex justify-between items-center">
-            <h2 id="notifications-section-title" class="text-xl font-semibold text-emerald-400 flex items-center">
-              <i class="fas fa-bell mr-2" aria-hidden="true"></i>
-              Tus Notificaciones
+            <h2 id="notifications-section-title" class="text-xl font-semibold text-accessible-brand flex items-center">
+              <i class="fa-solid fa-bell mr-3" aria-hidden="true"></i>
+              <span>Tus Notificaciones</span>
             </h2>
-            <button class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors flex items-center" 
+            <button class="btn-danger px-4 py-2 flex items-center" 
                     aria-label="Borrar todas las notificaciones">
-              <i class="fas fa-trash mr-1 text-sm" aria-hidden="true"></i>
-              Borrar Todas
+              <i class="fa-solid fa-trash mr-2 text-sm" aria-hidden="true"></i>
+              <span>Borrar Todas</span>
             </button>
           </div>
 
           <div class="p-4">
             <!-- Estado vacío -->
             <div id="emptyState" class="py-8 text-center" role="status" aria-live="polite">
-              <div class="bg-slate-700/30 rounded-lg p-8 inline-block mb-4" aria-hidden="true">
-                <i class="fas fa-bell-slash text-5xl text-slate-500"></i>
+              <div class="bg-slate-700/50 rounded-lg p-8 inline-block mb-4" aria-hidden="true">
+                <i class="fa-solid fa-bell-slash text-5xl text-slate-500"></i>
               </div>
               <h3 class="text-lg font-medium text-white mb-2">No tienes notificaciones</h3>
-              <p class="text-slate-400">Aquí aparecerán tus alertas y mensajes importantes</p>
+              <p class="text-accessible-light">Aquí aparecerán tus alertas y mensajes importantes</p>
             </div>
             
             <!-- Lista de notificaciones -->
             <ul class="divide-y divide-slate-700" role="list" aria-label="Lista de notificaciones">
               <!-- Notificación no leída -->
-              <li class="p-4 bg-emerald-900/10 hover:bg-slate-700/30 transition-colors" role="listitem">
+              <li class="p-4 bg-slate-800/50 hover:bg-slate-700/30 transition-colors" role="listitem">
                 <article class="flex items-start" aria-labelledby="notification-1-title">
-                  <div class="bg-emerald-600/20 p-3 rounded-full mr-4" aria-hidden="true">
-                    <i class="fas fa-chart-line text-emerald-500"></i>
+                  <div class="bg-brand-dark p-3 rounded-full mr-4" aria-hidden="true">
+                    <i class="fa-solid fa-chart-line text-accessible-brand"></i>
                   </div>
                   <div class="flex-1">
                     <div class="flex justify-between items-center mb-1">
-                      <h4 id="notification-1-title" class="font-medium text-emerald-400">Alerta de precio</h4>
-                      <time class="text-xs text-slate-400" datetime="2024-01-15T14:00:00">Hace 2 horas</time>
+                      <h4 id="notification-1-title" class="font-medium text-accessible-brand">Alerta de precio</h4>
+                      <time class="text-xs text-accessible-dark" datetime="2024-01-15T14:00:00">Hace 2 horas</time>
                     </div>
                     <p class="text-white text-sm mb-2">AAPL ha alcanzado tu precio objetivo de $150.00</p>
-                    <div class="flex items-center justify-end" role="group" aria-label="Acciones para esta notificación">
-                      <button class="text-sm text-slate-400 hover:text-white mr-4 flex items-center" 
+                    <div class="flex items-center justify-end gap-4" role="group" aria-label="Acciones para esta notificación">
+                      <button class="text-sm text-accessible-light hover:text-white flex items-center" 
                               aria-label="Eliminar notificación de alerta de precio de AAPL">
-                        <i class="far fa-trash-alt text-sm mr-1" aria-hidden="true"></i>
+                        <i class="fa-solid fa-trash-alt text-sm mr-1" aria-hidden="true"></i>
                         Eliminar
                       </button>
-                      <button class="text-sm text-emerald-400 hover:text-emerald-300 flex items-center" 
+                      <button class="text-sm text-accessible-brand hover:text-accessible-brand/80 flex items-center" 
                               aria-label="Marcar notificación como leída">
-                        <i class="far fa-check-circle text-sm mr-1" aria-hidden="true"></i>
-                    Marcar como leída
-                  </button>
-                </div>
-              </div>
-            </div>
-          </li>
-          
-          <!-- Notificación leída -->
-          <li class="p-4 hover:bg-slate-700/30 transition-colors">
-            <div class="flex items-start">
-              <div class="bg-blue-600/20 p-3 rounded-full mr-4">
-                <i class="fas fa-university text-blue-500"></i>
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center mb-1">
-                  <h4 class="font-medium text-white">Depósito confirmado</h4>
-                  <span class="text-xs text-slate-400">25 Jul 2025</span>
-                </div>
-                <p class="text-slate-300 text-sm mb-2">Tu depósito de $1,000.00 ha sido acreditado a tu cuenta</p>
-                <div class="flex items-center justify-end">
-                  <button class="text-sm text-slate-400 hover:text-white flex items-center">
-                    <i class="far fa-trash-alt text-sm mr-1"></i>
-                    Eliminar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+                        <i class="fa-solid fa-check-circle text-sm mr-1" aria-hidden="true"></i>
+                        Marcar como leída
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              
+              <!-- Notificación leída -->
+              <li class="p-4 hover:bg-slate-700/30 transition-colors">
+                <article class="flex items-start">
+                  <div class="bg-info-dark p-3 rounded-full mr-4">
+                    <i class="fa-solid fa-university text-accessible-info"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex justify-between items-center mb-1">
+                      <h4 class="font-medium text-white">Depósito confirmado</h4>
+                      <time class="text-xs text-accessible-dark" datetime="2025-07-25">25 Jul 2025</time>
+                    </div>
+                    <p class="text-accessible-light text-sm mb-2">Tu depósito de $1,000.00 ha sido acreditado a tu cuenta</p>
+                    <div class="flex items-center justify-end">
+                      <button class="text-sm text-accessible-light hover:text-white flex items-center">
+                        <i class="fa-solid fa-trash-alt text-sm mr-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
-</div>
+</main>

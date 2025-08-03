@@ -4,68 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analíticas Administrativas - Visenture Access</title>
-    <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="admin-analytics.css">
+    <link rel="stylesheet" href="../styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- ApexCharts para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
-<body class="bg-slate-900 text-gray-200 min-h-screen flex flex-col">
+<body>
     <div id="header-placeholder"></div>
-    <div id="content-placeholder"></div>
+    
+    <!-- Contenido principal directo en lugar de cargarlo dinámicamente -->
+    <main role="main" aria-labelledby="admin-analytics-title" class="content-placeholder">
+        <div class="min-h-screen bg-slate-950 p-6">
+            <div class="container mx-auto">
+                <header class="mb-8">
+                    <h1 id="admin-analytics-title" class="text-3xl font-bold text-white">Dashboard Administrativo</h1>
+                    <p class="text-accessible-light" aria-describedby="admin-analytics-title">Análisis y gestión de la plataforma.</p>
+                </header>
+
+                <!-- Métricas Principales -->
+                <section aria-labelledby="main-metrics-title">
+                    <h2 id="main-metrics-title" class="sr-only">Métricas Principales</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm font-medium text-accessible-light">Usuarios Activos</h3>
+                                <i class="fa-solid fa-users text-accessible-brand"></i>
+                            </div>
+                            <p class="text-3xl font-bold text-white mt-2">1,234</p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm font-medium text-accessible-light">Volumen (24h)</h3>
+                                <i class="fa-solid fa-dollar-sign text-accessible-success"></i>
+                            </div>
+                            <p class="text-3xl font-bold text-white mt-2">$1.5M</p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm font-medium text-accessible-light">Comisiones (24h)</h3>
+                                <i class="fa-solid fa-hand-holding-dollar text-accessible-success"></i>
+                            </div>
+                            <p class="text-3xl font-bold text-white mt-2">$1,500</p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm font-medium text-accessible-light">Órdenes Fallidas</h3>
+                                <i class="fa-solid fa-triangle-exclamation text-accessible-error"></i>
+                            </div>
+                            <p class="text-3xl font-bold text-white mt-2">12</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gráficos -->
+                <section aria-labelledby="charts-section-title">
+                    <h2 id="charts-section-title" class="sr-only">Visualización de Datos</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <h3 class="text-lg font-semibold text-white mb-4">Distribución de Órdenes</h3>
+                            <div id="orderDistributionChart" class="h-80"></div>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <h3 class="text-lg font-semibold text-white mb-4">Estado de Órdenes (Semanal)</h3>
+                            <div id="orderStatusChart" class="h-80"></div>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700 lg:col-span-2">
+                            <h3 class="text-lg font-semibold text-white mb-4">Reporte de Recargas y Comisiones</h3>
+                            <div id="rechargeCommissionChart" class="h-80"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Panel de Gestión -->
+                <section aria-labelledby="management-panel-title">
+                    <h2 id="management-panel-title" class="text-2xl font-bold text-white mb-6">Panel de Gestión</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <h3 class="text-lg font-semibold text-white mb-4">Gestión de Mercados</h3>
+                            <p class="text-accessible-light mb-4">Inicializa los mercados desde el proveedor de datos. Esta acción puede tardar unos segundos.</p>
+                            <button class="bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded w-full">
+                                <i class="fa-solid fa-arrows-rotate mr-2"></i>
+                                Inicializar Mercados
+                            </button>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-lg shadow border border-slate-700">
+                            <h3 class="text-lg font-semibold text-white mb-4">Crear Activo de Prueba</h3>
+                            <p class="text-accessible-light mb-4">Crea un activo (acción) con un símbolo específico para realizar pruebas en la plataforma.</p>
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="Símbolo (ej. AAPL)" class="bg-slate-700 border border-slate-600 text-white rounded px-3 py-2 flex-grow">
+                                <button class="bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-3 rounded">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts del sidebar -->
+    <!-- Script del sidebar -->
     <script src="../app/sidebar.js" defer></script>
-    <script src="../app/dropdown-handler.js" defer></script>
-    <!-- Script específico para los gráficos -->
-    <script src="admin-charts.js" defer></script>
-
+    <!-- Script de gráficos -->
+    <script src="admin-charts.js"></script>
+    
     <script>
-        // Función para cargar componentes de la interfaz
-        function loadInterface() {
-            // Cargar el encabezado
-            fetch('../app/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    // Inicializar sidebar después de cargar el header
-                    if (typeof initSidebar === 'function') {
-                        setTimeout(initSidebar, 100);
-                        setTimeout(initSidebar, 500);
-                    }
-                    if (typeof initSidebarDropdowns === 'function') {
-                        setTimeout(initSidebarDropdowns, 200);
-                        setTimeout(initSidebarDropdowns, 600);
-                    }
-                })
-                .catch(error => console.error('Error cargando el header:', error));
-
-            // Cargar el contenido principal (con parámetro para prevenir caché)
-            fetch('admin-analytics.html' + '?nocache=' + new Date().getTime())
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content-placeholder').innerHTML = data;
-                    console.log("Contenido de analytics cargado");
-                    
-                    // Ejecutamos un evento personalizado para notificar que el contenido está listo
-                    document.dispatchEvent(new Event('analyticsContentLoaded'));
-                })
-                .catch(error => console.error('Error cargando el contenido de analytics:', error));
+        // Cargar el header primero
+        fetch('../app/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Cuando el header se ha cargado, inicializar el sidebar
+                if (typeof initSidebar === 'function') {
+                    console.log('Llamando a initSidebar después de cargar el header');
+                    setTimeout(initSidebar, 100);
+                }
+            });
+        
+        // Cargar el footer
+        fetch('../app/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
             
-            // Cargar el pie de página
-            fetch('../app/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Error cargando el footer:', error));
-        }
-
-        // Ejecutar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', loadInterface);
+        // Inicializar los gráficos cuando la página esté completamente cargada
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initAdminCharts === 'function') {
+                setTimeout(function() {
+                    initAdminCharts();
+                }, 500); // Dar tiempo para que todo se cargue correctamente
+            }
+        });
     </script>
 </body>
 </html>

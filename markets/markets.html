@@ -1,108 +1,102 @@
-<div class="min-h-screen bg-emerald-800 via-teal-800 to-emerald-900 p-4 transition-colors duration-300">
-  <div class="flex justify-center pb-10">
-    <div class="bg-slate-800 p-8 rounded-xl shadow-2xl w-full max-w-7xl transition-all duration-300">
-      <h1 class="text-2xl font-bold text-center bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 bg-clip-text text-transparent mb-6">Mercados Disponibles</h1>
+<main role="main" aria-labelledby="markets-title">
+  <div class="bg-slate-950 p-6">
+    <div class="container mx-auto">
+      <div class="mb-8 text-center">
+        <h1 id="markets-title" class="text-3xl font-bold text-white mb-2">Mercados Disponibles</h1>
+        <p class="text-accessible-light">Explora los mercados de valores de todo el mundo.</p>
+      </div>
 
-      <!-- Panel informativo para gestión de horarios (visible para todos) -->
-      <div class="mb-8 bg-indigo-900/30 rounded-lg border border-indigo-800 p-4">
-        <h2 class="text-lg font-medium text-indigo-300 mb-2">Panel de Gestión de Horarios</h2>
-        <p class="text-sm text-indigo-400 mb-3">
-          Puedes personalizar el horario de apertura de cada mercado. Haz clic en el botón de edición junto a la hora de apertura de cada mercado para configurar un horario personalizado.
-        </p>
-        <div class="flex items-center text-xs text-indigo-300">
-          <span class="material-icons text-sm mr-1">info</span>
-          <span>Los horarios personalizados se muestran en color verde y se aplican solo a la visualización en la aplicación.</span>
+      <!-- Panel informativo para gestión de horarios -->
+      <div class="mb-8 bg-info-dark border border-info-dark-hover rounded-lg p-4" role="alert">
+        <div class="flex items-start">
+          <i class="fa-solid fa-info-circle text-accessible-info text-xl mr-3 mt-1"></i>
+          <div>
+            <h2 class="text-lg font-medium text-white mb-2">Gestión de Horarios</h2>
+            <p class="text-sm text-accessible-light mb-3">
+              Personaliza el horario de apertura de cada mercado. Haz clic en el ícono de edición <i class="fa-solid fa-edit text-accessible-brand" aria-hidden="true"></i> junto a la hora para configurar un horario personalizado.
+            </p>
+            <p class="text-xs text-accessible-dark">Los horarios personalizados se muestran en color verde y se aplican solo a la visualización en la aplicación.</p>
+          </div>
         </div>
       </div>
+
       <!-- Mensaje de inicialización en proceso -->
-      <div class="flex justify-center items-center py-12" style="display: none;">
-        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+      <div style="display: none;" class="flex justify-center items-center py-12" role="status" aria-live="polite">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accessible-brand" aria-hidden="true"></div>
         <div class="ml-4">
-          <p class="text-lg font-medium text-gray-300">
-            Cargando mercados...
-          </p>
-          <p class="text-sm text-gray-400">Esto puede tardar unos segundos</p>
+          <p class="text-lg font-medium text-white">Cargando mercados...</p>
+          <p class="text-sm text-accessible-light">Esto puede tardar unos segundos.</p>
         </div>
       </div>
 
       <!-- Estado de error -->
-      <div class="bg-red-900/30 border border-red-800 rounded-lg p-6 my-6 flex flex-col md:flex-row items-center justify-between shadow-md" style="display: none;">
+      <div style="display: none;" class="bg-error-dark border border-error-dark-hover rounded-lg m-4 p-6 flex flex-col md:flex-row items-center justify-between" role="alert">
         <div class="flex items-center mb-4 md:mb-0">
-          <span class="material-icons text-red-400 mr-3">error_outline</span>
+          <i class="fa-solid fa-exclamation-circle text-accessible-error mr-3 text-xl"></i>
           <div>
-            <p class="text-red-300 font-medium">Error message here</p>
-            <p class="text-xs text-red-400 mt-1">Por favor, intenta nuevamente o contacta con soporte si el error persiste.</p>
+            <p class="text-white font-medium">Error al cargar los mercados</p>
+            <p class="text-xs text-accessible-error mt-1">Por favor, intenta nuevamente o contacta con soporte.</p>
           </div>
         </div>
-        <button class="px-4 py-2 bg-red-800 text-red-200 rounded-lg hover:bg-red-700 transition-colors">
-          Reintentar
-        </button>
-      </div>      <!-- Listado de mercados -->
-      <div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-stretch">
-          <div class="market-card-custom bg-slate-800 border-slate-700 border-2 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
-        <!-- Contenedor para todo el contenido visible de la tarjeta -->
-        <div class="card-content-wrapper">
-          <!-- Cabecera del mercado -->
-          <div class="relative h-24 bg-gradient-to-r from-emerald-700 to-teal-900 flex items-center justify-between px-6">
-            <div>
-          <h2 class="text-xl font-bold text-white">Market Name</h2>
-          <p class="text-white text-opacity-80">Country/Region</p>
-            </div>
-            <div class="absolute top-2 right-2 px-2 py-1 rounded-full bg-green-100 text-green-800">
-          <span class="text-xs font-medium">Open</span>
-            </div>
-          </div>
-          
-          <!-- Cuerpo con información del mercado -->
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-2 text-gray-300">
-          <span class="font-medium">ID del mercado:</span>
-          <span class="text-emerald-400 font-mono">MIC</span>
-            </div>
-            
-            <div class="flex items-center justify-between mb-2 text-gray-300">
-          <span class="font-medium">Horario:</span>
-          <div class="flex items-center">
-            <span class="text-emerald-600">Opening - Closing</span>
-            
-            <!-- Botón de edición de horario visible para todos -->
-            <button class="ml-1 text-gray-500 hover:text-emerald-600">
-              <span class="material-icons text-sm">edit</span>
-            </button>
-          </div>
-            </div>
-            
-            <!-- Indicador de horario personalizado -->
-            <div class="mb-2 text-xs text-emerald-400 flex items-center">
-          <span class="material-icons text-xs mr-1">schedule</span>
-          <span>Horario personalizado (oficial: 09:30)</span>
-            </div>
-            
-            <div class="flex items-center justify-between mb-2 text-gray-300">
-          <span class="font-medium">Días operación:</span>
-          <span>Lunes a Viernes</span>
-            </div>
-            
-            <p class="text-gray-400 text-sm mt-4">
-              Market Name es un mercado ubicado en Country/Region que opera Lunes a Viernes.
-            </p>
-          </div>
-          
-          <!-- Footer con botón de acción -->
-          <div class="px-6 py-4 bg-slate-700 border-t border-slate-600 flex items-center justify-between">
-            <span class="text-sm text-gray-400">
-          <span class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-green-500"></span>
-          <span>En operación</span>
-            </span>
-            <button class="text-xs px-2 py-1">
-          Ver acciones
-            </button>
-          </div>
-        </div>
-          </div>
-        </div>
+        <button class="btn-danger">Reintentar</button>
       </div>
+
+      <!-- Listado de mercados -->
+      <section aria-labelledby="market-list-title">
+        <h2 id="market-list-title" class="sr-only">Lista de Mercados</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Tarjeta de Mercado Ejemplo -->
+          <div class="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden flex flex-col">
+            <!-- Cabecera -->
+            <div class="p-4 border-b border-slate-700 flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-white">NASDAQ</h3>
+                <p class="text-sm text-accessible-light">Estados Unidos</p>
+              </div>
+              <div class="tag-success">
+                <i class="fa-solid fa-circle-check mr-1.5"></i>
+                Abierto
+              </div>
+            </div>
+            
+            <!-- Cuerpo -->
+            <div class="p-4 flex-grow">
+              <ul class="space-y-3 text-sm">
+                <li class="flex justify-between items-center">
+                  <span class="font-medium text-accessible-light">ID (MIC):</span>
+                  <span class="font-mono text-white">XNAS</span>
+                </li>
+                <li class="flex justify-between items-center">
+                  <span class="font-medium text-accessible-light">Horario:</span>
+                  <div class="flex items-center">
+                    <span class="text-white">09:30 - 16:00</span>
+                    <button class="btn-icon btn-secondary ml-2" aria-label="Editar horario de NASDAQ">
+                      <i class="fa-solid fa-edit" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </li>
+                <li class="flex justify-between items-center">
+                  <span class="font-medium text-accessible-light">Días:</span>
+                  <span class="text-white">Lunes a Viernes</span>
+                </li>
+              </ul>
+              <p class="text-xs text-accessible-dark mt-4">
+                El NASDAQ es conocido por albergar a las mayores empresas de tecnología del mundo.
+              </p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="px-4 py-3 bg-slate-800/50 border-t border-slate-700 flex items-center justify-end">
+              <a href="#" class="btn-primary text-sm">
+                Ver Acciones <i class="fa-solid fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Fin Tarjeta de Mercado Ejemplo -->
+
+        </div>
+      </section>
     </div>
   </div>
-</div>
+</main>

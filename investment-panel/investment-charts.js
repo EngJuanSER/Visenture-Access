@@ -3,35 +3,45 @@
  * Implementados con ApexCharts
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("Inicializando gráficos del panel de inversiones...");
-    initInvestmentCharts();
-});
-
 /**
  * Inicializa los gráficos del panel de inversiones
  */
 function initInvestmentCharts() {
-    // Verificamos que los contenedores existan
-    const chartContainers = {
-        "assetAllocationChart": initAssetAllocationChart,
-        "performanceChart": initPerformanceChart
-    };
+    console.log("Inicializando gráficos del panel de inversiones...");
     
-    // Inicializar solo los gráficos cuyos contenedores existen
-    Object.entries(chartContainers).forEach(([containerId, initFunction]) => {
-        const container = document.querySelector("#" + containerId);
-        if (container) {
-            try {
-                console.log(`Inicializando gráfico: ${containerId}`);
-                initFunction();
-            } catch (error) {
-                console.error(`Error al inicializar gráfico ${containerId}:`, error);
+    // Verificamos que los contenedores existan
+    const assetChart = document.querySelector("#assetAllocationChart");
+    const performanceChart = document.querySelector("#performanceChart");
+    
+    if (!assetChart || !performanceChart) {
+        console.error("No se encontraron los contenedores para los gráficos");
+        console.log("Esperando 500ms e intentando de nuevo...");
+        
+        setTimeout(() => {
+            if (document.querySelector("#assetAllocationChart") && document.querySelector("#performanceChart")) {
+                console.log("Contenedores encontrados en segundo intento");
+                renderInvestmentCharts();
+            } else {
+                console.error("No se encontraron los contenedores después del segundo intento");
             }
-        } else {
-            console.warn(`Contenedor #${containerId} no encontrado en el documento`);
-        }
-    });
+        }, 500);
+        return;
+    }
+    
+    // Si tenemos los contenedores, continuamos con la inicialización
+    renderInvestmentCharts();
+}
+
+/**
+ * Renderiza todos los gráficos del panel de inversiones
+ */
+function renderInvestmentCharts() {
+    try {
+        initAssetAllocationChart();
+        initPerformanceChart();
+    } catch (error) {
+        console.error("Error al renderizar los gráficos:", error);
+    }
 }
 
 /**

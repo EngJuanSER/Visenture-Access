@@ -3,30 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visenture - Static</title>
+    <title>Visenture - Navegación de Vistas Estáticas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="bg-slate-900 text-white">
-    <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold text-emerald-400 mb-8">Visenture Static Views</h1>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <li><a href="admin-analytics/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Admin Analytics</a></li>
-            <li><a href="auth/forgot-password/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Forgot Password</a></li>
-            <li><a href="auth/login/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Login</a></li>
-            <li><a href="auth/register/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Register</a></li>
-            <li><a href="auth/reset-password/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Reset Password</a></li>
-            <li><a href="commissioner-panel/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Commissioner Panel</a></li>
-            <li><a href="commissioner-panel/client-report/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Client Report</a></li>
-            <li><a href="dashboard/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Dashboard</a></li>
-            <li><a href="funds/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Funds</a></li>
-            <li><a href="funds/add-funds/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Add Funds</a></li>
-            <li><a href="home/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Home</a></li>
-            <li><a href="investment-panel/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Investment Panel</a></li>
-            <li><a href="markets/markets/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Markets</a></li>
-            <li><a href="notifications/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Notifications</a></li>
-            <li><a href="portfolio/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Portfolio</a></li>
-            <li><a href="profile/index.html" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg">Profile</a></li>
-        </ul>
-    </div>
+    <main role="main" class="container mx-auto p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-accessible-brand mb-4">Visenture - Vistas Estáticas</h1>
+            <p class="text-lg text-accessible-light">Navegación principal para acceder a todas las páginas del proyecto.</p>
+        </header>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <section class="bg-slate-800 border border-slate-700 rounded-lg p-6" aria-labelledby="admin-section">
+                <h2 id="admin-section" class="text-2xl font-semibold text-white mb-4">Administración</h2>
+                <ul class="space-y-3">
+                    <li><a href="admin-analytics/index.html" class="nav-link"><i class="fa-solid fa-chart-pie mr-3"></i>Admin Analytics</a></li>
+                </ul>
+            </section>
+
+            <section class="bg-slate-800 border border-slate-700 rounded-lg p-6" aria-labelledby="auth-section">
+                <h2 id="auth-section" class="text-2xl font-semibold text-white mb-4">Autenticación</h2>
+                <ul class="space-y-3">
+                    <li><a href="auth/login/index.html" class="nav-link"><i class="fa-solid fa-right-to-bracket mr-3"></i>Login</a></li>
+                    <li><a href="auth/register/index.html" class="nav-link"><i class="fa-solid fa-user-plus mr-3"></i>Register</a></li>
+                    <li><a href="auth/forgot-password/index.html" class="nav-link"><i class="fa-solid fa-key mr-3"></i>Forgot Password</a></li>
+                    <li><a href="auth/reset-password/index.html" class="nav-link"><i class="fa-solid fa-unlock-keyhole mr-3"></i>Reset Password</a></li>
+                </ul>
+            </section>
+
+            <section class="bg-slate-800 border border-slate-700 rounded-lg p-6" aria-labelledby="commissioner-section">
+                <h2 id="commissioner-section" class="text-2xl font-semibold text-white mb-4">Comisionista</h2>
+                <ul class="space-y-3">
+                    <li><a href="commissioner-panel/index.html" class="nav-link"><i class="fa-solid fa-user-tie mr-3"></i>Commissioner Panel</a></li>
+                    <li><a href="commissioner-panel/client-report/index.html" class="nav-link"><i class="fa-solid fa-file-contract mr-3"></i>Client Report</a></li>
+                </ul>
+            </section>
+
+            <section class="bg-slate-800 border border-slate-700 rounded-lg p-6" aria-labelledby="main-app-section">
+                <h2 id="main-app-section" class="text-2xl font-semibold text-white mb-4">Aplicación Principal</h2>
+                <ul class="space-y-3">
+                    <li><a href="home/index.html" class="nav-link"><i class="fa-solid fa-house mr-3"></i>Home</a></li>
+                    <li><a href="dashboard/index.html" class="nav-link"><i class="fa-solid fa-table-columns mr-3"></i>Dashboard</a></li>
+                    <li><a href="portfolio/index.html" class="nav-link"><i class="fa-solid fa-briefcase mr-3"></i>Portfolio</a></li>
+                    <li><a href="markets/markets/index.html" class="nav-link"><i class="fa-solid fa-store mr-3"></i>Markets</a></li>
+                    <li><a href="funds/index.html" class="nav-link"><i class="fa-solid fa-money-bill-transfer mr-3"></i>Funds</a></li>
+                    <li><a href="funds/add-funds/index.html" class="nav-link"><i class="fa-solid fa-plus mr-3"></i>Add Funds</a></li>
+                </ul>
+            </section>
+
+            <section class="bg-slate-800 border border-slate-700 rounded-lg p-6" aria-labelledby="user-section">
+                <h2 id="user-section" class="text-2xl font-semibold text-white mb-4">Usuario</h2>
+                <ul class="space-y-3">
+                    <li><a href="profile/index.html" class="nav-link"><i class="fa-solid fa-user-gear mr-3"></i>Profile</a></li>
+                    <li><a href="notifications/index.html" class="nav-link"><i class="fa-solid fa-bell mr-3"></i>Notifications</a></li>
+                </ul>
+            </section>
+
+            <section class="bg-slate-800 border border-slate-700 rounded-lg p-6" aria-labelledby="investment-section">
+                <h2 id="investment-section" class="text-2xl font-semibold text-white mb-4">Inversión</h2>
+                <ul class="space-y-3">
+                    <li><a href="investment-panel/index.html" class="nav-link"><i class="fa-solid fa-seedling mr-3"></i>Investment Panel</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <style>
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background-color: var(--color-slate-700);
+            border-radius: 0.5rem;
+            transition: background-color 0.2s, color 0.2s;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background-color: var(--color-slate-600);
+            color: white;
+        }
+        .nav-link i {
+            color: var(--color-brand);
+        }
+    </style>
 </body>
 </html>

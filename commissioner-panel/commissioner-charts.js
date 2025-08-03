@@ -8,23 +8,28 @@
  * Esta función puede ser llamada externamente desde index.html
  */
 function initCommissionerCharts() {
-    console.log("Renderizando gráficos...");
+    console.log("Inicializando gráficos del panel de comisionista...");
     
     // Comprobamos que los contenedores existan
-    if (!document.querySelector("#clientDistributionChart")) {
-        console.error("No se encontró el contenedor para el gráfico de distribución de clientes");
+    const clientChartContainer = document.querySelector("#clientDistributionChart");
+    const marketChartContainer = document.querySelector("#commissionsByMarketChart");
+    
+    if (!clientChartContainer || !marketChartContainer) {
+        console.error("No se encontraron los contenedores para los gráficos");
         console.log("Esperando 500ms e intentando de nuevo...");
+        
         setTimeout(() => {
-            if (document.querySelector("#clientDistributionChart")) {
-                console.log("Contenedor encontrado en segundo intento");
+            if (document.querySelector("#clientDistributionChart") && document.querySelector("#commissionsByMarketChart")) {
+                console.log("Contenedores encontrados en segundo intento");
                 initChartsAfterCheck();
             } else {
-                console.error("No se encontró el contenedor después del segundo intento");
+                console.error("No se encontraron los contenedores después del segundo intento");
             }
         }, 500);
         return;
     }
     
+    // Si tenemos los contenedores, continuamos con la inicialización
     initChartsAfterCheck();
 }
 
@@ -33,8 +38,7 @@ function initCommissionerCharts() {
  * después de confirmar que los contenedores existen
  */
 function initChartsAfterCheck() {
-    
-    console.log("Iniciando renderizado de gráficos de comisionista...");
+    console.log("Renderizando gráficos de comisionista...");
     
     // Distribución de Clientes (gráfico de dona)
     var clientDistributionOptions = {

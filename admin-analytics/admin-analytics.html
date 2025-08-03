@@ -1,120 +1,90 @@
-<main role="main" aria-labelledby="admin-dashboard-title">
+<main role="main" aria-labelledby="admin-analytics-title">
     <div class="min-h-screen bg-slate-950 p-6">
         <div class="container mx-auto">
-            <h1 id="admin-dashboard-title" class="text-2xl font-bold text-emerald-400">Dashboard Administrativo</h1>
+            <header class="mb-8">
+                <h1 id="admin-analytics-title" class="text-3xl font-bold text-white">Dashboard Administrativo</h1>
+                <p class="text-accessible-light" aria-describedby="admin-analytics-title">Análisis y gestión de la plataforma.</p>
+            </header>
 
-            <!-- Estadísticas de Usuarios -->
-            <section aria-labelledby="user-stats-title">
-                <h2 id="user-stats-title" class="text-xl font-semibold text-emerald-400 mb-4">Estadísticas de Usuarios</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="total-orders-title">
-                        <h3 id="total-orders-title" class="text-sm text-gray-400">Órdenes Totales</h3>
-                        <p class="text-2xl font-bold text-emerald-300" aria-label="1234 órdenes totales">1234</p>
+            <!-- Métricas Principales -->
+            <section aria-labelledby="main-metrics-title">
+                <h2 id="main-metrics-title" class="sr-only">Métricas Principales</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-medium text-accessible-light">Usuarios Activos</h3>
+                            <i class="fa-solid fa-users text-accessible-brand"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-white mt-2">1,234</p>
                     </div>
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="completed-orders-title">
-                        <h3 id="completed-orders-title" class="text-sm text-gray-400">Órdenes Completadas</h3>
-                        <p class="text-2xl font-bold text-emerald-300" aria-label="1000 órdenes completadas">1000</p>
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-medium text-accessible-light">Volumen (24h)</h3>
+                            <i class="fa-solid fa-dollar-sign text-accessible-success"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-white mt-2">$1.5M</p>
                     </div>
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="processing-orders-title">
-                        <h3 id="processing-orders-title" class="text-sm text-gray-400">Órdenes en Proceso</h3>
-                        <p class="text-2xl font-bold text-emerald-300" aria-label="234 órdenes en proceso">234</p>
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-medium text-accessible-light">Comisiones (24h)</h3>
+                            <i class="fa-solid fa-hand-holding-dollar text-accessible-success"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-white mt-2">$1,500</p>
                     </div>
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="account-recharges-title">
-                        <h3 id="account-recharges-title" class="text-sm text-gray-400">Recargas en Cuentas</h3>
-                        <p class="text-2xl font-bold text-emerald-300" aria-label="15,000 dólares en recargas">$15000.00</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Métricas Financieras -->
-            <section aria-labelledby="financial-metrics-title">
-                <h2 id="financial-metrics-title" class="text-xl font-semibold text-emerald-400 mb-4">Métricas Financieras</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="total-recharged-title">
-                        <h3 id="total-recharged-title" class="text-sm text-gray-400">Total Recargado App</h3>
-                        <p class="text-2xl font-bold text-green-400" aria-label="15,000 dólares recargados en la app">$15000.00</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="total-commissions-title">
-                        <h3 id="total-commissions-title" class="text-sm text-gray-400">Total Comisiones App</h3>
-                        <p class="text-2xl font-bold text-green-400" aria-label="1,500 dólares en comisiones">$1500.00</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-md" role="article" aria-labelledby="total-assets-title">
-                        <h3 id="total-assets-title" class="text-sm text-gray-400">Total Activos en Carteras</h3>
-                        <p class="text-2xl font-bold text-emerald-300" aria-label="1 millón en activos totales">1000000</p>
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-medium text-accessible-light">Órdenes Fallidas</h3>
+                            <i class="fa-solid fa-triangle-exclamation text-accessible-error"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-white mt-2">12</p>
                     </div>
                 </div>
             </section>
 
             <!-- Gráficos -->
             <section aria-labelledby="charts-section-title">
-                <h2 id="charts-section-title" class="sr-only">Gráficos de Análisis</h2>
-                <!-- Distribución de Órdenes (Compra vs Venta) -->
-                <div class="lg:col-span-2 bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700 mb-6" role="img" aria-labelledby="order-distribution-title">
-                    <h3 id="order-distribution-title" class="font-semibold text-emerald-400 mb-4 text-center">
-                        Distribución de Órdenes (Compra vs Venta)
-                    </h3>
-                    <div id="admin-orderDistributionChart"></div>
-                </div>
-
-                <!-- Estado de Órdenes -->
-                <div class="lg:col-span-2 bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700 mb-6" role="img" aria-labelledby="order-status-title">
-                    <h3 id="order-status-title" class="font-semibold text-emerald-400 mb-4">Estado de Órdenes</h3>
-                    <div id="admin-orderStatusChart"></div>
-                </div>
-
-                <!-- Recargas y Comisiones -->
-                <div class="lg:col-span-2 bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700 mb-6" role="img" aria-labelledby="recharge-commission-title">
-                    <h3 id="recharge-commission-title" class="font-semibold text-emerald-400 mb-4">Reporte de Recargas y Comisiones</h3>
-                    <div id="admin-rechargeCommissionChart"></div>
+                <h2 id="charts-section-title" class="sr-only">Visualización de Datos</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="chart-card">
+                        <h3 class="text-lg font-semibold text-white mb-4">Distribución de Órdenes</h3>
+                        <div id="orderDistributionChart"></div>
+                    </div>
+                    <div class="chart-card">
+                        <h3 class="text-lg font-semibold text-white mb-4">Estado de Órdenes (Semanal)</h3>
+                        <div id="orderStatusChart"></div>
+                    </div>
+                    <div class="chart-card lg:col-span-2">
+                        <h3 class="text-lg font-semibold text-white mb-4">Reporte de Recargas y Comisiones</h3>
+                        <div id="rechargeCommissionChart"></div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Panel de administración -->
-            <section aria-labelledby="admin-panel-title">
-                <div class="bg-slate-800 p-6 rounded-lg shadow-md border border-slate-700 mb-8">
-                    <h2 id="admin-panel-title" class="font-semibold text-emerald-400 mb-4">Gestión de Mercados</h2>
-                    
-                    <!-- Inicialización de Mercados -->
-                    <div class="mb-4 pb-4 border-b border-gray-700">
-                        <h3 class="text-sm font-medium text-blue-400 mb-2">Inicialización de Mercados</h3>
-                        <div class="flex flex-col sm:flex-row sm:items-center">
-                            <button
-                                class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg shadow-sm disabled:bg-blue-300 disabled:cursor-not-allowed flex items-center justify-center"
-                                aria-label="Inicializar todos los mercados desde Alpaca">
-                                <i class="fa-solid fa-arrows-rotate mr-1" aria-hidden="true"></i>
-                                <span class="ml-1">Inicializar Mercados</span>
-                            </button>
-                            <p class="text-xs text-blue-400 mt-2 sm:mt-0 sm:ml-3" id="init-markets-desc">
-                                Inicializa los mercados desde Alpaca. Esto puede tardar unos segundos.
-                            </p>
-                        </div>
+            <!-- Panel de Gestión -->
+            <section aria-labelledby="management-panel-title">
+                <h2 id="management-panel-title" class="text-2xl font-bold text-white mb-6">Panel de Gestión</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="action-card">
+                        <h3 class="text-lg font-semibold text-white mb-4">Gestión de Mercados</h3>
+                        <p class="text-accessible-light mb-4">Inicializa los mercados desde el proveedor de datos. Esta acción puede tardar unos segundos.</p>
+                        <button class="btn-primary w-full">
+                            <i class="fa-solid fa-arrows-rotate mr-2"></i>
+                            Inicializar Mercados
+                        </button>
                     </div>
-
-                    <!-- Creación de acciones -->
-                    <div>
-                        <h3 class="text-sm font-medium text-green-400 mb-2">Crear Acción de Prueba</h3>
-                        <div class="flex flex-col sm:flex-row gap-2">
-                            <div class="flex-grow">
-                                <label for="admin-symbol-input" class="block text-sm font-medium text-white mb-1">Símbolo</label>
-                                <input
-                                    id="admin-symbol-input"
-                                    placeholder="Símbolo (ej: AAPL, GOOGL, MSFT)"
-                                    class="w-full px-3 py-2 rounded-lg border border-green-700 bg-slate-700 text-white"
-                                    aria-describedby="admin-symbol-input-hint">
-                            </div>
-                            <button
-                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg shadow-sm flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                                aria-label="Crear nueva acción de prueba con el símbolo especificado">
-                                <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                                <span class="ml-1">Crear Acción</span>
+                    <div class="action-card">
+                        <h3 class="text-lg font-semibold text-white mb-4">Crear Activo de Prueba</h3>
+                        <p class="text-accessible-light mb-4">Crea un activo (acción) con un símbolo específico para realizar pruebas en la plataforma.</p>
+                        <div class="flex gap-2">
+                            <input type="text" placeholder="Símbolo (ej. AAPL)" class="input-control flex-grow">
+                            <button class="btn-secondary">
+                                <i class="fa-solid fa-plus"></i>
                             </button>
                         </div>
-                        <p id="admin-symbol-input-hint" class="text-xs text-green-400 mt-1">
-                            Crea una acción con el símbolo especificado para pruebas.
-                        </p>
                     </div>
                 </div>
             </section>
         </div>
     </div>
 </main>
+
