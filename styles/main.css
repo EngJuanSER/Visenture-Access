@@ -28,13 +28,14 @@ Estrategia de Nomenclatura:
   --color-text-inverted: #0f172a;        /* Texto para usar sobre fondos claros */
 
   /* -- Acentos y Estados -- */
-  --color-accent-primary: #34d399;       /* Acento principal (verde esmeralda) */
-  --color-accent-primary-hover: #10b981;  /* Acento principal en hover (más oscuro) */
-  --color-accent-primary-active: #059669; /* Acento principal en estado activo */
+  --color-accent-primary: #10b981;       /* Verde más oscuro como acento principal para mejor contraste */
+  --color-accent-primary-hover: #059669;  /* Verde muy oscuro en hover */
+  --color-accent-primary-active: #064e3b; /* Verde casi negro en estado activo */
   --color-accent-primary-text: #ffffff;    /* Texto para usar sobre el acento principal */
+  --color-accent-brand: #6ee7b7;         /* Verde claro para la marca "Visenture" - mayor contraste */
 
   --color-accent-positive: #22c55e;       /* Verde para éxito */
-  --color-accent-negative: #ef4444;       /* Rojo para error */
+  --color-accent-negative: #dc2626;       /* Rojo más oscuro para error y notificaciones */
   --color-accent-warning: #f97316;        /* Naranja para advertencia */
   --color-accent-info: #3b82f6;           /* Azul para información */
 
@@ -129,17 +130,17 @@ select:-webkit-autofill::first-line {
 Corrigen problemas de contraste para cumplir con los estándares de accesibilidad.
 */
 
-/* Mejora del contraste para botones emerald - Más agresivo */
+/* Mejora del contraste para botones emerald - Contraste garantizado 7:1+ */
 .bg-emerald-600,
 a.bg-emerald-600,
 button.bg-emerald-600 {
-  background-color: #065f46 !important; /* Verde muy oscuro para asegurar ratio de contraste superior a 4.5:1 */
+  background-color: #064e3b !important; /* Verde muy oscuro para contraste superior a 7:1 */
 }
 
 .bg-emerald-700,
 a.bg-emerald-700,
 button.bg-emerald-700 {
-  background-color: #064e3b !important; /* Verde extremadamente oscuro para contraste óptimo */
+  background-color: #052e16 !important; /* Verde casi negro para contraste máximo */
 }
 
 .bg-emerald-700:hover,
@@ -148,7 +149,7 @@ a.bg-emerald-600:hover,
 a.bg-emerald-700:hover,
 button.bg-emerald-600:hover,
 button.bg-emerald-700:hover {
-  background-color: #052e16 !important; /* Verde casi negro en hover */
+  background-color: #14532d !important; /* Verde ligeramente más claro en hover para feedback visual */
 }
 
 .bg-emerald-800,
@@ -158,10 +159,10 @@ button.bg-emerald-800 {
 }
 
 .bg-emerald-500:hover {
-  background-color: #064e3b !important; /* Verde muy oscuro en hover */
+  background-color: #052e16 !important; /* Verde casi negro en hover */
 }
 
-/* Asegurar texto blanco visible en todos los botones - Más específico */
+/* Asegurar texto blanco visible en todos los botones - Contraste máximo */
 .bg-emerald-600,
 .bg-emerald-700,
 .bg-emerald-800,
@@ -173,8 +174,26 @@ button.bg-emerald-700,
 button.bg-emerald-800,
 .btn-primary {
   color: #ffffff !important;
-  font-weight: 600 !important; /* Semi-negrita para mejor legibilidad */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important; /* Sutil sombra para mayor contraste */
+  font-weight: 700 !important; /* Negrita para máxima legibilidad */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; /* Sombra más pronunciada */
+}
+
+/* Botones secundarios con borde */
+.btn-secondary,
+a.btn-secondary {
+  border-color: #f3f4f6 !important; /* Borde casi blanco */
+  border-width: 2px !important;
+  color: #ffffff !important;
+  background-color: rgba(0,0,0,0.3) !important; /* Fondo semitransparente para contraste */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+.btn-secondary:hover,
+a.btn-secondary:hover {
+  background-color: var(--color-accent-primary) !important;
+  border-color: var(--color-accent-primary) !important;
+  color: #ffffff !important;
 }
 
 /* Mejora del contraste para texto sobre fondos oscuros */
@@ -190,23 +209,23 @@ button.bg-emerald-800,
   color: #d1d5db !important; /* Gris medio-claro con mejor contraste */
 }
 
-/* Mejora del contraste para badges y notificaciones - Más agresivo */
+/* Mejora del contraste para badges y notificaciones - Contraste máximo garantizado */
 .bg-red-600,
 span.bg-red-600 {
-  background-color: #991b1b !important; /* Rojo muy oscuro */
+  background-color: #7f1d1d !important; /* Rojo muy oscuro */
 }
 
 .bg-red-700,
 span.bg-red-700 {
-  background-color: #7f1d1d !important; /* Rojo extremadamente oscuro para contraste máximo */
+  background-color: #450a0a !important; /* Rojo extremadamente oscuro para contraste 8:1+ */
 }
 
 .bg-red-800,
 span.bg-red-800 {
-  background-color: #7f1d1d !important; /* Rojo casi negro */
+  background-color: #450a0a !important; /* Rojo casi negro para contraste máximo */
 }
 
-/* Asegurar texto visible en badges y notificaciones - Más específico */
+/* Asegurar texto visible en badges y notificaciones - Contraste máximo */
 .bg-red-600,
 .bg-red-700,
 .bg-red-800,
@@ -214,19 +233,89 @@ span.bg-red-600,
 span.bg-red-700,
 span.bg-red-800 {
   color: #ffffff !important; 
-  font-weight: 700 !important; /* Negrita para mejor legibilidad */
-  text-shadow: 0 1px 1px rgba(0,0,0,0.2) !important; /* Sombra para mayor contraste */
+  font-weight: 900 !important; /* Extra negrita para máxima legibilidad */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important; /* Sombra fuerte para contraste adicional */
+  border: 1px solid rgba(255,255,255,0.3) !important; /* Borde sutil para definición adicional */
 }
 
-/* Mejora del contraste para elementos de estado */
+/* Mejora del contraste para elementos de estado y marca */
 .text-emerald-400 {
-  color: #4ade80 !important; /* Verde más saturado y brillante para mejor contraste */
+  color: #6ee7b7 !important; /* Verde claro y brillante para máximo contraste sobre fondos oscuros */
 }
 
 .text-emerald-500 {
-  color: #34d399 !important; /* Verde más brillante para cumplir ratio de contraste 4.5:1 */
+  color: #4ade80 !important; /* Verde medio-brillante para contraste 4.5:1+ */
 }
 
 .text-emerald-600 {
-  color: #10b981 !important; /* Verde más oscuro para mejor contraste */
+  color: #34d399 !important; /* Verde estándar para elementos secundarios */
+}
+
+/* Clase específica para la marca Visenture */
+.brand-text {
+  color: var(--color-accent-brand) !important;
+  text-shadow: 0 0 2px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6) !important;
+  font-weight: 700 !important;
+}
+
+/* Clases utilitarias accesibles */
+.text-accessible-brand {
+  color: var(--color-accent-brand) !important;
+}
+
+.text-accessible-light {
+  color: var(--color-accessible-light) !important;
+}
+
+.bg-accessible-primary {
+  background-color: var(--color-accessible-primary) !important;
+  color: white !important;
+}
+
+.btn-primary {
+  background-color: var(--color-accessible-primary) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary:hover {
+  background-color: #14532d !important;
+}
+
+.notification-badge {
+  background-color: var(--color-notification-bg) !important;
+  color: white !important;
+  font-weight: 800 !important;
+}
+
+.border-accessible-brand {
+  border-color: var(--color-accent-brand) !important;
+}
+
+/* Overlay para garantizar contraste en secciones hero */
+.hero-overlay {
+  position: relative;
+}
+
+.hero-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4) !important; /* Overlay oscuro */
+  z-index: 1;
+}
+
+.hero-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Texto sobre fondos complejos con máximo contraste */
+.text-over-complex {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8), 1px 1px 4px rgba(0,0,0,0.9) !important;
+  font-weight: 600 !important;
 }

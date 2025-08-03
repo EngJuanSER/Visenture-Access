@@ -61,11 +61,11 @@ function initFundsModule() {
         
         // Actualizar apariencia de las pestañas
         document.querySelectorAll('.tab-button').forEach(t => {
-            t.classList.remove('active', 'text-emerald-400', 'border-b-2', 'border-emerald-500');
+            t.classList.remove('active', 'text-accessible-brand', 'border-b-2', 'border-accessible-brand');
             t.classList.add('text-slate-400');
         });
         
-        tab.classList.add('active', 'text-emerald-400', 'border-b-2', 'border-emerald-500');
+        tab.classList.add('active', 'text-accessible-brand', 'border-b-2', 'border-accessible-brand');
         tab.classList.remove('text-slate-400');
         
         // Siempre cargar el contenido fresco (evita problemas de caché)
@@ -84,7 +84,7 @@ function initFundsModule() {
         // Mostrar indicador de carga mientras se carga el contenido
         tabContentContainer.innerHTML = `
             <div class="flex justify-center items-center py-12">
-                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accessible-brand"></div>
                 <span class="ml-3 text-slate-300">Cargando...</span>
             </div>
         `;
@@ -141,12 +141,12 @@ function initFundsModule() {
             amountButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     amountButtons.forEach(b => {
-                        b.classList.remove('bg-emerald-600', 'text-white');
+                        b.classList.remove('btn-primary', 'text-white');
                         b.classList.add('bg-slate-700/50');
                     });
                     
                     this.classList.remove('bg-slate-700/50');
-                    this.classList.add('bg-emerald-600', 'text-white');
+                    this.classList.add('btn-primary', 'text-white');
                     
                     // Si hay un campo de entrada, actualizarlo con el valor seleccionado
                     const amountInput = document.querySelector('input[placeholder="Ingrese la cantidad"]');
@@ -163,12 +163,12 @@ function initFundsModule() {
             paymentMethods.forEach(method => {
                 method.addEventListener('click', function() {
                     paymentMethods.forEach(pm => {
-                        pm.classList.remove('bg-slate-700/50', 'border-emerald-500');
+                        pm.classList.remove('bg-slate-700/50', 'border-accessible-brand');
                         pm.classList.add('bg-slate-700/30', 'border-slate-600/30');
                     });
                     
                     this.classList.remove('bg-slate-700/30', 'border-slate-600/30');
-                    this.classList.add('bg-slate-700/50', 'border-emerald-500');
+                    this.classList.add('bg-slate-700/50', 'border-accessible-brand');
                 });
             });
         }
@@ -186,11 +186,11 @@ function initFundsModule() {
             filterButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     filterButtons.forEach(b => {
-                        b.classList.remove('bg-emerald-600/20', 'text-emerald-400');
+                        b.classList.remove('btn-primary/20', 'text-accessible-brand');
                         b.classList.add('hover:bg-slate-700/50');
                     });
                     
-                    this.classList.add('bg-emerald-600/20', 'text-emerald-400');
+                    this.classList.add('btn-primary/20', 'text-accessible-brand');
                     this.classList.remove('hover:bg-slate-700/50');
                 });
             });
