@@ -75,7 +75,7 @@ function initializeOrderDistributionChart() {
                 }
             }
         },
-        colors: ['#34d399', '#f87171'], // Verde y rojo más brillantes y accesibles
+        colors: ['#10b981', '#ef4444'], // Verde y rojo con mejor contraste WCAG AA
         series: [60, 40], // 60% compra, 40% venta
         labels: ['Compra', 'Venta'],
         legend: {
@@ -84,7 +84,7 @@ function initializeOrderDistributionChart() {
             fontSize: '16px', // Aumentar tamaño de fuente
             fontWeight: 700, // Aumentar grosor
             labels: {
-                colors: '#f1f5f9' // Usar un blanco más suave y legible
+                colors: '#ffffff' // Blanco puro para máximo contraste
             },
             markers: {
                 width: 14,

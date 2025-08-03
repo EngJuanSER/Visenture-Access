@@ -11,8 +11,8 @@
   --color-background-med: #1e293b;  /* Azul-gris oscuro para tarjetas */
   --color-background-light: #334155;/* Gris-azul para hovers */
 
-  --color-text-light: #e2e8f0;      /* Gris muy claro para texto secundario - MEJORADO para WCAG AA */
-  --color-text-dark: #cbd5e1;       /* Gris medio-claro para texto de menor jerarquía - MEJORADO */
+  --color-text-light: #ffffff;      /* Blanco puro para máximo contraste WCAG AA */
+  --color-text-dark: #ffffff;       /* Blanco puro para máximo contraste WCAG AA */
   --color-text-white: #ffffff;      /* Blanco puro */
   --color-text-black: #000000;      /* Negro puro */
 
@@ -41,27 +41,29 @@
   font-weight: 500; /* Añadido peso de fuente para mejor legibilidad */
 }
 .text-accessible-light { 
-  color: var(--color-text-light); 
+  color: #ffffff !important; /* Blanco puro para máximo contraste WCAG AA */
   font-weight: 500; /* Añadido peso de fuente para mejor legibilidad */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .text-accessible-dark { 
-  color: var(--color-text-dark); 
+  color: #ffffff !important; /* Blanco puro para máximo contraste WCAG AA */
   font-weight: 500; /* Añadido peso de fuente para mejor legibilidad */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .text-accessible-success { 
-  color: var(--color-success); 
+  color: #10b981 !important; /* Verde vibrante para mejor contraste WCAG AA */
   font-weight: 600; /* Añadido peso de fuente para mejor legibilidad */
 }
 .text-accessible-danger { 
-  color: var(--color-danger); 
+  color: #dc2626 !important; /* Rojo más oscuro para mejor contraste WCAG AA */
   font-weight: 600; /* Añadido peso de fuente para mejor legibilidad */
 }
 .text-accessible-warning { 
-  color: var(--color-warning); 
+  color: #ea580c !important; /* Naranja más oscuro para mejor contraste WCAG AA */
   font-weight: 600; /* Añadido peso de fuente para mejor legibilidad */
 }
 .text-accessible-info { 
-  color: var(--color-info); 
+  color: #2563eb !important; /* Azul más oscuro para mejor contraste WCAG AA */
   font-weight: 600; /* Añadido peso de fuente para mejor legibilidad */
 }
 
@@ -157,15 +159,15 @@ body {
   --color-text-inverted: #0f172a;        /* Texto para usar sobre fondos claros */
 
   /* -- Acentos y Estados -- */
-  --color-accent-primary: #34d399;       /* Acento principal (verde esmeralda) */
-  --color-accent-primary-hover: #10b981;  /* Acento principal en hover (más oscuro) */
-  --color-accent-primary-active: #059669; /* Acento principal en estado activo */
-  --color-accent-primary-text: #ffffff;    /* Texto para usar sobre el acento principal */
+  --color-accent-primary: #10b981;       /* Verde más vibrante para mejor contraste WCAG AA */
+  --color-accent-primary-hover: #059669;  /* Verde más oscuro para hover */
+  --color-accent-primary-active: #047857; /* Verde más oscuro para estado activo */
+  --color-accent-primary-text: #ffffff;    /* Texto blanco para máximo contraste */
 
-  --color-accent-positive: #22c55e;       /* Verde para éxito */
-  --color-accent-negative: #ef4444;       /* Rojo para error */
-  --color-accent-warning: #f97316;        /* Naranja para advertencia */
-  --color-accent-info: #3b82f6;           /* Azul para información */
+  --color-accent-positive: #10b981;       /* Verde vibrante para éxito */
+  --color-accent-negative: #dc2626;       /* Rojo más oscuro para mejor contraste */
+  --color-accent-warning: #ea580c;        /* Naranja más oscuro para mejor contraste */
+  --color-accent-info: #2563eb;           /* Azul más oscuro para mejor contraste */
 
   /* -- Bordes -- */
   --color-border-primary: #334155;       /* Borde principal para contenedores */

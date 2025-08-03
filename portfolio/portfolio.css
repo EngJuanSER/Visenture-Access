@@ -117,12 +117,35 @@
   CLASES DE ACCESIBILIDAD ESPECÍFICAS DEL PORTAFOLIO
 --------------------------------------------------*/
 .text-accessible-light {
-  color: #e2e8f0 !important; /* Aumenta el brillo para cumplir con WCAG AA */
+  color: #ffffff !important; /* Blanco puro para máximo contraste WCAG AA */
+  font-weight: 500 !important; /* Mejorar legibilidad */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.text-accessible-dark {
+  color: #ffffff !important; /* Blanco puro para máximo contraste WCAG AA */
+  font-weight: 500 !important; /* Mejorar legibilidad */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
 }
 
 .bg-accessible-brand {
-  background-color: #2dd4bf !important; /* Un turquesa más vibrante */
-  color: #0f172a !important; /* Texto oscuro para máximo contraste */
+  background-color: #047857 !important; /* Verde oscuro para contraste con texto blanco */
+  color: #ffffff !important; /* Texto blanco para máximo contraste */
+  font-weight: 600 !important; /* Negrita para mejor legibilidad */
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/*--------------------------------------------------
+  ENCABEZADOS DE TABLA CON CONTRASTE MEJORADO
+--------------------------------------------------*/
+/* Corregir contraste en encabezados de tabla */
+th.text-accessible-light,
+thead th,
+.text-xs.font-semibold.text-accessible-light {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 700 !important; /* Negrita para mejor legibilidad */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(30, 41, 59, 0.8) !important; /* Fondo más oscuro */
 }
 
 /* Estilos para filas de la tabla */

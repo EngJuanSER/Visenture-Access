@@ -345,3 +345,53 @@ input::placeholder {
   background-color: #1f2937 !important;
   color: #ffffff !important;
 }
+
+/*--------------------------------------------------
+  MEJORAS DE CONTRASTE PARA ADMIN ANALYTICS (WCAG AA)
+--------------------------------------------------*/
+/* Corregir contraste en texto light */
+.text-accessible-light {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 500 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Corregir contraste en texto dark */
+.text-accessible-dark {
+  color: #ffffff !important; /* Blanco puro para máximo contraste */
+  font-weight: 500 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Corregir contraste en texto de error */
+.text-accessible-error {
+  color: #fca5a5 !important; /* Rojo más claro para mejor contraste */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Corregir contraste en texto de éxito */
+.text-accessible-success {
+  color: #86efac !important; /* Verde más claro para mejor contraste */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Corregir contraste en texto de marca */
+.text-accessible-brand {
+  color: #6ee7b7 !important; /* Verde menta más claro para mejor contraste */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Mejoras para los encabezados ocultos */
+.sr-only {
+  color: #ffffff !important;
+}
+
+/* Mejorar títulos principales */
+h1, h2, h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2) !important;
+}
