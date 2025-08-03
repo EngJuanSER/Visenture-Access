@@ -58,22 +58,26 @@ select:-webkit-autofill::first-line {
 
 /* Mejora de botones - Eliminar conflictos con main.css */
 .btn-primary {
-  background-color: #052e16 !important; /* Verde casi negro para contraste máximo */
+  background-color: #065f46 !important; /* emerald-800 - Contraste mejorado */
+  border: 2px solid #ecfdf5 !important; /* emerald-50 - Borde muy claro */
+  font-weight: 600 !important;
 }
 
 .btn-primary:hover {
-  background-color: #14532d !important; /* Verde muy oscuro al pasar el mouse */
+  background-color: #064e3b !important; /* emerald-900 - Verde muy oscuro al pasar el mouse */
 }
 
 .btn-secondary {
-  border-color: #d1d5db !important; /* Borde más claro */
+  border-color: #f1f5f9 !important; /* slate-100 - Borde mucho más claro */
+  background-color: rgba(15, 23, 42, 0.8) !important; /* slate-900 con opacidad */
   color: #ffffff !important; /* Texto blanco para mejor contraste */
-  font-weight: 500 !important;
+  font-weight: 600 !important; /* Semi-negrita para mejor contraste */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important; /* Sombra sutil */
 }
 
 .btn-secondary:hover {
-  border-color: #4ade80 !important; /* Verde brillante */
-  background-color: #1f2937 !important; /* Fondo oscuro en hover */
+  border-color: #86efac !important; /* emerald-300 - Verde muy brillante */
+  background-color: #1e293b !important; /* slate-800 - Fondo oscuro en hover */
 }
 
 /* Mejora del contraste en la sección de ventajas */
@@ -111,10 +115,25 @@ select:-webkit-autofill::first-line {
 /* Mejora el contraste de los botones emerald específicos - Eliminar conflictos */
 /* Estos estilos ahora se manejan en main.css para evitar conflictos */
 
+/* Mejoras adicionales de accesibilidad para Home */
+
+/* Mejora la marca Visenture para todos los lugares donde aparece */
+.text-emerald-400 {
+  color: #86efac !important; /* emerald-300 - Más claro y con mejor contraste */
+  font-weight: bold !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Mejora el contraste del indicador de notificaciones */
+.bg-red-800 {
+  background-color: #dc2626 !important; /* red-600 - Más brillante */
+  border: 1px solid #f8fafc !important; /* slate-50 - Borde blanco para mejorar visibilidad */
+}
+
 /* Mejora el estilo de foco para todos los enlaces y botones */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #34d399 !important;
+  outline: 3px solid #86efac !important; /* emerald-300 - Contorno más visible */
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.3);
 }
