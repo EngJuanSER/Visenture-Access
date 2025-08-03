@@ -97,14 +97,204 @@ button:focus {
 /* Mejora del contraste en gráficos */
 .apexcharts-legend-text {
   fill: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important; /* Texto más grande */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.9), 0px 0px 3px rgba(0, 0, 0, 0.7) !important;
+  stroke: #000000 !important;
+  stroke-width: 0.7px !important;
+  paint-order: stroke fill !important;
+  -webkit-text-stroke: 0.7px #000000 !important;
 }
 
 .apexcharts-yaxis-label text,
-.apexcharts-xaxis-label text {
+.apexcharts-xaxis-label text,
+.apexcharts-text tspan,
+.apexcharts-tooltip-text,
+.apexcharts-datalabel,
+.apexcharts-title-text {
   fill: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Estilos para mejorar la visualización de etiquetas de datos en gráficos de pastel */
+#assetAllocationChart .apexcharts-datalabel text,
+#assetAllocationChart .apexcharts-datalabel-label,
+#assetAllocationChart .apexcharts-datalabel-value,
+#assetAllocationChart text.apexcharts-pie-label,
+#assetAllocationChart tspan {
+  fill: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 1), 
+               0px 0px 6px rgba(0, 0, 0, 0.8), 
+               0px 0px 2px rgba(0, 0, 0, 0.9) !important;
+  stroke: #000000 !important;
+  stroke-width: 1.5px !important;
+  paint-order: stroke fill !important;
+  -webkit-text-stroke: 1.5px #000000 !important;
+}
+
+/* Mejoras para los textos en el gráfico de líneas */
+#performanceChart .apexcharts-yaxis text,
+#performanceChart .apexcharts-xaxis text,
+#performanceChart .apexcharts-data-labels text,
+#performanceChart .apexcharts-tooltip-text,
+#performanceChart .apexcharts-datalabel text {
+  fill: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 1),
+               0px 0px 4px rgba(0, 0, 0, 0.8) !important;
+  stroke: #000000 !important;
+  stroke-width: 0.5px !important;
+  paint-order: stroke fill !important;
+}
+
+/* Eliminar líneas horizontales no deseadas */
+#assetAllocationChart .apexcharts-inner {
+  overflow: visible !important;
+}
+
+#assetAllocationChart hr,
+#assetAllocationChart .apexcharts-canvas line:not(.apexcharts-gridline):not(.apexcharts-radialbar-line) {
+  display: none !important;
+  opacity: 0 !important;
+  stroke: transparent !important;
+}
+
+/* Asegurar que no haya bordes innecesarios */
+#assetAllocationChart {
+  border-top: none !important;
+  overflow: visible !important; /* Cambiado a visible para mostrar todo el contenido */
+  margin: 0 auto !important; /* Centrado horizontal */
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 300px !important;
+}
+
+/* Mejorar la definición de los segmentos del gráfico circular */
+#assetAllocationChart .apexcharts-pie-series path {
+  stroke: #000000 !important;
+  stroke-width: 2px !important; /* Reducido de 3px a 2px */
+  stroke-linejoin: round !important;
+  stroke-linecap: round !important;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) !important; /* Sombra menos intensa */
+}
+
+/* Hacer que los gráficos sean más adaptables */
+#assetAllocationChart .apexcharts-canvas {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 400px !important; /* Limitar ancho máximo */
+}
+
+#assetAllocationChart .apexcharts-plot-series,
+#assetAllocationChart .apexcharts-pie {
+  width: 100% !important;
+}
+
+/* Mejorar la responsividad de la leyenda */
+#assetAllocationChart .apexcharts-legend {
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  padding-top: 10px !important;
+}
+
+#assetAllocationChart .apexcharts-legend-series {
+  margin: 5px 10px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Fondos de etiquetas para mayor contraste */
+.apexcharts-yaxis-label,
+.apexcharts-xaxis-label {
+  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.9)) !important;
 }
 
 .apexcharts-tooltip {
   background-color: #1f2937 !important;
+  border: 2px solid #ffffff !important;
   color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.apexcharts-tooltip-title {
+  background: #1e293b !important;
+  border-bottom: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 8px 10px !important;
+}
+
+.apexcharts-tooltip-y-group {
+  padding: 6px 8px !important;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #4ade80 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: 0 !important;
+  opacity: 0.5 !important;
+}
+
+/* Arreglo para los botones de herramientas */
+.apexcharts-toolbar svg rect {
+  fill: transparent !important;
+  stroke: none !important;
+}
+
+/* Tabla de datos accesible */
+.accessible-data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.accessible-data-table caption {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.accessible-data-table th {
+  background-color: #1e293b;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 1px solid #4b5563;
+}
+
+.accessible-data-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #4b5563;
+  color: #fff;
+}
+
+.accessible-data-table tbody tr:nth-child(odd) {
+  background-color: rgba(30, 41, 59, 0.5);
 }
